@@ -14,7 +14,7 @@ using SIPO.Inventory;
 
 namespace SIPO
 {
-    public partial class FormLogin : Form
+    public partial class FormLogin : MetroFramework.Forms.MetroForm
     {
         public FormLogin()
         {
