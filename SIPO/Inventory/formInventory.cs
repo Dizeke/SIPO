@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SIPO.Packaging;
+
 namespace SIPO.Inventory
 {
     public partial class FormInventory : MetroFramework.Forms.MetroForm
@@ -15,7 +17,6 @@ namespace SIPO.Inventory
         public FormInventory()
         {
             InitializeComponent();
-            tileRaw.BackColor = Color.Black;
         }
     }
 }

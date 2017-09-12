@@ -23,11 +23,13 @@ namespace SIPO
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            Account account = new Account();
+            bool loginSuccessful = false;
+
             try
             {
                 if (isInputValid())
                 {
-                    Account account = new Account();
                     account.user = txtUsername.Text;
                     account.pass = txtPassword.Text;
 
@@ -41,7 +43,6 @@ namespace SIPO
 
                     con.Open();
 
-                    bool loginSuccessful = false;
                     reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -56,36 +57,37 @@ namespace SIPO
                     }
 
                     con.Close();
-
-                    if (loginSuccessful)
-                    {
-                        MessageBox.Show("Login successful as " + account.user + " (" + account.type + ")");
-
-                        this.Hide();
-                        if (account.type.Equals(AccountType.Inventory))
-                        {
-                            FormInventory formInventory = new FormInventory();
-                            formInventory.ShowDialog();
-                        }
-                        else if (account.type.Equals(AccountType.Sales))
-                        {
-
-                        }
-                        else if (account.type.Equals(AccountType.Packaging))
-                        {
-
-                        }
-                        this.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Login failed");
-                    }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
+            }
+
+
+            if (loginSuccessful)
+            {
+                MessageBox.Show("Login successful as " + account.user + " (" + account.type + ")");
+
+                this.Hide();
+                if (account.type.Equals(AccountType.Inventory))
+                {
+                    FormInventory formInventory = new FormInventory();
+                    formInventory.ShowDialog();
+                }
+                else if (account.type.Equals(AccountType.Sales))
+                {
+
+                }
+                else if (account.type.Equals(AccountType.Packaging))
+                {
+
+                }
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Login failed");
             }
         }
 

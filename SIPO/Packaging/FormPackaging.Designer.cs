@@ -80,6 +80,7 @@
             this.Controls.Add(this.metroTile1);
             this.Name = "FormPackaging";
             this.Resizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Packaging";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
