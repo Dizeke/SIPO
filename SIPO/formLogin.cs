@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 
 using SIPO.Classes;
 using SIPO.Inventory;
+using SIPO.Packaging;
 
 namespace SIPO
 {
@@ -81,7 +82,8 @@ namespace SIPO
                 }
                 else if (account.type.Equals(AccountType.Packaging))
                 {
-
+                    FormPackaging formPackaging = new FormPackaging();
+                    formPackaging.ShowDialog();
                 }
                 this.Show();
             }

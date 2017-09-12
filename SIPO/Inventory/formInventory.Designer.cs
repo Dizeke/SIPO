@@ -28,184 +28,184 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile6 = new MetroFramework.Controls.MetroTile();
-            this.metroTile5 = new MetroFramework.Controls.MetroTile();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile8 = new MetroFramework.Controls.MetroTile();
-            this.metroTile7 = new MetroFramework.Controls.MetroTile();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.panelLayoutMain = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFinishedProducts = new MetroFramework.Controls.MetroTile();
+            this.btnRawMaterials = new MetroFramework.Controls.MetroTile();
+            this.panelLayoutRawMaterials = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRawMaterialUpdate = new MetroFramework.Controls.MetroTile();
+            this.btnRawMaterialAdd = new MetroFramework.Controls.MetroTile();
+            this.panelLayoutFinishedProducts = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFinishedProductUpdate = new MetroFramework.Controls.MetroTile();
+            this.btnFinishedProductAdd = new MetroFramework.Controls.MetroTile();
+            this.panelLayoutMain.SuspendLayout();
+            this.panelLayoutRawMaterials.SuspendLayout();
+            this.panelLayoutFinishedProducts.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // panelLayoutMain
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.metroTile2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.metroTile1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(410, 420);
-            this.tableLayoutPanel1.TabIndex = 6;
+            this.panelLayoutMain.ColumnCount = 2;
+            this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutMain.Controls.Add(this.btnFinishedProducts, 0, 1);
+            this.panelLayoutMain.Controls.Add(this.btnRawMaterials, 0, 0);
+            this.panelLayoutMain.Controls.Add(this.panelLayoutRawMaterials, 1, 0);
+            this.panelLayoutMain.Controls.Add(this.panelLayoutFinishedProducts, 1, 1);
+            this.panelLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLayoutMain.Location = new System.Drawing.Point(20, 60);
+            this.panelLayoutMain.Name = "panelLayoutMain";
+            this.panelLayoutMain.RowCount = 2;
+            this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutMain.Size = new System.Drawing.Size(410, 420);
+            this.panelLayoutMain.TabIndex = 6;
             // 
-            // metroTile2
+            // btnFinishedProducts
             // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile2.Enabled = false;
-            this.metroTile2.Location = new System.Drawing.Point(3, 216);
-            this.metroTile2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(199, 198);
-            this.metroTile2.Style = MetroFramework.MetroColorStyle.Brown;
-            this.metroTile2.TabIndex = 3;
-            this.metroTile2.Text = "Finished Products";
-            this.metroTile2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTile2.TileImage = global::SIPO.Properties.Resources.icon_finished_product;
-            this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile2.UseSelectable = true;
-            this.metroTile2.UseTileImage = true;
+            this.btnFinishedProducts.ActiveControl = null;
+            this.btnFinishedProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFinishedProducts.Enabled = false;
+            this.btnFinishedProducts.Location = new System.Drawing.Point(3, 216);
+            this.btnFinishedProducts.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.btnFinishedProducts.Name = "btnFinishedProducts";
+            this.btnFinishedProducts.Size = new System.Drawing.Size(199, 198);
+            this.btnFinishedProducts.Style = MetroFramework.MetroColorStyle.Brown;
+            this.btnFinishedProducts.TabIndex = 3;
+            this.btnFinishedProducts.Text = "Finished Products";
+            this.btnFinishedProducts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFinishedProducts.TileImage = global::SIPO.Properties.Resources.icon_finished_product;
+            this.btnFinishedProducts.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnFinishedProducts.UseSelectable = true;
+            this.btnFinishedProducts.UseTileImage = true;
             // 
-            // metroTile1
+            // btnRawMaterials
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile1.Enabled = false;
-            this.metroTile1.Location = new System.Drawing.Point(3, 6);
-            this.metroTile1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(199, 198);
-            this.metroTile1.Style = MetroFramework.MetroColorStyle.Silver;
-            this.metroTile1.TabIndex = 2;
-            this.metroTile1.Text = "Raw Materials";
-            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTile1.TileImage = global::SIPO.Properties.Resources.icon_raw_product;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseTileImage = true;
+            this.btnRawMaterials.ActiveControl = null;
+            this.btnRawMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRawMaterials.Enabled = false;
+            this.btnRawMaterials.Location = new System.Drawing.Point(3, 6);
+            this.btnRawMaterials.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.btnRawMaterials.Name = "btnRawMaterials";
+            this.btnRawMaterials.Size = new System.Drawing.Size(199, 198);
+            this.btnRawMaterials.Style = MetroFramework.MetroColorStyle.Silver;
+            this.btnRawMaterials.TabIndex = 2;
+            this.btnRawMaterials.Text = "Raw Materials";
+            this.btnRawMaterials.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRawMaterials.TileImage = global::SIPO.Properties.Resources.icon_raw_product;
+            this.btnRawMaterials.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRawMaterials.UseSelectable = true;
+            this.btnRawMaterials.UseTileImage = true;
             // 
-            // tableLayoutPanel2
+            // panelLayoutRawMaterials
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.metroTile6, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.metroTile5, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(208, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(199, 204);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.panelLayoutRawMaterials.ColumnCount = 1;
+            this.panelLayoutRawMaterials.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutRawMaterials.Controls.Add(this.btnRawMaterialUpdate, 0, 1);
+            this.panelLayoutRawMaterials.Controls.Add(this.btnRawMaterialAdd, 0, 0);
+            this.panelLayoutRawMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLayoutRawMaterials.Location = new System.Drawing.Point(208, 3);
+            this.panelLayoutRawMaterials.Name = "panelLayoutRawMaterials";
+            this.panelLayoutRawMaterials.RowCount = 2;
+            this.panelLayoutRawMaterials.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutRawMaterials.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutRawMaterials.Size = new System.Drawing.Size(199, 204);
+            this.panelLayoutRawMaterials.TabIndex = 0;
             // 
-            // metroTile6
+            // btnRawMaterialUpdate
             // 
-            this.metroTile6.ActiveControl = null;
-            this.metroTile6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile6.Location = new System.Drawing.Point(3, 105);
-            this.metroTile6.Name = "metroTile6";
-            this.metroTile6.Size = new System.Drawing.Size(193, 96);
-            this.metroTile6.Style = MetroFramework.MetroColorStyle.Lime;
-            this.metroTile6.TabIndex = 4;
-            this.metroTile6.Text = "Update";
-            this.metroTile6.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile6.UseSelectable = true;
+            this.btnRawMaterialUpdate.ActiveControl = null;
+            this.btnRawMaterialUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRawMaterialUpdate.Location = new System.Drawing.Point(3, 105);
+            this.btnRawMaterialUpdate.Name = "btnRawMaterialUpdate";
+            this.btnRawMaterialUpdate.Size = new System.Drawing.Size(193, 96);
+            this.btnRawMaterialUpdate.Style = MetroFramework.MetroColorStyle.Lime;
+            this.btnRawMaterialUpdate.TabIndex = 4;
+            this.btnRawMaterialUpdate.Text = "Update";
+            this.btnRawMaterialUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnRawMaterialUpdate.UseSelectable = true;
             // 
-            // metroTile5
+            // btnRawMaterialAdd
             // 
-            this.metroTile5.ActiveControl = null;
-            this.metroTile5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile5.Location = new System.Drawing.Point(3, 3);
-            this.metroTile5.Name = "metroTile5";
-            this.metroTile5.Size = new System.Drawing.Size(193, 96);
-            this.metroTile5.Style = MetroFramework.MetroColorStyle.Green;
-            this.metroTile5.TabIndex = 3;
-            this.metroTile5.Text = "Add";
-            this.metroTile5.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile5.UseSelectable = true;
+            this.btnRawMaterialAdd.ActiveControl = null;
+            this.btnRawMaterialAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRawMaterialAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnRawMaterialAdd.Name = "btnRawMaterialAdd";
+            this.btnRawMaterialAdd.Size = new System.Drawing.Size(193, 96);
+            this.btnRawMaterialAdd.Style = MetroFramework.MetroColorStyle.Green;
+            this.btnRawMaterialAdd.TabIndex = 3;
+            this.btnRawMaterialAdd.Text = "Add";
+            this.btnRawMaterialAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnRawMaterialAdd.UseSelectable = true;
             // 
-            // tableLayoutPanel3
+            // panelLayoutFinishedProducts
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.metroTile8, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.metroTile7, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(208, 213);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(199, 204);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.panelLayoutFinishedProducts.ColumnCount = 1;
+            this.panelLayoutFinishedProducts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutFinishedProducts.Controls.Add(this.btnFinishedProductUpdate, 0, 1);
+            this.panelLayoutFinishedProducts.Controls.Add(this.btnFinishedProductAdd, 0, 0);
+            this.panelLayoutFinishedProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLayoutFinishedProducts.Location = new System.Drawing.Point(208, 213);
+            this.panelLayoutFinishedProducts.Name = "panelLayoutFinishedProducts";
+            this.panelLayoutFinishedProducts.RowCount = 2;
+            this.panelLayoutFinishedProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutFinishedProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutFinishedProducts.Size = new System.Drawing.Size(199, 204);
+            this.panelLayoutFinishedProducts.TabIndex = 1;
             // 
-            // metroTile8
+            // btnFinishedProductUpdate
             // 
-            this.metroTile8.ActiveControl = null;
-            this.metroTile8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile8.Location = new System.Drawing.Point(3, 105);
-            this.metroTile8.Name = "metroTile8";
-            this.metroTile8.Size = new System.Drawing.Size(193, 96);
-            this.metroTile8.Style = MetroFramework.MetroColorStyle.Yellow;
-            this.metroTile8.TabIndex = 6;
-            this.metroTile8.Text = "Update";
-            this.metroTile8.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile8.UseSelectable = true;
+            this.btnFinishedProductUpdate.ActiveControl = null;
+            this.btnFinishedProductUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFinishedProductUpdate.Location = new System.Drawing.Point(3, 105);
+            this.btnFinishedProductUpdate.Name = "btnFinishedProductUpdate";
+            this.btnFinishedProductUpdate.Size = new System.Drawing.Size(193, 96);
+            this.btnFinishedProductUpdate.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.btnFinishedProductUpdate.TabIndex = 6;
+            this.btnFinishedProductUpdate.Text = "Update";
+            this.btnFinishedProductUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnFinishedProductUpdate.UseSelectable = true;
             // 
-            // metroTile7
+            // btnFinishedProductAdd
             // 
-            this.metroTile7.ActiveControl = null;
-            this.metroTile7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile7.Location = new System.Drawing.Point(3, 3);
-            this.metroTile7.Name = "metroTile7";
-            this.metroTile7.Size = new System.Drawing.Size(193, 96);
-            this.metroTile7.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroTile7.TabIndex = 5;
-            this.metroTile7.Text = "Add";
-            this.metroTile7.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile7.UseSelectable = true;
+            this.btnFinishedProductAdd.ActiveControl = null;
+            this.btnFinishedProductAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFinishedProductAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnFinishedProductAdd.Name = "btnFinishedProductAdd";
+            this.btnFinishedProductAdd.Size = new System.Drawing.Size(193, 96);
+            this.btnFinishedProductAdd.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnFinishedProductAdd.TabIndex = 5;
+            this.btnFinishedProductAdd.Text = "Add";
+            this.btnFinishedProductAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnFinishedProductAdd.UseSelectable = true;
             // 
             // FormInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 500);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.panelLayoutMain);
             this.Name = "FormInventory";
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Inventory";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panelLayoutMain.ResumeLayout(false);
+            this.panelLayoutRawMaterials.ResumeLayout(false);
+            this.panelLayoutFinishedProducts.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private MetroFramework.Controls.MetroTile metroTile2;
-        private MetroFramework.Controls.MetroTile metroTile1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private MetroFramework.Controls.MetroTile metroTile6;
-        private MetroFramework.Controls.MetroTile metroTile5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private MetroFramework.Controls.MetroTile metroTile8;
-        private MetroFramework.Controls.MetroTile metroTile7;
+        private System.Windows.Forms.TableLayoutPanel panelLayoutMain;
+        private MetroFramework.Controls.MetroTile btnFinishedProducts;
+        private MetroFramework.Controls.MetroTile btnRawMaterials;
+        private System.Windows.Forms.TableLayoutPanel panelLayoutRawMaterials;
+        private MetroFramework.Controls.MetroTile btnRawMaterialUpdate;
+        private MetroFramework.Controls.MetroTile btnRawMaterialAdd;
+        private System.Windows.Forms.TableLayoutPanel panelLayoutFinishedProducts;
+        private MetroFramework.Controls.MetroTile btnFinishedProductUpdate;
+        private MetroFramework.Controls.MetroTile btnFinishedProductAdd;
     }
 }
