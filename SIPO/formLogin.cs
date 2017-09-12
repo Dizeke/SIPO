@@ -60,10 +60,22 @@ namespace SIPO
                     if (loginSuccessful)
                     {
                         MessageBox.Show("Login successful as " + account.user + " (" + account.type + ")");
-                        FormInventory formInventory = new FormInventory();
 
                         this.Hide();
-                        formInventory.Show();
+                        if (account.type.Equals(AccountType.Inventory))
+                        {
+                            FormInventory formInventory = new FormInventory();
+                            formInventory.ShowDialog();
+                        }
+                        else if (account.type.Equals(AccountType.Sales))
+                        {
+
+                        }
+                        else if (account.type.Equals(AccountType.Packaging))
+                        {
+
+                        }
+                        this.Show();
                     }
                     else
                     {
