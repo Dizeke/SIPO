@@ -42,7 +42,7 @@
             this.tileRaw.Enabled = false;
             this.tileRaw.Location = new System.Drawing.Point(23, 63);
             this.tileRaw.Name = "tileRaw";
-            this.tileRaw.Size = new System.Drawing.Size(175, 90);
+            this.tileRaw.Size = new System.Drawing.Size(130, 150);
             this.tileRaw.Style = MetroFramework.MetroColorStyle.Silver;
             this.tileRaw.TabIndex = 0;
             this.tileRaw.Text = "Raw Materials";
@@ -52,9 +52,9 @@
             // 
             this.tileFinishedProducts.ActiveControl = null;
             this.tileFinishedProducts.Enabled = false;
-            this.tileFinishedProducts.Location = new System.Drawing.Point(23, 159);
+            this.tileFinishedProducts.Location = new System.Drawing.Point(23, 227);
             this.tileFinishedProducts.Name = "tileFinishedProducts";
-            this.tileFinishedProducts.Size = new System.Drawing.Size(175, 90);
+            this.tileFinishedProducts.Size = new System.Drawing.Size(130, 150);
             this.tileFinishedProducts.Style = MetroFramework.MetroColorStyle.Brown;
             this.tileFinishedProducts.TabIndex = 1;
             this.tileFinishedProducts.Text = "Finished Products";
@@ -63,9 +63,9 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(204, 63);
+            this.metroTile1.Location = new System.Drawing.Point(159, 63);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(90, 90);
+            this.metroTile1.Size = new System.Drawing.Size(130, 72);
             this.metroTile1.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile1.TabIndex = 2;
             this.metroTile1.Text = "Add";
@@ -75,9 +75,9 @@
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(300, 63);
+            this.metroTile2.Location = new System.Drawing.Point(159, 141);
             this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(90, 90);
+            this.metroTile2.Size = new System.Drawing.Size(130, 72);
             this.metroTile2.Style = MetroFramework.MetroColorStyle.Lime;
             this.metroTile2.TabIndex = 3;
             this.metroTile2.Text = "Update";
@@ -87,9 +87,9 @@
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(204, 159);
+            this.metroTile3.Location = new System.Drawing.Point(159, 227);
             this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(90, 90);
+            this.metroTile3.Size = new System.Drawing.Size(130, 72);
             this.metroTile3.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTile3.TabIndex = 4;
             this.metroTile3.Text = "Add";
@@ -99,9 +99,9 @@
             // metroTile4
             // 
             this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(300, 159);
+            this.metroTile4.Location = new System.Drawing.Point(159, 305);
             this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(90, 90);
+            this.metroTile4.Size = new System.Drawing.Size(130, 72);
             this.metroTile4.Style = MetroFramework.MetroColorStyle.Yellow;
             this.metroTile4.TabIndex = 5;
             this.metroTile4.Text = "Update";
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 350);
+            this.ClientSize = new System.Drawing.Size(312, 400);
             this.Controls.Add(this.metroTile4);
             this.Controls.Add(this.metroTile3);
             this.Controls.Add(this.metroTile2);
@@ -120,6 +120,7 @@
             this.Controls.Add(this.tileFinishedProducts);
             this.Controls.Add(this.tileRaw);
             this.Name = "FormInventory";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Inventory";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
