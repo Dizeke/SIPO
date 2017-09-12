@@ -17,5 +17,10 @@ namespace SIPO.Inventory
             InitializeComponent();
             tileRaw.BackColor = Color.Black;
         }
+
+        private void FormInventory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

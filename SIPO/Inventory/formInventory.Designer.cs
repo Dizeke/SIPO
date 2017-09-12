@@ -123,6 +123,7 @@
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Inventory";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.FormInventory_Load);
             this.ResumeLayout(false);
 
         }
