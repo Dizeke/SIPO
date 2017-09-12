@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace SIPO.Inventory
 {
-    public partial class FormInventory : Form
+    public partial class FormInventory : MetroFramework.Forms.MetroForm
     {
         public FormInventory()
         {
             InitializeComponent();
+            tileRaw.BackColor = Color.Black;
         }
     }
 }

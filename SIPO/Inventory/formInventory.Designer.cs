@@ -28,94 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.finishedProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deployToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.tileRaw = new MetroFramework.Controls.MetroTile();
+            this.tileFinishedProducts = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.metroTile3 = new MetroFramework.Controls.MetroTile();
+            this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // tileRaw
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inventoryToolStripMenuItem,
-            this.finishedProductsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.tileRaw.ActiveControl = null;
+            this.tileRaw.Enabled = false;
+            this.tileRaw.Location = new System.Drawing.Point(23, 63);
+            this.tileRaw.Name = "tileRaw";
+            this.tileRaw.Size = new System.Drawing.Size(175, 90);
+            this.tileRaw.Style = MetroFramework.MetroColorStyle.Silver;
+            this.tileRaw.TabIndex = 0;
+            this.tileRaw.Text = "Raw Materials";
+            this.tileRaw.UseSelectable = true;
             // 
-            // inventoryToolStripMenuItem
+            // tileFinishedProducts
             // 
-            this.inventoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.updateToolStripMenuItem});
-            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.inventoryToolStripMenuItem.Text = "Raw Materials";
+            this.tileFinishedProducts.ActiveControl = null;
+            this.tileFinishedProducts.Enabled = false;
+            this.tileFinishedProducts.Location = new System.Drawing.Point(23, 159);
+            this.tileFinishedProducts.Name = "tileFinishedProducts";
+            this.tileFinishedProducts.Size = new System.Drawing.Size(175, 90);
+            this.tileFinishedProducts.Style = MetroFramework.MetroColorStyle.Brown;
+            this.tileFinishedProducts.TabIndex = 1;
+            this.tileFinishedProducts.Text = "Finished Products";
+            this.tileFinishedProducts.UseSelectable = true;
             // 
-            // addToolStripMenuItem
+            // metroTile1
             // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.addToolStripMenuItem.Text = "Add";
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Location = new System.Drawing.Point(204, 63);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(90, 90);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroTile1.TabIndex = 2;
+            this.metroTile1.Text = "Add";
+            this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile1.UseSelectable = true;
             // 
-            // updateToolStripMenuItem
+            // metroTile2
             // 
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.updateToolStripMenuItem.Text = "Update";
+            this.metroTile2.ActiveControl = null;
+            this.metroTile2.Location = new System.Drawing.Point(300, 63);
+            this.metroTile2.Name = "metroTile2";
+            this.metroTile2.Size = new System.Drawing.Size(90, 90);
+            this.metroTile2.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroTile2.TabIndex = 3;
+            this.metroTile2.Text = "Update";
+            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile2.UseSelectable = true;
             // 
-            // finishedProductsToolStripMenuItem
+            // metroTile3
             // 
-            this.finishedProductsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem1,
-            this.deployToolStripMenuItem});
-            this.finishedProductsToolStripMenuItem.Name = "finishedProductsToolStripMenuItem";
-            this.finishedProductsToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
-            this.finishedProductsToolStripMenuItem.Text = "Finished Products";
+            this.metroTile3.ActiveControl = null;
+            this.metroTile3.Location = new System.Drawing.Point(204, 159);
+            this.metroTile3.Name = "metroTile3";
+            this.metroTile3.Size = new System.Drawing.Size(90, 90);
+            this.metroTile3.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroTile3.TabIndex = 4;
+            this.metroTile3.Text = "Add";
+            this.metroTile3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile3.UseSelectable = true;
             // 
-            // addToolStripMenuItem1
+            // metroTile4
             // 
-            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
-            this.addToolStripMenuItem1.Text = "Add";
+            this.metroTile4.ActiveControl = null;
+            this.metroTile4.Location = new System.Drawing.Point(300, 159);
+            this.metroTile4.Name = "metroTile4";
+            this.metroTile4.Size = new System.Drawing.Size(90, 90);
+            this.metroTile4.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.metroTile4.TabIndex = 5;
+            this.metroTile4.Text = "Update";
+            this.metroTile4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile4.UseSelectable = true;
             // 
-            // deployToolStripMenuItem
-            // 
-            this.deployToolStripMenuItem.Name = "deployToolStripMenuItem";
-            this.deployToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.deployToolStripMenuItem.Text = "Deploy";
-            // 
-            // formInventory
+            // FormInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(159)))));
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "formInventory";
+            this.ClientSize = new System.Drawing.Size(600, 350);
+            this.Controls.Add(this.metroTile4);
+            this.Controls.Add(this.metroTile3);
+            this.Controls.Add(this.metroTile2);
+            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.tileFinishedProducts);
+            this.Controls.Add(this.tileRaw);
+            this.Name = "FormInventory";
+            this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Inventory";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem finishedProductsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deployToolStripMenuItem;
+        private MetroFramework.Controls.MetroTile tileRaw;
+        private MetroFramework.Controls.MetroTile tileFinishedProducts;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroTile2;
+        private MetroFramework.Controls.MetroTile metroTile3;
+        private MetroFramework.Controls.MetroTile metroTile4;
     }
 }

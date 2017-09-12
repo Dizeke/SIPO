@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.lblPassword = new MetroFramework.Controls.MetroLabel();
             this.txtUsername = new MetroFramework.Controls.MetroTextBox();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.btnLogin = new MetroFramework.Controls.MetroButton();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -129,12 +126,6 @@
             this.btnLogin.UseSelectable = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = null;
-            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Black;
-            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,10 +137,10 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Name = "FormLogin";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Login";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,7 +153,6 @@
         private MetroFramework.Controls.MetroTextBox txtUsername;
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private MetroFramework.Controls.MetroButton btnLogin;
-        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
     }
 }
 
