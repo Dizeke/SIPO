@@ -18,5 +18,10 @@ namespace SIPO.Inventory
         {
             InitializeComponent();
         }
+
+        private void FormInventory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
