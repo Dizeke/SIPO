@@ -29,7 +29,9 @@ namespace SIPO
                     account.user = txtUsername.Text;
                     account.pass = txtPassword.Text;
 
-                    String query = String.Format("SELECT * FROM accounts WHERE acc_user = '{0}' AND acc_pass = '{1}'", account.user, account.pass);
+                    String query = String.Format("SELECT accounts.acc_id, acc_user, acc_pass, account_types.acc_type  FROM accounts " +
+                        "INNER JOIN account_types ON accounts.act_Id = account_types.act_id " +
+                        "WHERE acc_user = '{0}' AND acc_pass = '{1}' ", account.user, account.pass);
 
                     MySqlConnection con = new MySqlConnection(ConString.getConString());
                     MySqlCommand com = new MySqlCommand(query, con);
@@ -44,6 +46,8 @@ namespace SIPO
                         if (account.user.Equals(reader["acc_user"]) && account.pass.Equals(reader["acc_pass"]))
                         {
                             loginSuccessful = true;
+                            account.id = int.Parse(reader["acc_id"].ToString());
+                            account.type = reader["acc_type"].ToString();
                             break;
                         }
                     }
@@ -52,7 +56,7 @@ namespace SIPO
 
                     if (loginSuccessful)
                     {
-                        MessageBox.Show("Login successful");
+                        MessageBox.Show("Login successful as " + account.user + " (" + account.type + ")");
                     }
                     else
                     {

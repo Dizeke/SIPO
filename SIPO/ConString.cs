@@ -10,7 +10,7 @@ namespace SIPO
     {
         public static String getConString()
         {
-            return "datasource=localhost;port=3306;username=root;password=;database=sipo;";
+            return "datasource=sql12.freemysqlhosting.net;port=3306;username=sql12194184;password=bkEyN4GMLK;database=sql12194184;";
         }
     }
 }

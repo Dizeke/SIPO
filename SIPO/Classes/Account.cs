@@ -8,6 +8,8 @@ namespace SIPO.Classes
 {
     class Account
     {
+        public static Account loggedAccount;
+
         private int acc_id;
         private string acc_user;
         private string acc_pass;
