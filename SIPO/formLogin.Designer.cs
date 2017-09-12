@@ -1,6 +1,6 @@
 ﻿namespace SIPO
 {
-    partial class formLogin
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.

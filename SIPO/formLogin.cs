@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SIPO.Classes;
 using MySql.Data.MySqlClient;
+
+using SIPO.Classes;
+using SIPO.Inventory;
 
 namespace SIPO
 {
-    public partial class formLogin : Form
+    public partial class FormLogin : Form
     {
-        public formLogin()
+        public FormLogin()
         {
             InitializeComponent();
         }
@@ -48,6 +50,7 @@ namespace SIPO
                             loginSuccessful = true;
                             account.id = int.Parse(reader["acc_id"].ToString());
                             account.type = reader["acc_type"].ToString();
+                            Account.loggedAccount = account;
                             break;
                         }
                     }
@@ -57,6 +60,10 @@ namespace SIPO
                     if (loginSuccessful)
                     {
                         MessageBox.Show("Login successful as " + account.user + " (" + account.type + ")");
+                        FormInventory formInventory = new FormInventory();
+
+                        this.Hide();
+                        formInventory.Show();
                     }
                     else
                     {
