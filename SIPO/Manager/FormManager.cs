@@ -22,31 +22,14 @@ namespace SIPO.Manager
 
         FormPanelAccountAdd formPanelAccountAdd;
 
+        FormPanelClientAdd formPanelClientAdd;
+
         bool hasOpenPanel = false;
         int openPanel = 0;
 
         public FormManager()
         {
             InitializeComponent();
-        }
-
-        private void btnAccountAdd_Click(object sender, EventArgs e)
-        {
-            panelHolder.Controls.Clear();
-            
-            formPanelAccountAdd = new FormPanelAccountAdd();
-            formPanelAccountAdd.TopLevel = false;
-            formPanelAccountAdd.FormBorderStyle = FormBorderStyle.None;
-            formPanelAccountAdd.Dock = DockStyle.Fill;
-
-            hasOpenPanel = true;
-            openPanel = (int)Panel.AccountAdd;
-
-            panelHolder.Controls.Add(formPanelAccountAdd);
-            formPanelAccountAdd.Show();
-
-            MessageBox.Show("Panel Size: " + panelHolder.Width + ", " + panelHolder.Height);
-            MessageBox.Show("Form Size: " + formPanelAccountAdd.Width + ", " + formPanelAccountAdd.Height);
         }
 
         private void FormManager_SizeChanged(object sender, EventArgs e)
@@ -56,9 +39,53 @@ namespace SIPO.Manager
                 if (openPanel == (int)Panel.AccountAdd)
                 {
                     formPanelAccountAdd.AutoScrollMinSize = new Size(770, 450);
+                    formPanelAccountAdd.MaximumSize = panelHolder.Size;
                     formPanelAccountAdd.Size = panelHolder.Size;
                 }
+
+                else if (openPanel == (int)Panel.ClientAdd)
+                {
+                    formPanelClientAdd.AutoScrollMinSize = new Size(770, 450);
+                    formPanelClientAdd.MaximumSize = panelHolder.Size;
+                    formPanelClientAdd.Size = panelHolder.Size;
+                }
             }
+        }
+
+        private void btnAccountAdd_Click(object sender, EventArgs e)
+        {
+            panelHolder.Controls.Clear();
+
+            formPanelAccountAdd = new FormPanelAccountAdd();
+            formPanelAccountAdd.TopLevel = false;
+            formPanelAccountAdd.FormBorderStyle = FormBorderStyle.None;
+
+            formPanelAccountAdd.MaximumSize = panelHolder.Size;
+            formPanelAccountAdd.Dock = DockStyle.Fill;
+
+            hasOpenPanel = true;
+            openPanel = (int)Panel.AccountAdd;
+
+            panelHolder.Controls.Add(formPanelAccountAdd);
+            formPanelAccountAdd.Show();
+        }
+
+        private void btnClientAdd_Click(object sender, EventArgs e)
+        {
+            panelHolder.Controls.Clear();
+
+            formPanelClientAdd = new FormPanelClientAdd();
+            formPanelClientAdd.TopLevel = false;
+            formPanelClientAdd.FormBorderStyle = FormBorderStyle.None;
+
+            formPanelClientAdd.MaximumSize = panelHolder.Size;
+            formPanelClientAdd.Dock = DockStyle.Fill;
+
+            hasOpenPanel = true;
+            openPanel = (int)Panel.ClientAdd;
+
+            panelHolder.Controls.Add(formPanelClientAdd);
+            formPanelClientAdd.Show();
         }
     }
 }

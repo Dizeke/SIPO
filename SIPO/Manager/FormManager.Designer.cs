@@ -173,6 +173,7 @@
             this.btnClientAdd.TabIndex = 0;
             this.btnClientAdd.Text = "Add";
             this.btnClientAdd.UseSelectable = true;
+            this.btnClientAdd.Click += new System.EventHandler(this.btnClientAdd_Click);
             // 
             // btnClientUpdate
             // 
@@ -191,11 +192,11 @@
             this.panelHolder.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelHolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelHolder.Location = new System.Drawing.Point(206, 3);
+            this.panelHolder.Location = new System.Drawing.Point(203, 9);
             this.panelHolder.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
             this.panelHolder.Name = "panelHolder";
             this.panelHolder.Padding = new System.Windows.Forms.Padding(20);
-            this.panelHolder.Size = new System.Drawing.Size(401, 289);
+            this.panelHolder.Size = new System.Drawing.Size(407, 277);
             this.panelHolder.TabIndex = 2;
             // 
             // FormManager

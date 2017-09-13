@@ -31,7 +31,6 @@
             this.panelLayoutAccountAdd = new System.Windows.Forms.TableLayoutPanel();
             this.lblAccountAddTitle = new MetroFramework.Controls.MetroLabel();
             this.btnCreateAccount = new MetroFramework.Controls.MetroButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.btnSelectImage = new MetroFramework.Controls.MetroButton();
             this.lblDepartment = new MetroFramework.Controls.MetroLabel();
@@ -54,6 +53,7 @@
             this.lblMiddleName = new MetroFramework.Controls.MetroLabel();
             this.txtFirstName = new MetroFramework.Controls.MetroTextBox();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLayoutAccountAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -113,50 +113,43 @@
             // lblAccountAddTitle
             // 
             this.lblAccountAddTitle.AutoSize = true;
+            this.lblAccountAddTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAccountAddTitle.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblAccountAddTitle.Location = new System.Drawing.Point(3, 0);
             this.lblAccountAddTitle.Name = "lblAccountAddTitle";
-            this.lblAccountAddTitle.Size = new System.Drawing.Size(115, 19);
+            this.lblAccountAddTitle.Size = new System.Drawing.Size(149, 25);
             this.lblAccountAddTitle.TabIndex = 39;
             this.lblAccountAddTitle.Text = "Add New Account";
             // 
             // btnCreateAccount
             // 
             this.btnCreateAccount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCreateAccount.Location = new System.Drawing.Point(453, 337);
+            this.btnCreateAccount.Location = new System.Drawing.Point(458, 337);
             this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(144, 29);
+            this.btnCreateAccount.Size = new System.Drawing.Size(144, 24);
             this.btnCreateAccount.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnCreateAccount.TabIndex = 52;
             this.btnCreateAccount.Text = "Create Account";
             this.btnCreateAccount.UseSelectable = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(603, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 71);
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
             // 
             // metroComboBox1
             // 
             this.metroComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(603, 302);
+            this.metroComboBox1.Location = new System.Drawing.Point(608, 302);
+            this.metroComboBox1.MaxLength = 32;
             this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(148, 29);
+            this.metroComboBox1.Size = new System.Drawing.Size(144, 29);
             this.metroComboBox1.TabIndex = 51;
             this.metroComboBox1.UseSelectable = true;
             // 
             // btnSelectImage
             // 
-            this.btnSelectImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSelectImage.Location = new System.Drawing.Point(603, 80);
+            this.btnSelectImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSelectImage.Location = new System.Drawing.Point(608, 80);
             this.btnSelectImage.Name = "btnSelectImage";
-            this.btnSelectImage.Size = new System.Drawing.Size(148, 24);
+            this.btnSelectImage.Size = new System.Drawing.Size(144, 24);
             this.btnSelectImage.TabIndex = 48;
             this.btnSelectImage.Text = "Select Image";
             this.btnSelectImage.UseSelectable = true;
@@ -164,19 +157,20 @@
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(603, 280);
+            this.lblDepartment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDepartment.Location = new System.Drawing.Point(608, 280);
             this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(80, 19);
+            this.lblDepartment.Size = new System.Drawing.Size(144, 19);
             this.lblDepartment.TabIndex = 50;
             this.lblDepartment.Text = "Department";
             // 
             // lblUsername
             // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(3, 88);
+            this.lblUsername.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblUsername.Location = new System.Drawing.Point(3, 77);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(68, 19);
+            this.lblUsername.Size = new System.Drawing.Size(149, 19);
             this.lblUsername.TabIndex = 29;
             this.lblUsername.Text = "Username";
             // 
@@ -186,7 +180,7 @@
             // 
             // 
             this.txtPosition.CustomButton.Image = null;
-            this.txtPosition.CustomButton.Location = new System.Drawing.Point(123, 1);
+            this.txtPosition.CustomButton.Location = new System.Drawing.Point(122, 1);
             this.txtPosition.CustomButton.Name = "";
             this.txtPosition.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtPosition.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -196,8 +190,8 @@
             this.txtPosition.CustomButton.Visible = false;
             this.txtPosition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPosition.Lines = new string[0];
-            this.txtPosition.Location = new System.Drawing.Point(603, 254);
-            this.txtPosition.MaxLength = 32767;
+            this.txtPosition.Location = new System.Drawing.Point(608, 254);
+            this.txtPosition.MaxLength = 32;
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.PasswordChar = '\0';
             this.txtPosition.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -205,7 +199,7 @@
             this.txtPosition.SelectionLength = 0;
             this.txtPosition.SelectionStart = 0;
             this.txtPosition.ShortcutsEnabled = true;
-            this.txtPosition.Size = new System.Drawing.Size(148, 23);
+            this.txtPosition.Size = new System.Drawing.Size(144, 23);
             this.txtPosition.TabIndex = 49;
             this.txtPosition.UseSelectable = true;
             this.txtPosition.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -217,7 +211,7 @@
             // 
             // 
             this.txtUsername.CustomButton.Image = null;
-            this.txtUsername.CustomButton.Location = new System.Drawing.Point(122, 1);
+            this.txtUsername.CustomButton.Location = new System.Drawing.Point(127, 1);
             this.txtUsername.CustomButton.Name = "";
             this.txtUsername.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -225,10 +219,10 @@
             this.txtUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtUsername.CustomButton.UseSelectable = true;
             this.txtUsername.CustomButton.Visible = false;
-            this.txtUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUsername.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtUsername.Lines = new string[0];
             this.txtUsername.Location = new System.Drawing.Point(3, 110);
-            this.txtUsername.MaxLength = 32767;
+            this.txtUsername.MaxLength = 32;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -236,7 +230,7 @@
             this.txtUsername.SelectionLength = 0;
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
-            this.txtUsername.Size = new System.Drawing.Size(144, 23);
+            this.txtUsername.Size = new System.Drawing.Size(149, 23);
             this.txtUsername.TabIndex = 30;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -256,10 +250,10 @@
             this.txtContact.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtContact.CustomButton.UseSelectable = true;
             this.txtContact.CustomButton.Visible = false;
-            this.txtContact.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContact.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtContact.Lines = new string[0];
-            this.txtContact.Location = new System.Drawing.Point(153, 254);
-            this.txtContact.MaxLength = 32767;
+            this.txtContact.Location = new System.Drawing.Point(158, 254);
+            this.txtContact.MaxLength = 13;
             this.txtContact.Name = "txtContact";
             this.txtContact.PasswordChar = '\0';
             this.txtContact.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -276,9 +270,10 @@
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(603, 232);
+            this.lblPosition.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPosition.Location = new System.Drawing.Point(608, 232);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(54, 19);
+            this.lblPosition.Size = new System.Drawing.Size(144, 19);
             this.lblPosition.TabIndex = 48;
             this.lblPosition.Text = "Position";
             // 
@@ -288,7 +283,7 @@
             // 
             // 
             this.txtEmail.CustomButton.Image = null;
-            this.txtEmail.CustomButton.Location = new System.Drawing.Point(122, 1);
+            this.txtEmail.CustomButton.Location = new System.Drawing.Point(127, 1);
             this.txtEmail.CustomButton.Name = "";
             this.txtEmail.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -296,10 +291,10 @@
             this.txtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtEmail.CustomButton.UseSelectable = true;
             this.txtEmail.CustomButton.Visible = false;
-            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtEmail.Lines = new string[0];
             this.txtEmail.Location = new System.Drawing.Point(3, 254);
-            this.txtEmail.MaxLength = 32767;
+            this.txtEmail.MaxLength = 255;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -307,7 +302,7 @@
             this.txtEmail.SelectionLength = 0;
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.ShortcutsEnabled = true;
-            this.txtEmail.Size = new System.Drawing.Size(144, 23);
+            this.txtEmail.Size = new System.Drawing.Size(149, 23);
             this.txtEmail.TabIndex = 43;
             this.txtEmail.UseSelectable = true;
             this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -316,9 +311,10 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
+            this.lblPassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblPassword.Location = new System.Drawing.Point(3, 136);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(63, 19);
+            this.lblPassword.Size = new System.Drawing.Size(149, 19);
             this.lblPassword.TabIndex = 33;
             this.lblPassword.Text = "Password";
             // 
@@ -328,7 +324,7 @@
             // 
             // 
             this.txtPassword.CustomButton.Image = null;
-            this.txtPassword.CustomButton.Location = new System.Drawing.Point(122, 1);
+            this.txtPassword.CustomButton.Location = new System.Drawing.Point(127, 1);
             this.txtPassword.CustomButton.Name = "";
             this.txtPassword.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -336,18 +332,18 @@
             this.txtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtPassword.CustomButton.UseSelectable = true;
             this.txtPassword.CustomButton.Visible = false;
-            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPassword.Lines = new string[0];
             this.txtPassword.Location = new System.Drawing.Point(3, 158);
-            this.txtPassword.MaxLength = 32767;
+            this.txtPassword.MaxLength = 32;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtPassword.SelectedText = "";
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(144, 23);
+            this.txtPassword.Size = new System.Drawing.Size(149, 23);
             this.txtPassword.TabIndex = 31;
             this.txtPassword.UseSelectable = true;
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -356,18 +352,20 @@
             // lblContact
             // 
             this.lblContact.AutoSize = true;
-            this.lblContact.Location = new System.Drawing.Point(153, 232);
+            this.lblContact.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblContact.Location = new System.Drawing.Point(158, 232);
             this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(54, 19);
+            this.lblContact.Size = new System.Drawing.Size(144, 19);
             this.lblContact.TabIndex = 44;
             this.lblContact.Text = "Contact";
             // 
             // lblVerifyPassword
             // 
             this.lblVerifyPassword.AutoSize = true;
-            this.lblVerifyPassword.Location = new System.Drawing.Point(153, 136);
+            this.lblVerifyPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblVerifyPassword.Location = new System.Drawing.Point(158, 136);
             this.lblVerifyPassword.Name = "lblVerifyPassword";
-            this.lblVerifyPassword.Size = new System.Drawing.Size(99, 19);
+            this.lblVerifyPassword.Size = new System.Drawing.Size(144, 19);
             this.lblVerifyPassword.TabIndex = 36;
             this.lblVerifyPassword.Text = "Verify Password";
             // 
@@ -385,12 +383,12 @@
             this.txtVerifyPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtVerifyPassword.CustomButton.UseSelectable = true;
             this.txtVerifyPassword.CustomButton.Visible = false;
-            this.txtVerifyPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtVerifyPassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtVerifyPassword.Lines = new string[0];
-            this.txtVerifyPassword.Location = new System.Drawing.Point(153, 158);
-            this.txtVerifyPassword.MaxLength = 32767;
+            this.txtVerifyPassword.Location = new System.Drawing.Point(158, 158);
+            this.txtVerifyPassword.MaxLength = 32;
             this.txtVerifyPassword.Name = "txtVerifyPassword";
-            this.txtVerifyPassword.PasswordChar = '\0';
+            this.txtVerifyPassword.PasswordChar = '●';
             this.txtVerifyPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtVerifyPassword.SelectedText = "";
             this.txtVerifyPassword.SelectionLength = 0;
@@ -405,18 +403,20 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblEmail.Location = new System.Drawing.Point(3, 232);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(41, 19);
+            this.lblEmail.Size = new System.Drawing.Size(149, 19);
             this.lblEmail.TabIndex = 42;
             this.lblEmail.Text = "Email";
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblFirstName.Location = new System.Drawing.Point(3, 184);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(73, 19);
+            this.lblFirstName.Size = new System.Drawing.Size(149, 19);
             this.lblFirstName.TabIndex = 39;
             this.lblFirstName.Text = "First Name";
             // 
@@ -434,10 +434,10 @@
             this.txtLastName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtLastName.CustomButton.UseSelectable = true;
             this.txtLastName.CustomButton.Visible = false;
-            this.txtLastName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLastName.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtLastName.Lines = new string[0];
-            this.txtLastName.Location = new System.Drawing.Point(303, 206);
-            this.txtLastName.MaxLength = 32767;
+            this.txtLastName.Location = new System.Drawing.Point(308, 206);
+            this.txtLastName.MaxLength = 32;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PasswordChar = '\0';
             this.txtLastName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -454,9 +454,10 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(303, 184);
+            this.lblLastName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblLastName.Location = new System.Drawing.Point(308, 184);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(71, 19);
+            this.lblLastName.Size = new System.Drawing.Size(144, 19);
             this.lblLastName.TabIndex = 41;
             this.lblLastName.Text = "Last Name";
             // 
@@ -474,10 +475,10 @@
             this.txtMiddleName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtMiddleName.CustomButton.UseSelectable = true;
             this.txtMiddleName.CustomButton.Visible = false;
-            this.txtMiddleName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMiddleName.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtMiddleName.Lines = new string[0];
-            this.txtMiddleName.Location = new System.Drawing.Point(153, 206);
-            this.txtMiddleName.MaxLength = 32767;
+            this.txtMiddleName.Location = new System.Drawing.Point(158, 206);
+            this.txtMiddleName.MaxLength = 32;
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.PasswordChar = '\0';
             this.txtMiddleName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -494,9 +495,10 @@
             // lblMiddleName
             // 
             this.lblMiddleName.AutoSize = true;
-            this.lblMiddleName.Location = new System.Drawing.Point(153, 184);
+            this.lblMiddleName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMiddleName.Location = new System.Drawing.Point(158, 184);
             this.lblMiddleName.Name = "lblMiddleName";
-            this.lblMiddleName.Size = new System.Drawing.Size(90, 19);
+            this.lblMiddleName.Size = new System.Drawing.Size(144, 19);
             this.lblMiddleName.TabIndex = 40;
             this.lblMiddleName.Text = "Middle Name";
             // 
@@ -506,7 +508,7 @@
             // 
             // 
             this.txtFirstName.CustomButton.Image = null;
-            this.txtFirstName.CustomButton.Location = new System.Drawing.Point(122, 1);
+            this.txtFirstName.CustomButton.Location = new System.Drawing.Point(127, 1);
             this.txtFirstName.CustomButton.Name = "";
             this.txtFirstName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtFirstName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -514,10 +516,10 @@
             this.txtFirstName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtFirstName.CustomButton.UseSelectable = true;
             this.txtFirstName.CustomButton.Visible = false;
-            this.txtFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFirstName.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtFirstName.Lines = new string[0];
             this.txtFirstName.Location = new System.Drawing.Point(3, 206);
-            this.txtFirstName.MaxLength = 32767;
+            this.txtFirstName.MaxLength = 64;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
             this.txtFirstName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -525,7 +527,7 @@
             this.txtFirstName.SelectionLength = 0;
             this.txtFirstName.SelectionStart = 0;
             this.txtFirstName.ShortcutsEnabled = true;
-            this.txtFirstName.Size = new System.Drawing.Size(144, 23);
+            this.txtFirstName.Size = new System.Drawing.Size(149, 23);
             this.txtFirstName.TabIndex = 34;
             this.txtFirstName.UseSelectable = true;
             this.txtFirstName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -534,13 +536,23 @@
             // btnClearFields
             // 
             this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClearFields.Location = new System.Drawing.Point(603, 337);
+            this.btnClearFields.Location = new System.Drawing.Point(608, 337);
             this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(148, 29);
+            this.btnClearFields.Size = new System.Drawing.Size(144, 24);
             this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnClearFields.TabIndex = 53;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.UseSelectable = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(608, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(144, 71);
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
             // 
             // FormPanelAccountAdd
             // 
