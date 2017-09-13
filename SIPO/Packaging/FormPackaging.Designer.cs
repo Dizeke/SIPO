@@ -31,8 +31,8 @@
             this.panelLayoutMain = new System.Windows.Forms.TableLayoutPanel();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.panelLayoutPackages = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutPackages.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +86,17 @@
             this.panelLayoutPackages.Size = new System.Drawing.Size(199, 204);
             this.panelLayoutPackages.TabIndex = 2;
             // 
+            // metroTile3
+            // 
+            this.metroTile3.ActiveControl = null;
+            this.metroTile3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTile3.Location = new System.Drawing.Point(3, 105);
+            this.metroTile3.Name = "metroTile3";
+            this.metroTile3.Size = new System.Drawing.Size(193, 96);
+            this.metroTile3.TabIndex = 3;
+            this.metroTile3.Text = "Move to Delivery";
+            this.metroTile3.UseSelectable = true;
+            // 
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
@@ -98,17 +109,6 @@
             this.metroTile2.Text = "View packages";
             this.metroTile2.UseSelectable = true;
             // 
-            // metroTile3
-            // 
-            this.metroTile3.ActiveControl = null;
-            this.metroTile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile3.Location = new System.Drawing.Point(3, 105);
-            this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(193, 96);
-            this.metroTile3.TabIndex = 3;
-            this.metroTile3.Text = "Move to Delivery";
-            this.metroTile3.UseSelectable = true;
-            // 
             // FormPackaging
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,9 +118,9 @@
             this.Name = "FormPackaging";
             this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
-            this.Style = MetroFramework.MetroColorStyle.Silver;
+            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Packaging";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.panelLayoutMain.ResumeLayout(false);
             this.panelLayoutPackages.ResumeLayout(false);
             this.ResumeLayout(false);

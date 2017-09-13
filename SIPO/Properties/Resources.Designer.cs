@@ -63,9 +63,39 @@ namespace SIPO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_account {
+            get {
+                object obj = ResourceManager.GetObject("icon_account", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_finished_product {
             get {
                 object obj = ResourceManager.GetObject("icon_finished_product", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_logo {
+            get {
+                object obj = ResourceManager.GetObject("icon_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_manager {
+            get {
+                object obj = ResourceManager.GetObject("icon_manager", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

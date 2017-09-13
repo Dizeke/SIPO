@@ -8,8 +8,9 @@ namespace SIPO.Classes
 {
     class AccountType
     {
-        public static String Sales = "Sales";
-        public static String Inventory = "Inventory";
-        public static String Packaging = "Packaging";
+        public static string Inventory = "Inventory";
+        public static string Sales = "Sales";
+        public static string Packaging = "Packaging";
+        public static string Manager = "Manager";
     }
 }

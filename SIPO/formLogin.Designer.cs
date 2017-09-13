@@ -43,7 +43,6 @@
             this.lblUsername.Size = new System.Drawing.Size(68, 19);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
-            this.lblUsername.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // lblPassword
             // 
@@ -53,7 +52,6 @@
             this.lblPassword.Size = new System.Drawing.Size(63, 19);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
-            this.lblPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // txtUsername
             // 
@@ -120,9 +118,9 @@
             this.btnLogin.Location = new System.Drawing.Point(158, 168);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
-            this.btnLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnLogin.UseSelectable = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -138,9 +136,9 @@
             this.Controls.Add(this.lblUsername);
             this.Name = "FormLogin";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Silver;
+            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Login";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.ResumeLayout(false);
             this.PerformLayout();
 

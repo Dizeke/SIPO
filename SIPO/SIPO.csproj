@@ -70,6 +70,18 @@
     <Compile Include="Inventory\FormInventory.Designer.cs">
       <DependentUpon>FormInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\FormManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\FormManager.Designer.cs">
+      <DependentUpon>FormManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FormPanelAccountAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\FormPanelAccountAdd.Designer.cs">
+      <DependentUpon>FormPanelAccountAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packaging\FormPackaging.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FormInventory.resx">
       <DependentUpon>FormInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FormManager.resx">
+      <DependentUpon>FormManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FormPanelAccountAdd.resx">
+      <DependentUpon>FormPanelAccountAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormPackaging.resx">
       <DependentUpon>FormPackaging.cs</DependentUpon>
@@ -122,6 +140,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_packaging.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_manager.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
