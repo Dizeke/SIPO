@@ -96,6 +96,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sales\AddPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\AddPO.Designer.cs">
+      <DependentUpon>AddPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FormSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FormSales.Designer.cs">
+      <DependentUpon>FormSales.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +136,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sales\AddPO.resx">
+      <DependentUpon>AddPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FormSales.resx">
+      <DependentUpon>FormSales.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -138,9 +156,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sales\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\icon_finished_product.png" />
   </ItemGroup>
