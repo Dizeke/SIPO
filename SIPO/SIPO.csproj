@@ -70,6 +70,18 @@
     <Compile Include="Inventory\FormInventory.Designer.cs">
       <DependentUpon>FormInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\FormPanelFinishAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FormPanelFinishAdd.Designer.cs">
+      <DependentUpon>FormPanelFinishAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FormPanelRawAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FormPanelRawAdd.Designer.cs">
+      <DependentUpon>FormPanelRawAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\FormManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +125,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FormInventory.resx">
       <DependentUpon>FormInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FormPanelFinishAdd.resx">
+      <DependentUpon>FormPanelFinishAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FormPanelRawAdd.resx">
+      <DependentUpon>FormPanelRawAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\FormManager.resx">
       <DependentUpon>FormManager.cs</DependentUpon>
