@@ -44,12 +44,12 @@
             this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutMain.Controls.Add(this.metroTile1, 0, 0);
             this.panelLayoutMain.Controls.Add(this.panelLayoutPackages, 1, 0);
-            this.panelLayoutMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutMain.Location = new System.Drawing.Point(20, 60);
             this.panelLayoutMain.Name = "panelLayoutMain";
             this.panelLayoutMain.RowCount = 1;
             this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutMain.Size = new System.Drawing.Size(410, 210);
+            this.panelLayoutMain.Size = new System.Drawing.Size(410, 420);
             this.panelLayoutMain.TabIndex = 3;
             // 
             // metroTile1
@@ -60,7 +60,7 @@
             this.metroTile1.Location = new System.Drawing.Point(3, 6);
             this.metroTile1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(199, 198);
+            this.metroTile1.Size = new System.Drawing.Size(199, 408);
             this.metroTile1.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile1.TabIndex = 1;
             this.metroTile1.Text = "Packages";
@@ -83,16 +83,16 @@
             this.panelLayoutPackages.RowCount = 2;
             this.panelLayoutPackages.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutPackages.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutPackages.Size = new System.Drawing.Size(199, 204);
+            this.panelLayoutPackages.Size = new System.Drawing.Size(199, 414);
             this.panelLayoutPackages.TabIndex = 2;
             // 
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
             this.metroTile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile3.Location = new System.Drawing.Point(3, 105);
+            this.metroTile3.Location = new System.Drawing.Point(3, 210);
             this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(193, 96);
+            this.metroTile3.Size = new System.Drawing.Size(193, 201);
             this.metroTile3.TabIndex = 3;
             this.metroTile3.Text = "Move to Delivery";
             this.metroTile3.UseSelectable = true;
@@ -103,7 +103,7 @@
             this.metroTile2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTile2.Location = new System.Drawing.Point(3, 3);
             this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(193, 96);
+            this.metroTile2.Size = new System.Drawing.Size(193, 201);
             this.metroTile2.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTile2.TabIndex = 2;
             this.metroTile2.Text = "View packages";

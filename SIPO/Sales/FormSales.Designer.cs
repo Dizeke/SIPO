@@ -28,88 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.btnPurchaseOrder = new MetroFramework.Controls.MetroTile();
+            this.btnPurchaseOrderAdd = new MetroFramework.Controls.MetroTile();
+            this.btnPurchaseOrderEdit = new MetroFramework.Controls.MetroTile();
+            this.layoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
+            this.layoutPanelMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // metroTile3
+            // btnPurchaseOrder
             // 
-            this.metroTile3.ActiveControl = null;
-            this.metroTile3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.metroTile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile3.Location = new System.Drawing.Point(3, 3);
-            this.metroTile3.Name = "metroTile3";
-            this.tableLayoutPanel1.SetRowSpan(this.metroTile3, 2);
-            this.metroTile3.Size = new System.Drawing.Size(199, 208);
-            this.metroTile3.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTile3.TabIndex = 2;
-            this.metroTile3.Text = "Purchase Order";
-            this.metroTile3.UseSelectable = true;
+            this.btnPurchaseOrder.ActiveControl = null;
+            this.btnPurchaseOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPurchaseOrder.Location = new System.Drawing.Point(3, 3);
+            this.btnPurchaseOrder.Name = "btnPurchaseOrder";
+            this.layoutPanelMain.SetRowSpan(this.btnPurchaseOrder, 2);
+            this.btnPurchaseOrder.Size = new System.Drawing.Size(199, 414);
+            this.btnPurchaseOrder.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnPurchaseOrder.TabIndex = 2;
+            this.btnPurchaseOrder.Text = "Purchase Order";
+            this.btnPurchaseOrder.UseSelectable = true;
             // 
-            // metroTile2
+            // btnPurchaseOrderAdd
             // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile2.Location = new System.Drawing.Point(208, 3);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(199, 101);
-            this.metroTile2.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTile2.TabIndex = 1;
-            this.metroTile2.Text = "Add";
-            this.metroTile2.UseSelectable = true;
+            this.btnPurchaseOrderAdd.ActiveControl = null;
+            this.btnPurchaseOrderAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPurchaseOrderAdd.Location = new System.Drawing.Point(208, 3);
+            this.btnPurchaseOrderAdd.Name = "btnPurchaseOrderAdd";
+            this.btnPurchaseOrderAdd.Size = new System.Drawing.Size(199, 204);
+            this.btnPurchaseOrderAdd.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnPurchaseOrderAdd.TabIndex = 1;
+            this.btnPurchaseOrderAdd.Text = "Add";
+            this.btnPurchaseOrderAdd.UseSelectable = true;
+            this.btnPurchaseOrderAdd.Click += new System.EventHandler(this.btnPurchaseOrderAdd_Click);
             // 
-            // metroTile1
+            // btnPurchaseOrderEdit
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile1.Location = new System.Drawing.Point(208, 110);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(199, 101);
-            this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "Edit";
-            this.metroTile1.UseSelectable = true;
+            this.btnPurchaseOrderEdit.ActiveControl = null;
+            this.btnPurchaseOrderEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPurchaseOrderEdit.Location = new System.Drawing.Point(208, 213);
+            this.btnPurchaseOrderEdit.Name = "btnPurchaseOrderEdit";
+            this.btnPurchaseOrderEdit.Size = new System.Drawing.Size(199, 204);
+            this.btnPurchaseOrderEdit.TabIndex = 0;
+            this.btnPurchaseOrderEdit.Text = "Edit";
+            this.btnPurchaseOrderEdit.UseSelectable = true;
             // 
-            // tableLayoutPanel1
+            // layoutPanelMain
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.metroTile1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.metroTile2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.metroTile3, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 206F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(410, 420);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.layoutPanelMain.ColumnCount = 2;
+            this.layoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.layoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.layoutPanelMain.Controls.Add(this.btnPurchaseOrderEdit, 1, 1);
+            this.layoutPanelMain.Controls.Add(this.btnPurchaseOrderAdd, 1, 0);
+            this.layoutPanelMain.Controls.Add(this.btnPurchaseOrder, 0, 0);
+            this.layoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutPanelMain.Location = new System.Drawing.Point(20, 60);
+            this.layoutPanelMain.Name = "layoutPanelMain";
+            this.layoutPanelMain.RowCount = 2;
+            this.layoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.layoutPanelMain.Size = new System.Drawing.Size(410, 420);
+            this.layoutPanelMain.TabIndex = 0;
             // 
             // FormSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 500);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.layoutPanelMain);
             this.Name = "FormSales";
+            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Sales";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.layoutPanelMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroTile metroTile3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Controls.MetroTile metroTile2;
+        private MetroFramework.Controls.MetroTile btnPurchaseOrder;
+        private System.Windows.Forms.TableLayoutPanel layoutPanelMain;
+        private MetroFramework.Controls.MetroTile btnPurchaseOrderEdit;
+        private MetroFramework.Controls.MetroTile btnPurchaseOrderAdd;
     }
 }

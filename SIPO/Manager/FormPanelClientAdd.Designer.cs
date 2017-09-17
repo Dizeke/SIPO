@@ -40,9 +40,9 @@
             this.txtCompanyTin = new MetroFramework.Controls.MetroTextBox();
             this.lblCompanyAddress = new MetroFramework.Controls.MetroLabel();
             this.txtCompanyAddress = new MetroFramework.Controls.MetroTextBox();
-            this.btnClearFields = new MetroFramework.Controls.MetroButton();
-            this.btnCreateClient = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnCreateClient = new MetroFramework.Controls.MetroButton();
+            this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.panelLayoutAccountUpdate.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -270,9 +270,9 @@
             // 
             // 
             this.txtCompanyAddress.CustomButton.Image = null;
-            this.txtCompanyAddress.CustomButton.Location = new System.Drawing.Point(736, 2);
+            this.txtCompanyAddress.CustomButton.Location = new System.Drawing.Point(726, 1);
             this.txtCompanyAddress.CustomButton.Name = "";
-            this.txtCompanyAddress.CustomButton.Size = new System.Drawing.Size(9, 9);
+            this.txtCompanyAddress.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtCompanyAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtCompanyAddress.CustomButton.TabIndex = 1;
             this.txtCompanyAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -296,26 +296,6 @@
             this.txtCompanyAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCompanyAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // btnClearFields
-            // 
-            this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClearFields.Location = new System.Drawing.Point(188, 3);
-            this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(180, 23);
-            this.btnClearFields.TabIndex = 13;
-            this.btnClearFields.Text = "Clear Fields";
-            this.btnClearFields.UseSelectable = true;
-            // 
-            // btnCreateClient
-            // 
-            this.btnCreateClient.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCreateClient.Location = new System.Drawing.Point(3, 3);
-            this.btnCreateClient.Name = "btnCreateClient";
-            this.btnCreateClient.Size = new System.Drawing.Size(179, 24);
-            this.btnCreateClient.TabIndex = 12;
-            this.btnCreateClient.Text = "Add Client";
-            this.btnCreateClient.UseSelectable = true;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -330,6 +310,28 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(371, 30);
             this.tableLayoutPanel1.TabIndex = 11;
+            // 
+            // btnCreateClient
+            // 
+            this.btnCreateClient.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreateClient.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateClient.Name = "btnCreateClient";
+            this.btnCreateClient.Size = new System.Drawing.Size(179, 24);
+            this.btnCreateClient.TabIndex = 12;
+            this.btnCreateClient.Text = "Add Client";
+            this.btnCreateClient.UseSelectable = true;
+            this.btnCreateClient.Click += new System.EventHandler(this.btnCreateClient_Click);
+            // 
+            // btnClearFields
+            // 
+            this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClearFields.Location = new System.Drawing.Point(188, 3);
+            this.btnClearFields.Name = "btnClearFields";
+            this.btnClearFields.Size = new System.Drawing.Size(180, 23);
+            this.btnClearFields.TabIndex = 13;
+            this.btnClearFields.Text = "Clear Fields";
+            this.btnClearFields.UseSelectable = true;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // FormPanelClientAdd
             // 
