@@ -73,22 +73,22 @@ namespace SIPO
                 MessageBox.Show("Login successful as " + account.user + " (" + account.type + ")");
 
                 this.Hide();
-                if (account.type.Equals(AccountType.Inventory))
+                if (account.type.Equals(Department.Inventory))
                 {
                     FormInventory formInventory = new FormInventory();
                     formInventory.ShowDialog();
                 }
-                else if (account.type.Equals(AccountType.Sales))
+                else if (account.type.Equals(Department.Sales))
                 {
                     FormSales formSales = new FormSales();
                     formSales.ShowDialog();
                 }
-                else if (account.type.Equals(AccountType.Packaging))
+                else if (account.type.Equals(Department.Packaging))
                 {
                     FormPackaging formPackaging = new FormPackaging();
                     formPackaging.ShowDialog();
                 }
-                else if (account.type.Equals(AccountType.Manager))
+                else if (account.type.Equals(Department.Manager))
                 {
                     FormManager formManager = new FormManager();
                     formManager.ShowDialog();
@@ -122,5 +122,6 @@ namespace SIPO
                 return false;
             }
         }
+
     }
 }

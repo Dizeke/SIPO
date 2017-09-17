@@ -25,7 +25,9 @@ namespace SIPO.Manager
         {
             if (isInputValid())
             {
-                String query = String.Format("INSERT INTO clients (client_company, client_tin, client_address, client_contact, client_contact_number) " +
+                if (isUsernameValid())
+                {
+                    String query = String.Format("INSERT INTO clients (client_company, client_tin, client_address, client_contact, client_contact_number) " +
                     "VALUES('{0}', '{1}', '{2}', '{3}', '{4}')",
                     client.company,
                     client.tin,
@@ -34,15 +36,16 @@ namespace SIPO.Manager
                     client.contact_number
                 );
 
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
+                    MySqlConnection con = new MySqlConnection(ConString.getConString());
+                    MySqlCommand com = new MySqlCommand(query, con);
 
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
 
-                MessageBox.Show("Client Successfully Added");
-                clearFields();
+                    MessageBox.Show("Client Successfully Added");
+                    clearFields();
+                }
             }
         }
 
@@ -92,6 +95,48 @@ namespace SIPO.Manager
                 }
 
                 return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
+        }
+
+        private bool isUsernameValid()
+        {
+            try
+            {
+                bool isExisting = false;
+                String query = String.Format("SELECT * FROM clients WHERE client_company = '{0}'", client.company);
+
+                MySqlConnection con = new MySqlConnection(ConString.getConString());
+                MySqlCommand com = new MySqlCommand(query, con);
+                MySqlDataReader reader;
+
+                con.Open();
+
+                reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (client.company.Equals((reader["client_company"]).ToString()))
+                    {
+                        isExisting = true;
+                        break;
+                    }
+                }
+
+                con.Close();
+
+                if (isExisting)
+                {
+                    MessageBox.Show("Username already in use. Please use a different username.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
             catch (Exception ex)
             {

@@ -30,8 +30,8 @@
         {
             this.panelLayoutAccountAdd = new System.Windows.Forms.TableLayoutPanel();
             this.lblAccountAddTitle = new MetroFramework.Controls.MetroLabel();
-            this.btnCreateAccount = new MetroFramework.Controls.MetroButton();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbDepartment = new MetroFramework.Controls.MetroComboBox();
             this.btnSelectImage = new MetroFramework.Controls.MetroButton();
             this.lblDepartment = new MetroFramework.Controls.MetroLabel();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
@@ -52,8 +52,8 @@
             this.txtMiddleName = new MetroFramework.Controls.MetroTextBox();
             this.lblMiddleName = new MetroFramework.Controls.MetroLabel();
             this.txtFirstName = new MetroFramework.Controls.MetroTextBox();
+            this.btnCreateAccount = new MetroFramework.Controls.MetroButton();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLayoutAccountAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +68,7 @@
             this.panelLayoutAccountAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.panelLayoutAccountAdd.Controls.Add(this.lblAccountAddTitle, 0, 0);
             this.panelLayoutAccountAdd.Controls.Add(this.pictureBox1, 4, 0);
-            this.panelLayoutAccountAdd.Controls.Add(this.metroComboBox1, 4, 10);
+            this.panelLayoutAccountAdd.Controls.Add(this.cbDepartment, 4, 10);
             this.panelLayoutAccountAdd.Controls.Add(this.btnSelectImage, 4, 1);
             this.panelLayoutAccountAdd.Controls.Add(this.lblDepartment, 4, 9);
             this.panelLayoutAccountAdd.Controls.Add(this.lblUsername, 0, 1);
@@ -121,28 +121,27 @@
             this.lblAccountAddTitle.TabIndex = 39;
             this.lblAccountAddTitle.Text = "Add New Account";
             // 
-            // btnCreateAccount
+            // pictureBox1
             // 
-            this.btnCreateAccount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCreateAccount.Location = new System.Drawing.Point(458, 337);
-            this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(144, 24);
-            this.btnCreateAccount.Style = MetroFramework.MetroColorStyle.Teal;
-            this.btnCreateAccount.TabIndex = 52;
-            this.btnCreateAccount.Text = "Create Account";
-            this.btnCreateAccount.UseSelectable = true;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(608, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(144, 71);
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
             // 
-            // metroComboBox1
+            // cbDepartment
             // 
-            this.metroComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(608, 302);
-            this.metroComboBox1.MaxLength = 32;
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(144, 29);
-            this.metroComboBox1.TabIndex = 51;
-            this.metroComboBox1.UseSelectable = true;
+            this.cbDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.ItemHeight = 23;
+            this.cbDepartment.Location = new System.Drawing.Point(608, 302);
+            this.cbDepartment.MaxLength = 32;
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(144, 29);
+            this.cbDepartment.TabIndex = 51;
+            this.cbDepartment.UseSelectable = true;
             // 
             // btnSelectImage
             // 
@@ -533,6 +532,18 @@
             this.txtFirstName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFirstName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // btnCreateAccount
+            // 
+            this.btnCreateAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreateAccount.Location = new System.Drawing.Point(458, 337);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.Size = new System.Drawing.Size(144, 24);
+            this.btnCreateAccount.Style = MetroFramework.MetroColorStyle.Teal;
+            this.btnCreateAccount.TabIndex = 52;
+            this.btnCreateAccount.Text = "Create Account";
+            this.btnCreateAccount.UseSelectable = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
+            // 
             // btnClearFields
             // 
             this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
@@ -543,16 +554,7 @@
             this.btnClearFields.TabIndex = 53;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.UseSelectable = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Location = new System.Drawing.Point(608, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 71);
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // FormPanelAccountAdd
             // 
@@ -576,7 +578,7 @@
         private MetroFramework.Controls.MetroLabel lblAccountAddTitle;
         private MetroFramework.Controls.MetroButton btnCreateAccount;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox cbDepartment;
         private MetroFramework.Controls.MetroButton btnSelectImage;
         private MetroFramework.Controls.MetroLabel lblDepartment;
         private MetroFramework.Controls.MetroLabel lblUsername;

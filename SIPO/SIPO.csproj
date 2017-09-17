@@ -56,8 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
-    <Compile Include="Classes\AccountType.cs" />
     <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\FinishedProduct.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
     <Compile Include="ConString.cs" />
