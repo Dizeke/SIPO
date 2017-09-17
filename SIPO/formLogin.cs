@@ -13,6 +13,7 @@ using SIPO.Classes;
 using SIPO.Inventory;
 using SIPO.Manager;
 using SIPO.Packaging;
+using SIPO.Sales;
 
 namespace SIPO
 {
@@ -79,7 +80,8 @@ namespace SIPO
                 }
                 else if (account.type.Equals(AccountType.Sales))
                 {
-                    
+                    FormSales formSales = new FormSales();
+                    formSales.ShowDialog();
                 }
                 else if (account.type.Equals(AccountType.Packaging))
                 {
