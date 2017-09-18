@@ -235,7 +235,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icon_payment_method.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_finished_product.png" />
   </ItemGroup>
@@ -253,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_purchase_order.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
