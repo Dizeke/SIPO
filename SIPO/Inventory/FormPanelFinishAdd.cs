@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SIPO.Classes;
+
 namespace SIPO.Inventory
 {
     public partial class FormPanelFinishAdd : MetroFramework.Forms.MetroForm
@@ -16,6 +18,7 @@ namespace SIPO.Inventory
         public FormPanelFinishAdd()
         {
             InitializeComponent();
+            loadRawMaterials();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -90,6 +93,42 @@ namespace SIPO.Inventory
             }
            
 
+        }
+
+        private void loadRawMaterials()
+        {
+            String query = "SELECT * FROM products_raw";
+            MySqlConnection con = new MySqlConnection(ConString.getConString());
+            MySqlCommand com = new MySqlCommand(query, con);
+            MySqlDataReader reader;
+
+            con.Open();
+
+            int row = 0;
+            reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                RawMaterials rawMaterial = new RawMaterials();
+                rawMaterial.Id = int.Parse(reader["prodr_id"].ToString());
+                rawMaterial.Name = reader["prodr_name"].ToString();
+                rawMaterial.Desc = reader["prodr_desc"].ToString();
+                rawMaterial.Size = int.Parse(reader["prodr_size"].ToString());
+                rawMaterial.Qty = int.Parse(reader["prodr_qty"].ToString());
+                rawMaterial.Price = double.Parse(reader["prodr_price"].ToString());
+
+                lvRawMaterials.Items.Add(rawMaterial.Id.ToString());
+                lvRawMaterials.Items[row].SubItems.Add(rawMaterial.Name);
+                lvRawMaterials.Items[row].SubItems.Add(rawMaterial.Qty.ToString());
+                row++;
+            }
+
+            if(row < 1)
+            {
+                btnAddUsedMaterial.Enabled = false;
+                btnAdd.Enabled = false;
+            }
+
+            con.Close();
         }
     }
 }
