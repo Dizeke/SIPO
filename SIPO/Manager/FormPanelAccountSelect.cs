@@ -52,8 +52,8 @@ namespace SIPO.Manager
             {
                 accounts = new List<Account>();
 
-                String query = "SELECT acc_id, acc_user, acc_pass, acc_fname, acc_mname, acc_lname, acc_email, acc_contact, acc_position, acc_type " +
-                    "FROM accounts INNER JOIN account_types WHERE accounts.act_id = account_types.act_id";
+                String query = "SELECT accounts.acc_id, aci_image, acc_user, acc_pass, acc_fname, acc_mname, acc_lname, acc_email, acc_contact, acc_position, acc_type " +
+                    "FROM accounts INNER JOIN account_types ON accounts.act_id = account_types.act_id  INNER JOIN account_images ON accounts.acc_id = account_images.acc_id";
 
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
@@ -67,6 +67,8 @@ namespace SIPO.Manager
                 {
                     Account account = new Account();
                     account.id = int.Parse(reader["acc_id"].ToString());
+                    account.image = (byte[]) reader["aci_image"];
+
                     account.user = reader["acc_user"].ToString();
                     account.pass = reader["acc_pass"].ToString();
 

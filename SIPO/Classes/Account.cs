@@ -11,6 +11,8 @@ namespace SIPO.Classes
         public static Account loggedAccount;
 
         private int acc_id;
+        private byte[] acc_image;
+
         private string acc_user;
         private string acc_pass;
         private string acc_vpass;
@@ -26,6 +28,7 @@ namespace SIPO.Classes
         private string acc_type;
 
         public int id { get { return this.acc_id; } set { this.acc_id = value; } }
+        public byte[] image { get { return this.acc_image; } set { this.acc_image = value; } }
         public string user { get { return this.acc_user; } set { this.acc_user = value; } }
         public string pass { get { return this.acc_pass; } set { this.acc_pass = value; } }
         public string vpass { get { return this.acc_vpass; } set { this.acc_vpass = value; } }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using MySql.Data.MySqlClient;
 
 using SIPO.Classes;
@@ -187,6 +188,16 @@ namespace SIPO.Manager
                     {
                         cbDepartment.SelectedItem = department;
                         break;
+                    }
+                }
+
+                if (account.image != null)
+                {
+                    if (account.image.Length > 0)
+                    {
+                        MemoryStream memoryStream = new MemoryStream();
+                        memoryStream.Write(account.image, 0, account.image.Length);
+                        pictureBox1.Image = Image.FromStream(memoryStream);
                     }
                 }
             }
