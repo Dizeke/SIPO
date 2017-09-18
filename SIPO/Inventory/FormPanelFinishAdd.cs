@@ -13,7 +13,7 @@ using SIPO.Classes;
 
 namespace SIPO.Inventory
 {
-    public partial class FormPanelFinishAdd : Form
+    public partial class FormPanelFinishAdd : MetroFramework.Forms.MetroForm
     {
         List<RawMaterials> rawMaterials;
         List<RawMaterials> rawMaterialsUsed;
