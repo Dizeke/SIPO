@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SIPO.Inventory
 {
-    public partial class FormPanelFinishAdd : Form
+    public partial class FormPanelFinishAdd : MetroFramework.Forms.MetroForm
     {
         public FormPanelFinishAdd()
         {
