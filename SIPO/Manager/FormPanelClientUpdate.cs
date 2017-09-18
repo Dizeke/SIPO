@@ -13,27 +13,35 @@ using SIPO.Classes;
 
 namespace SIPO.Manager
 {
-    public partial class FormPanelClientAdd : Form
+    public partial class FormPanelClientUpdate : Form
     {
         Client client;
-        public FormPanelClientAdd()
+
+        public FormPanelClientUpdate()
         {
             InitializeComponent();
+            loadClient();
         }
 
-        private void btnCreateClient_Click(object sender, EventArgs e)
+        private void btnUpdateClient_Click(object sender, EventArgs e)
         {
             if (isInputValid())
             {
                 if (isCompanyNameValid())
                 {
-                    String query = String.Format("INSERT INTO clients (client_company, client_tin, client_address, client_contact, client_contact_number) " +
-                    "VALUES('{0}', '{1}', '{2}', '{3}', '{4}')",
+                    String query = String.Format("UPDATE clients SET " +
+                        "client_company =  '{0}', " +
+                        "client_tin = '{1}', " +
+                        "client_address = '{2}', " +
+                        "client_contact = '{3}', " +
+                        "client_contact_number = '{4}' " +
+                        "WHERE client_id = {5}",
                     client.company,
                     client.tin,
                     client.address,
                     client.contact,
-                    client.contact_number
+                    client.contact_number,
+                    client.id
                 );
 
                     MySqlConnection con = new MySqlConnection(ConString.getConString());
@@ -43,16 +51,35 @@ namespace SIPO.Manager
                     com.ExecuteNonQuery();
                     con.Close();
 
-                    MessageBox.Show("Client Successfully Added");
-                    clearFields();
+                    MessageBox.Show("Client Successfully Updated");
+                    ClientUpdateHolder.hasSelected = false;
+                    this.Close();
                 }
             }
         }
 
-
         private void btnClearFields_Click(object sender, EventArgs e)
         {
             clearFields();
+        }
+
+        private void loadClient()
+        {
+            if (ClientUpdateHolder.hasSelected)
+            {
+                Client client = ClientUpdateHolder.client;
+
+                txtCompanyName.Text = client.company;
+                txtCompanyContact.Text = client.contact;
+                txtCompanyContactNumber.Text = client.contact_number;
+
+                txtCompanyTin.Text = client.tin;
+                txtCompanyAddress.Text = client.address;
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private bool isInputValid()

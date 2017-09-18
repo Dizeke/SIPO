@@ -147,6 +147,7 @@
             this.btnAccountUpdate.TabIndex = 1;
             this.btnAccountUpdate.Text = "Update";
             this.btnAccountUpdate.UseSelectable = true;
+            this.btnAccountUpdate.Click += new System.EventHandler(this.btnAccountUpdate_Click);
             // 
             // panelLayoutClientManagement
             // 
@@ -185,6 +186,7 @@
             this.btnClientUpdate.TabIndex = 1;
             this.btnClientUpdate.Text = "Update";
             this.btnClientUpdate.UseSelectable = true;
+            this.btnClientUpdate.Click += new System.EventHandler(this.btnClientUpdate_Click);
             // 
             // panelHolder
             // 

@@ -56,7 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
+    <Compile Include="Classes\AccountUpdateHolder.cs" />
     <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\ClientUpdateHolder.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\FinishedProduct.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
@@ -97,11 +99,35 @@
     <Compile Include="Manager\FormPanelAccountAdd.Designer.cs">
       <DependentUpon>FormPanelAccountAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\FormPanelAccountSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\FormPanelAccountSelect.Designer.cs">
+      <DependentUpon>FormPanelAccountSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FormPanelAccountUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\FormPanelAccountUpdate.Designer.cs">
+      <DependentUpon>FormPanelAccountUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\FormPanelClientAdd.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manager\FormPanelClientAdd.Designer.cs">
       <DependentUpon>FormPanelClientAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FormPanelClientSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\FormPanelClientSelect.Designer.cs">
+      <DependentUpon>FormPanelClientSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FormPanelClientUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\FormPanelClientUpdate.Designer.cs">
+      <DependentUpon>FormPanelClientUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Packaging\FormPackaging.cs">
       <SubType>Form</SubType>
@@ -141,8 +167,20 @@
     <EmbeddedResource Include="Manager\FormPanelAccountAdd.resx">
       <DependentUpon>FormPanelAccountAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FormPanelAccountSelect.resx">
+      <DependentUpon>FormPanelAccountSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FormPanelAccountUpdate.resx">
+      <DependentUpon>FormPanelAccountUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\FormPanelClientAdd.resx">
       <DependentUpon>FormPanelClientAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FormPanelClientSelect.resx">
+      <DependentUpon>FormPanelClientSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FormPanelClientUpdate.resx">
+      <DependentUpon>FormPanelClientUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormPackaging.resx">
       <DependentUpon>FormPackaging.cs</DependentUpon>
