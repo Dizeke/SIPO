@@ -1,6 +1,6 @@
 ﻿namespace SIPO.Inventory
 {
-    partial class FormPanelRawAdd
+    partial class FormPanelRawUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelLayoutRawAdd = new System.Windows.Forms.TableLayoutPanel();
             this.lblID = new MetroFramework.Controls.MetroLabel();
             this.txtPrice = new MetroFramework.Controls.MetroTextBox();
             this.txtReceived = new MetroFramework.Controls.MetroTextBox();
@@ -45,52 +44,9 @@
             this.txtID = new MetroFramework.Controls.MetroTextBox();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
+            this.panelLayoutRawAdd = new System.Windows.Forms.TableLayoutPanel();
             this.panelLayoutRawAdd.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelLayoutRawAdd
-            // 
-            this.panelLayoutRawAdd.ColumnCount = 3;
-            this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.panelLayoutRawAdd.Controls.Add(this.lblID, 0, 1);
-            this.panelLayoutRawAdd.Controls.Add(this.txtPrice, 1, 8);
-            this.panelLayoutRawAdd.Controls.Add(this.txtReceived, 0, 8);
-            this.panelLayoutRawAdd.Controls.Add(this.lblName, 0, 3);
-            this.panelLayoutRawAdd.Controls.Add(this.txtName, 0, 4);
-            this.panelLayoutRawAdd.Controls.Add(this.lblPrice, 1, 7);
-            this.panelLayoutRawAdd.Controls.Add(this.lblReceived, 0, 7);
-            this.panelLayoutRawAdd.Controls.Add(this.lblDesc, 0, 5);
-            this.panelLayoutRawAdd.Controls.Add(this.txtQty, 2, 6);
-            this.panelLayoutRawAdd.Controls.Add(this.lblQty, 2, 5);
-            this.panelLayoutRawAdd.Controls.Add(this.txtSizeComp, 1, 6);
-            this.panelLayoutRawAdd.Controls.Add(this.lblSizeComp, 1, 5);
-            this.panelLayoutRawAdd.Controls.Add(this.txtDesc, 0, 6);
-            this.panelLayoutRawAdd.Controls.Add(this.txtID, 0, 2);
-            this.panelLayoutRawAdd.Controls.Add(this.btnAdd, 1, 13);
-            this.panelLayoutRawAdd.Controls.Add(this.btnClearFields, 2, 13);
-            this.panelLayoutRawAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLayoutRawAdd.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.panelLayoutRawAdd.Location = new System.Drawing.Point(0, 0);
-            this.panelLayoutRawAdd.Name = "panelLayoutRawAdd";
-            this.panelLayoutRawAdd.RowCount = 14;
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.panelLayoutRawAdd.Size = new System.Drawing.Size(610, 345);
-            this.panelLayoutRawAdd.TabIndex = 55;
             // 
             // lblID
             // 
@@ -241,7 +197,7 @@
             // 
             // 
             this.txtQty.CustomButton.Image = null;
-            this.txtQty.CustomButton.Location = new System.Drawing.Point(200, 1);
+            this.txtQty.CustomButton.Location = new System.Drawing.Point(318, 1);
             this.txtQty.CustomButton.Name = "";
             this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -260,7 +216,7 @@
             this.txtQty.SelectionLength = 0;
             this.txtQty.SelectionStart = 0;
             this.txtQty.ShortcutsEnabled = true;
-            this.txtQty.Size = new System.Drawing.Size(222, 23);
+            this.txtQty.Size = new System.Drawing.Size(252, 23);
             this.txtQty.TabIndex = 37;
             this.txtQty.UseSelectable = true;
             this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -272,7 +228,7 @@
             this.lblQty.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblQty.Location = new System.Drawing.Point(385, 96);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(222, 19);
+            this.lblQty.Size = new System.Drawing.Size(252, 19);
             this.lblQty.TabIndex = 41;
             this.lblQty.Text = "Quantity";
             // 
@@ -387,7 +343,7 @@
             this.btnAdd.Size = new System.Drawing.Size(184, 24);
             this.btnAdd.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnAdd.TabIndex = 52;
-            this.btnAdd.Text = "Add Material";
+            this.btnAdd.Text = "Update Material";
             this.btnAdd.UseSelectable = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -396,21 +352,64 @@
             this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClearFields.Location = new System.Drawing.Point(385, 235);
             this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(222, 24);
+            this.btnClearFields.Size = new System.Drawing.Size(252, 24);
             this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnClearFields.TabIndex = 53;
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.UseSelectable = true;
             // 
-            // FormPanelRawAdd
+            // panelLayoutRawAdd
+            // 
+            this.panelLayoutRawAdd.ColumnCount = 3;
+            this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.panelLayoutRawAdd.Controls.Add(this.lblID, 0, 1);
+            this.panelLayoutRawAdd.Controls.Add(this.txtPrice, 1, 8);
+            this.panelLayoutRawAdd.Controls.Add(this.txtReceived, 0, 8);
+            this.panelLayoutRawAdd.Controls.Add(this.lblName, 0, 3);
+            this.panelLayoutRawAdd.Controls.Add(this.txtName, 0, 4);
+            this.panelLayoutRawAdd.Controls.Add(this.lblPrice, 1, 7);
+            this.panelLayoutRawAdd.Controls.Add(this.lblReceived, 0, 7);
+            this.panelLayoutRawAdd.Controls.Add(this.lblDesc, 0, 5);
+            this.panelLayoutRawAdd.Controls.Add(this.txtQty, 2, 6);
+            this.panelLayoutRawAdd.Controls.Add(this.lblQty, 2, 5);
+            this.panelLayoutRawAdd.Controls.Add(this.txtSizeComp, 1, 6);
+            this.panelLayoutRawAdd.Controls.Add(this.lblSizeComp, 1, 5);
+            this.panelLayoutRawAdd.Controls.Add(this.txtDesc, 0, 6);
+            this.panelLayoutRawAdd.Controls.Add(this.txtID, 0, 2);
+            this.panelLayoutRawAdd.Controls.Add(this.btnAdd, 1, 13);
+            this.panelLayoutRawAdd.Controls.Add(this.btnClearFields, 2, 13);
+            this.panelLayoutRawAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLayoutRawAdd.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.panelLayoutRawAdd.Location = new System.Drawing.Point(20, 60);
+            this.panelLayoutRawAdd.Name = "panelLayoutRawAdd";
+            this.panelLayoutRawAdd.RowCount = 14;
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.Size = new System.Drawing.Size(639, 284);
+            this.panelLayoutRawAdd.TabIndex = 56;
+            // 
+            // FormPanelRawUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(610, 345);
+            this.ClientSize = new System.Drawing.Size(679, 364);
             this.Controls.Add(this.panelLayoutRawAdd);
-            this.Name = "FormPanelRawAdd";
-            this.Text = "Add Raw Materials";
+            this.Name = "FormPanelRawUpdate";
+            this.Text = "Upate Raw Materials";
             this.panelLayoutRawAdd.ResumeLayout(false);
             this.panelLayoutRawAdd.PerformLayout();
             this.ResumeLayout(false);
@@ -419,9 +418,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel panelLayoutRawAdd;
         private MetroFramework.Controls.MetroLabel lblID;
-        private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroTextBox txtPrice;
         private MetroFramework.Controls.MetroTextBox txtReceived;
         private MetroFramework.Controls.MetroLabel lblName;
@@ -429,12 +426,14 @@
         private MetroFramework.Controls.MetroLabel lblPrice;
         private MetroFramework.Controls.MetroLabel lblReceived;
         private MetroFramework.Controls.MetroLabel lblDesc;
+        private MetroFramework.Controls.MetroTextBox txtQty;
+        private MetroFramework.Controls.MetroLabel lblQty;
         private MetroFramework.Controls.MetroTextBox txtSizeComp;
         private MetroFramework.Controls.MetroLabel lblSizeComp;
         private MetroFramework.Controls.MetroTextBox txtDesc;
-        private MetroFramework.Controls.MetroTextBox txtQty;
-        private MetroFramework.Controls.MetroLabel lblQty;
+        private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroButton btnAdd;
         private MetroFramework.Controls.MetroButton btnClearFields;
+        private System.Windows.Forms.TableLayoutPanel panelLayoutRawAdd;
     }
 }

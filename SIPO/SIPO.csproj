@@ -62,6 +62,8 @@
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\FinishedProduct.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
+    <Compile Include="Classes\RawMaterials.cs" />
+    <Compile Include="Classes\RawMaterialsUpdate.cs" />
     <Compile Include="ConString.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -86,6 +88,18 @@
     </Compile>
     <Compile Include="Inventory\FormPanelRawAdd.Designer.cs">
       <DependentUpon>FormPanelRawAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FormPanelRawSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FormPanelRawSelect.Designer.cs">
+      <DependentUpon>FormPanelRawSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FormPanelRawUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FormPanelRawUpdate.Designer.cs">
+      <DependentUpon>FormPanelRawUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\FormManager.cs">
       <SubType>Form</SubType>
@@ -160,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FormPanelRawAdd.resx">
       <DependentUpon>FormPanelRawAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FormPanelRawSelect.resx">
+      <DependentUpon>FormPanelRawSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FormPanelRawUpdate.resx">
+      <DependentUpon>FormPanelRawUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\FormManager.resx">
       <DependentUpon>FormManager.cs</DependentUpon>

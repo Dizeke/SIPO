@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SIPO.Inventory
 {
-    public partial class FormPanelRawAdd : Form
+    public partial class FormPanelRawAdd : MetroFramework.Forms.MetroForm
 
     {
         public FormPanelRawAdd()
@@ -24,45 +24,30 @@ namespace SIPO.Inventory
             MySqlConnection con = new MySqlConnection(ConString.getConString());
             bool success = false;
 
-            String query = "Insert INTO products_raw (prodr_id, prodr_name, prodr_desc, prodr_size, prodr_qty, prodr_price) VALUES ('@prodID', '@name', '@desc', '@size' , '@qty', '@price')";
-
-            
-            
-
+            String query = String.Format("Insert INTO products_raw (prodr_id, prodr_name, prodr_desc, prodr_size, prodr_qty, prodr_price) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}', '{5}')",
+                Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtSizeComp.Text), Convert.ToInt32(txtQty.Text), Convert.ToInt32(txtPrice.Text));
             con.Open();
-
-
-           MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlCommand cmd = new MySqlCommand(query, con);
 
             cmd.Prepare();
 
-                cmd.Parameters.AddWithValue("@prodID", Convert.ToInt32(txtID.Text));
-                cmd.Parameters.AddWithValue("@name",txtName.Text);
-                cmd.Parameters.AddWithValue("@desc", txtDesc.Text);
-                cmd.Parameters.AddWithValue("@size", Convert.ToInt32(txtSizeComp.Text));
-                cmd.Parameters.AddWithValue("@qty", Convert.ToInt32(txtQty.Text));
-                cmd.Parameters.AddWithValue("@price", Convert.ToInt32( txtPrice.Text));
-                cmd.ExecuteNonQuery();
 
-                success = true;
-            
+            cmd.ExecuteNonQuery();
+
+            success = true;
+
             if (success)
             {
 
                 MySqlConnection con2 = new MySqlConnection(ConString.getConString());
-                String query2 ="Insert INTO products_raw_receive (prodr_r_date, prodr_id) VALUES ('@date', '@prodID')";
-                
+                String query2 = String.Format("Insert INTO products_raw_receive (prodr_r_date, prodr_id) VALUES ('{0}', '{1}')", Convert.ToDateTime(txtReceived.Text),Convert.ToInt32(txtID.Text));
+
 
                 con2.Open();
 
                 MySqlCommand cmd2 = new MySqlCommand(query2, con2);
 
-                cmd.Prepare();
-                    cmd2.Parameters.AddWithValue("@date", txtReceived.Text);
-                    cmd2.Parameters.AddWithValue("@prodID", Convert.ToInt32(txtID.Text));
-
-                    cmd2.ExecuteNonQuery();
-
+                cmd2.ExecuteNonQuery();
                 success = true;
             }
             else
@@ -72,7 +57,7 @@ namespace SIPO.Inventory
             }
             if (success)
                 MessageBox.Show("Item Added Successfully");
-        
+
         }
     }
 }
