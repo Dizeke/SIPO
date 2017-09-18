@@ -40,7 +40,7 @@ namespace SIPO.Inventory
             {
 
                 MySqlConnection con2 = new MySqlConnection(ConString.getConString());
-                String query2 = String.Format("Insert INTO products_raw_receive (prodr_r_date, prodr_id) VALUES ('{0}', '{1}')", Convert.ToDateTime(txtReceived.Text),Convert.ToInt32(txtID.Text));
+                String query2 = String.Format("Insert INTO products_raw_receive (prodr_r_date, prodr_id) VALUES ('{0}', '{1}')", dtpReceived.Value.ToString("yyyyMMdd"), Convert.ToInt32(txtID.Text));
 
 
                 con2.Open();
@@ -49,6 +49,7 @@ namespace SIPO.Inventory
 
                 cmd2.ExecuteNonQuery();
                 success = true;
+    
             }
             else
             {
@@ -56,6 +57,7 @@ namespace SIPO.Inventory
 
             }
             if (success)
+                
                 MessageBox.Show("Item Added Successfully");
 
         }

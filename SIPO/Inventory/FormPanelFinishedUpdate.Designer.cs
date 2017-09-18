@@ -1,6 +1,6 @@
 ﻿namespace SIPO.Inventory
 {
-    partial class FormPanelFinishAdd
+    partial class FormPanelFinishedUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -43,9 +43,7 @@
             this.lblRawUsed = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
-            this.btnAdd = new MetroFramework.Controls.MetroButton();
-            this.txtFinQty = new MetroFramework.Controls.MetroTextBox();
-            this.lblFinQTY = new MetroFramework.Controls.MetroLabel();
+            this.btnUpdate = new MetroFramework.Controls.MetroButton();
             this.panelLayoutFinishAdd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,11 +69,9 @@
             this.panelLayoutFinishAdd.Controls.Add(this.lblRawUsed, 1, 5);
             this.panelLayoutFinishAdd.Controls.Add(this.txtDesc, 0, 6);
             this.panelLayoutFinishAdd.Controls.Add(this.btnClearFields, 2, 14);
-            this.panelLayoutFinishAdd.Controls.Add(this.btnAdd, 1, 14);
-            this.panelLayoutFinishAdd.Controls.Add(this.txtFinQty, 1, 8);
-            this.panelLayoutFinishAdd.Controls.Add(this.lblFinQTY, 1, 7);
+            this.panelLayoutFinishAdd.Controls.Add(this.btnUpdate, 1, 14);
             this.panelLayoutFinishAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLayoutFinishAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelLayoutFinishAdd.Location = new System.Drawing.Point(20, 60);
             this.panelLayoutFinishAdd.Name = "panelLayoutFinishAdd";
             this.panelLayoutFinishAdd.RowCount = 15;
             this.panelLayoutFinishAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -93,8 +89,8 @@
             this.panelLayoutFinishAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.panelLayoutFinishAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.panelLayoutFinishAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelLayoutFinishAdd.Size = new System.Drawing.Size(500, 310);
-            this.panelLayoutFinishAdd.TabIndex = 56;
+            this.panelLayoutFinishAdd.Size = new System.Drawing.Size(508, 301);
+            this.panelLayoutFinishAdd.TabIndex = 57;
             // 
             // lblAccountAddTitle
             // 
@@ -256,7 +252,7 @@
             this.txtQty.CustomButton.Visible = false;
             this.txtQty.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtQty.Lines = new string[0];
-            this.txtQty.Location = new System.Drawing.Point(349, 143);
+            this.txtQty.Location = new System.Drawing.Point(330, 143);
             this.txtQty.MaxLength = 32;
             this.txtQty.Name = "txtQty";
             this.txtQty.PasswordChar = '\0';
@@ -275,7 +271,7 @@
             // 
             this.lblQty.AutoSize = true;
             this.lblQty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblQty.Location = new System.Drawing.Point(349, 121);
+            this.lblQty.Location = new System.Drawing.Point(330, 121);
             this.lblQty.Name = "lblQty";
             this.lblQty.Size = new System.Drawing.Size(163, 19);
             this.lblQty.TabIndex = 41;
@@ -287,7 +283,7 @@
             // 
             // 
             this.txtRawUsed.CustomButton.Image = null;
-            this.txtRawUsed.CustomButton.Location = new System.Drawing.Point(141, 1);
+            this.txtRawUsed.CustomButton.Location = new System.Drawing.Point(122, 1);
             this.txtRawUsed.CustomButton.Name = "";
             this.txtRawUsed.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtRawUsed.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -306,7 +302,7 @@
             this.txtRawUsed.SelectionLength = 0;
             this.txtRawUsed.SelectionStart = 0;
             this.txtRawUsed.ShortcutsEnabled = true;
-            this.txtRawUsed.Size = new System.Drawing.Size(163, 23);
+            this.txtRawUsed.Size = new System.Drawing.Size(144, 23);
             this.txtRawUsed.TabIndex = 35;
             this.txtRawUsed.UseSelectable = true;
             this.txtRawUsed.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -318,7 +314,7 @@
             this.lblRawUsed.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblRawUsed.Location = new System.Drawing.Point(180, 121);
             this.lblRawUsed.Name = "lblRawUsed";
-            this.lblRawUsed.Size = new System.Drawing.Size(163, 19);
+            this.lblRawUsed.Size = new System.Drawing.Size(144, 19);
             this.lblRawUsed.TabIndex = 40;
             this.lblRawUsed.Text = "Raw Material Used";
             // 
@@ -356,7 +352,7 @@
             // btnClearFields
             // 
             this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClearFields.Location = new System.Drawing.Point(349, 260);
+            this.btnClearFields.Location = new System.Drawing.Point(330, 260);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(163, 24);
             this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
@@ -364,69 +360,25 @@
             this.btnClearFields.Text = "Clear Fields";
             this.btnClearFields.UseSelectable = true;
             // 
-            // btnAdd
+            // btnUpdate
             // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdd.Location = new System.Drawing.Point(180, 260);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(163, 24);
-            this.btnAdd.Style = MetroFramework.MetroColorStyle.Teal;
-            this.btnAdd.TabIndex = 52;
-            this.btnAdd.Text = "Add Material";
-            this.btnAdd.UseSelectable = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUpdate.Location = new System.Drawing.Point(180, 260);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(144, 24);
+            this.btnUpdate.Style = MetroFramework.MetroColorStyle.Teal;
+            this.btnUpdate.TabIndex = 52;
+            this.btnUpdate.Text = "Add Material";
+            this.btnUpdate.UseSelectable = true;
             // 
-            // txtFinQty
-            // 
-            // 
-            // 
-            // 
-            this.txtFinQty.CustomButton.Image = null;
-            this.txtFinQty.CustomButton.Location = new System.Drawing.Point(141, 1);
-            this.txtFinQty.CustomButton.Name = "";
-            this.txtFinQty.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtFinQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtFinQty.CustomButton.TabIndex = 1;
-            this.txtFinQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtFinQty.CustomButton.UseSelectable = true;
-            this.txtFinQty.CustomButton.Visible = false;
-            this.txtFinQty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtFinQty.Lines = new string[0];
-            this.txtFinQty.Location = new System.Drawing.Point(180, 191);
-            this.txtFinQty.MaxLength = 32;
-            this.txtFinQty.Name = "txtFinQty";
-            this.txtFinQty.PasswordChar = '\0';
-            this.txtFinQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtFinQty.SelectedText = "";
-            this.txtFinQty.SelectionLength = 0;
-            this.txtFinQty.SelectionStart = 0;
-            this.txtFinQty.ShortcutsEnabled = true;
-            this.txtFinQty.Size = new System.Drawing.Size(163, 23);
-            this.txtFinQty.TabIndex = 54;
-            this.txtFinQty.UseSelectable = true;
-            this.txtFinQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtFinQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblFinQTY
-            // 
-            this.lblFinQTY.AutoSize = true;
-            this.lblFinQTY.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblFinQTY.Location = new System.Drawing.Point(180, 169);
-            this.lblFinQTY.Name = "lblFinQTY";
-            this.lblFinQTY.Size = new System.Drawing.Size(163, 19);
-            this.lblFinQTY.TabIndex = 55;
-            this.lblFinQTY.Text = "Finished Quantity";
-            // 
-            // FormPanelFinishAdd
+            // FormPanelFinishedUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(500, 310);
+            this.ClientSize = new System.Drawing.Size(548, 381);
             this.Controls.Add(this.panelLayoutFinishAdd);
-            this.Name = "FormPanelFinishAdd";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormPanelFinishAdd";
+            this.Name = "FormPanelFinishedUpdate";
+            this.Text = "Update Finished Product";
             this.panelLayoutFinishAdd.ResumeLayout(false);
             this.panelLayoutFinishAdd.PerformLayout();
             this.ResumeLayout(false);
@@ -449,9 +401,7 @@
         private MetroFramework.Controls.MetroTextBox txtRawUsed;
         private MetroFramework.Controls.MetroLabel lblRawUsed;
         private MetroFramework.Controls.MetroTextBox txtDesc;
-        private MetroFramework.Controls.MetroButton btnAdd;
         private MetroFramework.Controls.MetroButton btnClearFields;
-        private MetroFramework.Controls.MetroTextBox txtFinQty;
-        private MetroFramework.Controls.MetroLabel lblFinQTY;
+        private MetroFramework.Controls.MetroButton btnUpdate;
     }
 }

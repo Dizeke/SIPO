@@ -47,7 +47,7 @@ namespace SIPO.Inventory
 
                     raw.Size = int.Parse(reader["prodr_size"].ToString());
                     raw.Qty = int.Parse(reader["prodr_qty"].ToString());
-                    raw.Received = DateTime.Parse(reader["prodr_r_date"].ToString());
+                    raw.Received =reader["prodr_r_date"].ToString();
                     raw.Price = int.Parse(reader["prodr_price"].ToString());
 
                     raws.Add(raw);
@@ -77,8 +77,13 @@ namespace SIPO.Inventory
                 int index = lvRaw.SelectedItems[0].Index;
                 RawMaterialsUpdate.raw = raws[index];
                 RawMaterialsUpdate.hasSelected = true;
+                              
 
+                
+                FormPanelRawUpdate formPanelRawUpdate = new FormPanelRawUpdate();
+               formPanelRawUpdate.ShowDialog();
                 this.Close();
+
             }
             catch (Exception ex)
             {

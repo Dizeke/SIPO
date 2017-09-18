@@ -22,6 +22,8 @@ namespace SIPO.Inventory
 
         FormPanelRawSelect formPanelRawSelect;
 
+        FormPanelFinishSelect formPanelFinishSelect;
+
       
         public FormInventory()
         {
@@ -58,6 +60,16 @@ namespace SIPO.Inventory
             this.Hide();
             formPanelRawSelect.ShowDialog();
             this.Show();
+
+        }
+
+        private void btnFinishedProductUpdate_Click(object sender, EventArgs e)
+        {
+            formPanelFinishSelect = new FormPanelFinishSelect();
+            this.Hide();
+            formPanelFinishSelect.ShowDialog();
+            this.Show();
+
 
         }
     }

@@ -26,7 +26,7 @@ namespace SIPO.Inventory
 
             
             String query = String.Format("Insert INTO products_finished (prodf_id, prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}')",
-                Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtQty.Text), Convert.ToInt32(txtPrice.Text));
+                Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
             con.Open();
             MySqlCommand cmd = new MySqlCommand(query, con);
             cmd.ExecuteNonQuery();
@@ -37,7 +37,7 @@ namespace SIPO.Inventory
             {
 
                 MySqlConnection con2 = new MySqlConnection(ConString.getConString());
-                String query2 = String.Format("Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ('{0}', '{1}')", Convert.ToDateTime(DateTime.Now.Date), Convert.ToInt32(txtID.Text));
+                String query2 = String.Format("Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), '{0}')", Convert.ToInt32(txtID.Text));
 
 
                 con2.Open();

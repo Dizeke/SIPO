@@ -13,7 +13,7 @@ namespace SIPO.Classes
         private string _desc;
         private int _size;
         private int _qty;
-        private DateTime _received;
+        private string _received;
         private double _price;
 
         public int Id { get => _id; set => _id = value; }
@@ -21,7 +21,7 @@ namespace SIPO.Classes
         public string Desc { get => _desc; set => _desc = value; }
         public int Size { get => _size; set => _size = value; }
         public int Qty { get => _qty; set => _qty = value; }
-        public DateTime Received { get => _received; set => _received = value; }
+        public string Received { get => _received; set => _received = value; }
         public double Price { get => _price; set => _price = value; }
     }
 }

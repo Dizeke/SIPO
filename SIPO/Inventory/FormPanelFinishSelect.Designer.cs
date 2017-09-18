@@ -1,6 +1,6 @@
 ﻿namespace SIPO.Inventory
 {
-    partial class FormPanelRawSelect
+    partial class FormPanelFinishSelect
     {
         /// <summary>
         /// Required designer variable.
@@ -28,41 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvRaw = new MetroFramework.Controls.MetroListView();
+            this.lvFinished = new MetroFramework.Controls.MetroListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnSelect = new MetroFramework.Controls.MetroButton();
             this.btnClose = new MetroFramework.Controls.MetroButton();
+            this.btnSelect = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lvRaw
+            // lvFinished
             // 
-            this.lvRaw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvFinished.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
             this.columnHeader5,
             this.columnHeader1,
             this.columnHeader6});
-            this.tableLayoutPanel1.SetColumnSpan(this.lvRaw, 4);
-            this.lvRaw.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lvRaw.FullRowSelect = true;
-            this.lvRaw.Location = new System.Drawing.Point(3, 3);
-            this.lvRaw.Name = "lvRaw";
-            this.lvRaw.OwnerDraw = true;
-            this.lvRaw.Size = new System.Drawing.Size(605, 246);
-            this.lvRaw.TabIndex = 0;
-            this.lvRaw.UseCompatibleStateImageBehavior = false;
-            this.lvRaw.UseSelectable = true;
-            this.lvRaw.View = System.Windows.Forms.View.Details;
+            this.tableLayoutPanel1.SetColumnSpan(this.lvFinished, 4);
+            this.lvFinished.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvFinished.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lvFinished.FullRowSelect = true;
+            this.lvFinished.Location = new System.Drawing.Point(3, 3);
+            this.lvFinished.Name = "lvFinished";
+            this.lvFinished.OwnerDraw = true;
+            this.lvFinished.Size = new System.Drawing.Size(640, 221);
+            this.lvFinished.TabIndex = 0;
+            this.lvFinished.UseCompatibleStateImageBehavior = false;
+            this.lvFinished.UseSelectable = true;
+            this.lvFinished.View = System.Windows.Forms.View.Details;
             // 
             // ID
             // 
@@ -79,46 +78,41 @@
             this.columnHeader3.Text = "Description";
             this.columnHeader3.Width = 94;
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Size Computation";
-            this.columnHeader4.Width = 141;
-            // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Quantity";
+            this.columnHeader5.Text = "Raw Material";
             this.columnHeader5.Width = 80;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Receive Date";
+            this.columnHeader1.Text = "Qty";
             this.columnHeader1.Width = 100;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Price";
             // 
-            // btnSelect
-            // 
-            this.btnSelect.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSelect.Location = new System.Drawing.Point(396, 255);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(97, 23);
-            this.btnSelect.TabIndex = 1;
-            this.btnSelect.Text = "Select Item";
-            this.btnSelect.UseSelectable = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClose.Location = new System.Drawing.Point(516, 255);
+            this.btnClose.Location = new System.Drawing.Point(551, 230);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(92, 23);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseSelectable = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSelect.Location = new System.Drawing.Point(424, 230);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(104, 23);
+            this.btnSelect.TabIndex = 1;
+            this.btnSelect.Text = "Select Item";
+            this.btnSelect.UseSelectable = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -127,7 +121,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.76613F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
-            this.tableLayoutPanel1.Controls.Add(this.lvRaw, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lvFinished, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnSelect, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -136,17 +130,16 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.76271F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.23729F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(611, 295);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(646, 265);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // FormPanelRawSelect
+            // FormPanelFinishSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 375);
+            this.ClientSize = new System.Drawing.Size(686, 345);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FormPanelRawSelect";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.Name = "FormPanelFinishSelect";
             this.Text = "Select Item to Update";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -155,16 +148,15 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroListView lvRaw;
+        private MetroFramework.Controls.MetroListView lvFinished;
+        private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private MetroFramework.Controls.MetroButton btnSelect;
-        private MetroFramework.Controls.MetroButton btnClose;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MetroFramework.Controls.MetroButton btnClose;
+        private MetroFramework.Controls.MetroButton btnSelect;
     }
 }

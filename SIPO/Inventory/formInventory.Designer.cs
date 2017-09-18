@@ -169,6 +169,7 @@
             this.btnFinishedProductUpdate.Text = "Update";
             this.btnFinishedProductUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnFinishedProductUpdate.UseSelectable = true;
+            this.btnFinishedProductUpdate.Click += new System.EventHandler(this.btnFinishedProductUpdate_Click);
             // 
             // btnFinishedProductAdd
             // 
