@@ -66,7 +66,7 @@ namespace SIPO.Manager
                 while (reader.Read())
                 {
                     Account account = new Account();
-                    account.id = int.Parse(reader["acc_id"].ToString());
+                    account.id = Convert.ToInt32(reader["acc_id"]);
                     account.image = (byte[]) reader["aci_image"];
 
                     account.user = reader["acc_user"].ToString();

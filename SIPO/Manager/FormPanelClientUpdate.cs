@@ -27,34 +27,31 @@ namespace SIPO.Manager
         {
             if (isInputValid())
             {
-                if (isCompanyNameValid())
-                {
-                    String query = String.Format("UPDATE clients SET " +
-                        "client_company =  '{0}', " +
-                        "client_tin = '{1}', " +
-                        "client_address = '{2}', " +
-                        "client_contact = '{3}', " +
-                        "client_contact_number = '{4}' " +
-                        "WHERE client_id = {5}",
-                    client.company,
-                    client.tin,
-                    client.address,
-                    client.contact,
-                    client.contact_number,
-                    client.id
-                );
+                String query = String.Format("UPDATE clients SET " +
+                    "client_company =  '{0}', " +
+                    "client_tin = '{1}', " +
+                    "client_address = '{2}', " +
+                    "client_contact = '{3}', " +
+                    "client_contact_number = '{4}' " +
+                    "WHERE client_id = {5}",
+                client.company,
+                client.tin,
+                client.address,
+                client.contact,
+                client.contact_number,
+                client.id
+            );
 
-                    MySqlConnection con = new MySqlConnection(ConString.getConString());
-                    MySqlCommand com = new MySqlCommand(query, con);
+                MySqlConnection con = new MySqlConnection(ConString.getConString());
+                MySqlCommand com = new MySqlCommand(query, con);
 
-                    con.Open();
-                    com.ExecuteNonQuery();
-                    con.Close();
+                con.Open();
+                com.ExecuteNonQuery();
+                con.Close();
 
-                    MessageBox.Show("Client Successfully Updated");
-                    ClientUpdateHolder.hasSelected = false;
-                    this.Close();
-                }
+                MessageBox.Show("Client Successfully Updated");
+                ClientUpdateHolder.hasSelected = false;
+                this.Close();
             }
         }
 
@@ -65,6 +62,7 @@ namespace SIPO.Manager
 
         private void loadClient()
         {
+            client = new Client();
             if (ClientUpdateHolder.hasSelected)
             {
                 Client client = ClientUpdateHolder.client;
@@ -113,7 +111,6 @@ namespace SIPO.Manager
                 }
                 else
                 {
-                    client = new Client();
                     client.company = txtCompanyName.Text.ToString();
                     client.contact = txtCompanyContact.Text.ToString();
                     client.contact_number = txtCompanyContactNumber.Text.ToString();
@@ -122,48 +119,6 @@ namespace SIPO.Manager
                 }
 
                 return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-                return false;
-            }
-        }
-
-        private bool isCompanyNameValid()
-        {
-            try
-            {
-                bool isExisting = false;
-                String query = String.Format("SELECT * FROM clients WHERE client_company = '{0}'", client.company);
-
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
-                MySqlDataReader reader;
-
-                con.Open();
-
-                reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    if (client.company.Equals((reader["client_company"]).ToString()))
-                    {
-                        isExisting = true;
-                        break;
-                    }
-                }
-
-                con.Close();
-
-                if (isExisting)
-                {
-                    MessageBox.Show("Username already in use. Please use a different username.");
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
             }
             catch (Exception ex)
             {

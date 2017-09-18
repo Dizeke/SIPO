@@ -18,6 +18,7 @@ namespace SIPO.Manager
     {
         Account account;
 
+        bool hasImage = false;
         FileStream fs;
         BinaryReader br;
         byte[] imageData;
@@ -84,6 +85,12 @@ namespace SIPO.Manager
                 imageData = br.ReadBytes((int)fs.Length);
                 br.Close();
                 fs.Close();
+
+                hasImage = true;
+            }
+            else
+            {
+                hasImage = false;
             }
         }
 
@@ -162,6 +169,11 @@ namespace SIPO.Manager
                 else if (txtPosition.Text.ToString().Length < 1)
                 {
                     MessageBox.Show("Position cannot be empty");
+                    return false;
+                }
+                else if (!hasImage)
+                {
+                    MessageBox.Show("Please add an image for the user");
                     return false;
                 }
                 else

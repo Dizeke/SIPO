@@ -90,6 +90,7 @@
             this.btnSelectImage.TabIndex = 48;
             this.btnSelectImage.Text = "Select Image";
             this.btnSelectImage.UseSelectable = true;
+            this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // lblDepartment
             // 

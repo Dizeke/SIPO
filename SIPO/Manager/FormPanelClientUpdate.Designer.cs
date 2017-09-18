@@ -118,6 +118,7 @@
             this.txtCompanyName.CustomButton.UseSelectable = true;
             this.txtCompanyName.CustomButton.Visible = false;
             this.txtCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCompanyName.Enabled = false;
             this.txtCompanyName.Lines = new string[0];
             this.txtCompanyName.Location = new System.Drawing.Point(3, 47);
             this.txtCompanyName.MaxLength = 64;
