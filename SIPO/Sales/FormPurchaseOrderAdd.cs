@@ -126,19 +126,19 @@ namespace SIPO.Sales
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             int quantity = 0;
-            int selectedIndex = 0;
+            int selectedFinishedProductIndex = 0;
 
             try
             {
                 quantity = int.Parse(txtQuantity.Text.ToString());
-                selectedIndex = lvProductList.Items.IndexOf(lvProductList.SelectedItems[0]);
+                selectedFinishedProductIndex = lvProductList.Items.IndexOf(lvProductList.SelectedItems[0]);
 
-                if (finishedProducts[selectedIndex].Qty >= quantity && quantity > 0)
+                if (finishedProducts[selectedFinishedProductIndex].Qty >= quantity && quantity > 0)
                 {
                     bool isAdded = false;
                     int prodIndex = 0;
 
-                    FinishedProduct requestProduct = finishedProducts[selectedIndex];
+                    FinishedProduct requestProduct = finishedProducts[selectedFinishedProductIndex];
                     foreach (FinishedProduct requestedProduct in requestedProducts)
                     {
                         if (requestedProduct.Id == requestProduct.Id)
@@ -157,9 +157,9 @@ namespace SIPO.Sales
                     {
                         for (int i = 0; i < lvProductList.Items.Count; i++)
                         {
-                            if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[prodIndex].Id.ToString()))
+                            if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[selectedFinishedProductIndex].Id.ToString()))
                             {
-                                lvPurchaseList.Items[i].SubItems[2].Text = finishedProducts[prodIndex].Qty.ToString();
+                                lvPurchaseList.Items[i].SubItems[2].Text = requestedProducts[prodIndex].Qty.ToString();
                                 break;
                             }
                         }
@@ -188,7 +188,18 @@ namespace SIPO.Sales
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            int selectedIndex = 0;
 
+            try
+            {
+                selectedIndex = lvPurchaseList.Items.IndexOf(lvPurchaseList.SelectedItems[0]);
+                requestedProducts.RemoveAt(selectedIndex);
+                lvPurchaseList.Items.RemoveAt(selectedIndex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
         }
 
         private void btnAddPurchaseOrder_Click(object sender, EventArgs e)

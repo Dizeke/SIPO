@@ -32,30 +32,27 @@
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.lblPrice = new MetroFramework.Controls.MetroLabel();
             this.lblDesc = new MetroFramework.Controls.MetroLabel();
-            this.txtQty = new MetroFramework.Controls.MetroTextBox();
-            this.lblQty = new MetroFramework.Controls.MetroLabel();
-            this.txtRawUsed = new MetroFramework.Controls.MetroTextBox();
-            this.lblRawUsed = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.txtFinQty = new MetroFramework.Controls.MetroTextBox();
             this.lblFinQTY = new MetroFramework.Controls.MetroLabel();
-            this.lblAccountAddTitle = new MetroFramework.Controls.MetroLabel();
             this.lblID = new MetroFramework.Controls.MetroLabel();
             this.txtID = new MetroFramework.Controls.MetroTextBox();
             this.lblName = new MetroFramework.Controls.MetroLabel();
             this.lvRawMaterials = new MetroFramework.Controls.MetroListView();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.lvRawMaterialsUsed = new MetroFramework.Controls.MetroListView();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.btnAddUsedMaterial = new MetroFramework.Controls.MetroButton();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lvRawMaterialsUsed = new MetroFramework.Controls.MetroListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.btnAddUsedMaterial = new MetroFramework.Controls.MetroButton();
+            this.txtQty = new MetroFramework.Controls.MetroTextBox();
+            this.lblQty = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // txtPrice
@@ -73,7 +70,7 @@
             this.txtPrice.CustomButton.UseSelectable = true;
             this.txtPrice.CustomButton.Visible = false;
             this.txtPrice.Lines = new string[0];
-            this.txtPrice.Location = new System.Drawing.Point(12, 166);
+            this.txtPrice.Location = new System.Drawing.Point(12, 178);
             this.txtPrice.MaxLength = 255;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PasswordChar = '\0';
@@ -103,7 +100,7 @@
             this.txtName.CustomButton.UseSelectable = true;
             this.txtName.CustomButton.Visible = false;
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(189, 70);
+            this.txtName.Location = new System.Drawing.Point(189, 82);
             this.txtName.MaxLength = 32;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
@@ -121,7 +118,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(12, 144);
+            this.lblPrice.Location = new System.Drawing.Point(12, 156);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(127, 19);
             this.lblPrice.TabIndex = 42;
@@ -130,89 +127,11 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(12, 96);
+            this.lblDesc.Location = new System.Drawing.Point(12, 108);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(74, 19);
             this.lblDesc.TabIndex = 39;
             this.lblDesc.Text = "Description";
-            // 
-            // txtQty
-            // 
-            // 
-            // 
-            // 
-            this.txtQty.CustomButton.Image = null;
-            this.txtQty.CustomButton.Location = new System.Drawing.Point(141, 1);
-            this.txtQty.CustomButton.Name = "";
-            this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtQty.CustomButton.TabIndex = 1;
-            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtQty.CustomButton.UseSelectable = true;
-            this.txtQty.CustomButton.Visible = false;
-            this.txtQty.Lines = new string[0];
-            this.txtQty.Location = new System.Drawing.Point(358, 118);
-            this.txtQty.MaxLength = 32;
-            this.txtQty.Name = "txtQty";
-            this.txtQty.PasswordChar = '\0';
-            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtQty.SelectedText = "";
-            this.txtQty.SelectionLength = 0;
-            this.txtQty.SelectionStart = 0;
-            this.txtQty.ShortcutsEnabled = true;
-            this.txtQty.Size = new System.Drawing.Size(163, 23);
-            this.txtQty.TabIndex = 37;
-            this.txtQty.UseSelectable = true;
-            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Location = new System.Drawing.Point(358, 96);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(58, 19);
-            this.lblQty.TabIndex = 41;
-            this.lblQty.Text = "Quantity";
-            // 
-            // txtRawUsed
-            // 
-            // 
-            // 
-            // 
-            this.txtRawUsed.CustomButton.Image = null;
-            this.txtRawUsed.CustomButton.Location = new System.Drawing.Point(141, 1);
-            this.txtRawUsed.CustomButton.Name = "";
-            this.txtRawUsed.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtRawUsed.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtRawUsed.CustomButton.TabIndex = 1;
-            this.txtRawUsed.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtRawUsed.CustomButton.UseSelectable = true;
-            this.txtRawUsed.CustomButton.Visible = false;
-            this.txtRawUsed.Lines = new string[0];
-            this.txtRawUsed.Location = new System.Drawing.Point(189, 118);
-            this.txtRawUsed.MaxLength = 32;
-            this.txtRawUsed.Name = "txtRawUsed";
-            this.txtRawUsed.PasswordChar = '\0';
-            this.txtRawUsed.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtRawUsed.SelectedText = "";
-            this.txtRawUsed.SelectionLength = 0;
-            this.txtRawUsed.SelectionStart = 0;
-            this.txtRawUsed.ShortcutsEnabled = true;
-            this.txtRawUsed.Size = new System.Drawing.Size(163, 23);
-            this.txtRawUsed.TabIndex = 35;
-            this.txtRawUsed.UseSelectable = true;
-            this.txtRawUsed.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtRawUsed.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblRawUsed
-            // 
-            this.lblRawUsed.AutoSize = true;
-            this.lblRawUsed.Location = new System.Drawing.Point(189, 96);
-            this.lblRawUsed.Name = "lblRawUsed";
-            this.lblRawUsed.Size = new System.Drawing.Size(118, 19);
-            this.lblRawUsed.TabIndex = 40;
-            this.lblRawUsed.Text = "Raw Material Used";
             // 
             // txtDesc
             // 
@@ -229,7 +148,7 @@
             this.txtDesc.CustomButton.UseSelectable = true;
             this.txtDesc.CustomButton.Visible = false;
             this.txtDesc.Lines = new string[0];
-            this.txtDesc.Location = new System.Drawing.Point(12, 118);
+            this.txtDesc.Location = new System.Drawing.Point(12, 130);
             this.txtDesc.MaxLength = 64;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.PasswordChar = '\0';
@@ -246,7 +165,7 @@
             // 
             // btnClearFields
             // 
-            this.btnClearFields.Location = new System.Drawing.Point(403, 425);
+            this.btnClearFields.Location = new System.Drawing.Point(403, 437);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(119, 24);
             this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
@@ -256,7 +175,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(273, 425);
+            this.btnAdd.Location = new System.Drawing.Point(273, 437);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(119, 24);
             this.btnAdd.Style = MetroFramework.MetroColorStyle.Teal;
@@ -280,7 +199,7 @@
             this.txtFinQty.CustomButton.UseSelectable = true;
             this.txtFinQty.CustomButton.Visible = false;
             this.txtFinQty.Lines = new string[0];
-            this.txtFinQty.Location = new System.Drawing.Point(189, 166);
+            this.txtFinQty.Location = new System.Drawing.Point(189, 178);
             this.txtFinQty.MaxLength = 32;
             this.txtFinQty.Name = "txtFinQty";
             this.txtFinQty.PasswordChar = '\0';
@@ -298,26 +217,16 @@
             // lblFinQTY
             // 
             this.lblFinQTY.AutoSize = true;
-            this.lblFinQTY.Location = new System.Drawing.Point(189, 144);
+            this.lblFinQTY.Location = new System.Drawing.Point(189, 156);
             this.lblFinQTY.Name = "lblFinQTY";
             this.lblFinQTY.Size = new System.Drawing.Size(109, 19);
             this.lblFinQTY.TabIndex = 55;
             this.lblFinQTY.Text = "Finished Quantity";
             // 
-            // lblAccountAddTitle
-            // 
-            this.lblAccountAddTitle.AutoSize = true;
-            this.lblAccountAddTitle.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblAccountAddTitle.Location = new System.Drawing.Point(12, 9);
-            this.lblAccountAddTitle.Name = "lblAccountAddTitle";
-            this.lblAccountAddTitle.Size = new System.Drawing.Size(171, 25);
-            this.lblAccountAddTitle.TabIndex = 58;
-            this.lblAccountAddTitle.Text = "AddFinished Material";
-            // 
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 48);
+            this.lblID.Location = new System.Drawing.Point(12, 60);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(122, 19);
             this.lblID.TabIndex = 59;
@@ -338,7 +247,7 @@
             this.txtID.CustomButton.UseSelectable = true;
             this.txtID.CustomButton.Visible = false;
             this.txtID.Lines = new string[0];
-            this.txtID.Location = new System.Drawing.Point(12, 70);
+            this.txtID.Location = new System.Drawing.Point(12, 82);
             this.txtID.MaxLength = 32;
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
@@ -356,7 +265,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(189, 48);
+            this.lblName.Location = new System.Drawing.Point(189, 60);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 19);
             this.lblName.TabIndex = 61;
@@ -370,7 +279,7 @@
             this.columnHeader4});
             this.lvRawMaterials.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvRawMaterials.FullRowSelect = true;
-            this.lvRawMaterials.Location = new System.Drawing.Point(12, 214);
+            this.lvRawMaterials.Location = new System.Drawing.Point(12, 226);
             this.lvRawMaterials.MultiSelect = false;
             this.lvRawMaterials.Name = "lvRawMaterials";
             this.lvRawMaterials.OwnerDraw = true;
@@ -379,52 +288,6 @@
             this.lvRawMaterials.UseCompatibleStateImageBehavior = false;
             this.lvRawMaterials.UseSelectable = true;
             this.lvRawMaterials.View = System.Windows.Forms.View.Details;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(12, 192);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(90, 19);
-            this.metroLabel1.TabIndex = 63;
-            this.metroLabel1.Text = "Raw Materials";
-            // 
-            // lvRawMaterialsUsed
-            // 
-            this.lvRawMaterialsUsed.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader5,
-            this.columnHeader6});
-            this.lvRawMaterialsUsed.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lvRawMaterialsUsed.FullRowSelect = true;
-            this.lvRawMaterialsUsed.Location = new System.Drawing.Point(273, 214);
-            this.lvRawMaterialsUsed.MultiSelect = false;
-            this.lvRawMaterialsUsed.Name = "lvRawMaterialsUsed";
-            this.lvRawMaterialsUsed.OwnerDraw = true;
-            this.lvRawMaterialsUsed.Size = new System.Drawing.Size(249, 205);
-            this.lvRawMaterialsUsed.TabIndex = 64;
-            this.lvRawMaterialsUsed.UseCompatibleStateImageBehavior = false;
-            this.lvRawMaterialsUsed.UseSelectable = true;
-            this.lvRawMaterialsUsed.View = System.Windows.Forms.View.Details;
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(398, 192);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(123, 19);
-            this.metroLabel2.TabIndex = 65;
-            this.metroLabel2.Text = "Used Raw Materials";
-            // 
-            // btnAddUsedMaterial
-            // 
-            this.btnAddUsedMaterial.Location = new System.Drawing.Point(11, 425);
-            this.btnAddUsedMaterial.Name = "btnAddUsedMaterial";
-            this.btnAddUsedMaterial.Size = new System.Drawing.Size(125, 23);
-            this.btnAddUsedMaterial.TabIndex = 66;
-            this.btnAddUsedMaterial.Text = "Add as Used Material";
-            this.btnAddUsedMaterial.UseSelectable = true;
-            this.btnAddUsedMaterial.Click += new System.EventHandler(this.btnAddUsedMaterial_Click);
             // 
             // columnHeader1
             // 
@@ -441,6 +304,33 @@
             this.columnHeader4.Text = "Qty";
             this.columnHeader4.Width = 71;
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(12, 204);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel1.TabIndex = 63;
+            this.metroLabel1.Text = "Raw Materials";
+            // 
+            // lvRawMaterialsUsed
+            // 
+            this.lvRawMaterialsUsed.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lvRawMaterialsUsed.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lvRawMaterialsUsed.FullRowSelect = true;
+            this.lvRawMaterialsUsed.Location = new System.Drawing.Point(273, 226);
+            this.lvRawMaterialsUsed.MultiSelect = false;
+            this.lvRawMaterialsUsed.Name = "lvRawMaterialsUsed";
+            this.lvRawMaterialsUsed.OwnerDraw = true;
+            this.lvRawMaterialsUsed.Size = new System.Drawing.Size(249, 205);
+            this.lvRawMaterialsUsed.TabIndex = 64;
+            this.lvRawMaterialsUsed.UseCompatibleStateImageBehavior = false;
+            this.lvRawMaterialsUsed.UseSelectable = true;
+            this.lvRawMaterialsUsed.View = System.Windows.Forms.View.Details;
+            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "ID";
@@ -453,12 +343,71 @@
             // 
             this.columnHeader6.Text = "Qty";
             // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(398, 204);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(123, 19);
+            this.metroLabel2.TabIndex = 65;
+            this.metroLabel2.Text = "Used Raw Materials";
+            // 
+            // btnAddUsedMaterial
+            // 
+            this.btnAddUsedMaterial.Location = new System.Drawing.Point(11, 437);
+            this.btnAddUsedMaterial.Name = "btnAddUsedMaterial";
+            this.btnAddUsedMaterial.Size = new System.Drawing.Size(125, 23);
+            this.btnAddUsedMaterial.TabIndex = 66;
+            this.btnAddUsedMaterial.Text = "Add as Used Material";
+            this.btnAddUsedMaterial.UseSelectable = true;
+            this.btnAddUsedMaterial.Click += new System.EventHandler(this.btnAddUsedMaterial_Click);
+            // 
+            // txtQty
+            // 
+            // 
+            // 
+            // 
+            this.txtQty.CustomButton.Image = null;
+            this.txtQty.CustomButton.Location = new System.Drawing.Point(141, 1);
+            this.txtQty.CustomButton.Name = "";
+            this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtQty.CustomButton.TabIndex = 1;
+            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtQty.CustomButton.UseSelectable = true;
+            this.txtQty.CustomButton.Visible = false;
+            this.txtQty.Lines = new string[0];
+            this.txtQty.Location = new System.Drawing.Point(11, 488);
+            this.txtQty.MaxLength = 32;
+            this.txtQty.Name = "txtQty";
+            this.txtQty.PasswordChar = '\0';
+            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtQty.SelectedText = "";
+            this.txtQty.SelectionLength = 0;
+            this.txtQty.SelectionStart = 0;
+            this.txtQty.ShortcutsEnabled = true;
+            this.txtQty.Size = new System.Drawing.Size(163, 23);
+            this.txtQty.TabIndex = 67;
+            this.txtQty.UseSelectable = true;
+            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Location = new System.Drawing.Point(12, 466);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(58, 19);
+            this.lblQty.TabIndex = 68;
+            this.lblQty.Text = "Quantity";
+            // 
             // FormPanelFinishAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(534, 461);
+            this.ClientSize = new System.Drawing.Size(536, 530);
+            this.Controls.Add(this.txtQty);
+            this.Controls.Add(this.lblQty);
             this.Controls.Add(this.btnAddUsedMaterial);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.lvRawMaterialsUsed);
@@ -472,18 +421,13 @@
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblFinQTY);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtQty);
             this.Controls.Add(this.lblDesc);
-            this.Controls.Add(this.lblQty);
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.txtRawUsed);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblAccountAddTitle);
             this.Controls.Add(this.txtDesc);
-            this.Controls.Add(this.lblRawUsed);
             this.Name = "FormPanelFinishAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormPanelFinishAdd";
+            this.Text = "Add Finished Product";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,16 +438,11 @@
         private MetroFramework.Controls.MetroTextBox txtName;
         private MetroFramework.Controls.MetroLabel lblPrice;
         private MetroFramework.Controls.MetroLabel lblDesc;
-        private MetroFramework.Controls.MetroTextBox txtQty;
-        private MetroFramework.Controls.MetroLabel lblQty;
-        private MetroFramework.Controls.MetroTextBox txtRawUsed;
-        private MetroFramework.Controls.MetroLabel lblRawUsed;
         private MetroFramework.Controls.MetroTextBox txtDesc;
         private MetroFramework.Controls.MetroButton btnAdd;
         private MetroFramework.Controls.MetroButton btnClearFields;
         private MetroFramework.Controls.MetroTextBox txtFinQty;
         private MetroFramework.Controls.MetroLabel lblFinQTY;
-        private MetroFramework.Controls.MetroLabel lblAccountAddTitle;
         private MetroFramework.Controls.MetroLabel lblID;
         private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroLabel lblName;
@@ -518,5 +457,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private MetroFramework.Controls.MetroTextBox txtQty;
+        private MetroFramework.Controls.MetroLabel lblQty;
     }
 }
