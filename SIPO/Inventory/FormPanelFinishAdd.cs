@@ -155,7 +155,7 @@ namespace SIPO.Inventory
 
                 int quantity = int.Parse(txtQty.Text.ToString());
                 if ((rawMaterials[index].Qty >= quantity) && (quantity > 0))
-                {
+                {   
                     bool isAdded = false;
                     int rmUsedIndex = 0;
                     foreach (RawMaterials rmUsed in rawMaterialsUsed)
@@ -178,7 +178,6 @@ namespace SIPO.Inventory
                         {
                             if (lvRawMaterialsUsed.Items[i].Text.Equals(rawMaterialsUsed[rmUsedIndex].Id.ToString()))
                             {
-                                
                                 lvRawMaterialsUsed.Items[i].SubItems[2].Text = rawMaterialsUsed[rmUsedIndex].Qty.ToString();
                                 break;
                             }

@@ -16,11 +16,14 @@ namespace SIPO.Sales
     public partial class FormPurchaseOrderAdd : MetroFramework.Forms.MetroForm
     {
         List<Client> clients;
+        List<FinishedProduct> finishedProducts;
+        List<FinishedProduct> requestedProducts;
 
         public FormPurchaseOrderAdd()
         {
             InitializeComponent();
             loadClients();
+            loadProducts();
         }
 
         private void loadClients()
@@ -61,7 +64,7 @@ namespace SIPO.Sales
                 Console.WriteLine(ex.StackTrace);
             }
 
-            if(clients.Count > 0)
+            if (clients.Count > 0)
             {
                 hasItems = true;
             }
@@ -76,6 +79,121 @@ namespace SIPO.Sales
                 btnAddCustomProduct.Enabled = false;
                 btnAddPurchaseOrder.Enabled = false;
             }
+        }
+
+        private void loadProducts()
+        {
+            finishedProducts = new List<FinishedProduct>();
+            requestedProducts = new List<FinishedProduct>();
+
+            try
+            {
+                String query = "SELECT * FROM products_finished";
+                MySqlConnection con = new MySqlConnection(ConString.getConString());
+                MySqlCommand com = new MySqlCommand(query, con);
+                MySqlDataReader reader;
+
+                con.Open();
+
+                int row = 0;
+                reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    FinishedProduct finishedProduct = new FinishedProduct();
+                    finishedProduct.Id = int.Parse(reader["prodf_id"].ToString());
+                    finishedProduct.Name = reader["prodf_name"].ToString();
+                    finishedProduct.Desc = reader["prodf_desc"].ToString();
+                    finishedProduct.Qty = int.Parse(reader["prodf_qty"].ToString());
+                    finishedProduct.Price = double.Parse(reader["prodf_srp"].ToString());
+
+                    finishedProducts.Add(finishedProduct);
+
+                    lvProductList.Items.Add(finishedProduct.Id.ToString());
+                    lvProductList.Items[row].SubItems.Add(finishedProduct.Name);
+                    lvProductList.Items[row].SubItems.Add(finishedProduct.Qty.ToString());
+
+                    row++;
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            int quantity = 0;
+            int selectedIndex = 0;
+
+            try
+            {
+                quantity = int.Parse(txtQuantity.Text.ToString());
+                selectedIndex = lvProductList.Items.IndexOf(lvProductList.SelectedItems[0]);
+
+                if (finishedProducts[selectedIndex].Qty >= quantity && quantity > 0)
+                {
+                    bool isAdded = false;
+                    int prodIndex = 0;
+
+                    FinishedProduct requestProduct = finishedProducts[selectedIndex];
+                    foreach (FinishedProduct requestedProduct in requestedProducts)
+                    {
+                        if (requestedProduct.Id == requestProduct.Id)
+                        {
+                            isAdded = true;
+                            requestedProducts[prodIndex].Qty += quantity;
+                            break;
+                        }
+                        else
+                        {
+                            prodIndex++;
+                        }
+                    }
+
+                    if (isAdded)
+                    {
+                        for (int i = 0; i < lvProductList.Items.Count; i++)
+                        {
+                            if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[prodIndex].Id.ToString()))
+                            {
+                                lvPurchaseList.Items[i].SubItems[2].Text = finishedProducts[prodIndex].Qty.ToString();
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        requestProduct.Qty = quantity;
+                        requestedProducts.Add(requestProduct);
+
+                        lvPurchaseList.Items.Add(requestProduct.Id.ToString());
+                        lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
+                        lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
+        private void btnAddCustomProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddPurchaseOrder_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
