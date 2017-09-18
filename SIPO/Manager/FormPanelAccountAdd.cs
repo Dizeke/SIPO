@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 using SIPO.Classes;
 
@@ -16,6 +17,11 @@ namespace SIPO.Manager
     public partial class FormPanelAccountAdd : Form
     {
         Account account;
+
+        bool hasImage = false;
+        FileStream fs;
+        BinaryReader br;
+        byte[] imageData;
 
         public FormPanelAccountAdd()
         {
@@ -46,11 +52,45 @@ namespace SIPO.Manager
 
                     con.Open();
                     com.ExecuteNonQuery();
+                    long acc_id = com.LastInsertedId;
+
+                    query = "INSERT INTO account_images (aci_image, acc_id) VALUES (@aci_image, @acc_id)";
+                    com = new MySqlCommand(query, con);
+                    com.Parameters.Add("@aci_image", MySqlDbType.MediumBlob);
+                    com.Parameters.Add("@acc_id", MySqlDbType.Int32);
+                    com.Parameters["@aci_image"].Value = imageData;
+                    com.Parameters["@acc_id"].Value = acc_id;
+                    com.ExecuteNonQuery();
                     con.Close();
 
                     MessageBox.Show("Account Successfully Added");
                     clearFields();
                 }
+            }
+        }
+
+        private void btnSelectImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Select Image";
+            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                PictureBox PictureBox1 = new PictureBox();
+                pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+
+                fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fs);
+                imageData = br.ReadBytes((int)fs.Length);
+                br.Close();
+                fs.Close();
+
+                hasImage = true;
+            }
+            else
+            {
+                hasImage = false;
             }
         }
 
@@ -131,6 +171,11 @@ namespace SIPO.Manager
                     MessageBox.Show("Position cannot be empty");
                     return false;
                 }
+                else if (!hasImage)
+                {
+                    MessageBox.Show("Please add an image for the user");
+                    return false;
+                }
                 else
                 {
                     account = new Account();
@@ -208,8 +253,8 @@ namespace SIPO.Manager
             txtEmail.Clear();
             txtContact.Clear();
             txtPosition.Clear();
-            
-            if(cbDepartment.Items.Count > 0)
+
+            if (cbDepartment.Items.Count > 0)
             {
                 cbDepartment.SelectedIndex = 0;
             }

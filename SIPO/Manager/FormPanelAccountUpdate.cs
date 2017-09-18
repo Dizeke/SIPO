@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using MySql.Data.MySqlClient;
 
 using SIPO.Classes;
@@ -16,6 +17,10 @@ namespace SIPO.Manager
     public partial class FormPanelAccountUpdate : Form
     {
         Account account;
+        bool hasNewImage = false;
+        FileStream fs;
+        BinaryReader br;
+        byte[] imageData;
 
         public FormPanelAccountUpdate()
         {
@@ -53,6 +58,20 @@ namespace SIPO.Manager
 
                 con.Open();
                 com.ExecuteNonQuery();
+
+                if (hasNewImage)
+                {
+                    query = "UPDATE account_images SET aci_image = @aci_image WHERE acc_id = @acc_id";
+                    com = new MySqlCommand(query, con);
+                    com.Parameters.Add("@aci_image", MySqlDbType.MediumBlob);
+                    com.Parameters.Add("@acc_id", MySqlDbType.Int32);
+                    com.Parameters["@aci_image"].Value = imageData;
+                    com.Parameters["@acc_id"].Value = account.id;
+                    Console.WriteLine(account.id);
+                    com.ExecuteNonQuery();
+                    con.Close();
+                }
+
                 con.Close();
 
                 MessageBox.Show("Account Successfully Updated");
@@ -122,7 +141,6 @@ namespace SIPO.Manager
                 }
                 else
                 {
-                    account = new Account();
                     account.user = txtUsername.Text.ToString();
                     account.pass = txtPassword.Text.ToString();
                     account.vpass = txtVerifyPassword.Text.ToString();
@@ -141,6 +159,31 @@ namespace SIPO.Manager
             {
                 Console.WriteLine(ex.StackTrace);
                 return false;
+            }
+        }
+
+        private void btnSelectImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Select Image";
+            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                PictureBox PictureBox1 = new PictureBox();
+                pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+
+                fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fs);
+                imageData = br.ReadBytes((int)fs.Length);
+                br.Close();
+                fs.Close();
+
+                hasNewImage = true;
+            }
+            else
+            {
+                hasNewImage = false;
             }
         }
 
@@ -189,6 +232,16 @@ namespace SIPO.Manager
                         break;
                     }
                 }
+
+                if (account.image != null)
+                {
+                    if (account.image.Length > 0)
+                    {
+                        MemoryStream memoryStream = new MemoryStream();
+                        memoryStream.Write(account.image, 0, account.image.Length);
+                        pictureBox1.Image = Image.FromStream(memoryStream);
+                    }
+                }
             }
             else
             {
@@ -218,5 +271,7 @@ namespace SIPO.Manager
         {
             AccountUpdateHolder.hasSelected = false;
         }
+
+
     }
 }

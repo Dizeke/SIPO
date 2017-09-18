@@ -94,7 +94,7 @@
             this.metroTile3.Name = "metroTile3";
             this.metroTile3.Size = new System.Drawing.Size(193, 201);
             this.metroTile3.TabIndex = 3;
-            this.metroTile3.Text = "Move to Delivery";
+            this.metroTile3.Text = "Dispatch Packages";
             this.metroTile3.UseSelectable = true;
             // 
             // metroTile2
