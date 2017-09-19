@@ -63,6 +63,8 @@
     <Compile Include="Classes\FinishedProduct.cs" />
     <Compile Include="Classes\FinishedProductUpdate.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
+    <Compile Include="Classes\PurchaseOrderHelper.cs" />
+    <Compile Include="Classes\PurchaseOrderProduct.cs" />
     <Compile Include="Classes\RawMaterials.cs" />
     <Compile Include="Classes\RawMaterialsUpdate.cs" />
     <Compile Include="ConString.cs" />
@@ -170,6 +172,12 @@
     <Compile Include="Sales\FormPurchaseOrderAdd.Designer.cs">
       <DependentUpon>FormPurchaseOrderAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\FormPurchaseOrderBatching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FormPurchaseOrderBatching.Designer.cs">
+      <DependentUpon>FormPurchaseOrderBatching.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\FormSales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +244,9 @@
     </Compile>
     <EmbeddedResource Include="Sales\FormPurchaseOrderAdd.resx">
       <DependentUpon>FormPurchaseOrderAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FormPurchaseOrderBatching.resx">
+      <DependentUpon>FormPurchaseOrderBatching.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormSales.resx">
       <DependentUpon>FormSales.cs</DependentUpon>

@@ -126,14 +126,32 @@ namespace SIPO.Sales
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             int quantity = 0;
-            int selectedFinishedProductIndex = 0;
-
             try
             {
                 quantity = int.Parse(txtQuantity.Text.ToString());
-                selectedFinishedProductIndex = lvProductList.Items.IndexOf(lvProductList.SelectedItems[0]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please provide a valid quantity");
+                return;
+            }
 
-                if (finishedProducts[selectedFinishedProductIndex].Qty >= quantity && quantity > 0)
+            int selectedFinishedProductIndex = 0;
+            try
+            {
+                selectedFinishedProductIndex = lvProductList.Items.IndexOf(lvProductList.SelectedItems[0]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please select a product to add to purchase order");
+                return;
+            }
+
+            try
+            {
+                if ((finishedProducts[selectedFinishedProductIndex].Qty) <= quantity && quantity > 0)
                 {
                     bool isAdded = false;
                     int prodIndex = 0;
@@ -143,8 +161,16 @@ namespace SIPO.Sales
                     {
                         if (requestedProduct.Id == requestProduct.Id)
                         {
-                            isAdded = true;
-                            requestedProducts[prodIndex].Qty += quantity;
+                            if ((finishedProducts[selectedFinishedProductIndex].Qty + quantity) <= quantity && quantity > 0)
+                            {
+                                isAdded = true;
+                                requestedProducts[prodIndex].Qty += quantity;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please provide a quantity not more than the available stock");
+                                return;
+                            }
                             break;
                         }
                         else
@@ -166,13 +192,26 @@ namespace SIPO.Sales
                     }
                     else
                     {
-                        requestProduct.Qty = quantity;
-                        requestedProducts.Add(requestProduct);
+                        if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
+                        {
+                            requestProduct.Qty = quantity;
+                            requestedProducts.Add(requestProduct);
 
-                        lvPurchaseList.Items.Add(requestProduct.Id.ToString());
-                        lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
-                        lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
+                            lvPurchaseList.Items.Add(requestProduct.Id.ToString());
+                            lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
+                            lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please provide a quantity not more than the available stock");
+                            return;
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Please provide a quantity not more than the available stock");
+                    return;
                 }
             }
             catch (Exception ex)
@@ -204,6 +243,42 @@ namespace SIPO.Sales
 
         private void btnAddPurchaseOrder_Click(object sender, EventArgs e)
         {
+            if (requestedProducts.Count > 0)
+            {
+                Client selectedClient = new Client();
+                foreach (Client client in clients)
+                {
+                    if (cbClient.SelectedItem.Equals(client.company))
+                    {
+                        selectedClient = client;
+                        break;
+                    }
+                }
+
+                List<PurchaseOrderProduct> purchaseOrderProducts = new List<PurchaseOrderProduct>();
+                foreach (FinishedProduct product in requestedProducts)
+                {
+                    PurchaseOrderProduct purchaseOrderProduct = new PurchaseOrderProduct();
+                    purchaseOrderProduct.prodf_id = product.Id;
+                    purchaseOrderProduct.prodf_quantity = product.Qty;
+                    purchaseOrderProduct.finishedProduct = product;
+
+                    purchaseOrderProducts.Add(purchaseOrderProduct);
+                }
+
+                PurchaseOrder purchaseOrder = new PurchaseOrder();
+                purchaseOrder.client_id = selectedClient.id;
+
+                PurchaseOrderHelper.purchaseOrder = purchaseOrder;
+                PurchaseOrderHelper.purchaseOrderProducts = purchaseOrderProducts;
+
+                FormPurchaseOrderBatching formPurchaseOrderBatching = new FormPurchaseOrderBatching();
+                formPurchaseOrderBatching.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please add products for purchase order before you proceed");
+            }
 
         }
 
