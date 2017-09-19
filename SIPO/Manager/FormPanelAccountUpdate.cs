@@ -260,6 +260,7 @@ namespace SIPO.Manager
             txtEmail.Clear();
             txtContact.Clear();
             txtPosition.Clear();
+            pictureBox1.Image = null;
 
             if (cbDepartment.Items.Count > 0)
             {
