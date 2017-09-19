@@ -23,16 +23,8 @@ namespace SIPO.Inventory
                 txtID.Text = finished.Id.ToString();
                 txtName.Text = finished.Name;
                 txtDesc.Text = finished.Desc;
-                for (int i = 0; i < finished.Raw.Count; i++)
-                {
-                    for (int j = 0; j < finished.Qty.Count; j++)
-                    {
-                        lvRawMaterialsUsed.Items.Add(finished.RawId[i].ToString());
-                        lvRawMaterialsUsed.Items[i].SubItems.Add(finished.Raw[j].ToString());
-                        lvRawMaterialsUsed.Items[i].SubItems.Add(finished.Qty[j].ToString());
-                     }
-                }
-
+                txtRawUsed.Text = finished.Raw;
+                txtQty.Text = finished.Qty.ToString();
                 txtPrice.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
             }
@@ -47,16 +39,10 @@ namespace SIPO.Inventory
             finished.Id = int.Parse(txtID.Text);
             finished.Name = txtName.Text.ToString();
             finished.Desc = txtDesc.Text.ToString();
-            for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
-            {
-                finished.RawId.Add(int.Parse(lvRawMaterials.Items[i].Text));
-                finished.Raw.Add(lvRawMaterialsUsed.Items[i].SubItems[0].Text);
-                finished.Qty.Add(int.Parse(lvRawMaterials.Items[i].SubItems[1].Text));
-            }
+            finished.Raw = txtRawUsed.Text.ToString();
+            finished.Qty = int.Parse(txtQty.Text.ToString());
             finished.Price = int.Parse(txtPrice.Text.ToString());
             finished.FinQty = int.Parse(txtFinQty.Text.ToString());
-
-
 
             String query = String.Format("UPDATE products_finished SET " +
                        "prodf_id =  '{0}', " +
@@ -76,7 +62,7 @@ namespace SIPO.Inventory
                    finished.FinQty,
                    finished.Price,
                    finished.Raw,
-                   finished.Qty
+                   finished.Qty                   
                    );
 
 

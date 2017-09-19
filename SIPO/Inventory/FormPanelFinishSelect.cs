@@ -9,7 +9,6 @@ namespace SIPO.Inventory
     public partial class FormPanelFinishSelect : MetroFramework.Forms.MetroForm
     {
         List<FinishedProduct> finished;
-        
         public FormPanelFinishSelect()
         {
             FinishedProductUpdate.hasSelected = false;
@@ -23,8 +22,7 @@ namespace SIPO.Inventory
             {
                 finished = new List<FinishedProduct>();
 
-                String query = "SELECT * FROM products_finished AS a INNER JOIN products_finished_materials as b ON a.prodf_id = b.prodf_f_id;";
-                   
+                String query = "SELECT * FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id";
 
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
@@ -37,13 +35,13 @@ namespace SIPO.Inventory
                 while (reader.Read())
                 {
                     FinishedProduct Finished = new FinishedProduct();
-                    Finished.Raw = new List<string>();
-                    Finished.Qty = new List<int>();
                     Finished.Id = int.Parse(reader["prodf_id"].ToString());
                     Finished.Name = reader["prodf_name"].ToString();
                     Finished.Desc = reader["prodf_desc"].ToString();
-                    Finished.Raw.Add( reader["prod_r_id"].ToString());
-                    Finished.Qty.Add( int.Parse(reader["prod_r_qty"].ToString()));
+
+                    Finished.Raw = reader["prodr_name"].ToString();
+                    Finished.Qty = int.Parse(reader["prod_r_qty"].ToString());
+                   
                     Finished.Price = int.Parse(reader["prodf_srp"].ToString());
                     Finished.FinQty = int.Parse(reader["prodf_qty"].ToString());
 
