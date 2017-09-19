@@ -63,6 +63,7 @@
     <Compile Include="Classes\FinishedProduct.cs" />
     <Compile Include="Classes\FinishedProductUpdate.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
+    <Compile Include="Classes\PurchaseOrderBatch.cs" />
     <Compile Include="Classes\PurchaseOrderHelper.cs" />
     <Compile Include="Classes\PurchaseOrderProduct.cs" />
     <Compile Include="Classes\RawMaterials.cs" />

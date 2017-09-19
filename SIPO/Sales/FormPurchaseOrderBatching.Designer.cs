@@ -41,6 +41,8 @@
             this.btnProceed = new MetroFramework.Controls.MetroButton();
             this.dtBatchDate = new MetroFramework.Controls.MetroDateTime();
             this.lblBatchDate = new MetroFramework.Controls.MetroLabel();
+            this.dtBatchTime = new System.Windows.Forms.DateTimePicker();
+            this.lblBatchTime = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lvPurchaseOrders
@@ -141,10 +143,11 @@
             // 
             // dtBatchDate
             // 
+            this.dtBatchDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtBatchDate.Location = new System.Drawing.Point(23, 323);
             this.dtBatchDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtBatchDate.Name = "dtBatchDate";
-            this.dtBatchDate.Size = new System.Drawing.Size(220, 29);
+            this.dtBatchDate.Size = new System.Drawing.Size(157, 29);
             this.dtBatchDate.TabIndex = 9;
             // 
             // lblBatchDate
@@ -156,11 +159,30 @@
             this.lblBatchDate.TabIndex = 10;
             this.lblBatchDate.Text = "Batch Date";
             // 
+            // dtBatchTime
+            // 
+            this.dtBatchTime.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtBatchTime.Location = new System.Drawing.Point(186, 323);
+            this.dtBatchTime.Name = "dtBatchTime";
+            this.dtBatchTime.Size = new System.Drawing.Size(157, 29);
+            this.dtBatchTime.TabIndex = 11;
+            // 
+            // lblBatchTime
+            // 
+            this.lblBatchTime.AutoSize = true;
+            this.lblBatchTime.Location = new System.Drawing.Point(269, 301);
+            this.lblBatchTime.Name = "lblBatchTime";
+            this.lblBatchTime.Size = new System.Drawing.Size(74, 19);
+            this.lblBatchTime.TabIndex = 12;
+            this.lblBatchTime.Text = "Batch Time";
+            // 
             // FormPurchaseOrderBatching
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 375);
+            this.Controls.Add(this.lblBatchTime);
+            this.Controls.Add(this.dtBatchTime);
             this.Controls.Add(this.lblBatchDate);
             this.Controls.Add(this.dtBatchDate);
             this.Controls.Add(this.btnProceed);
@@ -191,5 +213,7 @@
         private MetroFramework.Controls.MetroButton btnProceed;
         private MetroFramework.Controls.MetroDateTime dtBatchDate;
         private MetroFramework.Controls.MetroLabel lblBatchDate;
+        private System.Windows.Forms.DateTimePicker dtBatchTime;
+        private MetroFramework.Controls.MetroLabel lblBatchTime;
     }
 }

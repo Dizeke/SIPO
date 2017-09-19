@@ -151,27 +151,33 @@ namespace SIPO.Sales
 
             try
             {
-                if ((finishedProducts[selectedFinishedProductIndex].Qty) <= quantity && quantity > 0)
+                if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
                 {
                     bool isAdded = false;
                     int prodIndex = 0;
 
-                    FinishedProduct requestProduct = finishedProducts[selectedFinishedProductIndex];
+                    FinishedProduct requestProduct = new FinishedProduct();
+                    requestProduct.Id = finishedProducts[selectedFinishedProductIndex].Id;
+                    requestProduct.Name = finishedProducts[selectedFinishedProductIndex].Name;
+                    requestProduct.Desc = finishedProducts[selectedFinishedProductIndex].Desc;
+                    requestProduct.Qty = finishedProducts[selectedFinishedProductIndex].Qty;
+                    requestProduct.Price = finishedProducts[selectedFinishedProductIndex].Price;
+
                     foreach (FinishedProduct requestedProduct in requestedProducts)
                     {
                         if (requestedProduct.Id == requestProduct.Id)
                         {
-                            if ((finishedProducts[selectedFinishedProductIndex].Qty + quantity) <= quantity && quantity > 0)
+                            if(quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
                             {
                                 isAdded = true;
                                 requestedProducts[prodIndex].Qty += quantity;
+                                break;
                             }
                             else
                             {
                                 MessageBox.Show("Please provide a quantity not more than the available stock");
                                 return;
                             }
-                            break;
                         }
                         else
                         {
@@ -243,6 +249,8 @@ namespace SIPO.Sales
 
         private void btnAddPurchaseOrder_Click(object sender, EventArgs e)
         {
+            PurchaseOrderHelper.isComplete = false;
+
             if (requestedProducts.Count > 0)
             {
                 Client selectedClient = new Client();
@@ -271,9 +279,15 @@ namespace SIPO.Sales
 
                 PurchaseOrderHelper.purchaseOrder = purchaseOrder;
                 PurchaseOrderHelper.purchaseOrderProducts = purchaseOrderProducts;
+                PurchaseOrderHelper.purchaseOrderBatches = new List<PurchaseOrderBatch>();
 
                 FormPurchaseOrderBatching formPurchaseOrderBatching = new FormPurchaseOrderBatching();
                 formPurchaseOrderBatching.ShowDialog();
+
+                if (PurchaseOrderHelper.isComplete)
+                {
+                    this.Close();
+                }
             }
             else
             {

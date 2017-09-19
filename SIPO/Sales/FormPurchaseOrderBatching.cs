@@ -15,13 +15,15 @@ namespace SIPO.Sales
 {
     public partial class FormPurchaseOrderBatching : MetroFramework.Forms.MetroForm
     {
-        PurchaseOrder purchaseOrder;
-        List<PurchaseOrderProduct> purchaseOrderProducts;
-        List<PurchaseOrderProduct> batchProducts;
+        PurchaseOrder purchaseOrder; //Current Purchase Order Detail
+        List<PurchaseOrderProduct> purchaseOrderProducts; //Request Purchase Order
+        List<PurchaseOrderProduct> batchProducts; //Batch of Purchase Order
 
         public FormPurchaseOrderBatching()
         {
             InitializeComponent();
+            dtBatchTime.Format = DateTimePickerFormat.Time;
+            dtBatchTime.ShowUpDown = true;
             loadPurchaseOrders();
         }
 
@@ -133,9 +135,99 @@ namespace SIPO.Sales
             }
         }
 
+        //purchaseOrder; Current Purchase Order Detail
+        //purchaseOrderProducts; Request Purchase Order
+        //batchProducts; Batch of Purchase Order
+
         private void btnProceed_Click(object sender, EventArgs e)
         {
+            string date = dtBatchDate.Value.ToString("yyyy-MM-dd");
+            string time = dtBatchTime.Value.ToString("HH:mm:ss");
+            PurchaseOrderBatch purchaseOrderBatch = new PurchaseOrderBatch();
+            purchaseOrderBatch.datetime = date + " " + time;
+            purchaseOrderBatch.purchaseOrderProducts = batchProducts;
 
+            /**
+             * Proceed only if there are products added to the batch
+             */
+            if (lvBatchList.Items.Count > 0)
+            {
+                PurchaseOrderHelper.purchaseOrderBatches.Add(purchaseOrderBatch);
+                //MessageBox.Show("PO Products Size: " + purchaseOrderProducts.Count + " Batch Products Size: " + batchProducts.Count + " Batch Count: " + PurchaseOrderHelper.purchaseOrderBatches.Count);
+            }
+            else
+            {
+                MessageBox.Show("Please add a product to the batch list before proceeding");
+                return;
+            }
+
+            /* If there are no more products to add to batch
+             * Means adding of batch is complete
+             */
+            if (purchaseOrderProducts.Count < 1)
+            {
+                MySqlConnection con = new MySqlConnection(ConString.getConString());
+                MySqlCommand com;
+
+                con.Open();
+
+                /**
+                 * Insert the Purchase Order
+                 */
+                String queryInsertPurchaseOrder = String.Format("INSERT INTO purchase_orders (po_datetime, client_id) " +
+                    "VALUES ((SELECT NOW()), {0})", purchaseOrder.client_id);
+                com = new MySqlCommand(queryInsertPurchaseOrder, con);
+                com.ExecuteNonQuery();
+                long po_id = com.LastInsertedId;
+
+                /**
+                 * Insert the the Purchase Order Products by Batch
+                 */
+                foreach (PurchaseOrderBatch batch in PurchaseOrderHelper.purchaseOrderBatches)
+                {
+                    /**
+                     * Inserts the Batch
+                     */
+                    String queryInsertPurchaseOrderBatch = String.Format("INSERT INTO purchase_order_batches (pob_datetime, po_id) " +
+                        "VALUES ('{0}', {1})", batch.datetime, po_id);
+                    com = new MySqlCommand(queryInsertPurchaseOrderBatch, con);
+                    com.ExecuteNonQuery();
+                    long pob_id = com.LastInsertedId;
+
+                    /**
+                     * Inserts the Products in the Batch
+                     */
+                    int counter = 1;
+                    String queryInsertPuchaseOrderBatchProducts = "INSERT INTO purchase_order_batch_products (prodf_id, prodf_qty, pob_id) VALUES ";
+                    foreach (PurchaseOrderProduct product in batch.purchaseOrderProducts)
+                    {
+                        queryInsertPuchaseOrderBatchProducts += String.Format("({0}, {1}, {2})",
+                            product.prodf_id, product.prodf_quantity, pob_id);
+
+                        MessageBox.Show(counter + " " + batch.purchaseOrderProducts.Count);
+                        if (counter < batch.purchaseOrderProducts.Count)
+                            queryInsertPuchaseOrderBatchProducts += ",";
+                        counter++;
+                    }
+                    com = new MySqlCommand(queryInsertPuchaseOrderBatchProducts, con);
+                    com.ExecuteNonQuery();
+                }
+
+                con.Close();
+
+                MessageBox.Show("Product batching complete. Purchase Order has been created.", "Purchase Order Created");
+                PurchaseOrderHelper.isComplete = true;
+                this.Close();
+            }
+            else
+            {
+                this.Hide();
+
+                FormPurchaseOrderBatching formPurchaseOrderBatching = new FormPurchaseOrderBatching();
+                formPurchaseOrderBatching.ShowDialog();
+
+                this.Close();
+            }
         }
     }
 }

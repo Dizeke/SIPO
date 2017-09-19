@@ -10,5 +10,8 @@ namespace SIPO.Classes
     {
         public static PurchaseOrder purchaseOrder;
         public static List<PurchaseOrderProduct> purchaseOrderProducts;
+        public static List<PurchaseOrderBatch> purchaseOrderBatches;
+
+        public static bool isComplete;
     }
 }

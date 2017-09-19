@@ -32,19 +32,19 @@
             this.cbClient = new MetroFramework.Controls.MetroComboBox();
             this.lblProduct = new MetroFramework.Controls.MetroLabel();
             this.lvProductList = new MetroFramework.Controls.MetroListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvPurchaseList = new MetroFramework.Controls.MetroListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.btnAddCustomProduct = new MetroFramework.Controls.MetroButton();
             this.btnAddPurchaseOrder = new MetroFramework.Controls.MetroButton();
             this.lblQuantity = new MetroFramework.Controls.MetroLabel();
             this.txtQuantity = new MetroFramework.Controls.MetroTextBox();
             this.btnRemove = new MetroFramework.Controls.MetroButton();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAddProduct = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
@@ -93,6 +93,21 @@
             this.lvProductList.UseSelectable = true;
             this.lvProductList.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 70;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 146;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Qty";
+            this.columnHeader3.Width = 59;
+            // 
             // lvPurchaseList
             // 
             this.lvPurchaseList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -109,6 +124,21 @@
             this.lvPurchaseList.UseCompatibleStateImageBehavior = false;
             this.lvPurchaseList.UseSelectable = true;
             this.lvPurchaseList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "ID";
+            this.columnHeader4.Width = 67;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Name";
+            this.columnHeader5.Width = 144;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Qty";
+            this.columnHeader6.Width = 65;
             // 
             // metroLabel1
             // 
@@ -135,7 +165,7 @@
             this.btnAddPurchaseOrder.Name = "btnAddPurchaseOrder";
             this.btnAddPurchaseOrder.Size = new System.Drawing.Size(124, 23);
             this.btnAddPurchaseOrder.TabIndex = 11;
-            this.btnAddPurchaseOrder.Text = "Add Purchase Order";
+            this.btnAddPurchaseOrder.Text = "Create Purchase Order";
             this.btnAddPurchaseOrder.UseSelectable = true;
             this.btnAddPurchaseOrder.Click += new System.EventHandler(this.btnAddPurchaseOrder_Click);
             // 
@@ -187,36 +217,6 @@
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseSelectable = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 70;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 146;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Qty";
-            this.columnHeader3.Width = 59;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "ID";
-            this.columnHeader4.Width = 67;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Name";
-            this.columnHeader5.Width = 144;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Qty";
-            this.columnHeader6.Width = 65;
             // 
             // btnAddProduct
             // 
