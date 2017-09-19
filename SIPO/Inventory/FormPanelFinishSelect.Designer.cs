@@ -66,31 +66,32 @@
             // ID
             // 
             this.ID.Text = "ID";
-            this.ID.Width = 40;
+            this.ID.Width = 72;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 84;
+            this.columnHeader2.Width = 136;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 94;
+            this.columnHeader3.Width = 131;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Raw Material";
-            this.columnHeader5.Width = 80;
+            this.columnHeader5.Width = 119;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Qty";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 112;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Price";
+            this.columnHeader6.Width = 66;
             // 
             // btnClose
             // 

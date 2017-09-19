@@ -51,9 +51,8 @@ namespace SIPO.Inventory
                     lvFinished.Items[row].SubItems.Add(Finished.Name);
                     lvFinished.Items[row].SubItems.Add(Finished.Desc);
                     lvFinished.Items[row].SubItems.Add(Finished.Raw.ToString());
-                    lvFinished.Items[row].SubItems.Add(Finished.Qty.ToString());
-                    lvFinished.Items[row].SubItems.Add(Finished.Price.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.FinQty.ToString());
+                    lvFinished.Items[row].SubItems.Add(Finished.Price.ToString());
                     row++;
                 }
 
