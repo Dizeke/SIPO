@@ -133,7 +133,7 @@
             this.btnAccountAdd.Name = "btnAccountAdd";
             this.btnAccountAdd.Size = new System.Drawing.Size(87, 63);
             this.btnAccountAdd.TabIndex = 0;
-            this.btnAccountAdd.Text = "Add";
+            this.btnAccountAdd.Text = "Create";
             this.btnAccountAdd.UseSelectable = true;
             this.btnAccountAdd.Click += new System.EventHandler(this.btnAccountAdd_Click);
             // 
@@ -172,7 +172,7 @@
             this.btnClientAdd.Name = "btnClientAdd";
             this.btnClientAdd.Size = new System.Drawing.Size(87, 63);
             this.btnClientAdd.TabIndex = 0;
-            this.btnClientAdd.Text = "Add";
+            this.btnClientAdd.Text = "Create";
             this.btnClientAdd.UseSelectable = true;
             this.btnClientAdd.Click += new System.EventHandler(this.btnClientAdd_Click);
             // 

@@ -135,7 +135,7 @@
             this.btnRawMaterialAdd.Size = new System.Drawing.Size(202, 65);
             this.btnRawMaterialAdd.Style = MetroFramework.MetroColorStyle.Green;
             this.btnRawMaterialAdd.TabIndex = 3;
-            this.btnRawMaterialAdd.Text = "Add";
+            this.btnRawMaterialAdd.Text = "Add New Material";
             this.btnRawMaterialAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnRawMaterialAdd.UseSelectable = true;
             this.btnRawMaterialAdd.Click += new System.EventHandler(this.btnRawMaterialAdd_Click);
@@ -164,7 +164,7 @@
             this.btnFinishedProductUpdate.Location = new System.Drawing.Point(3, 77);
             this.btnFinishedProductUpdate.Name = "btnFinishedProductUpdate";
             this.btnFinishedProductUpdate.Size = new System.Drawing.Size(202, 68);
-            this.btnFinishedProductUpdate.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.btnFinishedProductUpdate.Style = MetroFramework.MetroColorStyle.Purple;
             this.btnFinishedProductUpdate.TabIndex = 6;
             this.btnFinishedProductUpdate.Text = "Update";
             this.btnFinishedProductUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -180,7 +180,7 @@
             this.btnFinishedProductAdd.Size = new System.Drawing.Size(202, 68);
             this.btnFinishedProductAdd.Style = MetroFramework.MetroColorStyle.Red;
             this.btnFinishedProductAdd.TabIndex = 5;
-            this.btnFinishedProductAdd.Text = "Add";
+            this.btnFinishedProductAdd.Text = "Add New Product";
             this.btnFinishedProductAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnFinishedProductAdd.UseSelectable = true;
             this.btnFinishedProductAdd.Click += new System.EventHandler(this.btnFinishedProductAdd_Click);

@@ -54,10 +54,9 @@
             // 
             // lblCompany
             // 
-            this.lblCompany.AutoSize = true;
             this.lblCompany.Location = new System.Drawing.Point(23, 79);
             this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(106, 19);
+            this.lblCompany.Size = new System.Drawing.Size(290, 19);
             this.lblCompany.TabIndex = 1;
             this.lblCompany.Text = "Company Name";
             // 
@@ -72,13 +71,13 @@
             // 
             // lblContact
             // 
-            this.lblContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblContact.AutoSize = true;
-            this.lblContact.Location = new System.Drawing.Point(483, 79);
+            this.lblContact.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblContact.Location = new System.Drawing.Point(319, 79);
             this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(94, 19);
+            this.lblContact.Size = new System.Drawing.Size(258, 19);
             this.lblContact.TabIndex = 3;
             this.lblContact.Text = "Contact Name";
+            this.lblContact.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPayment
             // 
@@ -130,13 +129,13 @@
             // 
             // lblContactNumber
             // 
-            this.lblContactNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblContactNumber.AutoSize = true;
-            this.lblContactNumber.Location = new System.Drawing.Point(511, 122);
+            this.lblContactNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblContactNumber.Location = new System.Drawing.Point(319, 122);
             this.lblContactNumber.Name = "lblContactNumber";
-            this.lblContactNumber.Size = new System.Drawing.Size(66, 19);
+            this.lblContactNumber.Size = new System.Drawing.Size(258, 19);
             this.lblContactNumber.TabIndex = 7;
             this.lblContactNumber.Text = "Contact #";
+            this.lblContactNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblBalance
             // 

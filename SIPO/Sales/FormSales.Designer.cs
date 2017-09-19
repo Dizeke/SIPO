@@ -31,7 +31,6 @@
             this.layoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.layoutPanelPayment = new System.Windows.Forms.TableLayoutPanel();
             this.btnPaymentAdd = new MetroFramework.Controls.MetroTile();
-            this.btnPaymentUpdate = new MetroFramework.Controls.MetroTile();
             this.btnPayment = new MetroFramework.Controls.MetroTile();
             this.btnPurchaseOrder = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,7 +65,6 @@
             this.layoutPanelPayment.ColumnCount = 1;
             this.layoutPanelPayment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.layoutPanelPayment.Controls.Add(this.btnPaymentAdd, 0, 0);
-            this.layoutPanelPayment.Controls.Add(this.btnPaymentUpdate, 0, 1);
             this.layoutPanelPayment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutPanelPayment.Location = new System.Drawing.Point(208, 212);
             this.layoutPanelPayment.Name = "layoutPanelPayment";
@@ -84,20 +82,9 @@
             this.btnPaymentAdd.Name = "btnPaymentAdd";
             this.btnPaymentAdd.Size = new System.Drawing.Size(193, 96);
             this.btnPaymentAdd.TabIndex = 0;
-            this.btnPaymentAdd.Text = "Add";
+            this.btnPaymentAdd.Text = "New Payment";
             this.btnPaymentAdd.UseSelectable = true;
             this.btnPaymentAdd.Click += new System.EventHandler(this.btnPaymentAdd_Click);
-            // 
-            // btnPaymentUpdate
-            // 
-            this.btnPaymentUpdate.ActiveControl = null;
-            this.btnPaymentUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPaymentUpdate.Location = new System.Drawing.Point(3, 105);
-            this.btnPaymentUpdate.Name = "btnPaymentUpdate";
-            this.btnPaymentUpdate.Size = new System.Drawing.Size(193, 97);
-            this.btnPaymentUpdate.TabIndex = 1;
-            this.btnPaymentUpdate.Text = "Update";
-            this.btnPaymentUpdate.UseSelectable = true;
             // 
             // btnPayment
             // 
@@ -154,7 +141,7 @@
             this.btnPurchaseOrderUpdate.Name = "btnPurchaseOrderUpdate";
             this.btnPurchaseOrderUpdate.Size = new System.Drawing.Size(193, 96);
             this.btnPurchaseOrderUpdate.TabIndex = 7;
-            this.btnPurchaseOrderUpdate.Text = "Update";
+            this.btnPurchaseOrderUpdate.Text = "Update Purchase Order";
             this.btnPurchaseOrderUpdate.UseSelectable = true;
             // 
             // btnPurchaseOrderAdd
@@ -165,7 +152,7 @@
             this.btnPurchaseOrderAdd.Name = "btnPurchaseOrderAdd";
             this.btnPurchaseOrderAdd.Size = new System.Drawing.Size(193, 95);
             this.btnPurchaseOrderAdd.TabIndex = 6;
-            this.btnPurchaseOrderAdd.Text = "Add";
+            this.btnPurchaseOrderAdd.Text = "Create Purchase Order";
             this.btnPurchaseOrderAdd.UseSelectable = true;
             this.btnPurchaseOrderAdd.Click += new System.EventHandler(this.btnPurchaseOrderAdd_Click);
             // 
@@ -189,7 +176,6 @@
         private System.Windows.Forms.TableLayoutPanel layoutPanelMain;
         private System.Windows.Forms.TableLayoutPanel layoutPanelPayment;
         private MetroFramework.Controls.MetroTile btnPaymentAdd;
-        private MetroFramework.Controls.MetroTile btnPaymentUpdate;
         private MetroFramework.Controls.MetroTile btnPayment;
         private MetroFramework.Controls.MetroTile btnPurchaseOrder;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

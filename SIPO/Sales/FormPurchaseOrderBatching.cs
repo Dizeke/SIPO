@@ -204,7 +204,6 @@ namespace SIPO.Sales
                         queryInsertPuchaseOrderBatchProducts += String.Format("({0}, {1}, {2})",
                             product.prodf_id, product.prodf_quantity, pob_id);
 
-                        MessageBox.Show(counter + " " + batch.purchaseOrderProducts.Count);
                         if (counter < batch.purchaseOrderProducts.Count)
                             queryInsertPuchaseOrderBatchProducts += ",";
                         counter++;

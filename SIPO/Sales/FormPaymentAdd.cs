@@ -83,27 +83,30 @@ namespace SIPO.Sales
              */
             if (amount <= purchaseOrderDetail.balance)
             {
-                String query = String.Format("INSERT INTO purchase_order_payments (pop_datetime, pop_amount, po_id) " +
+                if (MessageBox.Show("Proceed with the payment?", "Payment Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    String query = String.Format("INSERT INTO purchase_order_payments (pop_datetime, pop_amount, po_id) " +
                     "VALUES ((SELECT NOW()), {0}, {1})",
                     amount, purchaseOrderDetail.po_id);
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
+                    MySqlConnection con = new MySqlConnection(ConString.getConString());
+                    MySqlCommand com = new MySqlCommand(query, con);
 
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
 
-                if ((purchaseOrderDetail.balance - amount) == 0)
-                {
-                    MessageBox.Show("Payment successful. Purchase order is now fully paid.");
+                    if ((purchaseOrderDetail.balance - amount) == 0)
+                    {
+                        MessageBox.Show("Payment successful. Purchase order is now fully paid.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Payment successful");
+                    }
+
+                    PurchaseOrderPaymentHelper.isComplete = true;
+                    this.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Payment successful");
-                }
-
-                PurchaseOrderPaymentHelper.isComplete = true;
-                this.Close();
             }
             else
             {
