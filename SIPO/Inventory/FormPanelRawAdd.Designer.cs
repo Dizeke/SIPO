@@ -182,7 +182,7 @@
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(184, 19);
             this.lblPrice.TabIndex = 44;
-            this.lblPrice.Text = "Mag Kano BILI ? HAHA";
+            this.lblPrice.Text = "Price";
             // 
             // lblReceived
             // 
