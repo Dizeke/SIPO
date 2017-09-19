@@ -32,30 +32,27 @@
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.lblPrice = new MetroFramework.Controls.MetroLabel();
             this.lblDesc = new MetroFramework.Controls.MetroLabel();
-            this.txtQty = new MetroFramework.Controls.MetroTextBox();
-            this.lblQty = new MetroFramework.Controls.MetroLabel();
-            this.txtRawUsed = new MetroFramework.Controls.MetroTextBox();
-            this.lblRawUsed = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.txtFinQty = new MetroFramework.Controls.MetroTextBox();
             this.lblFinQTY = new MetroFramework.Controls.MetroLabel();
-            this.lblAccountAddTitle = new MetroFramework.Controls.MetroLabel();
             this.lblID = new MetroFramework.Controls.MetroLabel();
             this.txtID = new MetroFramework.Controls.MetroTextBox();
             this.lblName = new MetroFramework.Controls.MetroLabel();
             this.lvRawMaterials = new MetroFramework.Controls.MetroListView();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.lvRawMaterialsUsed = new MetroFramework.Controls.MetroListView();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.btnAddUsedMaterial = new MetroFramework.Controls.MetroButton();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lvRawMaterialsUsed = new MetroFramework.Controls.MetroListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.btnAddUsedMaterial = new MetroFramework.Controls.MetroButton();
+            this.txtQty = new MetroFramework.Controls.MetroTextBox();
+            this.lblQty = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // txtPrice
@@ -135,84 +132,6 @@
             this.lblDesc.Size = new System.Drawing.Size(74, 19);
             this.lblDesc.TabIndex = 39;
             this.lblDesc.Text = "Description";
-            // 
-            // txtQty
-            // 
-            // 
-            // 
-            // 
-            this.txtQty.CustomButton.Image = null;
-            this.txtQty.CustomButton.Location = new System.Drawing.Point(141, 1);
-            this.txtQty.CustomButton.Name = "";
-            this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtQty.CustomButton.TabIndex = 1;
-            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtQty.CustomButton.UseSelectable = true;
-            this.txtQty.CustomButton.Visible = false;
-            this.txtQty.Lines = new string[0];
-            this.txtQty.Location = new System.Drawing.Point(358, 118);
-            this.txtQty.MaxLength = 32;
-            this.txtQty.Name = "txtQty";
-            this.txtQty.PasswordChar = '\0';
-            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtQty.SelectedText = "";
-            this.txtQty.SelectionLength = 0;
-            this.txtQty.SelectionStart = 0;
-            this.txtQty.ShortcutsEnabled = true;
-            this.txtQty.Size = new System.Drawing.Size(163, 23);
-            this.txtQty.TabIndex = 37;
-            this.txtQty.UseSelectable = true;
-            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Location = new System.Drawing.Point(358, 96);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(58, 19);
-            this.lblQty.TabIndex = 41;
-            this.lblQty.Text = "Quantity";
-            // 
-            // txtRawUsed
-            // 
-            // 
-            // 
-            // 
-            this.txtRawUsed.CustomButton.Image = null;
-            this.txtRawUsed.CustomButton.Location = new System.Drawing.Point(141, 1);
-            this.txtRawUsed.CustomButton.Name = "";
-            this.txtRawUsed.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtRawUsed.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtRawUsed.CustomButton.TabIndex = 1;
-            this.txtRawUsed.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtRawUsed.CustomButton.UseSelectable = true;
-            this.txtRawUsed.CustomButton.Visible = false;
-            this.txtRawUsed.Lines = new string[0];
-            this.txtRawUsed.Location = new System.Drawing.Point(189, 118);
-            this.txtRawUsed.MaxLength = 32;
-            this.txtRawUsed.Name = "txtRawUsed";
-            this.txtRawUsed.PasswordChar = '\0';
-            this.txtRawUsed.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtRawUsed.SelectedText = "";
-            this.txtRawUsed.SelectionLength = 0;
-            this.txtRawUsed.SelectionStart = 0;
-            this.txtRawUsed.ShortcutsEnabled = true;
-            this.txtRawUsed.Size = new System.Drawing.Size(163, 23);
-            this.txtRawUsed.TabIndex = 35;
-            this.txtRawUsed.UseSelectable = true;
-            this.txtRawUsed.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtRawUsed.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblRawUsed
-            // 
-            this.lblRawUsed.AutoSize = true;
-            this.lblRawUsed.Location = new System.Drawing.Point(189, 96);
-            this.lblRawUsed.Name = "lblRawUsed";
-            this.lblRawUsed.Size = new System.Drawing.Size(118, 19);
-            this.lblRawUsed.TabIndex = 40;
-            this.lblRawUsed.Text = "Raw Material Used";
             // 
             // txtDesc
             // 
@@ -304,16 +223,6 @@
             this.lblFinQTY.TabIndex = 55;
             this.lblFinQTY.Text = "Finished Quantity";
             // 
-            // lblAccountAddTitle
-            // 
-            this.lblAccountAddTitle.AutoSize = true;
-            this.lblAccountAddTitle.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblAccountAddTitle.Location = new System.Drawing.Point(12, 9);
-            this.lblAccountAddTitle.Name = "lblAccountAddTitle";
-            this.lblAccountAddTitle.Size = new System.Drawing.Size(171, 25);
-            this.lblAccountAddTitle.TabIndex = 58;
-            this.lblAccountAddTitle.Text = "AddFinished Material";
-            // 
             // lblID
             // 
             this.lblID.AutoSize = true;
@@ -380,6 +289,21 @@
             this.lvRawMaterials.UseSelectable = true;
             this.lvRawMaterials.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 58;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 117;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Qty";
+            this.columnHeader4.Width = 71;
+            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -407,6 +331,18 @@
             this.lvRawMaterialsUsed.UseSelectable = true;
             this.lvRawMaterialsUsed.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "ID";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Name";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Qty";
+            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
@@ -426,39 +362,52 @@
             this.btnAddUsedMaterial.UseSelectable = true;
             this.btnAddUsedMaterial.Click += new System.EventHandler(this.btnAddUsedMaterial_Click);
             // 
-            // columnHeader1
+            // txtQty
             // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 58;
             // 
-            // columnHeader2
             // 
-            this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 117;
             // 
-            // columnHeader4
+            this.txtQty.CustomButton.Image = null;
+            this.txtQty.CustomButton.Location = new System.Drawing.Point(141, 1);
+            this.txtQty.CustomButton.Name = "";
+            this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtQty.CustomButton.TabIndex = 1;
+            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtQty.CustomButton.UseSelectable = true;
+            this.txtQty.CustomButton.Visible = false;
+            this.txtQty.Lines = new string[0];
+            this.txtQty.Location = new System.Drawing.Point(11, 476);
+            this.txtQty.MaxLength = 32;
+            this.txtQty.Name = "txtQty";
+            this.txtQty.PasswordChar = '\0';
+            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtQty.SelectedText = "";
+            this.txtQty.SelectionLength = 0;
+            this.txtQty.SelectionStart = 0;
+            this.txtQty.ShortcutsEnabled = true;
+            this.txtQty.Size = new System.Drawing.Size(163, 23);
+            this.txtQty.TabIndex = 67;
+            this.txtQty.UseSelectable = true;
+            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            this.columnHeader4.Text = "Qty";
-            this.columnHeader4.Width = 71;
+            // lblQty
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "ID";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Name";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Qty";
+            this.lblQty.AutoSize = true;
+            this.lblQty.Location = new System.Drawing.Point(12, 454);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(58, 19);
+            this.lblQty.TabIndex = 68;
+            this.lblQty.Text = "Quantity";
             // 
             // FormPanelFinishAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(534, 461);
+            this.ClientSize = new System.Drawing.Size(536, 522);
+            this.Controls.Add(this.txtQty);
+            this.Controls.Add(this.lblQty);
             this.Controls.Add(this.btnAddUsedMaterial);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.lvRawMaterialsUsed);
@@ -472,18 +421,13 @@
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblFinQTY);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtQty);
             this.Controls.Add(this.lblDesc);
-            this.Controls.Add(this.lblQty);
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.txtRawUsed);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblAccountAddTitle);
             this.Controls.Add(this.txtDesc);
-            this.Controls.Add(this.lblRawUsed);
             this.Name = "FormPanelFinishAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormPanelFinishAdd";
+            this.Text = "Add Finished Product";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,16 +438,11 @@
         private MetroFramework.Controls.MetroTextBox txtName;
         private MetroFramework.Controls.MetroLabel lblPrice;
         private MetroFramework.Controls.MetroLabel lblDesc;
-        private MetroFramework.Controls.MetroTextBox txtQty;
-        private MetroFramework.Controls.MetroLabel lblQty;
-        private MetroFramework.Controls.MetroTextBox txtRawUsed;
-        private MetroFramework.Controls.MetroLabel lblRawUsed;
         private MetroFramework.Controls.MetroTextBox txtDesc;
         private MetroFramework.Controls.MetroButton btnAdd;
         private MetroFramework.Controls.MetroButton btnClearFields;
         private MetroFramework.Controls.MetroTextBox txtFinQty;
         private MetroFramework.Controls.MetroLabel lblFinQTY;
-        private MetroFramework.Controls.MetroLabel lblAccountAddTitle;
         private MetroFramework.Controls.MetroLabel lblID;
         private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroLabel lblName;
@@ -518,5 +457,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private MetroFramework.Controls.MetroTextBox txtQty;
+        private MetroFramework.Controls.MetroLabel lblQty;
     }
 }

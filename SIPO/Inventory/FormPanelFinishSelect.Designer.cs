@@ -38,6 +38,7 @@
             this.btnClose = new MetroFramework.Controls.MetroButton();
             this.btnSelect = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.columnHeader3,
             this.columnHeader5,
             this.columnHeader1,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader4});
             this.tableLayoutPanel1.SetColumnSpan(this.lvFinished, 4);
             this.lvFinished.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvFinished.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -133,6 +135,11 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(646, 265);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Finished Qty";
+            this.columnHeader4.Width = 107;
+            // 
             // FormPanelFinishSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,5 +165,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MetroFramework.Controls.MetroButton btnClose;
         private MetroFramework.Controls.MetroButton btnSelect;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

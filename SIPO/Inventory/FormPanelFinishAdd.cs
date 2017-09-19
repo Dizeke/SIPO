@@ -27,73 +27,35 @@ namespace SIPO.Inventory
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            MySqlConnection con = new MySqlConnection(ConString.getConString());
-            bool success = false;
+            
+                MySqlConnection con = new MySqlConnection(ConString.getConString());
+                bool success = false;
 
 
-            String query = String.Format("Insert INTO products_finished (prodf_id, prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}')",
-                Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-
-            success = true;
-
-            if (success)
+                String query = String.Format("Insert INTO products_finished (prodf_id, prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}');",
+                    Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
+               
+               
+                query += String.Format("Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), '{0}')", Convert.ToInt32(txtID.Text));
+               
+                query += ";Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
+            for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
             {
+                    query += " VALUES ('" + txtID.Text + "', '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[1].Text + "' )";
 
-                MySqlConnection con2 = new MySqlConnection(ConString.getConString());
-                String query2 = String.Format("Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), '{0}')", Convert.ToInt32(txtID.Text));
+                }
 
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteNonQuery();
 
-                con2.Open();
-
-                MySqlCommand cmd2 = new MySqlCommand(query2, con2);
-                cmd2.ExecuteNonQuery();
 
                 success = true;
-
-
-            }
-            else
-            {
-                success = false;
-
-
-            }
-
-            if (success)
-            {
-                String query1 = String.Format("Select * From products_raw Where prodr_name = '{0}'", txtRawUsed.Text);
-                MySqlConnection con1 = new MySqlConnection(ConString.getConString());
-                MySqlCommand com1 = new MySqlCommand(query1, con1);
-                MySqlDataReader reader;
-
-                con1.Open();
-
-                reader = com1.ExecuteReader();
-                while (reader.Read())
-                {
-                    if (txtRawUsed.Text.Equals(reader["prodr_name"]))
-                    {
-                        MySqlConnection con2 = new MySqlConnection(ConString.getConString());
-                        String query2 = String.Format("Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty) VALUES ('{0}', '{1}','{2}')", Convert.ToInt32(txtID.Text), reader["prodr_id"], Convert.ToInt32(txtQty.Text));
-
-
-                        con2.Open();
-
-                        MySqlCommand cmd2 = new MySqlCommand(query2, con2);
-                        cmd2.ExecuteNonQuery();
-
-                    }
-                }
                 MessageBox.Show("Item Added Successfully");
-            }
-            else
-            {
-                success = false;
-                MessageBox.Show("Failed to Add");
-            }
+            if (!success)
+                MessageBox.Show("failed to add item");
+         
+            
 
 
         }
@@ -178,7 +140,7 @@ namespace SIPO.Inventory
                         {
                             if (lvRawMaterialsUsed.Items[i].Text.Equals(rawMaterialsUsed[rmUsedIndex].Id.ToString()))
                             {
-                                
+
                                 lvRawMaterialsUsed.Items[i].SubItems[2].Text = rawMaterialsUsed[rmUsedIndex].Qty.ToString();
                                 break;
                             }
@@ -188,7 +150,6 @@ namespace SIPO.Inventory
                     {
                         rawMaterialUsed.Qty = int.Parse(txtQty.Text.ToString());
                         rawMaterialsUsed.Add(rawMaterialUsed);
-
                         lvRawMaterialsUsed.Items.Add(rawMaterialUsed.Id.ToString());
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Name);
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Qty.ToString());
