@@ -63,6 +63,7 @@
     <Compile Include="Classes\FinishedProduct.cs" />
     <Compile Include="Classes\FinishedProductUpdate.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
+    <Compile Include="Classes\PurchaseOrderProducts.cs" />
     <Compile Include="Classes\RawMaterials.cs" />
     <Compile Include="Classes\RawMaterialsUpdate.cs" />
     <Compile Include="ConString.cs" />

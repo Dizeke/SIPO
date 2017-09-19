@@ -78,6 +78,8 @@ namespace SIPO.Sales
                 cbClient.Enabled = false;
                 btnAddCustomProduct.Enabled = false;
                 btnAddPurchaseOrder.Enabled = false;
+                btnAddProduct.Enabled = false;
+                btnRemove.Enabled = false;
             }
         }
 
@@ -125,59 +127,106 @@ namespace SIPO.Sales
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            int quantity = 0;
-            int selectedFinishedProductIndex = 0;
+            bool isValid = true;
+            bool isPrompted = false;
 
+            int quantity = 0;
             try
             {
                 quantity = int.Parse(txtQuantity.Text.ToString());
-                selectedFinishedProductIndex = lvProductList.Items.IndexOf(lvProductList.SelectedItems[0]);
-
-                if (finishedProducts[selectedFinishedProductIndex].Qty >= quantity && quantity > 0)
-                {
-                    bool isAdded = false;
-                    int prodIndex = 0;
-
-                    FinishedProduct requestProduct = finishedProducts[selectedFinishedProductIndex];
-                    foreach (FinishedProduct requestedProduct in requestedProducts)
-                    {
-                        if (requestedProduct.Id == requestProduct.Id)
-                        {
-                            isAdded = true;
-                            requestedProducts[prodIndex].Qty += quantity;
-                            break;
-                        }
-                        else
-                        {
-                            prodIndex++;
-                        }
-                    }
-
-                    if (isAdded)
-                    {
-                        for (int i = 0; i < lvProductList.Items.Count; i++)
-                        {
-                            if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[selectedFinishedProductIndex].Id.ToString()))
-                            {
-                                lvPurchaseList.Items[i].SubItems[2].Text = requestedProducts[prodIndex].Qty.ToString();
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        requestProduct.Qty = quantity;
-                        requestedProducts.Add(requestProduct);
-
-                        lvPurchaseList.Items.Add(requestProduct.Id.ToString());
-                        lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
-                        lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
-                    }
-                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please provide a quantity");
+                isValid = false;
+                isPrompted = true;
+            }
+
+            if (!isPrompted)
+            {
+                int selectedFinishedProductIndex = 0;
+                try
+                {
+                    selectedFinishedProductIndex = lvProductList.Items.IndexOf(lvProductList.SelectedItems[0]);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    MessageBox.Show("Please select a product to add to purchase list");
+                    isValid = false;
+                }
+
+                if (isValid)
+                {
+                    try
+                    {
+                        if (finishedProducts[selectedFinishedProductIndex].Qty >= quantity && quantity > 0)
+                        {
+                            bool isAdded = false;
+                            int prodIndex = 0;
+
+                            FinishedProduct requestProduct = new FinishedProduct();
+                            requestProduct.Id = finishedProducts[selectedFinishedProductIndex].Id;
+                            requestProduct.Name = finishedProducts[selectedFinishedProductIndex].Name;
+                            requestProduct.Desc = finishedProducts[selectedFinishedProductIndex].Desc;
+                            requestProduct.Qty = finishedProducts[selectedFinishedProductIndex].Qty;
+                            requestProduct.Price = finishedProducts[selectedFinishedProductIndex].Price;
+
+                            foreach (FinishedProduct requestedProduct in requestedProducts)
+                            {
+                                if (requestedProduct.Id == requestProduct.Id)
+                                {
+                                    if (finishedProducts[selectedFinishedProductIndex].Qty >= (requestedProducts[prodIndex].Qty + quantity))
+                                    {
+                                        isAdded = true;
+                                        requestedProducts[prodIndex].Qty += quantity;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Cannot add more than available stocks");
+                                        return;
+                                    }
+
+                                    break;
+                                }
+                                else
+                                {
+                                    prodIndex++;
+                                }
+                            }
+
+                            if (isAdded)
+                            {
+                                for (int i = 0; i < lvProductList.Items.Count; i++)
+                                {
+                                    if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[selectedFinishedProductIndex].Id.ToString()))
+                                    {
+                                        lvPurchaseList.Items[i].SubItems[2].Text = requestedProducts[prodIndex].Qty.ToString();
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                requestProduct.Qty = quantity;
+                                requestedProducts.Add(requestProduct);
+
+                                lvPurchaseList.Items.Add(requestProduct.Id.ToString());
+                                lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
+                                lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please provide a valid quantity");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.StackTrace);
+                    }
+                }
             }
         }
 
@@ -204,7 +253,19 @@ namespace SIPO.Sales
 
         private void btnAddPurchaseOrder_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure that the following purchase list is correct?", "Confirm Purchase Order", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Client client = clients[cbClient.SelectedIndex];
 
+                //String query = "INSERT INTO purchase_orders (client_id)";
+                //MySqlConnection con = new MySqlConnection(ConString.getConString());
+                //MySqlCommand com = new MySqlCommand(query, con);
+
+                //con.Open();
+
+                //con.Close();
+            }
         }
 
     }
