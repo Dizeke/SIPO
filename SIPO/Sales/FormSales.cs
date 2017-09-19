@@ -15,12 +15,6 @@ namespace SIPO.Sales
         public FormSales()
         {
             InitializeComponent();
-            loadClients();
-        }
-
-        private void loadClients()
-        {
-
         }
 
         private void btnPurchaseOrderAdd_Click(object sender, EventArgs e)
@@ -29,5 +23,10 @@ namespace SIPO.Sales
             formPurchaseOrderAdd.ShowDialog();
         }
 
+        private void btnPaymentAdd_Click(object sender, EventArgs e)
+        {
+            FormPaymentSelect formPaymentAdd = new FormPaymentSelect();
+            formPaymentAdd.ShowDialog();
+        }
     }
 }

@@ -16,8 +16,7 @@ namespace SIPO.Classes
         private int _finQty;
         private double _price;
         private double _newprice;
-
-
+        
         public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
         public string Desc { get => _desc; set => _desc = value; }

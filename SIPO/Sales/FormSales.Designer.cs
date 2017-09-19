@@ -86,6 +86,7 @@
             this.btnPaymentAdd.TabIndex = 0;
             this.btnPaymentAdd.Text = "Add";
             this.btnPaymentAdd.UseSelectable = true;
+            this.btnPaymentAdd.Click += new System.EventHandler(this.btnPaymentAdd_Click);
             // 
             // btnPaymentUpdate
             // 
@@ -102,9 +103,10 @@
             // 
             this.btnPayment.ActiveControl = null;
             this.btnPayment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPayment.Location = new System.Drawing.Point(3, 212);
+            this.btnPayment.Location = new System.Drawing.Point(3, 215);
+            this.btnPayment.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(199, 205);
+            this.btnPayment.Size = new System.Drawing.Size(199, 199);
             this.btnPayment.TabIndex = 4;
             this.btnPayment.Text = "Payment";
             this.btnPayment.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -117,9 +119,10 @@
             // 
             this.btnPurchaseOrder.ActiveControl = null;
             this.btnPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPurchaseOrder.Location = new System.Drawing.Point(3, 3);
+            this.btnPurchaseOrder.Location = new System.Drawing.Point(3, 6);
+            this.btnPurchaseOrder.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnPurchaseOrder.Name = "btnPurchaseOrder";
-            this.btnPurchaseOrder.Size = new System.Drawing.Size(199, 203);
+            this.btnPurchaseOrder.Size = new System.Drawing.Size(199, 197);
             this.btnPurchaseOrder.TabIndex = 5;
             this.btnPurchaseOrder.Text = "Purchase Order";
             this.btnPurchaseOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
