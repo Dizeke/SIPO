@@ -15,6 +15,9 @@ namespace SIPO.Classes
         private int _qty;
         private string _received;
         private double _price;
+        private string _newreceived;
+        private double _newprice;
+
 
         public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
@@ -23,5 +26,7 @@ namespace SIPO.Classes
         public int Qty { get => _qty; set => _qty = value; }
         public string Received { get => _received; set => _received = value; }
         public double Price { get => _price; set => _price = value; }
+        public string Newreceived { get => _newreceived; set => _newreceived = value; }
+        public double Newprice { get => _newprice; set => _newprice = value; }
     }
 }

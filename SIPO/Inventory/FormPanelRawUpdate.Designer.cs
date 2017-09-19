@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblID = new MetroFramework.Controls.MetroLabel();
             this.txtPrice = new MetroFramework.Controls.MetroTextBox();
             this.lblName = new MetroFramework.Controls.MetroLabel();
             this.txtName = new MetroFramework.Controls.MetroTextBox();
@@ -40,23 +39,16 @@
             this.txtSizeComp = new MetroFramework.Controls.MetroTextBox();
             this.lblSizeComp = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
-            this.txtID = new MetroFramework.Controls.MetroTextBox();
             this.btnUpdate = new MetroFramework.Controls.MetroButton();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.panelLayoutRawAdd = new System.Windows.Forms.TableLayoutPanel();
             this.dtpReceived = new MetroFramework.Controls.MetroDateTime();
+            this.dtpNew = new MetroFramework.Controls.MetroDateTime();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblNewPrice = new MetroFramework.Controls.MetroLabel();
+            this.txtNewPrice = new MetroFramework.Controls.MetroTextBox();
             this.panelLayoutRawAdd.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblID.Location = new System.Drawing.Point(3, 0);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(200, 19);
-            this.lblID.TabIndex = 29;
-            this.lblID.Text = "Raw materal ID";
             // 
             // txtPrice
             // 
@@ -74,7 +66,7 @@
             this.txtPrice.CustomButton.Visible = false;
             this.txtPrice.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPrice.Lines = new string[0];
-            this.txtPrice.Location = new System.Drawing.Point(209, 166);
+            this.txtPrice.Location = new System.Drawing.Point(209, 118);
             this.txtPrice.MaxLength = 13;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PasswordChar = '\0';
@@ -93,7 +85,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblName.Location = new System.Drawing.Point(3, 48);
+            this.lblName.Location = new System.Drawing.Point(3, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(200, 19);
             this.lblName.TabIndex = 33;
@@ -115,7 +107,7 @@
             this.txtName.CustomButton.Visible = false;
             this.txtName.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(3, 70);
+            this.txtName.Location = new System.Drawing.Point(3, 22);
             this.txtName.MaxLength = 32;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
@@ -134,27 +126,27 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblPrice.Location = new System.Drawing.Point(209, 144);
+            this.lblPrice.Location = new System.Drawing.Point(209, 96);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(184, 19);
             this.lblPrice.TabIndex = 44;
-            this.lblPrice.Text = "Price";
+            this.lblPrice.Text = "Old Price";
             // 
             // lblReceived
             // 
             this.lblReceived.AutoSize = true;
             this.lblReceived.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblReceived.Location = new System.Drawing.Point(3, 144);
+            this.lblReceived.Location = new System.Drawing.Point(3, 96);
             this.lblReceived.Name = "lblReceived";
             this.lblReceived.Size = new System.Drawing.Size(200, 19);
             this.lblReceived.TabIndex = 42;
-            this.lblReceived.Text = "Received Date";
+            this.lblReceived.Text = "Old Received Date";
             // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
             this.lblDesc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDesc.Location = new System.Drawing.Point(3, 96);
+            this.lblDesc.Location = new System.Drawing.Point(3, 48);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(200, 19);
             this.lblDesc.TabIndex = 39;
@@ -176,7 +168,7 @@
             this.txtQty.CustomButton.Visible = false;
             this.txtQty.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtQty.Lines = new string[0];
-            this.txtQty.Location = new System.Drawing.Point(399, 118);
+            this.txtQty.Location = new System.Drawing.Point(399, 70);
             this.txtQty.MaxLength = 32;
             this.txtQty.Name = "txtQty";
             this.txtQty.PasswordChar = '\0';
@@ -195,7 +187,7 @@
             // 
             this.lblQty.AutoSize = true;
             this.lblQty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblQty.Location = new System.Drawing.Point(399, 96);
+            this.lblQty.Location = new System.Drawing.Point(399, 48);
             this.lblQty.Name = "lblQty";
             this.lblQty.Size = new System.Drawing.Size(252, 19);
             this.lblQty.TabIndex = 41;
@@ -217,7 +209,7 @@
             this.txtSizeComp.CustomButton.Visible = false;
             this.txtSizeComp.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtSizeComp.Lines = new string[0];
-            this.txtSizeComp.Location = new System.Drawing.Point(209, 118);
+            this.txtSizeComp.Location = new System.Drawing.Point(209, 70);
             this.txtSizeComp.MaxLength = 32;
             this.txtSizeComp.Name = "txtSizeComp";
             this.txtSizeComp.PasswordChar = '\0';
@@ -236,7 +228,7 @@
             // 
             this.lblSizeComp.AutoSize = true;
             this.lblSizeComp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSizeComp.Location = new System.Drawing.Point(209, 96);
+            this.lblSizeComp.Location = new System.Drawing.Point(209, 48);
             this.lblSizeComp.Name = "lblSizeComp";
             this.lblSizeComp.Size = new System.Drawing.Size(184, 19);
             this.lblSizeComp.TabIndex = 40;
@@ -258,7 +250,7 @@
             this.txtDesc.CustomButton.Visible = false;
             this.txtDesc.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtDesc.Lines = new string[0];
-            this.txtDesc.Location = new System.Drawing.Point(3, 118);
+            this.txtDesc.Location = new System.Drawing.Point(3, 70);
             this.txtDesc.MaxLength = 64;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.PasswordChar = '\0';
@@ -273,41 +265,10 @@
             this.txtDesc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDesc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // txtID
-            // 
-            // 
-            // 
-            // 
-            this.txtID.CustomButton.Image = null;
-            this.txtID.CustomButton.Location = new System.Drawing.Point(178, 1);
-            this.txtID.CustomButton.Name = "";
-            this.txtID.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtID.CustomButton.TabIndex = 1;
-            this.txtID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtID.CustomButton.UseSelectable = true;
-            this.txtID.CustomButton.Visible = false;
-            this.txtID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtID.Lines = new string[0];
-            this.txtID.Location = new System.Drawing.Point(3, 22);
-            this.txtID.MaxLength = 32;
-            this.txtID.Name = "txtID";
-            this.txtID.PasswordChar = '\0';
-            this.txtID.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtID.SelectedText = "";
-            this.txtID.SelectionLength = 0;
-            this.txtID.SelectionStart = 0;
-            this.txtID.ShortcutsEnabled = true;
-            this.txtID.Size = new System.Drawing.Size(200, 23);
-            this.txtID.TabIndex = 30;
-            this.txtID.UseSelectable = true;
-            this.txtID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // btnUpdate
             // 
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUpdate.Location = new System.Drawing.Point(209, 241);
+            this.btnUpdate.Location = new System.Drawing.Point(209, 239);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(184, 24);
             this.btnUpdate.Style = MetroFramework.MetroColorStyle.Teal;
@@ -319,7 +280,7 @@
             // btnClearFields
             // 
             this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClearFields.Location = new System.Drawing.Point(399, 241);
+            this.btnClearFields.Location = new System.Drawing.Point(399, 239);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(252, 24);
             this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
@@ -333,7 +294,6 @@
             this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.panelLayoutRawAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.panelLayoutRawAdd.Controls.Add(this.lblID, 0, 1);
             this.panelLayoutRawAdd.Controls.Add(this.txtPrice, 1, 8);
             this.panelLayoutRawAdd.Controls.Add(this.lblName, 0, 3);
             this.panelLayoutRawAdd.Controls.Add(this.txtName, 0, 4);
@@ -345,15 +305,18 @@
             this.panelLayoutRawAdd.Controls.Add(this.txtSizeComp, 1, 6);
             this.panelLayoutRawAdd.Controls.Add(this.lblSizeComp, 1, 5);
             this.panelLayoutRawAdd.Controls.Add(this.txtDesc, 0, 6);
-            this.panelLayoutRawAdd.Controls.Add(this.txtID, 0, 2);
-            this.panelLayoutRawAdd.Controls.Add(this.btnUpdate, 1, 13);
-            this.panelLayoutRawAdd.Controls.Add(this.btnClearFields, 2, 13);
             this.panelLayoutRawAdd.Controls.Add(this.dtpReceived, 0, 8);
+            this.panelLayoutRawAdd.Controls.Add(this.dtpNew, 0, 12);
+            this.panelLayoutRawAdd.Controls.Add(this.btnUpdate, 1, 15);
+            this.panelLayoutRawAdd.Controls.Add(this.btnClearFields, 2, 15);
+            this.panelLayoutRawAdd.Controls.Add(this.metroLabel1, 0, 11);
+            this.panelLayoutRawAdd.Controls.Add(this.lblNewPrice, 1, 11);
+            this.panelLayoutRawAdd.Controls.Add(this.txtNewPrice, 1, 12);
             this.panelLayoutRawAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutRawAdd.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.panelLayoutRawAdd.Location = new System.Drawing.Point(20, 60);
             this.panelLayoutRawAdd.Name = "panelLayoutRawAdd";
-            this.panelLayoutRawAdd.RowCount = 14;
+            this.panelLayoutRawAdd.RowCount = 16;
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -365,20 +328,83 @@
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelLayoutRawAdd.Size = new System.Drawing.Size(639, 284);
             this.panelLayoutRawAdd.TabIndex = 56;
             // 
             // dtpReceived
             // 
             this.dtpReceived.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dtpReceived.Location = new System.Drawing.Point(3, 166);
+            this.dtpReceived.Enabled = false;
+            this.dtpReceived.Location = new System.Drawing.Point(3, 118);
             this.dtpReceived.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpReceived.Name = "dtpReceived";
             this.dtpReceived.Size = new System.Drawing.Size(200, 29);
             this.dtpReceived.TabIndex = 54;
+            // 
+            // dtpNew
+            // 
+            this.dtpNew.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpNew.Location = new System.Drawing.Point(3, 178);
+            this.dtpNew.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpNew.Name = "dtpNew";
+            this.dtpNew.Size = new System.Drawing.Size(200, 29);
+            this.dtpNew.TabIndex = 55;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroLabel1.Location = new System.Drawing.Point(3, 150);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(200, 19);
+            this.metroLabel1.TabIndex = 56;
+            this.metroLabel1.Text = "New Received Date";
+            // 
+            // lblNewPrice
+            // 
+            this.lblNewPrice.AutoSize = true;
+            this.lblNewPrice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblNewPrice.Location = new System.Drawing.Point(209, 150);
+            this.lblNewPrice.Name = "lblNewPrice";
+            this.lblNewPrice.Size = new System.Drawing.Size(184, 19);
+            this.lblNewPrice.TabIndex = 57;
+            this.lblNewPrice.Text = "New Price";
+            // 
+            // txtNewPrice
+            // 
+            // 
+            // 
+            // 
+            this.txtNewPrice.CustomButton.Image = null;
+            this.txtNewPrice.CustomButton.Location = new System.Drawing.Point(162, 1);
+            this.txtNewPrice.CustomButton.Name = "";
+            this.txtNewPrice.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNewPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNewPrice.CustomButton.TabIndex = 1;
+            this.txtNewPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNewPrice.CustomButton.UseSelectable = true;
+            this.txtNewPrice.CustomButton.Visible = false;
+            this.txtNewPrice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtNewPrice.Lines = new string[0];
+            this.txtNewPrice.Location = new System.Drawing.Point(209, 178);
+            this.txtNewPrice.MaxLength = 32767;
+            this.txtNewPrice.Name = "txtNewPrice";
+            this.txtNewPrice.PasswordChar = '\0';
+            this.txtNewPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNewPrice.SelectedText = "";
+            this.txtNewPrice.SelectionLength = 0;
+            this.txtNewPrice.SelectionStart = 0;
+            this.txtNewPrice.ShortcutsEnabled = true;
+            this.txtNewPrice.Size = new System.Drawing.Size(184, 23);
+            this.txtNewPrice.TabIndex = 58;
+            this.txtNewPrice.UseSelectable = true;
+            this.txtNewPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNewPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // FormPanelRawUpdate
             // 
@@ -387,7 +413,7 @@
             this.ClientSize = new System.Drawing.Size(679, 364);
             this.Controls.Add(this.panelLayoutRawAdd);
             this.Name = "FormPanelRawUpdate";
-            this.Text = "Upate Raw Materials";
+            this.Text = "Update Raw Materials";
             this.panelLayoutRawAdd.ResumeLayout(false);
             this.panelLayoutRawAdd.PerformLayout();
             this.ResumeLayout(false);
@@ -395,8 +421,6 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroLabel lblID;
         private MetroFramework.Controls.MetroTextBox txtPrice;
         private MetroFramework.Controls.MetroLabel lblName;
         private MetroFramework.Controls.MetroTextBox txtName;
@@ -408,10 +432,13 @@
         private MetroFramework.Controls.MetroTextBox txtSizeComp;
         private MetroFramework.Controls.MetroLabel lblSizeComp;
         private MetroFramework.Controls.MetroTextBox txtDesc;
-        private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroButton btnUpdate;
         private MetroFramework.Controls.MetroButton btnClearFields;
         private System.Windows.Forms.TableLayoutPanel panelLayoutRawAdd;
         private MetroFramework.Controls.MetroDateTime dtpReceived;
+        private MetroFramework.Controls.MetroDateTime dtpNew;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel lblNewPrice;
+        private MetroFramework.Controls.MetroTextBox txtNewPrice;
     }
 }

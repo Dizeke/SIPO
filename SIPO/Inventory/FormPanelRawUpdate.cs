@@ -24,13 +24,14 @@ namespace SIPO.Inventory
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             raw = new RawMaterials();
-            raw.Id = int.Parse(txtID.Text);
             raw.Name = txtName.Text.ToString();
             raw.Desc = txtDesc.Text.ToString();
             raw.Size = int.Parse(txtSizeComp.Text.ToString());
             raw.Qty = int.Parse(txtQty.Text.ToString());
             raw.Price = int.Parse(txtPrice.Text.ToString());
+            raw.Newprice = int.Parse(txtNewPrice.Text.ToString());
             raw.Received = dtpReceived.Value.ToString("yyyyMMDD");
+            raw.Received = dtpNew.Value.ToString("yyyyMMDD");
 
 
             String query = String.Format("UPDATE products_raw SET " +
@@ -49,8 +50,8 @@ namespace SIPO.Inventory
                    raw.Desc,
                    raw.Size,
                    raw.Qty,
-                   raw.Price,
-                   raw.Received
+                   raw.Newprice,
+                   raw.Newreceived
                    );
 
 
@@ -71,7 +72,7 @@ namespace SIPO.Inventory
             {
                 
                 RawMaterials raw = RawMaterialsUpdate.raw;
-                txtID.Text = raw.Id.ToString();
+               
                 txtName.Text = raw.Name;
                 txtDesc.Text = raw.Desc;
                 txtSizeComp.Text = raw.Size.ToString();

@@ -14,6 +14,7 @@ namespace SIPO.Inventory
             FinishedProductUpdate.hasSelected = false;
             InitializeComponent();
             loadMaterials();
+            
         }
 
         private void loadMaterials()
@@ -53,6 +54,7 @@ namespace SIPO.Inventory
                     lvFinished.Items[row].SubItems.Add(Finished.Raw.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.FinQty.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.Price.ToString());
+                    
                     row++;
                 }
 

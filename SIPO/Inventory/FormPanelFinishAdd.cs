@@ -32,16 +32,16 @@ namespace SIPO.Inventory
                 bool success = false;
 
 
-                String query = String.Format("Insert INTO products_finished (prodf_id, prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}');",
-                    Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
+                String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}');",
+                    txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
                
                
-                query += String.Format("Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), '{0}')", Convert.ToInt32(txtID.Text));
+                query += "Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), LAST_INSERT_ID())";
                
                 query += ";Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
             for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
             {
-                    query += " VALUES ('" + txtID.Text + "', '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[1].Text + "' )";
+                    query += " VALUES (LAST_INSERT_ID(), '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[1].Text + "' )";
 
                 }
 
