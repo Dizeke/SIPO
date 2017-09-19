@@ -25,10 +25,9 @@ namespace SIPO.Inventory
             {
 
                 FinishedProduct finished = FinishedProductUpdate.finished;
-                txtID.Text = finished.Id.ToString();
                 txtName.Text = finished.Name;
                 txtDesc.Text = finished.Desc;
-                txtPrice.Text = finished.Price.ToString();
+                txtOldSrp.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
             }
             else
@@ -38,39 +37,39 @@ namespace SIPO.Inventory
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            finished = new FinishedProduct();
-            finished.Id = int.Parse(txtID.Text);
-            finished.Name = txtName.Text.ToString();
-            finished.Desc = txtDesc.Text.ToString();
-            finished.Price = int.Parse(txtPrice.Text.ToString());
-            finished.FinQty = int.Parse(txtFinQty.Text.ToString());
+            
+                finished = new FinishedProduct();
+                finished.Name = txtName.Text;
+                finished.Desc = txtDesc.Text;
+                finished.Price = double.Parse(txtOldSrp.Text);
+                finished.Newprice = double.Parse(txtNewSrp.Text);
+                finished.FinQty = int.Parse(txtFinQty.Text);
 
-            String query = String.Format("UPDATE products_finished SET " +
-                       "prodf_id =  '{0}', " +
-                       "prodf_name = '{1}', " +
-                       "prodf_desc = '{2}', " +
-                       "prodf_qty = '{3}', " +
-                       "prodr_srp = '{4}', " +
-                       "WHERE prodf_id = {0};" +
-                   finished.Id,
-                   finished.Name,
-                   finished.Desc,
-                   finished.FinQty,
-                   finished.Price,
-                   finished.Raw,
-                   finished.Qty
-                   );
+                String query = String.Format("UPDATE products_finished SET " +
+                           "prodf_id =  '{0}', " +
+                           "prodf_name = '{1}', " +
+                           "prodf_desc = '{2}', " +
+                           "prodf_qty = '{3}', " +
+                           "prodf_srp = '{4}'" +
+                           "WHERE prodf_id = {0};",
+                       finished.Id,
+                       finished.Name,
+                       finished.Desc,
+                       finished.FinQty,
+                       finished.Newprice
+                       );
 
 
-            MySqlConnection con = new MySqlConnection(ConString.getConString());
-            MySqlCommand com = new MySqlCommand(query, con);
+                MySqlConnection con = new MySqlConnection(ConString.getConString());
+                MySqlCommand com = new MySqlCommand(query, con);
 
-            con.Open();
-            com.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Item Successfully Updated");
-            RawMaterialsUpdate.hasSelected = false;
+                con.Open();
+                com.ExecuteNonQuery();
+                con.Close();
+              //  MessageBox.Show(query);
+                MessageBox.Show("Item Successfully Updated");
+                RawMaterialsUpdate.hasSelected = false;
+         
         }
         private void loadRawMaterials()
         {
@@ -121,8 +120,8 @@ namespace SIPO.Inventory
         }
         private void loadUsedRawMaterials()
         {
-            //try
-            //{
+            try
+            {
                 rawMaterials = new List<RawMaterials>();
                 rawMaterialsUsed = new List<RawMaterials>();
 
@@ -157,11 +156,11 @@ namespace SIPO.Inventory
                 }
 
                 con.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.StackTrace);
-            //}
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
         }
 
         private void btnAddUsedMaterial_Click(object sender, EventArgs e)

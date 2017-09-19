@@ -37,8 +37,6 @@
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.txtFinQty = new MetroFramework.Controls.MetroTextBox();
             this.lblFinQTY = new MetroFramework.Controls.MetroLabel();
-            this.lblID = new MetroFramework.Controls.MetroLabel();
-            this.txtID = new MetroFramework.Controls.MetroTextBox();
             this.lblName = new MetroFramework.Controls.MetroLabel();
             this.lvRawMaterials = new MetroFramework.Controls.MetroListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -100,7 +98,7 @@
             this.txtName.CustomButton.UseSelectable = true;
             this.txtName.CustomButton.Visible = false;
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(189, 70);
+            this.txtName.Location = new System.Drawing.Point(12, 70);
             this.txtName.MaxLength = 32;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
@@ -223,49 +221,10 @@
             this.lblFinQTY.TabIndex = 55;
             this.lblFinQTY.Text = "Finished Quantity";
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 48);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(122, 19);
-            this.lblID.TabIndex = 59;
-            this.lblID.Text = "Finished product ID";
-            // 
-            // txtID
-            // 
-            // 
-            // 
-            // 
-            this.txtID.CustomButton.Image = null;
-            this.txtID.CustomButton.Location = new System.Drawing.Point(149, 1);
-            this.txtID.CustomButton.Name = "";
-            this.txtID.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtID.CustomButton.TabIndex = 1;
-            this.txtID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtID.CustomButton.UseSelectable = true;
-            this.txtID.CustomButton.Visible = false;
-            this.txtID.Lines = new string[0];
-            this.txtID.Location = new System.Drawing.Point(12, 70);
-            this.txtID.MaxLength = 32;
-            this.txtID.Name = "txtID";
-            this.txtID.PasswordChar = '\0';
-            this.txtID.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtID.SelectedText = "";
-            this.txtID.SelectionLength = 0;
-            this.txtID.SelectionStart = 0;
-            this.txtID.ShortcutsEnabled = true;
-            this.txtID.Size = new System.Drawing.Size(171, 23);
-            this.txtID.TabIndex = 60;
-            this.txtID.UseSelectable = true;
-            this.txtID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(189, 48);
+            this.lblName.Location = new System.Drawing.Point(12, 48);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 19);
             this.lblName.TabIndex = 61;
@@ -422,8 +381,6 @@
             this.Controls.Add(this.lblFinQTY);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblDesc);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtDesc);
             this.Name = "FormPanelFinishAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -443,8 +400,6 @@
         private MetroFramework.Controls.MetroButton btnClearFields;
         private MetroFramework.Controls.MetroTextBox txtFinQty;
         private MetroFramework.Controls.MetroLabel lblFinQTY;
-        private MetroFramework.Controls.MetroLabel lblID;
-        private MetroFramework.Controls.MetroTextBox txtID;
         private MetroFramework.Controls.MetroLabel lblName;
         private MetroFramework.Controls.MetroListView lvRawMaterials;
         private MetroFramework.Controls.MetroLabel metroLabel1;
