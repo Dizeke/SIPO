@@ -39,7 +39,6 @@ namespace SIPO.Inventory
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             
-                finished = new FinishedProduct();
                 finished.Name = txtName.Text;
                 finished.Desc = txtDesc.Text;
                 finished.Price = double.Parse(txtOldSrp.Text);
@@ -123,10 +122,8 @@ namespace SIPO.Inventory
         {
             try
             {
-                finished = new FinishedProduct();
                 rawMaterials = new List<RawMaterials>();
                 rawMaterialsUsed = new List<RawMaterials>();
-                MessageBox.Show(finished.Id.ToString());
                 String query = String.Format("SELECT * FROM products_finished_materials where prodf_f_id = '{0}'",finished.Id);
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
