@@ -29,47 +29,47 @@ namespace SIPO.Inventory
                 txtDesc.Text = finished.Desc;
                 txtOldSrp.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
-                MessageBox.Show(finished.Id.ToString());
             }
             else
             {
                 this.Close();
             }
         }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
-                finished.Name = txtName.Text;
-                finished.Desc = txtDesc.Text;
-                finished.Price = double.Parse(txtOldSrp.Text);
-                finished.Newprice = double.Parse(txtNewSrp.Text);
-                finished.FinQty = int.Parse(txtFinQty.Text);
 
-                String query = String.Format("UPDATE products_finished SET " +
-                           "prodf_id =  '{0}', " +
-                           "prodf_name = '{1}', " +
-                           "prodf_desc = '{2}', " +
-                           "prodf_qty = '{3}', " +
-                           "prodf_srp = '{4}'" +
-                           "WHERE prodf_id = {0};",
-                       finished.Id,
-                       finished.Name,
-                       finished.Desc,
-                       finished.FinQty,
-                       finished.Newprice
-                       );
+            finished.Name = txtName.Text;
+            finished.Desc = txtDesc.Text;
+            finished.Price = double.Parse(txtOldSrp.Text);
+            finished.Newprice = double.Parse(txtNewSrp.Text);
+            finished.FinQty = int.Parse(txtFinQty.Text);
+
+            String query = String.Format("UPDATE products_finished SET " +
+                       "prodf_id =  '{0}', " +
+                       "prodf_name = '{1}', " +
+                       "prodf_desc = '{2}', " +
+                       "prodf_qty = '{3}', " +
+                       "prodf_srp = '{4}'" +
+                       "WHERE prodf_id = {0};",
+                   finished.Id,
+                   finished.Name,
+                   finished.Desc,
+                   finished.FinQty,
+                   finished.Newprice
+                   );
 
 
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
+            MySqlConnection con = new MySqlConnection(ConString.getConString());
+            MySqlCommand com = new MySqlCommand(query, con);
 
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
-              //  MessageBox.Show(query);
-                MessageBox.Show("Item Successfully Updated");
-                RawMaterialsUpdate.hasSelected = false;
-         
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+            //  MessageBox.Show(query);
+            MessageBox.Show("Item Successfully Updated");
+            RawMaterialsUpdate.hasSelected = false;
+
         }
         private void loadRawMaterials()
         {
@@ -122,9 +122,8 @@ namespace SIPO.Inventory
         {
             try
             {
-                rawMaterials = new List<RawMaterials>();
                 rawMaterialsUsed = new List<RawMaterials>();
-                String query = String.Format("SELECT * FROM products_finished_materials where prodf_f_id = '{0}'",finished.Id);
+                String query = String.Format("SELECT products_raw.prodr_id, products_raw.prodr_name, products_finished_materials.prod_r_qty FROM products_finished_materials INNER JOIN products_raw ON products_finished_materials.prod_r_id = products_raw.prodr_id WHERE prodf_f_id = {0}", finished.Id);
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
                 MySqlDataReader reader;
@@ -136,9 +135,9 @@ namespace SIPO.Inventory
                 while (reader.Read())
                 {
                     RawMaterials rawMaterial = new RawMaterials();
-                    rawMaterial.Id = int.Parse(reader["prod_r_id"].ToString());
+                    rawMaterial.Id = int.Parse(reader["prodr_id"].ToString());
+                    rawMaterial.Name = reader["prodr_name"].ToString();
                     rawMaterial.Qty = int.Parse(reader["prod_r_qty"].ToString());
-
 
                     rawMaterialsUsed.Add(rawMaterial);
 
@@ -166,7 +165,7 @@ namespace SIPO.Inventory
         {
             try
             {
-                int index = lvRawMaterials.Items.IndexOf(lvRawMaterials.SelectedItems[0]);
+                int index = lvRawMaterials.SelectedIndices[0];
                 RawMaterials rawMaterialUsed = rawMaterials[index];
 
                 int quantity = int.Parse(txtQty.Text.ToString());
