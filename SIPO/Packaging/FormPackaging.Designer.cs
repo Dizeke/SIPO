@@ -31,8 +31,7 @@
             this.panelLayoutMain = new System.Windows.Forms.TableLayoutPanel();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.panelLayoutPackages = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.btnDispatchPackages = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutPackages.SuspendLayout();
             this.SuspendLayout();
@@ -75,8 +74,7 @@
             // 
             this.panelLayoutPackages.ColumnCount = 1;
             this.panelLayoutPackages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutPackages.Controls.Add(this.metroTile3, 0, 1);
-            this.panelLayoutPackages.Controls.Add(this.metroTile2, 0, 0);
+            this.panelLayoutPackages.Controls.Add(this.btnDispatchPackages, 0, 0);
             this.panelLayoutPackages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutPackages.Location = new System.Drawing.Point(208, 3);
             this.panelLayoutPackages.Name = "panelLayoutPackages";
@@ -86,28 +84,17 @@
             this.panelLayoutPackages.Size = new System.Drawing.Size(199, 414);
             this.panelLayoutPackages.TabIndex = 2;
             // 
-            // metroTile3
+            // btnDispatchPackages
             // 
-            this.metroTile3.ActiveControl = null;
-            this.metroTile3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile3.Location = new System.Drawing.Point(3, 210);
-            this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(193, 201);
-            this.metroTile3.TabIndex = 3;
-            this.metroTile3.Text = "Dispatch Packages";
-            this.metroTile3.UseSelectable = true;
-            // 
-            // metroTile2
-            // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile2.Location = new System.Drawing.Point(3, 3);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(193, 201);
-            this.metroTile2.Style = MetroFramework.MetroColorStyle.Teal;
-            this.metroTile2.TabIndex = 2;
-            this.metroTile2.Text = "View packages";
-            this.metroTile2.UseSelectable = true;
+            this.btnDispatchPackages.ActiveControl = null;
+            this.btnDispatchPackages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDispatchPackages.Location = new System.Drawing.Point(3, 3);
+            this.btnDispatchPackages.Name = "btnDispatchPackages";
+            this.btnDispatchPackages.Size = new System.Drawing.Size(193, 201);
+            this.btnDispatchPackages.TabIndex = 4;
+            this.btnDispatchPackages.Text = "Dispatch Packages";
+            this.btnDispatchPackages.UseSelectable = true;
+            this.btnDispatchPackages.Click += new System.EventHandler(this.btnDispatchPackages_Click);
             // 
             // FormPackaging
             // 
@@ -132,7 +119,6 @@
         private System.Windows.Forms.TableLayoutPanel panelLayoutMain;
         private MetroFramework.Controls.MetroTile metroTile1;
         private System.Windows.Forms.TableLayoutPanel panelLayoutPackages;
-        private MetroFramework.Controls.MetroTile metroTile3;
-        private MetroFramework.Controls.MetroTile metroTile2;
+        private MetroFramework.Controls.MetroTile btnDispatchPackages;
     }
 }

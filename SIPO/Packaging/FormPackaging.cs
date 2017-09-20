@@ -16,5 +16,11 @@ namespace SIPO.Packaging
         {
             InitializeComponent();
         }
+
+        private void btnDispatchPackages_Click(object sender, EventArgs e)
+        {
+            FormPackageDispatchSelect formPackageDispatchSelect = new FormPackageDispatchSelect();
+            formPackageDispatchSelect.ShowDialog();
+        }
     }
 }
