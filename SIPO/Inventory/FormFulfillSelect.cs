@@ -27,10 +27,7 @@ namespace SIPO.Inventory
         {
             poBatchDetails = new List<POBatchDetail>();
 
-            String query = "SELECT purchase_orders.po_id, po_payment, pob_datetime FROM purchase_orders " +
-                "INNER JOIN purchase_order_batches " +
-                "ON purchase_order_batches.po_id = purchase_order.po_id " +
-                "WHERE purchase_order.payment <> 'Complete'";
+            String query = "SELECT purchase_orders.po_id, po_payment, pob_datetime FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_order_batches.po_id = purchase_orders.po_id WHERE purchase_orders.po_payment <> 'Complete' AND purchase_orders.po_id NOT IN (SELECT po_id FROM (SELECT products_finished.prodf_id, products_finished.prodf_qty AS stock, purchase_order_batch_products.prodf_qty AS ordered, purchase_orders.po_id FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id HAVING purchase_order_batch_products.prodf_qty >= products_finished.prodf_qty) AS tblExceedCounter)";
 
             MySqlConnection con = new MySqlConnection(ConString.getConString());
             MySqlCommand com = new MySqlCommand(query, con);
@@ -50,6 +47,7 @@ namespace SIPO.Inventory
             }
 
             con.Close();
+            displayPurchaseOrderBatch();
         }
 
         private void displayPurchaseOrderBatch()
