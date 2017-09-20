@@ -31,8 +31,8 @@ namespace SIPO.Inventory
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 bool success = false;
 
-
-                String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}');",
+            String query2;
+                String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}');",
                     txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
                
                
@@ -43,7 +43,21 @@ namespace SIPO.Inventory
             {
                     query += " VALUES (LAST_INSERT_ID(), '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[1].Text + "' )";
 
-                }
+
+                query2 = "Update products_raw SET " +
+                     "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
+                     "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
+              
+            
+
+
+                
+                MySqlCommand com = new MySqlCommand(query2, con);
+
+                con.Open();
+                com.ExecuteNonQuery();
+                con.Close();
+            }
 
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -110,8 +124,8 @@ namespace SIPO.Inventory
 
         private void btnAddUsedMaterial_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 int index = lvRawMaterials.Items.IndexOf(lvRawMaterials.SelectedItems[0]);
                 RawMaterials rawMaterialUsed = rawMaterials[index];
 
@@ -159,11 +173,11 @@ namespace SIPO.Inventory
                 {
                     MessageBox.Show("Please select a quantity not more than the current stock");
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.StackTrace);
+            //}
         }
     }
 }

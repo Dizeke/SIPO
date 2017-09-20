@@ -107,7 +107,6 @@
             // 
             this.btnRawMaterials.ActiveControl = null;
             this.btnRawMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRawMaterials.Enabled = false;
             this.btnRawMaterials.Location = new System.Drawing.Point(3, 6);
             this.btnRawMaterials.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnRawMaterials.Name = "btnRawMaterials";

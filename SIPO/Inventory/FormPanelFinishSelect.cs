@@ -14,7 +14,7 @@ namespace SIPO.Inventory
             FinishedProductUpdate.hasSelected = false;
             InitializeComponent();
             loadMaterials();
-            
+
         }
 
         private void loadMaterials()
@@ -42,7 +42,7 @@ namespace SIPO.Inventory
 
                     Finished.Raw = reader["prodr_name"].ToString();
                     Finished.Qty = int.Parse(reader["prod_r_qty"].ToString());
-                   
+
                     Finished.Price = int.Parse(reader["prodf_srp"].ToString());
                     Finished.FinQty = int.Parse(reader["prodf_qty"].ToString());
 
@@ -54,7 +54,7 @@ namespace SIPO.Inventory
                     lvFinished.Items[row].SubItems.Add(Finished.Raw.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.FinQty.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.Price.ToString());
-                    
+
                     row++;
                 }
 
@@ -70,8 +70,8 @@ namespace SIPO.Inventory
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
-            try
-            {
+            //try
+            //{
                 int index = lvFinished.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
@@ -79,12 +79,12 @@ namespace SIPO.Inventory
                 formPanelFinishedUpdate.ShowDialog();
                 this.Close();
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-                MessageBox.Show("Please select a client to update");
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.StackTrace);
+            //    MessageBox.Show("Please select a client to update");
+            //}
         }
 
         private void btnClose_Click(object sender, EventArgs e)
