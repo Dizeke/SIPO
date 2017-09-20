@@ -48,7 +48,7 @@ namespace SIPO.Inventory
                     con2.Open();
 
                     MySqlCommand cmd2 = new MySqlCommand(query2, con2);
-
+                     
                     cmd2.ExecuteNonQuery();
                     success = true;
 
