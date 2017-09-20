@@ -24,11 +24,12 @@ namespace SIPO.Inventory
             if (FinishedProductUpdate.hasSelected)
             {
 
-                FinishedProduct finished = FinishedProductUpdate.finished;
+                finished = FinishedProductUpdate.finished;
                 txtName.Text = finished.Name;
                 txtDesc.Text = finished.Desc;
                 txtOldSrp.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
+                MessageBox.Show(finished.Id.ToString());
             }
             else
             {
@@ -122,10 +123,11 @@ namespace SIPO.Inventory
         {
             try
             {
+                finished = new FinishedProduct();
                 rawMaterials = new List<RawMaterials>();
                 rawMaterialsUsed = new List<RawMaterials>();
-
-                String query = "SELECT * FROM products_finished_materials";
+                MessageBox.Show(finished.Id.ToString());
+                String query = String.Format("SELECT * FROM products_finished_materials where prodf_f_id = '{0}'",finished.Id);
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
                 MySqlDataReader reader;

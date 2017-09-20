@@ -75,9 +75,6 @@ namespace SIPO.Inventory
                 int index = lvFinished.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
-
-
-
                 FormPanelFinishedUpdate formPanelFinishedUpdate = new FormPanelFinishedUpdate();
                 formPanelFinishedUpdate.ShowDialog();
                 this.Close();
