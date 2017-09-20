@@ -26,38 +26,38 @@ namespace SIPO.Inventory
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            
+            if (isValidInput())
+            {
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 bool success = false;
 
-            String query2;
+                String query2;
                 String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}');",
                     txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
-               
-               
+
+
                 query += "Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), LAST_INSERT_ID())";
-               
+
                 query += ";Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
-            for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
-            {
-                    query += " VALUES (LAST_INSERT_ID(), '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[1].Text + "' )";
+                for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
+                {
+                    query += " VALUES (LAST_INSERT_ID(), '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' )";
 
 
-                query2 = "Update products_raw SET " +
-                     "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
-                     "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
-              
-            
+                    query2 = "Update products_raw SET " +
+                         "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
+                         "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
 
 
-                
-                MySqlCommand com = new MySqlCommand(query2, con);
 
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
-            }
+
+
+                    MySqlCommand com = new MySqlCommand(query2, con);
+
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
+                }
 
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -66,12 +66,53 @@ namespace SIPO.Inventory
 
                 success = true;
                 MessageBox.Show("Item Added Successfully");
-            if (!success)
-                MessageBox.Show("failed to add item");
-         
-            
+                if (!success)
+                    MessageBox.Show("failed to add item");
 
 
+
+            }
+        }
+        private bool isValidInput()
+        {
+            try
+            {
+                if (txtDesc.Text.ToString().Length < 1)
+                {
+                    MessageBox.Show("Description Cannot be empty");
+                    return false;
+                }
+                else if (txtName.Text.ToString().Length < 4)
+                {
+                    MessageBox.Show("Name cannot be empty");
+                    return false;
+                }
+                else if (txtPrice.Text.ToString().Length < 1)
+                {
+                    MessageBox.Show("Price cannot be empty");
+                    return false;
+                }
+                else if (txtQty.Text.ToString().Length < 1)
+                {
+                    MessageBox.Show("Quantity Name cannot be empty");
+                    return false;
+                }
+                else if (txtFinQty.Text.ToString().Length < 1)
+                {
+                    MessageBox.Show("New Price Name cannot be empty");
+                    return false;
+                }
+
+
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
         }
 
         private void loadRawMaterials()
@@ -124,8 +165,8 @@ namespace SIPO.Inventory
 
         private void btnAddUsedMaterial_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 int index = lvRawMaterials.Items.IndexOf(lvRawMaterials.SelectedItems[0]);
                 RawMaterials rawMaterialUsed = rawMaterials[index];
 
@@ -173,11 +214,11 @@ namespace SIPO.Inventory
                 {
                     MessageBox.Show("Please select a quantity not more than the current stock");
                 }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.StackTrace);
-            //}
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
         }
     }
 }

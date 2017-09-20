@@ -341,7 +341,7 @@
             this.dtpReceived.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtpReceived.Enabled = false;
             this.dtpReceived.Location = new System.Drawing.Point(3, 118);
-            this.dtpReceived.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpReceived.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpReceived.Name = "dtpReceived";
             this.dtpReceived.Size = new System.Drawing.Size(200, 29);
             this.dtpReceived.TabIndex = 54;

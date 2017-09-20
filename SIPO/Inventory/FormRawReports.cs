@@ -24,7 +24,7 @@ namespace SIPO.Inventory
 
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM products_raw AS a Inner Join products_raw_receive as b ON a.prodr_id = b.prodr_id", con))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT a.prodr_id AS ID, a.prodr_name AS Name, a.prodr_desc AS Description, a.prodr_qty AS Quantity, a.prodr_price AS Price, b.prodr_r_date AS 'Received Date' FROM products_raw AS a Inner Join products_raw_receive as b ON a.prodr_id = b.prodr_id", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
@@ -65,7 +65,7 @@ namespace SIPO.Inventory
                 {
                     for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
-                        // Excel index starts from 1,1. As first Row would have the Column headers, adding a condition check. 
+                       
                         if (cellRowIndex == 1)
                         {
                             worksheet.Cells[cellRowIndex, cellColumnIndex].Font.Bold = dataGridView1.Columns[j].HeaderText;
@@ -106,3 +106,4 @@ namespace SIPO.Inventory
         }
     }
 }
+

@@ -78,5 +78,18 @@ namespace SIPO.Inventory
             FormFulfillSelect formFulfillSelect = new FormFulfillSelect();
             formFulfillSelect.ShowDialog();
         }
+
+        private void btnRawMaterials_Click(object sender, EventArgs e)
+        {
+            
+            FormRawReports formRawReports = new FormRawReports();
+            formRawReports.ShowDialog();
+        }
+
+        private void btnFinishedProducts_Click(object sender, EventArgs e)
+        {
+            FormFinishedReports formFinishedReports = new FormFinishedReports();
+            formFinishedReports.ShowDialog();
+        }
     }
 }

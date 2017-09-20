@@ -16,6 +16,7 @@ namespace SIPO.Inventory
         public FormFinishedReports()
         {
             InitializeComponent();
+            BindGrid();
         }
 
         private void BindGrid()
@@ -23,7 +24,7 @@ namespace SIPO.Inventory
 
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT a.prodf_id a.prodf_name a.prof_desc FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id", con))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp', c.prod_r_id AS 'Raw Material ID', b.prodr_name AS 'Raw Material Name', c.prod_r_qty AS 'Raw Material Quantity' FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
