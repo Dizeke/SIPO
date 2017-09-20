@@ -33,7 +33,7 @@ namespace SIPO.Sales
 
             conPuchaseOrder.Open();
 
-            String queryPurchaseOrder = "SELECT * FROM purchase_orders WHERE po_id IN ( SELECT po_id FROM (SELECT purchase_orders.po_id, products_finished.prodf_srp FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batches.pob_id = purchase_order_batch_products.pobp_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id HAVING products_finished.prodf_srp > 0) as tblUpdatedProductsOnly )";
+            String queryPurchaseOrder = "SELECT * FROM purchase_orders WHERE po_payment <> 'Complete'";
             comPurchaseOrder = new MySqlCommand(queryPurchaseOrder, conPuchaseOrder);
 
             readerPurchaseOrder = comPurchaseOrder.ExecuteReader();
@@ -110,7 +110,7 @@ namespace SIPO.Sales
             int selectedIndex = 1;
             try
             {
-                selectedIndex = lvPurchaseOrders.SelectedIndices[0];
+                selectedIndex = lvPurchaseOrders.SelectedIndices[0] ;
             }
             catch (Exception ex)
             {

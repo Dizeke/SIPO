@@ -29,21 +29,22 @@ namespace SIPO.Inventory
                 txtDesc.Text = finished.Desc;
                 txtOldSrp.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
+                MessageBox.Show(finished.Id.ToString());
             }
             else
             {
                 this.Close();
             }
         }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
-            finished.Name = txtName.Text;
-            finished.Desc = txtDesc.Text;
-            finished.Price = double.Parse(txtOldSrp.Text);
-            finished.Newprice = double.Parse(txtNewSrp.Text);
-            finished.FinQty = int.Parse(txtFinQty.Text);
+            
+                finished = new FinishedProduct();
+                finished.Name = txtName.Text;
+                finished.Desc = txtDesc.Text;
+                finished.Price = double.Parse(txtOldSrp.Text);
+                finished.Newprice = double.Parse(txtNewSrp.Text);
+                finished.FinQty = int.Parse(txtFinQty.Text);
 
             String query = String.Format("UPDATE products_finished SET " +
                        "prodf_id =  '{0}', " +
@@ -122,8 +123,11 @@ namespace SIPO.Inventory
         {
             try
             {
+                finished = new FinishedProduct();
+                rawMaterials = new List<RawMaterials>();
                 rawMaterialsUsed = new List<RawMaterials>();
-                String query = String.Format("SELECT products_raw.prodr_id, products_raw.prodr_name, products_finished_materials.prod_r_qty FROM products_finished_materials INNER JOIN products_raw ON products_finished_materials.prod_r_id = products_raw.prodr_id WHERE prodf_f_id = {0}", finished.Id);
+                MessageBox.Show(finished.Id.ToString());
+                String query = String.Format("SELECT * FROM products_finished_materials where prodf_f_id = '{0}'",finished.Id);
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
                 MySqlDataReader reader;
@@ -135,9 +139,10 @@ namespace SIPO.Inventory
                 while (reader.Read())
                 {
                     RawMaterials rawMaterial = new RawMaterials();
-                    rawMaterial.Id = int.Parse(reader["prodr_id"].ToString());
-                    rawMaterial.Name = reader["prodr_name"].ToString();
+                    rawMaterial.Id = int.Parse(reader["prod_r_id"].ToString());
+                    rawMaterial.Name = finished.Raw;
                     rawMaterial.Qty = int.Parse(reader["prod_r_qty"].ToString());
+
 
                     rawMaterialsUsed.Add(rawMaterial);
 
@@ -160,12 +165,35 @@ namespace SIPO.Inventory
                 Console.WriteLine(ex.StackTrace);
             }
         }
+        //public bool found(int ID)
+        //{
+        //    String query = String.Format("SELECT * FROM products_finished_materials where prodf_f_id = '{0}'", ID);
+        //    MySqlConnection con = new MySqlConnection(ConString.getConString());
+        //    MySqlCommand com = new MySqlCommand(query, con);
+        //    MySqlDataReader reader;
+
+        //    con.Open();
+
+        //    int row = 0;
+        //    reader = com.ExecuteReader();
+        //    while (reader.Read())
+        //    {
+        //        if (reader["prod_r"].ToString() == ID.ToString())
+        //        {
+        //            break;
+        //        }
+
+
+        //    }
+        //}
+
 
         private void btnAddUsedMaterial_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int index = lvRawMaterials.SelectedIndices[0];
+            //try
+            //{
+                int index = lvRawMaterials.Items.IndexOf(lvRawMaterials.SelectedItems[0]);
+            MessageBox.Show(index.ToString());
                 RawMaterials rawMaterialUsed = rawMaterials[index];
 
                 int quantity = int.Parse(txtQty.Text.ToString());
@@ -204,7 +232,7 @@ namespace SIPO.Inventory
                         rawMaterialUsed.Qty = int.Parse(txtQty.Text.ToString());
                         rawMaterialsUsed.Add(rawMaterialUsed);
                         lvRawMaterialsUsed.Items.Add(rawMaterialUsed.Id.ToString());
-                        lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Name);
+                        lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(finished.Raw);
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Qty.ToString());
                     }
                 }
@@ -212,14 +240,17 @@ namespace SIPO.Inventory
                 {
                     MessageBox.Show("Please select a quantity not more than the current stock");
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.StackTrace);
+            //}
         }
+
+
     }
-
-
-
 }
+
+
+
+

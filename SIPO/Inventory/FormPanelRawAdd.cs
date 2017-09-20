@@ -24,8 +24,8 @@ namespace SIPO.Inventory
             MySqlConnection con = new MySqlConnection(ConString.getConString());
             bool success = false;
 
-            String query = String.Format("Insert INTO products_raw (prodr_id, prodr_name, prodr_desc, prodr_size, prodr_qty, prodr_price) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}', '{5}')",
-                Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtSizeComp.Text), Convert.ToInt32(txtQty.Text), Convert.ToInt32(txtPrice.Text));
+            String query = String.Format("Insert INTO products_raw (prodr_id, prodr_name, prodr_desc, prodr_qty, prodr_price) VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}')",
+                Convert.ToInt32(txtID.Text), txtName.Text, txtDesc.Text, Convert.ToInt32(txtQty.Text), Convert.ToInt32(txtPrice.Text));
             con.Open();
             MySqlCommand cmd = new MySqlCommand(query, con);
 

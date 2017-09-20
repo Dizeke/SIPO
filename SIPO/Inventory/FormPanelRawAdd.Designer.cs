@@ -38,8 +38,6 @@
             this.lblDesc = new MetroFramework.Controls.MetroLabel();
             this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.lblQty = new MetroFramework.Controls.MetroLabel();
-            this.txtSizeComp = new MetroFramework.Controls.MetroTextBox();
-            this.lblSizeComp = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
             this.txtID = new MetroFramework.Controls.MetroTextBox();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
@@ -63,8 +61,6 @@
             this.panelLayoutRawAdd.Controls.Add(this.lblDesc, 0, 5);
             this.panelLayoutRawAdd.Controls.Add(this.txtQty, 2, 6);
             this.panelLayoutRawAdd.Controls.Add(this.lblQty, 2, 5);
-            this.panelLayoutRawAdd.Controls.Add(this.txtSizeComp, 1, 6);
-            this.panelLayoutRawAdd.Controls.Add(this.lblSizeComp, 1, 5);
             this.panelLayoutRawAdd.Controls.Add(this.txtDesc, 0, 6);
             this.panelLayoutRawAdd.Controls.Add(this.txtID, 0, 2);
             this.panelLayoutRawAdd.Controls.Add(this.btnAdd, 1, 13);
@@ -245,47 +241,6 @@
             this.lblQty.TabIndex = 41;
             this.lblQty.Text = "Quantity";
             // 
-            // txtSizeComp
-            // 
-            // 
-            // 
-            // 
-            this.txtSizeComp.CustomButton.Image = null;
-            this.txtSizeComp.CustomButton.Location = new System.Drawing.Point(162, 1);
-            this.txtSizeComp.CustomButton.Name = "";
-            this.txtSizeComp.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtSizeComp.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSizeComp.CustomButton.TabIndex = 1;
-            this.txtSizeComp.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSizeComp.CustomButton.UseSelectable = true;
-            this.txtSizeComp.CustomButton.Visible = false;
-            this.txtSizeComp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtSizeComp.Lines = new string[0];
-            this.txtSizeComp.Location = new System.Drawing.Point(209, 118);
-            this.txtSizeComp.MaxLength = 32;
-            this.txtSizeComp.Name = "txtSizeComp";
-            this.txtSizeComp.PasswordChar = '\0';
-            this.txtSizeComp.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtSizeComp.SelectedText = "";
-            this.txtSizeComp.SelectionLength = 0;
-            this.txtSizeComp.SelectionStart = 0;
-            this.txtSizeComp.ShortcutsEnabled = true;
-            this.txtSizeComp.Size = new System.Drawing.Size(184, 23);
-            this.txtSizeComp.TabIndex = 35;
-            this.txtSizeComp.UseSelectable = true;
-            this.txtSizeComp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtSizeComp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblSizeComp
-            // 
-            this.lblSizeComp.AutoSize = true;
-            this.lblSizeComp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSizeComp.Location = new System.Drawing.Point(209, 96);
-            this.lblSizeComp.Name = "lblSizeComp";
-            this.lblSizeComp.Size = new System.Drawing.Size(184, 19);
-            this.lblSizeComp.TabIndex = 40;
-            this.lblSizeComp.Text = "Size Computation";
-            // 
             // txtDesc
             // 
             // 
@@ -405,8 +360,6 @@
         private MetroFramework.Controls.MetroLabel lblPrice;
         private MetroFramework.Controls.MetroLabel lblReceived;
         private MetroFramework.Controls.MetroLabel lblDesc;
-        private MetroFramework.Controls.MetroTextBox txtSizeComp;
-        private MetroFramework.Controls.MetroLabel lblSizeComp;
         private MetroFramework.Controls.MetroTextBox txtDesc;
         private MetroFramework.Controls.MetroTextBox txtQty;
         private MetroFramework.Controls.MetroLabel lblQty;
