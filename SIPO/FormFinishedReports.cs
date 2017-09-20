@@ -68,7 +68,8 @@ namespace SIPO.Inventory
                         // Excel index starts from 1,1. As first Row would have the Column headers, adding a condition check. 
                         if (cellRowIndex == 1)
                         {
-                            worksheet.Cells[cellRowIndex, cellColumnIndex].Font.Bold = dataGridView1.Columns[j].HeaderText;
+                            worksheet.Cells[cellRowIndex, cellColumnIndex].Font.Bold = true;
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Columns[j].HeaderText;
                         }
                         else
                         {
