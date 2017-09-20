@@ -70,8 +70,8 @@ namespace SIPO.Inventory
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
+            try
+            {
                 int index = lvFinished.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
@@ -79,13 +79,13 @@ namespace SIPO.Inventory
                 formPanelFinishedUpdate.ShowDialog();
                 this.Close();
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.StackTrace);
-            //    MessageBox.Show("Please select a client to update");
-            //}
         }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please select a client to update");
+            }
+}
 
         private void btnClose_Click(object sender, EventArgs e)
         {

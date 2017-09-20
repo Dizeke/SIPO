@@ -28,47 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnExport = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnExport
+            // 
+            this.btnExport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExport.Location = new System.Drawing.Point(538, 3);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(133, 24);
+            this.btnExport.TabIndex = 3;
+            this.btnExport.Text = "Export to Excel";
+            this.btnExport.UseSelectable = true;
+            this.btnExport.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 60);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 33);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(673, 304);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(668, 282);
+            this.dataGridView1.TabIndex = 2;
             // 
-            // metroButton1
+            // tableLayoutPanel1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(581, 31);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(109, 23);
-            this.metroButton1.TabIndex = 1;
-            this.metroButton1.Text = "Export to Excel";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.4586F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5414F));
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnExport, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.480123F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.51987F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(674, 318);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // FormPanelRawReports
+            // FormRawReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 384);
-            this.Controls.Add(this.metroButton1);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "FormPanelRawReports";
-            this.Text = "Raw Materials Report";
+            this.ClientSize = new System.Drawing.Size(714, 398);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormRawReports";
+            this.Text = "Raw Material Reports";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private MetroFramework.Controls.MetroButton btnExport;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

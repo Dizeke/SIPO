@@ -89,7 +89,6 @@
             // 
             this.btnFinishedProducts.ActiveControl = null;
             this.btnFinishedProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFinishedProducts.Enabled = false;
             this.btnFinishedProducts.Location = new System.Drawing.Point(3, 146);
             this.btnFinishedProducts.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnFinishedProducts.Name = "btnFinishedProducts";
@@ -102,6 +101,7 @@
             this.btnFinishedProducts.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnFinishedProducts.UseSelectable = true;
             this.btnFinishedProducts.UseTileImage = true;
+            this.btnFinishedProducts.Click += new System.EventHandler(this.btnFinishedProducts_Click);
             // 
             // btnRawMaterials
             // 
@@ -119,6 +119,7 @@
             this.btnRawMaterials.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRawMaterials.UseSelectable = true;
             this.btnRawMaterials.UseTileImage = true;
+            this.btnRawMaterials.Click += new System.EventHandler(this.btnRawMaterials_Click);
             // 
             // panelLayoutRawMaterials
             // 
