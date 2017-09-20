@@ -30,17 +30,19 @@
         {
             this.lvPurchaseOrders = new MetroFramework.Controls.MetroListView();
             this.btnSelectBatch = new MetroFramework.Controls.MetroButton();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvPurchaseOrders
             // 
             this.lvPurchaseOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
             this.lvPurchaseOrders.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvPurchaseOrders.FullRowSelect = true;
             this.lvPurchaseOrders.Location = new System.Drawing.Point(23, 63);
@@ -60,21 +62,27 @@
             this.btnSelectBatch.TabIndex = 1;
             this.btnSelectBatch.Text = "Select Batch";
             this.btnSelectBatch.UseSelectable = true;
+            this.btnSelectBatch.Click += new System.EventHandler(this.btnSelectBatch_Click);
             // 
-            // columnHeader1
+            // columnHeader4
             // 
-            this.columnHeader1.Text = "PO ID";
-            this.columnHeader1.Width = 154;
+            this.columnHeader4.Text = "PO ID";
+            this.columnHeader4.Width = 81;
             // 
-            // columnHeader2
+            // columnHeader5
             // 
-            this.columnHeader2.Text = "Delivery Date";
-            this.columnHeader2.Width = 238;
+            this.columnHeader5.Text = "Batch ID";
+            this.columnHeader5.Width = 84;
             // 
-            // columnHeader3
+            // columnHeader6
             // 
-            this.columnHeader3.Text = "Payment";
-            this.columnHeader3.Width = 158;
+            this.columnHeader6.Text = "Delivery Date";
+            this.columnHeader6.Width = 169;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Payment";
+            this.columnHeader7.Width = 123;
             // 
             // FormFulfillSelect
             // 
@@ -94,8 +102,9 @@
 
         private MetroFramework.Controls.MetroListView lvPurchaseOrders;
         private MetroFramework.Controls.MetroButton btnSelectBatch;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

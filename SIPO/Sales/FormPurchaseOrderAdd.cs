@@ -151,8 +151,8 @@ namespace SIPO.Sales
 
             try
             {
-                if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
-                {
+                //if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
+                //{
                     bool isAdded = false;
                     int prodIndex = 0;
 
@@ -167,17 +167,17 @@ namespace SIPO.Sales
                     {
                         if (requestedProduct.Id == requestProduct.Id)
                         {
-                            if (quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
-                            {
+                            //if (quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
+                            //{
                                 isAdded = true;
                                 requestedProducts[prodIndex].Qty += quantity;
                                 break;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Please provide a quantity not more than the available stock");
-                                return;
-                            }
+                            //}
+                            //else
+                            //{
+                            //    MessageBox.Show("Please provide a quantity not more than the available stock");
+                            //    return;
+                            //}
                         }
                         else
                         {
@@ -198,27 +198,27 @@ namespace SIPO.Sales
                     }
                     else
                     {
-                        if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
-                        {
+                        //if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
+                        //{
                             requestProduct.Qty = quantity;
                             requestedProducts.Add(requestProduct);
 
                             lvPurchaseList.Items.Add(requestProduct.Id.ToString());
                             lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
                             lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please provide a quantity not more than the available stock");
-                            return;
-                        }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Please provide a quantity not more than the available stock");
+                        //    return;
+                        //}
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Please provide a quantity not more than the available stock");
-                    return;
-                }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Please provide a quantity not more than the available stock");
+                //    return;
+                //}
             }
             catch (Exception ex)
             {

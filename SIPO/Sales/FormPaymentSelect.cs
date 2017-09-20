@@ -107,10 +107,10 @@ namespace SIPO.Sales
 
         private void btnSelectPurchaseOrder_Click(object sender, EventArgs e)
         {
-            int selectedIndex = 0;
+            int selectedIndex = 1;
             try
             {
-                selectedIndex = lvPurchaseOrders.SelectedItems.IndexOf(lvPurchaseOrders.SelectedItems[0]);
+                selectedIndex = lvPurchaseOrders.SelectedIndices[0] ;
             }
             catch (Exception ex)
             {
