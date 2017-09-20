@@ -14,7 +14,7 @@ namespace SIPO.Inventory
 {
     public partial class FormInventory : MetroFramework.Forms.MetroForm
     {
-      
+
 
         FormPanelRawAdd formPanelRawAdd;
 
@@ -24,7 +24,7 @@ namespace SIPO.Inventory
 
         FormPanelFinishSelect formPanelFinishSelect;
 
-      
+
         public FormInventory()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace SIPO.Inventory
             this.Hide();
             formPanelRawAdd.ShowDialog();
             this.Show();
-           
+
         }
 
         private void btnFinishedProductAdd_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace SIPO.Inventory
             this.Hide();
             formPanelFinishAdd.ShowDialog();
             this.Show();
-           
+
         }
 
         private void btnRawMaterialUpdate_Click(object sender, EventArgs e)
@@ -71,6 +71,12 @@ namespace SIPO.Inventory
             this.Show();
 
 
+        }
+
+        private void btnMoveToPackaging_Click(object sender, EventArgs e)
+        {
+            FormFulfillSelect formFulfillSelect = new FormFulfillSelect();
+            formFulfillSelect.ShowDialog();
         }
     }
 }

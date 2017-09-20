@@ -384,6 +384,7 @@
             this.Controls.Add(this.txtDesc);
             this.Name = "FormPanelFinishAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Add Finished Product";
             this.ResumeLayout(false);
             this.PerformLayout();

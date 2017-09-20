@@ -33,7 +33,7 @@ namespace SIPO.Sales
 
             conPuchaseOrder.Open();
 
-            String queryPurchaseOrder = "SELECT * FROM purchase_orders";
+            String queryPurchaseOrder = "SELECT * FROM purchase_orders WHERE po_payment <> 'Complete'";
             comPurchaseOrder = new MySqlCommand(queryPurchaseOrder, conPuchaseOrder);
 
             readerPurchaseOrder = comPurchaseOrder.ExecuteReader();
@@ -84,10 +84,7 @@ namespace SIPO.Sales
                 purchaseOrderDetail.balance = purchaseOrderDetail.total - purchaseOrderDetail.paid;
                 conPurchaseOrderPaid.Close();
 
-                if (purchaseOrderDetail.balance > 0)
-                {
-                    purchaseOrderDetails.Add(purchaseOrderDetail);
-                }
+                purchaseOrderDetails.Add(purchaseOrderDetail);
             }
 
             conPuchaseOrder.Close();

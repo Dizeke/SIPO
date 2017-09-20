@@ -104,6 +104,7 @@ namespace SIPO.Sales
                         MessageBox.Show("Payment successful");
                     }
 
+                    updatePaymentStatus();
                     PurchaseOrderPaymentHelper.isComplete = true;
                     this.Close();
                 }
@@ -113,5 +114,42 @@ namespace SIPO.Sales
                 MessageBox.Show("Payment cannot be more than the remaining balance");
             }
         }
+
+        private void updatePaymentStatus()
+        {
+            String query = "SELECT COALESCE(SUM(pop_amount), 0) AS paid FROM purchase_order_payments WHERE po_id = " + purchaseOrderDetail.po_id;
+            MySqlConnection con = new MySqlConnection(ConString.getConString());
+            MySqlCommand com = new MySqlCommand(query, con);
+            MySqlDataReader reader;
+
+            con.Open();
+
+            bool isFullyPaid = false;
+            reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                if(purchaseOrderDetail.total == double.Parse(reader["paid"].ToString()))
+                {
+                    isFullyPaid = true;
+                }
+            }
+            reader.Close();
+
+            if (isFullyPaid)
+            {
+                query = "UPDATE purchase_orders SET po_payment = 'Complete' WHERE po_id = " + purchaseOrderDetail.po_id;
+                
+            }
+            else
+            {
+                query = "UPDATE purchase_orders SET po_payment = 'Partial' WHERE po_id = " + purchaseOrderDetail.po_id;
+            }
+
+            com = new MySqlCommand(query, con);
+            com.ExecuteNonQuery();
+
+            con.Close();
+        }
+
     }
 }

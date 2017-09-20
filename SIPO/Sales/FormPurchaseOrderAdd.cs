@@ -16,8 +16,8 @@ namespace SIPO.Sales
     public partial class FormPurchaseOrderAdd : MetroFramework.Forms.MetroForm
     {
         List<Client> clients;
-        List<FinishedProduct> finishedProducts;
-        List<FinishedProduct> requestedProducts;
+        List<FinishedProduct> finishedProducts; // Products List
+        List<FinishedProduct> requestedProducts; //Requested Products List
 
         public FormPurchaseOrderAdd()
         {
@@ -167,7 +167,7 @@ namespace SIPO.Sales
                     {
                         if (requestedProduct.Id == requestProduct.Id)
                         {
-                            if(quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
+                            if (quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
                             {
                                 isAdded = true;
                                 requestedProducts[prodIndex].Qty += quantity;
@@ -228,7 +228,21 @@ namespace SIPO.Sales
 
         private void btnAddCustomProduct_Click(object sender, EventArgs e)
         {
+            ProductCustomHelper.finishedProduct = new FinishedProduct();
+            ProductCustomHelper.isComplete = false;
 
+            FormPurchaseOrderCustomAdd formPurchaseOrderCustomAdd = new FormPurchaseOrderCustomAdd();
+            formPurchaseOrderCustomAdd.ShowDialog();
+
+            if (ProductCustomHelper.isComplete)
+            {
+                FinishedProduct customProduct = ProductCustomHelper.finishedProduct;
+
+                requestedProducts.Add(customProduct);
+                lvPurchaseList.Items.Add(customProduct.Id.ToString());
+                lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(customProduct.Name);
+                lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(customProduct.Qty.ToString());
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

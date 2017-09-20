@@ -63,6 +63,16 @@ namespace SIPO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap batch_complete {
+            get {
+                object obj = ResourceManager.GetObject("batch_complete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_account {
             get {
                 object obj = ResourceManager.GetObject("icon_account", resourceCulture);

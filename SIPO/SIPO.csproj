@@ -62,6 +62,7 @@
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\FinishedProduct.cs" />
     <Compile Include="Classes\FinishedProductUpdate.cs" />
+    <Compile Include="Classes\ProductCustomHelper.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
     <Compile Include="Classes\PurchaseOrderBatch.cs" />
     <Compile Include="Classes\PurchaseOrderDetail.cs" />
@@ -77,6 +78,12 @@
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FormFulfillSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FormFulfillSelect.Designer.cs">
+      <DependentUpon>FormFulfillSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory\FormInventory.cs">
       <SubType>Form</SubType>
@@ -209,6 +216,9 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FormFulfillSelect.resx">
+      <DependentUpon>FormFulfillSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FormInventory.resx">
       <DependentUpon>FormInventory.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_purchase_order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\batch_complete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
