@@ -96,10 +96,10 @@ namespace SIPO.Inventory
 
             int pob_id = poBatchDetails[selectedIndex].pob_id;
             string pob_datetime = poBatchDetails[selectedIndex].pob_datetime;
-            FormFulfillAdd formFulfillAdd = new FormFulfillAdd(pob_id, pob_datetime);
+            FormFulfillMove formFulfillAdd = new FormFulfillMove(pob_id, pob_datetime);
             formFulfillAdd.ShowDialog();
 
-            if (FormFulfillAdd.isMoved)
+            if (FormFulfillWeighing.isMoved)
             {
                 loadPurchaseOrderBatch();
             }

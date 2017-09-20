@@ -1,6 +1,6 @@
 ﻿namespace SIPO.Inventory
 {
-    partial class FormFulfillAdd
+    partial class FormFulfillMove
     {
         /// <summary>
         /// Required designer variable.

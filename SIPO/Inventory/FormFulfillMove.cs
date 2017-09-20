@@ -13,20 +13,18 @@ using SIPO.Classes;
 
 namespace SIPO.Inventory
 {
-    public partial class FormFulfillAdd : MetroFramework.Forms.MetroForm
+    public partial class FormFulfillMove : MetroFramework.Forms.MetroForm
     {
         List<BatchProduct> batchProducts;
-        public static bool isMoved;
 
         int pob_id;
         string pob_datetime;
-        public FormFulfillAdd(int _pob_id, string _pob_datetime)
+        public FormFulfillMove(int _pob_id, string _pob_datetime)
         {
             InitializeComponent();
             this.pob_id = _pob_id;
             this.pob_datetime = _pob_datetime;
 
-            isMoved = false;
             loadProducts();
         }
 
@@ -90,19 +88,11 @@ namespace SIPO.Inventory
 
         private void btnMoveToPackaging_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to move this Batch to Packaging?", "Confirm Batch Movement", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            FormFulfillWeighing formFulfillWeighing = new FormFulfillWeighing(pob_id);
+            formFulfillWeighing.ShowDialog();
+
+            if (FormFulfillWeighing.isMoved)
             {
-                String query = String.Format("INSERT INTO packages (pack_datetime, pob_id) VALUES ((SELECT NOW()), {0})",
-               pob_id);
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
-
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
-
-                MessageBox.Show("Purchase Order Batch moved to Packaging");
-                isMoved = true;
                 this.Close();
             }
         }
