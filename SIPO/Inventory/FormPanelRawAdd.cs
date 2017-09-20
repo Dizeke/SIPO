@@ -35,6 +35,7 @@ namespace SIPO.Inventory
 
 
                 cmd.ExecuteNonQuery();
+                int id = (int)cmd.LastInsertedId;
 
                 success = true;
 
@@ -42,12 +43,13 @@ namespace SIPO.Inventory
                 {
 
                     MySqlConnection con2 = new MySqlConnection(ConString.getConString());
-                    String query2 = String.Format("Insert INTO products_raw_receive (prodr_r_date, LAST_INSERT_ID()) VALUES ('{0}', '{1}')", dtpReceived.Value.ToString("yyyyMMdd"));
+                    String query2 = String.Format("Insert INTO products_raw_receive (prodr_r_date, prodr_id ) VALUES ('{0}', '{1}')", dtpReceived.Value.ToString("yyyyMMdd"),id);
 
-
+                    
                     con2.Open();
 
                     MySqlCommand cmd2 = new MySqlCommand(query2, con2);
+                    
                      
                     cmd2.ExecuteNonQuery();
                     success = true;
