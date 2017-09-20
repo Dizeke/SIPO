@@ -128,7 +128,7 @@ namespace SIPO.Sales
             reader = com.ExecuteReader();
             while (reader.Read())
             {
-                if(purchaseOrderDetail.total == double.Parse(reader["paid"].ToString()))
+                if (purchaseOrderDetail.total == double.Parse(reader["paid"].ToString()))
                 {
                     isFullyPaid = true;
                 }
@@ -138,7 +138,7 @@ namespace SIPO.Sales
             if (isFullyPaid)
             {
                 query = "UPDATE purchase_orders SET po_payment = 'Complete' WHERE po_id = " + purchaseOrderDetail.po_id;
-                
+
             }
             else
             {
