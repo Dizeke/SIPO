@@ -55,7 +55,7 @@ namespace SIPO.Inventory
 
                 worksheet = workbook.ActiveSheet;
 
-                worksheet.Name = "Finished Products");
+                worksheet.Name = "Finished Products";
 
                 int cellRowIndex = 1;
                 int cellColumnIndex = 1;

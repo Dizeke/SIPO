@@ -10,5 +10,6 @@ namespace SIPO.Classes
     {
         public static FinishedProduct finished;
         public static bool hasSelected;
+        public static bool isCompleted;
     }
 }

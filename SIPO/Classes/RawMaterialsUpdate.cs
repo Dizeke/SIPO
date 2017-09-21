@@ -10,6 +10,7 @@ namespace SIPO.Classes
     {
         public static RawMaterials raw;
         public static bool hasSelected;
+        public static bool isCompleted;
 
     }
 }

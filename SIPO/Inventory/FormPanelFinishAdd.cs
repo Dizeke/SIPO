@@ -222,5 +222,42 @@ namespace SIPO.Inventory
                 Console.WriteLine(ex.StackTrace);
             }
         }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar)) e.Handled = false;         //Letters And Numbers 
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else if (e.KeyChar == (char)32) e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtDesc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar)) e.Handled = false;         //Letters And Numbers 
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else if (e.KeyChar == (char)32) e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)) e.Handled = false;        
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else e.Handled = true;
+        }
+
+        private void txtFinQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)) e.Handled = false;        
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else e.Handled = true;
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)) e.Handled = false;      
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else e.Handled = true;
+        }
     }
 }

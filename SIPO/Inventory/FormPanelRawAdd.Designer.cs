@@ -35,12 +35,12 @@
             this.lblPrice = new MetroFramework.Controls.MetroLabel();
             this.lblReceived = new MetroFramework.Controls.MetroLabel();
             this.lblDesc = new MetroFramework.Controls.MetroLabel();
-            this.txtQty = new MetroFramework.Controls.MetroTextBox();
-            this.lblQty = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.dtpReceived = new MetroFramework.Controls.MetroDateTime();
+            this.lblQty = new MetroFramework.Controls.MetroLabel();
+            this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.panelLayoutRawAdd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,6 +114,7 @@
             this.txtPrice.UseSelectable = true;
             this.txtPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // lblName
             // 
@@ -155,6 +156,7 @@
             this.txtName.UseSelectable = true;
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblPrice
             // 
@@ -186,47 +188,6 @@
             this.lblDesc.TabIndex = 39;
             this.lblDesc.Text = "Description";
             // 
-            // txtQty
-            // 
-            // 
-            // 
-            // 
-            this.txtQty.CustomButton.Image = null;
-            this.txtQty.CustomButton.Location = new System.Drawing.Point(162, 1);
-            this.txtQty.CustomButton.Name = "";
-            this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtQty.CustomButton.TabIndex = 1;
-            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtQty.CustomButton.UseSelectable = true;
-            this.txtQty.CustomButton.Visible = false;
-            this.txtQty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtQty.Lines = new string[0];
-            this.txtQty.Location = new System.Drawing.Point(209, 70);
-            this.txtQty.MaxLength = 32;
-            this.txtQty.Name = "txtQty";
-            this.txtQty.PasswordChar = '\0';
-            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtQty.SelectedText = "";
-            this.txtQty.SelectionLength = 0;
-            this.txtQty.SelectionStart = 0;
-            this.txtQty.ShortcutsEnabled = true;
-            this.txtQty.Size = new System.Drawing.Size(184, 23);
-            this.txtQty.TabIndex = 37;
-            this.txtQty.UseSelectable = true;
-            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblQty.Location = new System.Drawing.Point(209, 48);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(184, 19);
-            this.lblQty.TabIndex = 41;
-            this.lblQty.Text = "Quantity";
-            // 
             // txtDesc
             // 
             // 
@@ -257,6 +218,7 @@
             this.txtDesc.UseSelectable = true;
             this.txtDesc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDesc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDesc_KeyPress);
             // 
             // btnAdd
             // 
@@ -289,6 +251,48 @@
             this.dtpReceived.Name = "dtpReceived";
             this.dtpReceived.Size = new System.Drawing.Size(200, 29);
             this.dtpReceived.TabIndex = 54;
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblQty.Location = new System.Drawing.Point(209, 48);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(184, 19);
+            this.lblQty.TabIndex = 41;
+            this.lblQty.Text = "Quantity";
+            // 
+            // txtQty
+            // 
+            // 
+            // 
+            // 
+            this.txtQty.CustomButton.Image = null;
+            this.txtQty.CustomButton.Location = new System.Drawing.Point(162, 1);
+            this.txtQty.CustomButton.Name = "";
+            this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtQty.CustomButton.TabIndex = 1;
+            this.txtQty.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtQty.CustomButton.UseSelectable = true;
+            this.txtQty.CustomButton.Visible = false;
+            this.txtQty.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtQty.Lines = new string[0];
+            this.txtQty.Location = new System.Drawing.Point(209, 70);
+            this.txtQty.MaxLength = 32;
+            this.txtQty.Name = "txtQty";
+            this.txtQty.PasswordChar = '\0';
+            this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtQty.SelectedText = "";
+            this.txtQty.SelectionLength = 0;
+            this.txtQty.SelectionStart = 0;
+            this.txtQty.ShortcutsEnabled = true;
+            this.txtQty.Size = new System.Drawing.Size(184, 23);
+            this.txtQty.TabIndex = 37;
+            this.txtQty.UseSelectable = true;
+            this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // FormPanelRawAdd
             // 
