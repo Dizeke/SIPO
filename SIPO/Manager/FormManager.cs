@@ -189,8 +189,14 @@ namespace SIPO.Manager
 
         private void btnPackages_Click(object sender, EventArgs e)
         {
-            FormPackagesReport formPackagesReport = new FormPackagesReport();
+            FormPackageReport formPackagesReport = new FormPackageReport();
             formPackagesReport.ShowDialog();
+        }
+
+        private void btnDispatchedPackages_Click(object sender, EventArgs e)
+        {
+            FormPackageDispatchedReport formPackageDispatchedReport = new FormPackageDispatchedReport();
+            formPackageDispatchedReport.ShowDialog();
         }
     }
 }

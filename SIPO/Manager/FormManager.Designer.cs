@@ -41,14 +41,15 @@
             this.panelHolder = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pbAccImage = new System.Windows.Forms.PictureBox();
+            this.lblAccPosition = new MetroFramework.Controls.MetroLabel();
+            this.lblAccName = new MetroFramework.Controls.MetroLabel();
             this.panelLayoutReports = new System.Windows.Forms.TableLayoutPanel();
             this.btnPackages = new MetroFramework.Controls.MetroTile();
             this.btnPayments = new MetroFramework.Controls.MetroTile();
             this.btnPurchaseOrders = new MetroFramework.Controls.MetroTile();
             this.btnFinishedProducts = new MetroFramework.Controls.MetroTile();
             this.btnRawMaterials = new MetroFramework.Controls.MetroTile();
-            this.lblAccPosition = new MetroFramework.Controls.MetroLabel();
-            this.lblAccName = new MetroFramework.Controls.MetroLabel();
+            this.btnDispatchedPackages = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutManagement.SuspendLayout();
             this.panelLayoutAccountManagement.SuspendLayout();
@@ -244,6 +245,26 @@
             this.pbAccImage.TabIndex = 1;
             this.pbAccImage.TabStop = false;
             // 
+            // lblAccPosition
+            // 
+            this.lblAccPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAccPosition.AutoSize = true;
+            this.lblAccPosition.Location = new System.Drawing.Point(334, 10);
+            this.lblAccPosition.Name = "lblAccPosition";
+            this.lblAccPosition.Size = new System.Drawing.Size(54, 19);
+            this.lblAccPosition.TabIndex = 2;
+            this.lblAccPosition.Text = "Position";
+            // 
+            // lblAccName
+            // 
+            this.lblAccName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAccName.AutoSize = true;
+            this.lblAccName.Location = new System.Drawing.Point(343, 29);
+            this.lblAccName.Name = "lblAccName";
+            this.lblAccName.Size = new System.Drawing.Size(45, 15);
+            this.lblAccName.TabIndex = 3;
+            this.lblAccName.Text = "Name";
+            // 
             // panelLayoutReports
             // 
             this.panelLayoutReports.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
@@ -259,6 +280,7 @@
             this.panelLayoutReports.Controls.Add(this.btnPurchaseOrders, 2, 0);
             this.panelLayoutReports.Controls.Add(this.btnFinishedProducts, 1, 0);
             this.panelLayoutReports.Controls.Add(this.btnRawMaterials, 0, 0);
+            this.panelLayoutReports.Controls.Add(this.btnDispatchedPackages, 5, 0);
             this.panelLayoutReports.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLayoutReports.Location = new System.Drawing.Point(20, 564);
             this.panelLayoutReports.Name = "panelLayoutReports";
@@ -323,7 +345,7 @@
             this.btnFinishedProducts.Name = "btnFinishedProducts";
             this.btnFinishedProducts.Size = new System.Drawing.Size(103, 110);
             this.btnFinishedProducts.TabIndex = 1;
-            this.btnFinishedProducts.Text = "Finishe Products";
+            this.btnFinishedProducts.Text = "Finished Products";
             this.btnFinishedProducts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFinishedProducts.TileImage = global::SIPO.Properties.Resources.icon_finished_product;
             this.btnFinishedProducts.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -347,25 +369,21 @@
             this.btnRawMaterials.UseTileImage = true;
             this.btnRawMaterials.Click += new System.EventHandler(this.btnRawMaterials_Click);
             // 
-            // lblAccPosition
+            // btnDispatchedPackages
             // 
-            this.lblAccPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAccPosition.AutoSize = true;
-            this.lblAccPosition.Location = new System.Drawing.Point(334, 10);
-            this.lblAccPosition.Name = "lblAccPosition";
-            this.lblAccPosition.Size = new System.Drawing.Size(54, 19);
-            this.lblAccPosition.TabIndex = 2;
-            this.lblAccPosition.Text = "Position";
-            // 
-            // lblAccName
-            // 
-            this.lblAccName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAccName.AutoSize = true;
-            this.lblAccName.Location = new System.Drawing.Point(343, 29);
-            this.lblAccName.Name = "lblAccName";
-            this.lblAccName.Size = new System.Drawing.Size(45, 15);
-            this.lblAccName.TabIndex = 3;
-            this.lblAccName.Text = "Name";
+            this.btnDispatchedPackages.ActiveControl = null;
+            this.btnDispatchedPackages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDispatchedPackages.Location = new System.Drawing.Point(548, 3);
+            this.btnDispatchedPackages.Name = "btnDispatchedPackages";
+            this.btnDispatchedPackages.Size = new System.Drawing.Size(109, 110);
+            this.btnDispatchedPackages.TabIndex = 5;
+            this.btnDispatchedPackages.Text = "Dispatched";
+            this.btnDispatchedPackages.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDispatchedPackages.TileImage = global::SIPO.Properties.Resources.icon_dispatched;
+            this.btnDispatchedPackages.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDispatchedPackages.UseSelectable = true;
+            this.btnDispatchedPackages.UseTileImage = true;
+            this.btnDispatchedPackages.Click += new System.EventHandler(this.btnDispatchedPackages_Click);
             // 
             // FormManager
             // 
@@ -414,5 +432,6 @@
         private System.Windows.Forms.PictureBox pbAccImage;
         private MetroFramework.Controls.MetroLabel lblAccPosition;
         private MetroFramework.Controls.MetroLabel lblAccName;
+        private MetroFramework.Controls.MetroTile btnDispatchedPackages;
     }
 }
