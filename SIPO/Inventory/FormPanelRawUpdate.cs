@@ -62,7 +62,6 @@ namespace SIPO.Inventory
                 raw = new RawMaterials();
                 raw.Name = txtName.Text.ToString();
                 raw.Desc = txtDesc.Text.ToString();
-                raw.Size = int.Parse(txtSizeComp.Text.ToString());
                 raw.Qty = int.Parse(txtQty.Text.ToString());
                 raw.Price = int.Parse(txtPrice.Text.ToString());
                 raw.Newprice = int.Parse(txtNewPrice.Text.ToString());
@@ -74,17 +73,15 @@ namespace SIPO.Inventory
                            "prodr_id =  '{0}', " +
                            "prodr_name = '{1}', " +
                            "prodr_desc = '{2}', " +
-                           "prodr_size = '{3}', " +
-                           "prodr_qty = '{4}', " +
-                           "prodr_price = '{5}' " +
+                           "prodr_qty = '{3}', " +
+                           "prodr_price = '{4}' " +
                            "WHERE prodr_id = {0};" +
                            "Update products_raw_receive SET " +
-                           "prodr_r_date = '{6}'" +
+                           "prodr_r_date = '{5}'" +
                            "Where prodr_id = '{0}' ",
                        raw.Id,
                        raw.Name,
                        raw.Desc,
-                       raw.Size,
                        raw.Qty,
                        raw.Newprice,
                        raw.Newreceived
@@ -112,7 +109,6 @@ namespace SIPO.Inventory
 
                 txtName.Text = raw.Name;
                 txtDesc.Text = raw.Desc;
-                txtSizeComp.Text = raw.Size.ToString();
                 txtQty.Text = raw.Qty.ToString();
                 dtpReceived.Value = Convert.ToDateTime(raw.Received);
                 txtPrice.Text = raw.Price.ToString();
