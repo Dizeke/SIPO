@@ -16,10 +16,14 @@ namespace SIPO.Sales
     public partial class FormPurchaseOrderReport : MetroFramework.Forms.MetroForm
     {
 
+        int selectedIndex;
+        int po_id;
 
         public FormPurchaseOrderReport()
         {
             InitializeComponent();
+            selectedIndex = -1;
+            po_id = -1;
             BindGrid();
         }
         
@@ -114,6 +118,34 @@ namespace SIPO.Sales
 
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int previousIndex = selectedIndex;
+            int previousPO = po_id;
+            try
+            {
+                selectedIndex = dataGridView1.CurrentRow.Index;
+                po_id = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                selectedIndex = previousIndex;
+                po_id = previousPO;
+            }
+        }
 
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+            if (selectedIndex >= 0)
+            {
+                FormPurchaseOrderDetailsReport formPurchaseOrderDetailsReport = new FormPurchaseOrderDetailsReport(po_id);
+                formPurchaseOrderDetailsReport.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a purchase order to view");
+            }
+        }
     }
 }
