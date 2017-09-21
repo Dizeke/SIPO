@@ -19,6 +19,7 @@ namespace SIPO.Inventory
         public FormPanelRawSelect()
         {
             RawMaterialsUpdate.hasSelected = false;
+            RawMaterialsUpdate.isCompleted = false;
             InitializeComponent();
             loadMaterials();
         }
@@ -47,7 +48,7 @@ namespace SIPO.Inventory
 
                     raw.Size = int.Parse(reader["prodr_size"].ToString());
                     raw.Qty = int.Parse(reader["prodr_qty"].ToString());
-                    raw.Received =reader["prodr_r_date"].ToString();
+                    raw.Received = reader["prodr_r_date"].ToString();
                     raw.Price = int.Parse(reader["prodr_price"].ToString());
 
                     raws.Add(raw);
@@ -77,15 +78,17 @@ namespace SIPO.Inventory
                 int index = lvRaw.SelectedItems[0].Index;
                 RawMaterialsUpdate.raw = raws[index];
                 RawMaterialsUpdate.hasSelected = true;
-                              
 
-                
+
+                RawMaterialsUpdate.isCompleted = false;
                 FormPanelRawUpdate formPanelRawUpdate = new FormPanelRawUpdate();
                formPanelRawUpdate.ShowDialog();
-                if (RawMaterialsUpdate.hasSelected == false)
+                if(RawMaterialsUpdate.isCompleted)
                 {
+                    lvRaw.Items.Clear();
                     loadMaterials();
                 }
+              
 
             }
             catch (Exception ex)

@@ -58,12 +58,12 @@ namespace SIPO.Inventory
                 }
                 else if (txtQty.Text.ToString().Length < 1)
                 {
-                    MessageBox.Show("Quantity Name cannot be empty");
+                    MessageBox.Show("Quantity cannot be empty");
                     return false;
                 }
                 else if (txtFinQty.Text.ToString().Length < 1)
                 {
-                    MessageBox.Show("Finished Quantity Name cannot be empty");
+                    MessageBox.Show("Finished Quantity cannot be empty");
                     return false;
                 }
 
@@ -135,7 +135,8 @@ namespace SIPO.Inventory
                 con.Close();
                 //  MessageBox.Show(query);
                 MessageBox.Show("Item Successfully Updated");
-                RawMaterialsUpdate.hasSelected = false;
+                FinishedProductUpdate.hasSelected = false;
+                FinishedProductUpdate.isCompleted = true;
                 this.Close();
             }
         }
@@ -188,8 +189,8 @@ namespace SIPO.Inventory
         }
         private void loadUsedRawMaterials()
         {
-            //try
-            //{
+            try
+            {
                 rawMaterialsUsed = new List<RawMaterials>();
                 String query = String.Format("SELECT products_raw.prodr_id, products_raw.prodr_name, products_finished_materials.prod_r_qty FROM products_finished_materials INNER JOIN products_raw ON products_finished_materials.prod_r_id = products_raw.prodr_id WHERE prodf_f_id = {0}", finished.Id);
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
@@ -222,12 +223,12 @@ namespace SIPO.Inventory
                 }
 
                 con.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.StackTrace);
-            //}
         }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+}
 
         private void btnAddUsedMaterial_Click(object sender, EventArgs e)
         {
@@ -298,6 +299,43 @@ namespace SIPO.Inventory
             {
                 Console.WriteLine(ex.StackTrace);
             }
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar)) e.Handled = false;         //Letters And Numbers 
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else if (e.KeyChar == (char)32) e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtDesc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar)) e.Handled = false;         //Letters And Numbers 
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else if (e.KeyChar == (char)32) e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtNewSrp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)) e.Handled = false;             // Numbers 
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else e.Handled = true;
+        }
+
+        private void txtFinQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)) e.Handled = false;             //Numbers 
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else e.Handled = true;
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar)) e.Handled = false;         //Numbers 
+            else if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            else e.Handled = true;
         }
     }
 

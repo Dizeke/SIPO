@@ -45,6 +45,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.lblNewPrice = new MetroFramework.Controls.MetroLabel();
             this.txtNewPrice = new MetroFramework.Controls.MetroTextBox();
+            this.lblID = new MetroFramework.Controls.MetroLabel();
             this.panelLayoutRawAdd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +80,7 @@
             this.txtPrice.UseSelectable = true;
             this.txtPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // lblName
             // 
@@ -120,6 +122,7 @@
             this.txtName.UseSelectable = true;
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblPrice
             // 
@@ -157,7 +160,7 @@
             // 
             // 
             this.txtQty.CustomButton.Image = null;
-            this.txtQty.CustomButton.Location = new System.Drawing.Point(230, 1);
+            this.txtQty.CustomButton.Location = new System.Drawing.Point(177, 1);
             this.txtQty.CustomButton.Name = "";
             this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -176,11 +179,12 @@
             this.txtQty.SelectionLength = 0;
             this.txtQty.SelectionStart = 0;
             this.txtQty.ShortcutsEnabled = true;
-            this.txtQty.Size = new System.Drawing.Size(252, 23);
+            this.txtQty.Size = new System.Drawing.Size(199, 23);
             this.txtQty.TabIndex = 37;
             this.txtQty.UseSelectable = true;
             this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // lblQty
             // 
@@ -188,7 +192,7 @@
             this.lblQty.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblQty.Location = new System.Drawing.Point(399, 48);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(252, 19);
+            this.lblQty.Size = new System.Drawing.Size(199, 19);
             this.lblQty.TabIndex = 41;
             this.lblQty.Text = "Quantity";
             // 
@@ -222,6 +226,7 @@
             this.txtDesc.UseSelectable = true;
             this.txtDesc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDesc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDesc_KeyPress);
             // 
             // btnUpdate
             // 
@@ -240,7 +245,7 @@
             this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClearFields.Location = new System.Drawing.Point(399, 239);
             this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(252, 24);
+            this.btnClearFields.Size = new System.Drawing.Size(199, 24);
             this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnClearFields.TabIndex = 53;
             this.btnClearFields.Text = "Clear Fields";
@@ -268,6 +273,7 @@
             this.panelLayoutRawAdd.Controls.Add(this.metroLabel1, 0, 11);
             this.panelLayoutRawAdd.Controls.Add(this.lblNewPrice, 1, 11);
             this.panelLayoutRawAdd.Controls.Add(this.txtNewPrice, 1, 12);
+            this.panelLayoutRawAdd.Controls.Add(this.lblID, 0, 14);
             this.panelLayoutRawAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutRawAdd.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.panelLayoutRawAdd.Location = new System.Drawing.Point(20, 60);
@@ -289,7 +295,7 @@
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.panelLayoutRawAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelLayoutRawAdd.Size = new System.Drawing.Size(639, 284);
+            this.panelLayoutRawAdd.Size = new System.Drawing.Size(601, 284);
             this.panelLayoutRawAdd.TabIndex = 56;
             // 
             // dtpReceived
@@ -297,7 +303,7 @@
             this.dtpReceived.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtpReceived.Enabled = false;
             this.dtpReceived.Location = new System.Drawing.Point(3, 118);
-            this.dtpReceived.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpReceived.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpReceived.Name = "dtpReceived";
             this.dtpReceived.Size = new System.Drawing.Size(200, 29);
             this.dtpReceived.TabIndex = 54;
@@ -361,12 +367,22 @@
             this.txtNewPrice.UseSelectable = true;
             this.txtNewPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNewPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNewPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNewPrice_KeyPress);
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(3, 205);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 0);
+            this.lblID.TabIndex = 59;
+            this.lblID.Visible = false;
             // 
             // FormPanelRawUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 364);
+            this.ClientSize = new System.Drawing.Size(641, 364);
             this.Controls.Add(this.panelLayoutRawAdd);
             this.Name = "FormPanelRawUpdate";
             this.Text = "Update Raw Materials";
@@ -394,5 +410,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel lblNewPrice;
         private MetroFramework.Controls.MetroTextBox txtNewPrice;
+        private MetroFramework.Controls.MetroLabel lblID;
     }
 }
