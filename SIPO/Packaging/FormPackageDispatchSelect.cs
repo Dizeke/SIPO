@@ -81,18 +81,14 @@ namespace SIPO.Packaging
 
             PurchaseOrderBatch dispatch = batches[selectedIndex];
 
-            String query = String.Format("INSERT INTO packages_dispatched (packd_datetime, pack_id) VALUES ((SELECT NOW()), {0})",
-                dispatch.pack_id);
+            FormPackageDispatch formPackageDispatch = new FormPackageDispatch(dispatch.pack_id, dispatch.datetime);
+            formPackageDispatch.ShowDialog();
 
-            MySqlConnection con = new MySqlConnection(ConString.getConString());
-            MySqlCommand com = new MySqlCommand(query, con);
-
-            con.Open();
-            com.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Package has been dispatched");
-            loadPackages();
+            if (FormPackageDispatch.hasDispatched)
+            {
+                loadPackages();
+                FormPackageDispatch.hasDispatched = false;
+            }
         }
     }
 }
