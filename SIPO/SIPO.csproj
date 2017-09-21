@@ -194,6 +194,12 @@
     <Compile Include="Manager\FormPanelClientUpdate.Designer.cs">
       <DependentUpon>FormPanelClientUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packaging\FormPackageDispatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\FormPackageDispatch.Designer.cs">
+      <DependentUpon>FormPackageDispatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packaging\FormPackageDispatchSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\FormPanelClientUpdate.resx">
       <DependentUpon>FormPanelClientUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\FormPackageDispatch.resx">
+      <DependentUpon>FormPackageDispatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormPackageDispatchSelect.resx">
       <DependentUpon>FormPackageDispatchSelect.cs</DependentUpon>
