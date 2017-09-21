@@ -28,13 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvPurchaseOrders = new MetroFramework.Controls.MetroListView();
+            this.btnSelectPurchaseOrder = new MetroFramework.Controls.MetroButton();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnSelectPurchaseOrder = new MetroFramework.Controls.MetroButton();
+            this.lvPurchaseOrders = new MetroFramework.Controls.MetroListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
+            // 
+            // btnSelectPurchaseOrder
+            // 
+            this.btnSelectPurchaseOrder.Location = new System.Drawing.Point(452, 354);
+            this.btnSelectPurchaseOrder.Name = "btnSelectPurchaseOrder";
+            this.btnSelectPurchaseOrder.Size = new System.Drawing.Size(125, 23);
+            this.btnSelectPurchaseOrder.TabIndex = 1;
+            this.btnSelectPurchaseOrder.Text = "Select Purchase Order ";
+            this.btnSelectPurchaseOrder.UseSelectable = true;
+            this.btnSelectPurchaseOrder.Click += new System.EventHandler(this.btnSelectPurchaseOrder_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 89;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Date";
+            this.columnHeader2.Width = 131;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Amount";
+            this.columnHeader3.Width = 120;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Balance";
+            this.columnHeader4.Width = 123;
             // 
             // lvPurchaseOrders
             // 
@@ -42,7 +73,8 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.lvPurchaseOrders.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvPurchaseOrders.FullRowSelect = true;
             this.lvPurchaseOrders.Location = new System.Drawing.Point(23, 63);
@@ -55,44 +87,19 @@
             this.lvPurchaseOrders.UseSelectable = true;
             this.lvPurchaseOrders.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // columnHeader5
             // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 104;
+            this.columnHeader5.Text = "Company";
+            this.columnHeader5.Width = 220;
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Date";
-            this.columnHeader2.Width = 189;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Amount";
-            this.columnHeader3.Width = 120;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Balance";
-            this.columnHeader4.Width = 137;
-            // 
-            // btnSelectPurchaseOrder
-            // 
-            this.btnSelectPurchaseOrder.Location = new System.Drawing.Point(452, 354);
-            this.btnSelectPurchaseOrder.Name = "btnSelectPurchaseOrder";
-            this.btnSelectPurchaseOrder.Size = new System.Drawing.Size(125, 23);
-            this.btnSelectPurchaseOrder.TabIndex = 1;
-            this.btnSelectPurchaseOrder.Text = "Select Purchase Order ";
-            this.btnSelectPurchaseOrder.UseSelectable = true;
-            this.btnSelectPurchaseOrder.Click += new System.EventHandler(this.btnSelectPurchaseOrder_Click);
-            // 
-            // FormPaymentAdd
+            // FormPaymentSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 400);
             this.Controls.Add(this.btnSelectPurchaseOrder);
             this.Controls.Add(this.lvPurchaseOrders);
-            this.Name = "FormPaymentAdd";
+            this.Name = "FormPaymentSelect";
             this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Select Purchase Order for Payment";
             this.ResumeLayout(false);
@@ -100,12 +107,12 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroListView lvPurchaseOrders;
         private MetroFramework.Controls.MetroButton btnSelectPurchaseOrder;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private MetroFramework.Controls.MetroListView lvPurchaseOrders;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
