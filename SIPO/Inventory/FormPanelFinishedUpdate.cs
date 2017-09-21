@@ -108,7 +108,6 @@ namespace SIPO.Inventory
                 {
                     query2 = "SELECT prodr_id FROM products_raw as a;";
                     con.Open();
-                    int oldQty = 0;
                     MySqlCommand com2 = new MySqlCommand(query2, con);
                     MySqlDataReader reader;
 

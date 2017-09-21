@@ -21,10 +21,10 @@ namespace SIPO.Inventory
 
         private void BindGrid()
         {
-
+            String query = "SELECT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp', c.prod_r_id AS 'Raw Material ID', b.prodr_name AS 'Raw Material Name', c.prod_r_qty AS 'Raw Material Quantity' FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id";
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp', c.prod_r_id AS 'Raw Material ID', b.prodr_name AS 'Raw Material Name', c.prod_r_qty AS 'Raw Material Quantity' FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id", con))
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
@@ -55,24 +55,25 @@ namespace SIPO.Inventory
 
                 worksheet = workbook.ActiveSheet;
 
-                worksheet.Name = "Finished Products ";
+                worksheet.Name = "Finished Products");
 
                 int cellRowIndex = 1;
                 int cellColumnIndex = 1;
 
                 //Loop through each row and read value from each column. 
-                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
                     for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
                         // Excel index starts from 1,1. As first Row would have the Column headers, adding a condition check. 
                         if (cellRowIndex == 1)
                         {
-                            worksheet.Cells[cellRowIndex, cellColumnIndex].Font.Bold = dataGridView1.Columns[j].HeaderText;
+                            worksheet.Cells[cellRowIndex, cellColumnIndex].Font.Bold = true;
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Columns[j].HeaderText;
                         }
                         else
                         {
-                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Rows[i-1].Cells[j].Value.ToString();
                         }
                         cellColumnIndex++;
                     }
@@ -84,13 +85,14 @@ namespace SIPO.Inventory
                 SaveFileDialog saveDialog = new SaveFileDialog();
                 saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
                 saveDialog.FilterIndex = 2;
-                saveDialog.FileName = "Finished Products " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+                saveDialog.FileName = "Finished Products " + String.Format("{0:F}", DateTime.Now);
 
                 if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     workbook.SaveAs(saveDialog.FileName);
                     MessageBox.Show("Export Successful");
                 }
+                this.Close();
             }
             catch (System.Exception ex)
             {

@@ -20,71 +20,97 @@ namespace SIPO.Packaging
         public FormPackagesReport()
         {
             InitializeComponent();
-            loadPackages();
+            BindGrid();
         }
 
-        private void loadPackages()
+        private void BindGrid()
         {
-            batches = new List<PurchaseOrderBatch>();
-
             String query = "SELECT purchase_order_batches.pob_id, clients.client_company, purchase_orders.po_id, pob_datetime, packages.pack_id FROM purchase_order_batches INNER JOIN purchase_orders ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN packages ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE pack_id NOT IN (SELECT pack_id FROM packages_dispatched)";
-            MySqlConnection con = new MySqlConnection(ConString.getConString());
-            MySqlCommand com = new MySqlCommand(query, con);
-            MySqlDataReader reader;
 
-            con.Open();
-
-            reader = com.ExecuteReader();
-            while (reader.Read())
+            using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
-                PurchaseOrderBatch batch = new PurchaseOrderBatch();
-                batch.id = int.Parse(reader["pob_id"].ToString());
-                batch.po_id = int.Parse(reader["po_id"].ToString());
-                batch.company_name = reader["client_company"].ToString();
-                batch.datetime = reader["pob_datetime"].ToString();
-                batch.pack_id = int.Parse(reader["pack_id"].ToString());
-
-                batches.Add(batch);
-            }
-
-            con.Close();
-            displayPackages();
-        }
-
-        private void displayPackages()
-        {
-            lvBatches.Items.Clear();
-
-            int row = 0;
-            foreach (PurchaseOrderBatch batch in batches)
-            {
-                lvBatches.Items.Add(batch.po_id.ToString());
-                lvBatches.Items[row].SubItems.Add(batch.company_name);
-                lvBatches.Items[row].SubItems.Add(batch.id.ToString());
-                lvBatches.Items[row].SubItems.Add(batch.datetime);
-
-                row++;
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+                }
             }
         }
 
-        private void btnDispatchPackage_Click(object sender, EventArgs e)
+        private void ExportToExcel()
         {
-            int selectedIndex = 0;
+            // Creating a Excel object. 
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
             try
             {
-                selectedIndex = lvBatches.SelectedIndices[0];
+
+                worksheet = workbook.ActiveSheet;
+
+                worksheet.Name = "Packages" ;
+
+                int cellRowIndex = 1;
+                int cellColumnIndex = 1;
+
+                //Loop through each row and read value from each column. 
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        // Excel index starts from 1,1. As first Row would have the Column headers, adding a condition check. 
+                        if (cellRowIndex == 1)
+                        {
+                            worksheet.Cells[cellRowIndex, cellColumnIndex].Font.Bold = true;
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Columns[j].HeaderText;
+                        }
+                        else
+                        {
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Rows[i - 1].Cells[j].Value.ToString();
+                        }
+                        cellColumnIndex++;
+                    }
+                    cellColumnIndex = 1;
+                    cellRowIndex++;
+                }
+
+                //Getting the location and file name of the excel to save from user. 
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 2;
+                saveDialog.FileName = "Packages " + String.Format("{0:F}", DateTime.Now);
+
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    workbook.SaveAs(saveDialog.FileName);
+                    MessageBox.Show("Export Successful");
+                }
+                this.Close();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                Console.WriteLine(ex.StackTrace);
-                MessageBox.Show("Please select a Batch to to view");
-                return;
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                excel.Quit();
+                workbook = null;
+                excel = null;
             }
 
-            PurchaseOrderBatch dispatch = batches[selectedIndex];
+        }
 
-            FormPackageDetailsReport formPackageDetailsReport = new FormPackageDetailsReport(dispatch.pack_id, dispatch.datetime);
-            formPackageDetailsReport.ShowDialog();
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExportToExcel();
         }
     }
 }

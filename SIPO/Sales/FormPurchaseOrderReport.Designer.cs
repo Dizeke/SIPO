@@ -28,111 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvPurchaseOrders = new MetroFramework.Controls.MetroListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnExport = new MetroFramework.Controls.MetroButton();
-            this.btnViewDetails = new MetroFramework.Controls.MetroButton();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lvPurchaseOrders
-            // 
-            this.lvPurchaseOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader1,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
-            this.lvPurchaseOrders.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lvPurchaseOrders.FullRowSelect = true;
-            this.lvPurchaseOrders.Location = new System.Drawing.Point(23, 92);
-            this.lvPurchaseOrders.Name = "lvPurchaseOrders";
-            this.lvPurchaseOrders.OwnerDraw = true;
-            this.lvPurchaseOrders.Size = new System.Drawing.Size(654, 256);
-            this.lvPurchaseOrders.TabIndex = 0;
-            this.lvPurchaseOrders.UseCompatibleStateImageBehavior = false;
-            this.lvPurchaseOrders.UseSelectable = true;
-            this.lvPurchaseOrders.View = System.Windows.Forms.View.Details;
-            this.lvPurchaseOrders.SelectedIndexChanged += new System.EventHandler(this.lvPurchaseOrders_SelectedIndexChanged);
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "ID";
-            this.columnHeader5.Width = 96;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Total";
-            this.columnHeader6.Width = 98;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Paid";
-            this.columnHeader7.Width = 98;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Balance";
-            this.columnHeader8.Width = 91;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Added On";
-            this.columnHeader9.Width = 119;
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(552, 63);
+            this.btnExport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExport.Location = new System.Drawing.Point(541, 3);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(125, 23);
-            this.btnExport.TabIndex = 1;
+            this.btnExport.Size = new System.Drawing.Size(116, 30);
+            this.btnExport.TabIndex = 0;
             this.btnExport.Text = "Export to Excel";
             this.btnExport.UseSelectable = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // btnViewDetails
+            // tableLayoutPanel1
             // 
-            this.btnViewDetails.Location = new System.Drawing.Point(552, 354);
-            this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(125, 23);
-            this.btnViewDetails.TabIndex = 2;
-            this.btnViewDetails.Text = "View Details";
-            this.btnViewDetails.UseSelectable = true;
-            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.64893F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.35106F));
+            this.tableLayoutPanel1.Controls.Add(this.btnExport, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.36364F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.63636F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(660, 320);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // columnHeader1
+            // dataGridView1
             // 
-            this.columnHeader1.Text = "Company";
-            this.columnHeader1.Width = 148;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(654, 278);
+            this.dataGridView1.TabIndex = 1;
             // 
             // FormPurchaseOrderReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 400);
-            this.Controls.Add(this.btnViewDetails);
-            this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.lvPurchaseOrders);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormPurchaseOrderReport";
             this.Text = "Purchase Orders";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroListView lvPurchaseOrders;
         private MetroFramework.Controls.MetroButton btnExport;
-        private MetroFramework.Controls.MetroButton btnViewDetails;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

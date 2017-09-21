@@ -23,7 +23,6 @@ namespace SIPO.Manager
         };
 
         FormPanelAccountAdd formPanelAccountAdd;
-        FormPanelAccountUpdate formPanelAccountUpdate;
 
         FormPanelClientAdd formPanelClientAdd;
 
