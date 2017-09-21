@@ -206,11 +206,23 @@
     <Compile Include="Packaging\FormPackageDispatchSelect.Designer.cs">
       <DependentUpon>FormPackageDispatchSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packaging\FormPackagesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\FormPackagesReport.Designer.cs">
+      <DependentUpon>FormPackagesReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packaging\FormPackaging.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Packaging\FormPackaging.Designer.cs">
       <DependentUpon>FormPackaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packaging\FormPackageDetailsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\FormPackageDetailsReport.Designer.cs">
+      <DependentUpon>FormPackageDetailsReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -243,6 +255,18 @@
     </Compile>
     <Compile Include="Sales\FormPurchaseOrderCustomAdd.Designer.cs">
       <DependentUpon>FormPurchaseOrderCustomAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FormPurchaseOrderDetailsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FormPurchaseOrderDetailsReport.Designer.cs">
+      <DependentUpon>FormPurchaseOrderDetailsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FormPurchaseOrderReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FormPurchaseOrderReport.Designer.cs">
+      <DependentUpon>FormPurchaseOrderReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\FormSales.cs">
       <SubType>Form</SubType>
@@ -316,8 +340,14 @@
     <EmbeddedResource Include="Packaging\FormPackageDispatchSelect.resx">
       <DependentUpon>FormPackageDispatchSelect.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\FormPackagesReport.resx">
+      <DependentUpon>FormPackagesReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormPackaging.resx">
       <DependentUpon>FormPackaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\FormPackageDetailsReport.resx">
+      <DependentUpon>FormPackageDetailsReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -343,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormPurchaseOrderCustomAdd.resx">
       <DependentUpon>FormPurchaseOrderCustomAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FormPurchaseOrderDetailsReport.resx">
+      <DependentUpon>FormPurchaseOrderDetailsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FormPurchaseOrderReport.resx">
+      <DependentUpon>FormPurchaseOrderReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormSales.resx">
       <DependentUpon>FormSales.cs</DependentUpon>

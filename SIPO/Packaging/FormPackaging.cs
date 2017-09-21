@@ -22,5 +22,11 @@ namespace SIPO.Packaging
             FormPackageDispatchSelect formPackageDispatchSelect = new FormPackageDispatchSelect();
             formPackageDispatchSelect.ShowDialog();
         }
+
+        private void btnPackaging_Click(object sender, EventArgs e)
+        {
+            FormPackagesReport formPackagesReport = new FormPackagesReport();
+            formPackagesReport.ShowDialog();
+        }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panelLayoutMain = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.btnPackaging = new MetroFramework.Controls.MetroTile();
             this.panelLayoutPackages = new System.Windows.Forms.TableLayoutPanel();
             this.btnDispatchPackages = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
@@ -41,7 +41,7 @@
             this.panelLayoutMain.ColumnCount = 2;
             this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutMain.Controls.Add(this.metroTile1, 0, 0);
+            this.panelLayoutMain.Controls.Add(this.btnPackaging, 0, 0);
             this.panelLayoutMain.Controls.Add(this.panelLayoutPackages, 1, 0);
             this.panelLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutMain.Location = new System.Drawing.Point(20, 60);
@@ -51,24 +51,24 @@
             this.panelLayoutMain.Size = new System.Drawing.Size(410, 420);
             this.panelLayoutMain.TabIndex = 3;
             // 
-            // metroTile1
+            // btnPackaging
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile1.Enabled = false;
-            this.metroTile1.Location = new System.Drawing.Point(3, 6);
-            this.metroTile1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(199, 408);
-            this.metroTile1.Style = MetroFramework.MetroColorStyle.Silver;
-            this.metroTile1.TabIndex = 1;
-            this.metroTile1.Text = "Packages";
-            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile1.TileImage = global::SIPO.Properties.Resources.icon_packaging;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseTileImage = true;
+            this.btnPackaging.ActiveControl = null;
+            this.btnPackaging.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPackaging.Location = new System.Drawing.Point(3, 6);
+            this.btnPackaging.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.btnPackaging.Name = "btnPackaging";
+            this.btnPackaging.Size = new System.Drawing.Size(199, 408);
+            this.btnPackaging.Style = MetroFramework.MetroColorStyle.Silver;
+            this.btnPackaging.TabIndex = 1;
+            this.btnPackaging.Text = "Packages";
+            this.btnPackaging.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPackaging.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnPackaging.TileImage = global::SIPO.Properties.Resources.icon_packaging;
+            this.btnPackaging.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPackaging.UseSelectable = true;
+            this.btnPackaging.UseTileImage = true;
+            this.btnPackaging.Click += new System.EventHandler(this.btnPackaging_Click);
             // 
             // panelLayoutPackages
             // 
@@ -117,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel panelLayoutMain;
-        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile btnPackaging;
         private System.Windows.Forms.TableLayoutPanel panelLayoutPackages;
         private MetroFramework.Controls.MetroTile btnDispatchPackages;
     }

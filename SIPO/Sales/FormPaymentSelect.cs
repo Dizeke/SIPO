@@ -84,7 +84,8 @@ namespace SIPO.Sales
                 purchaseOrderDetail.balance = purchaseOrderDetail.total - purchaseOrderDetail.paid;
                 conPurchaseOrderPaid.Close();
 
-                purchaseOrderDetails.Add(purchaseOrderDetail);
+                if (purchaseOrderDetail.balance > 0)
+                    purchaseOrderDetails.Add(purchaseOrderDetail);
             }
 
             conPuchaseOrder.Close();

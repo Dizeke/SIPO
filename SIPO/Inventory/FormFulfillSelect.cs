@@ -27,7 +27,7 @@ namespace SIPO.Inventory
         {
             poBatchDetails = new List<POBatchDetail>();
 
-            String query = "SELECT purchase_orders.po_id, pob_id, po_payment, pob_datetime FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_order_batches.po_id = purchase_orders.po_id WHERE purchase_orders.po_payment <> 'Complete' AND purchase_orders.po_id NOT IN (SELECT po_id FROM (SELECT products_finished.prodf_id, products_finished.prodf_qty AS stock, purchase_order_batch_products.prodf_qty AS ordered, purchase_orders.po_id FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id HAVING purchase_order_batch_products.prodf_qty >= products_finished.prodf_qty) AS tblExceedCounter) AND pob_id NOT IN (SELECT pob_id FROM packages) AND purchase_orders.po_id IN (SELECT po_id FROM (SELECT tblPaid.po_id, tblPaid.paid, tblTotal.total FROM (SELECT purchase_order_payments.po_id, SUM(pop_amount) AS paid FROM purchase_orders INNER JOIN purchase_order_payments ON purchase_orders.po_id = purchase_order_payments.po_id GROUP BY purchase_order_payments.po_id ) AS tblPaid INNER JOIN (SELECT purchase_orders.po_id, SUM(purchase_order_batch_products.prodf_qty * products_finished.prodf_srp) AS total FROM purchase_order_batch_products INNER JOIN purchase_order_batches ON purchase_order_batches.pob_id = purchase_order_batch_products.pob_id INNER JOIN purchase_orders ON purchase_order_batches.po_id = purchase_orders.po_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id GROUP BY purchase_orders.po_id) AS tblTotal ON tblPaid.po_id = tblTotal.po_id HAVING tblPaid.paid >= (tblTotal.total * 0.3) ) AS tblMinimumPaid)";
+            String query = "SELECT purchase_orders.po_id, pob_id, po_payment, pob_datetime FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_order_batches.po_id = purchase_orders.po_id WHERE purchase_orders.po_id NOT IN (SELECT po_id FROM (SELECT products_finished.prodf_id, products_finished.prodf_qty AS stock, purchase_order_batch_products.prodf_qty AS ordered, purchase_orders.po_id FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id HAVING purchase_order_batch_products.prodf_qty >= products_finished.prodf_qty) AS tblExceedCounter) AND pob_id NOT IN (SELECT pob_id FROM packages) AND purchase_orders.po_id IN (SELECT po_id FROM (SELECT tblPaid.po_id, tblPaid.paid, tblTotal.total FROM (SELECT purchase_order_payments.po_id, SUM(pop_amount) AS paid FROM purchase_orders INNER JOIN purchase_order_payments ON purchase_orders.po_id = purchase_order_payments.po_id GROUP BY purchase_order_payments.po_id ) AS tblPaid INNER JOIN (SELECT purchase_orders.po_id, SUM(purchase_order_batch_products.prodf_qty * products_finished.prodf_srp) AS total FROM purchase_order_batch_products INNER JOIN purchase_order_batches ON purchase_order_batches.pob_id = purchase_order_batch_products.pob_id INNER JOIN purchase_orders ON purchase_order_batches.po_id = purchase_orders.po_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id GROUP BY purchase_orders.po_id) AS tblTotal ON tblPaid.po_id = tblTotal.po_id HAVING tblPaid.paid >= (tblTotal.total * 0.3) ) AS tblMinimumPaid)";
             Console.WriteLine(query);
 
             MySqlConnection con = new MySqlConnection(ConString.getConString());
@@ -86,7 +86,7 @@ namespace SIPO.Inventory
             int selectedIndex = 0;
             try
             {
-                selectedIndex = lvPurchaseOrders.SelectedItems.IndexOf(lvPurchaseOrders.SelectedItems[0]);
+                selectedIndex = lvPurchaseOrders.SelectedIndices[0];
             }
             catch (Exception ex)
             {
@@ -96,6 +96,7 @@ namespace SIPO.Inventory
 
             int pob_id = poBatchDetails[selectedIndex].pob_id;
             string pob_datetime = poBatchDetails[selectedIndex].pob_datetime;
+
             FormFulfillMove formFulfillAdd = new FormFulfillMove(pob_id, pob_datetime);
             formFulfillAdd.ShowDialog();
 
