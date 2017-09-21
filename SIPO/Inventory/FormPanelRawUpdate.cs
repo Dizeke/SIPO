@@ -95,7 +95,7 @@ namespace SIPO.Inventory
                 con.Open();
                 com.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show(query);
+              //  MessageBox.Show(query);
                 MessageBox.Show("Item Successfully Updated");
                 RawMaterialsUpdate.hasSelected = false;
                 RawMaterialsUpdate.isCompleted = true;
