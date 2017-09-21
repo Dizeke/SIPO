@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 using SIPO.Classes;
@@ -36,6 +37,26 @@ namespace SIPO.Manager
         public FormManager()
         {
             InitializeComponent();
+            loadAccountDetails();
+        }
+
+        private void loadAccountDetails()
+        {
+            Account account = new Account();
+            account = Account.loggedAccount;
+            String name = account.lname + ", " + account.fname + " " + account.mname;
+            lblAccName.Text = name;
+            lblAccPosition.Text = account.position;
+
+            if (account.image != null)
+            {
+                if (account.image.Length > 0)
+                {
+                    MemoryStream memoryStream = new MemoryStream();
+                    memoryStream.Write(account.image, 0, account.image.Length);
+                    pbAccImage.Image = Image.FromStream(memoryStream);
+                }
+            }
         }
 
         private void FormManager_SizeChanged(object sender, EventArgs e)
@@ -162,6 +183,8 @@ namespace SIPO.Manager
 
         private void btnPayments_Click(object sender, EventArgs e)
         {
+            FormPaymentReport formPaymentReport = new FormPaymentReport();
+            formPaymentReport.ShowDialog();
         }
 
         private void btnPackages_Click(object sender, EventArgs e)

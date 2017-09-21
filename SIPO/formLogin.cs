@@ -37,14 +37,15 @@ namespace SIPO
                     account.user = txtUsername.Text;
                     account.pass = txtPassword.Text;
 
-                    String query = String.Format("SELECT accounts.acc_id, acc_user, acc_pass, account_types.acc_type  FROM accounts " +
+                    String query = String.Format("SELECT accounts.acc_id, acc_user,acc_pass, account_types.acc_type, aci_image, acc_fname, acc_mname, acc_lname, acc_position  FROM accounts " +
                         "INNER JOIN account_types ON accounts.act_Id = account_types.act_id " +
+                        "INNER JOIN account_images ON accounts.acc_id = account_images.acc_id " + 
                         "WHERE acc_user = '{0}' AND acc_pass = '{1}' ", account.user, account.pass);
-
+                    Console.WriteLine(query);
                     MySqlConnection con = new MySqlConnection(ConString.getConString());
                     MySqlCommand com = new MySqlCommand(query, con);
                     MySqlDataReader reader;
-
+                    Console.WriteLine(query);
                     con.Open();
 
                     reader = com.ExecuteReader();
@@ -55,6 +56,14 @@ namespace SIPO
                             loginSuccessful = true;
                             account.id = int.Parse(reader["acc_id"].ToString());
                             account.type = reader["acc_type"].ToString();
+                            account.image = (byte[])reader["aci_image"];
+
+                            account.fname = reader["acc_fname"].ToString();
+                            account.mname = reader["acc_mname"].ToString();
+                            account.lname = reader["acc_lname"].ToString();
+                            account.position = reader["acc_position"].ToString();
+
+                            Account.loggedAccount = new Account();
                             Account.loggedAccount = account;
                             break;
                         }
@@ -71,8 +80,6 @@ namespace SIPO
 
             if (loginSuccessful)
             {
-                MessageBox.Show("Login successful as " + account.user + " (" + account.type + ")");
-
                 this.Hide();
                 if (account.type.Equals(Department.Inventory))
                 {
