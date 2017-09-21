@@ -117,6 +117,7 @@
             this.btnPurchaseOrder.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPurchaseOrder.UseSelectable = true;
             this.btnPurchaseOrder.UseTileImage = true;
+            this.btnPurchaseOrder.Click += new System.EventHandler(this.btnPurchaseOrder_Click);
             // 
             // tableLayoutPanel1
             // 
