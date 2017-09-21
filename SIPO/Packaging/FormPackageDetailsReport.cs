@@ -13,15 +13,13 @@ using SIPO.Classes;
 
 namespace SIPO.Packaging
 {
-    public partial class FormPackageDispatch : MetroFramework.Forms.MetroForm
+    public partial class FormPackageDetailsReport : MetroFramework.Forms.MetroForm
     {
         List<BatchProduct> batchProds;
 
         int pack_id;
         string pack_datetime;
-        public static bool hasDispatched;
-
-        public FormPackageDispatch(int _pack_id, string _pack_datetime)
+        public FormPackageDetailsReport(int _pack_id, string _pack_datetime)
         {
             InitializeComponent();
             this.pack_id = _pack_id;
@@ -29,7 +27,6 @@ namespace SIPO.Packaging
             lblDeliveryDate.Text = pack_datetime;
 
             loadPackageContents();
-            hasDispatched = false;
         }
 
         private void loadPackageContents()
@@ -39,7 +36,6 @@ namespace SIPO.Packaging
             String query = String.Format("SELECT products_finished.prodf_id, products_finished.prodf_name, purchase_order_batch_products.prodf_qty, package_details.pd_gweight, package_details.pd_nweight, package_details.pd_qty_carton FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
                 pack_id
                 );
-            Console.WriteLine(query);
             MySqlConnection con = new MySqlConnection(ConString.getConString());
             MySqlCommand com = new MySqlCommand(query, con);
             MySqlDataReader reader;
@@ -96,24 +92,5 @@ namespace SIPO.Packaging
             public int qty_carton { get { return this._qty_carton; } set { this._qty_carton = value; } }
         }
 
-        private void btnDispatch_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Proceed with dispatching of package?", "Dispatch Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                String query = String.Format("INSERT INTO packages_dispatched (packd_datetime, pack_id) VALUES ((SELECT NOW()), {0})",
-              pack_id);
-
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
-
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
-
-                MessageBox.Show("Package has been dispatched");
-                hasDispatched = true;
-                this.Close();
-            }
-        }
     }
 }

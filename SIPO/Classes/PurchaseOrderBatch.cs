@@ -10,6 +10,7 @@ namespace SIPO.Classes
     {
         private int pob_id;
         private string pob_datetime;
+        private string pob_company;
         private int pob_po_id;
         private int pob_pack_id;
 
@@ -17,6 +18,7 @@ namespace SIPO.Classes
 
         public int id { get { return this.pob_id; } set { this.pob_id = value; } }
         public string datetime { get { return this.pob_datetime; } set { this.pob_datetime = value; } }
+        public string company_name { get { return this.pob_company; } set { this.pob_company = value; } }
         public int po_id { get { return this.pob_po_id; } set { this.pob_po_id = value; } }
         public int pack_id { get { return this.pob_pack_id; } set { this.pob_pack_id = value; } }
 

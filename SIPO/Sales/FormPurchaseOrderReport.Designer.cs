@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.lvPurchaseOrders = new MetroFramework.Controls.MetroListView();
-            this.btnExport = new MetroFramework.Controls.MetroButton();
-            this.btnViewDetails = new MetroFramework.Controls.MetroButton();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnExport = new MetroFramework.Controls.MetroButton();
+            this.btnViewDetails = new MetroFramework.Controls.MetroButton();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvPurchaseOrders
             // 
             this.lvPurchaseOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
+            this.columnHeader1,
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8,
@@ -51,16 +53,41 @@
             this.lvPurchaseOrders.Location = new System.Drawing.Point(23, 92);
             this.lvPurchaseOrders.Name = "lvPurchaseOrders";
             this.lvPurchaseOrders.OwnerDraw = true;
-            this.lvPurchaseOrders.Size = new System.Drawing.Size(554, 256);
+            this.lvPurchaseOrders.Size = new System.Drawing.Size(654, 256);
             this.lvPurchaseOrders.TabIndex = 0;
             this.lvPurchaseOrders.UseCompatibleStateImageBehavior = false;
             this.lvPurchaseOrders.UseSelectable = true;
             this.lvPurchaseOrders.View = System.Windows.Forms.View.Details;
             this.lvPurchaseOrders.SelectedIndexChanged += new System.EventHandler(this.lvPurchaseOrders_SelectedIndexChanged);
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "ID";
+            this.columnHeader5.Width = 96;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Total";
+            this.columnHeader6.Width = 98;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Paid";
+            this.columnHeader7.Width = 98;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Balance";
+            this.columnHeader8.Width = 91;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Added On";
+            this.columnHeader9.Width = 119;
+            // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(459, 63);
+            this.btnExport.Location = new System.Drawing.Point(552, 63);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(125, 23);
             this.btnExport.TabIndex = 1;
@@ -69,7 +96,7 @@
             // 
             // btnViewDetails
             // 
-            this.btnViewDetails.Location = new System.Drawing.Point(452, 354);
+            this.btnViewDetails.Location = new System.Drawing.Point(552, 354);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(125, 23);
             this.btnViewDetails.TabIndex = 2;
@@ -77,36 +104,16 @@
             this.btnViewDetails.UseSelectable = true;
             this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
-            // columnHeader5
+            // columnHeader1
             // 
-            this.columnHeader5.Text = "ID";
-            this.columnHeader5.Width = 116;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Total";
-            this.columnHeader6.Width = 103;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Paid";
-            this.columnHeader7.Width = 106;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Balance";
-            this.columnHeader8.Width = 98;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Added On";
-            this.columnHeader9.Width = 127;
+            this.columnHeader1.Text = "Company";
+            this.columnHeader1.Width = 148;
             // 
             // FormPurchaseOrderReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 400);
+            this.ClientSize = new System.Drawing.Size(700, 400);
             this.Controls.Add(this.btnViewDetails);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.lvPurchaseOrders);
@@ -126,5 +133,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

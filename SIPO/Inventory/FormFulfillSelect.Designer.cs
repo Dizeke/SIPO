@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.lvPurchaseOrders = new MetroFramework.Controls.MetroListView();
-            this.btnSelectBatch = new MetroFramework.Controls.MetroButton();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSelectBatch = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // lvPurchaseOrders
@@ -54,6 +54,26 @@
             this.lvPurchaseOrders.UseSelectable = true;
             this.lvPurchaseOrders.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "PO ID";
+            this.columnHeader4.Width = 104;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Batch ID";
+            this.columnHeader5.Width = 109;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Delivery Date";
+            this.columnHeader6.Width = 206;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Payment";
+            this.columnHeader7.Width = 130;
+            // 
             // btnSelectBatch
             // 
             this.btnSelectBatch.Location = new System.Drawing.Point(452, 354);
@@ -63,26 +83,6 @@
             this.btnSelectBatch.Text = "Select Batch";
             this.btnSelectBatch.UseSelectable = true;
             this.btnSelectBatch.Click += new System.EventHandler(this.btnSelectBatch_Click);
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "PO ID";
-            this.columnHeader4.Width = 81;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Batch ID";
-            this.columnHeader5.Width = 84;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Delivery Date";
-            this.columnHeader6.Width = 169;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Payment";
-            this.columnHeader7.Width = 123;
             // 
             // FormFulfillSelect
             // 
