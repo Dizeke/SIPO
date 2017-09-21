@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPO.Classes;
+using SIPO.Inventory;
+using SIPO.Manager;
+using SIPO.Packaging;
+using SIPO.Sales;
 
 namespace SIPO.Manager
 {
@@ -138,5 +142,32 @@ namespace SIPO.Manager
             }
         }
 
+        private void btnRawMaterials_Click(object sender, EventArgs e)
+        {
+            FormRawReports formRawReports = new FormRawReports();
+            formRawReports.ShowDialog();
+        }
+
+        private void btnFinishedProducts_Click(object sender, EventArgs e)
+        {
+            FormFinishedReports formFinishedReports = new FormFinishedReports();
+            formFinishedReports.ShowDialog();
+        }
+
+        private void btnPurchaseOrders_Click(object sender, EventArgs e)
+        {
+            FormPurchaseOrderReport formPurchaseOrderReport = new FormPurchaseOrderReport();
+            formPurchaseOrderReport.ShowDialog();
+        }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnPackages_Click(object sender, EventArgs e)
+        {
+            FormPackagesReport formPackagesReport = new FormPackagesReport();
+            formPackagesReport.ShowDialog();
+        }
     }
 }

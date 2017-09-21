@@ -52,10 +52,8 @@ namespace SIPO.Inventory
 
             try
             {
-
                 worksheet = workbook.ActiveSheet;
-
-                worksheet.Name = "Finished Products");
+                worksheet.Name = "Finished Products";
 
                 int cellRowIndex = 1;
                 int cellColumnIndex = 1;
@@ -73,7 +71,7 @@ namespace SIPO.Inventory
                         }
                         else
                         {
-                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Rows[i-1].Cells[j].Value.ToString();
+                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dataGridView1.Rows[i - 1].Cells[j].Value.ToString();
                         }
                         cellColumnIndex++;
                     }

@@ -39,20 +39,29 @@
             this.btnClientAdd = new MetroFramework.Controls.MetroTile();
             this.btnClientUpdate = new MetroFramework.Controls.MetroTile();
             this.panelHolder = new System.Windows.Forms.Panel();
+            this.panelLayoutReports = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRawMaterials = new MetroFramework.Controls.MetroTile();
+            this.btnFinishedProducts = new MetroFramework.Controls.MetroTile();
+            this.btnPurchaseOrders = new MetroFramework.Controls.MetroTile();
+            this.btnPayments = new MetroFramework.Controls.MetroTile();
+            this.btnPackages = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutManagement.SuspendLayout();
             this.panelLayoutAccountManagement.SuspendLayout();
             this.panelLayoutClientManagement.SuspendLayout();
+            this.panelLayoutReports.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLayoutMain
             // 
+            this.panelLayoutMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelLayoutMain.ColumnCount = 2;
             this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.panelLayoutMain.Controls.Add(this.panelLayoutManagement, 0, 0);
             this.panelLayoutMain.Controls.Add(this.panelHolder, 1, 0);
-            this.panelLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutMain.Location = new System.Drawing.Point(20, 60);
             this.panelLayoutMain.Name = "panelLayoutMain";
             this.panelLayoutMain.RowCount = 1;
@@ -201,11 +210,116 @@
             this.panelHolder.Size = new System.Drawing.Size(407, 277);
             this.panelHolder.TabIndex = 2;
             // 
+            // panelLayoutReports
+            // 
+            this.panelLayoutReports.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
+            this.panelLayoutReports.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelLayoutReports.ColumnCount = 6;
+            this.panelLayoutReports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.panelLayoutReports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.panelLayoutReports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.panelLayoutReports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.panelLayoutReports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.panelLayoutReports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.panelLayoutReports.Controls.Add(this.btnPackages, 4, 0);
+            this.panelLayoutReports.Controls.Add(this.btnPayments, 3, 0);
+            this.panelLayoutReports.Controls.Add(this.btnPurchaseOrders, 2, 0);
+            this.panelLayoutReports.Controls.Add(this.btnFinishedProducts, 1, 0);
+            this.panelLayoutReports.Controls.Add(this.btnRawMaterials, 0, 0);
+            this.panelLayoutReports.Location = new System.Drawing.Point(20, 361);
+            this.panelLayoutReports.Name = "panelLayoutReports";
+            this.panelLayoutReports.RowCount = 1;
+            this.panelLayoutReports.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.panelLayoutReports.Size = new System.Drawing.Size(610, 116);
+            this.panelLayoutReports.TabIndex = 3;
+            // 
+            // btnRawMaterials
+            // 
+            this.btnRawMaterials.ActiveControl = null;
+            this.btnRawMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRawMaterials.Location = new System.Drawing.Point(3, 3);
+            this.btnRawMaterials.Name = "btnRawMaterials";
+            this.btnRawMaterials.Size = new System.Drawing.Size(95, 110);
+            this.btnRawMaterials.TabIndex = 0;
+            this.btnRawMaterials.Text = "Raw Materials";
+            this.btnRawMaterials.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRawMaterials.TileImage = global::SIPO.Properties.Resources.icon_raw_product;
+            this.btnRawMaterials.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRawMaterials.UseSelectable = true;
+            this.btnRawMaterials.UseTileImage = true;
+            this.btnRawMaterials.Click += new System.EventHandler(this.btnRawMaterials_Click);
+            // 
+            // btnFinishedProducts
+            // 
+            this.btnFinishedProducts.ActiveControl = null;
+            this.btnFinishedProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFinishedProducts.Location = new System.Drawing.Point(104, 3);
+            this.btnFinishedProducts.Name = "btnFinishedProducts";
+            this.btnFinishedProducts.Size = new System.Drawing.Size(95, 110);
+            this.btnFinishedProducts.TabIndex = 1;
+            this.btnFinishedProducts.Text = "Finishe Products";
+            this.btnFinishedProducts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFinishedProducts.TileImage = global::SIPO.Properties.Resources.icon_finished_product;
+            this.btnFinishedProducts.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnFinishedProducts.UseSelectable = true;
+            this.btnFinishedProducts.UseTileImage = true;
+            this.btnFinishedProducts.Click += new System.EventHandler(this.btnFinishedProducts_Click);
+            // 
+            // btnPurchaseOrders
+            // 
+            this.btnPurchaseOrders.ActiveControl = null;
+            this.btnPurchaseOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPurchaseOrders.Location = new System.Drawing.Point(205, 3);
+            this.btnPurchaseOrders.Name = "btnPurchaseOrders";
+            this.btnPurchaseOrders.Size = new System.Drawing.Size(95, 110);
+            this.btnPurchaseOrders.TabIndex = 2;
+            this.btnPurchaseOrders.Text = "Purchase Orders";
+            this.btnPurchaseOrders.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPurchaseOrders.TileImage = global::SIPO.Properties.Resources.icon_purchase_order;
+            this.btnPurchaseOrders.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPurchaseOrders.UseSelectable = true;
+            this.btnPurchaseOrders.UseTileImage = true;
+            this.btnPurchaseOrders.Click += new System.EventHandler(this.btnPurchaseOrders_Click);
+            // 
+            // btnPayments
+            // 
+            this.btnPayments.ActiveControl = null;
+            this.btnPayments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPayments.Location = new System.Drawing.Point(306, 3);
+            this.btnPayments.Name = "btnPayments";
+            this.btnPayments.Size = new System.Drawing.Size(95, 110);
+            this.btnPayments.TabIndex = 3;
+            this.btnPayments.Text = "Payments";
+            this.btnPayments.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPayments.TileImage = global::SIPO.Properties.Resources.icon_payment_method;
+            this.btnPayments.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPayments.UseSelectable = true;
+            this.btnPayments.UseTileImage = true;
+            this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
+            // 
+            // btnPackages
+            // 
+            this.btnPackages.ActiveControl = null;
+            this.btnPackages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPackages.Location = new System.Drawing.Point(407, 3);
+            this.btnPackages.Name = "btnPackages";
+            this.btnPackages.Size = new System.Drawing.Size(95, 110);
+            this.btnPackages.TabIndex = 4;
+            this.btnPackages.Text = "Packages";
+            this.btnPackages.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPackages.TileImage = global::SIPO.Properties.Resources.icon_packaging;
+            this.btnPackages.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPackages.UseSelectable = true;
+            this.btnPackages.UseTileImage = true;
+            this.btnPackages.Click += new System.EventHandler(this.btnPackages_Click);
+            // 
             // FormManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 375);
+            this.ClientSize = new System.Drawing.Size(650, 500);
+            this.Controls.Add(this.panelLayoutReports);
             this.Controls.Add(this.panelLayoutMain);
             this.Name = "FormManager";
             this.Resizable = false;
@@ -217,6 +331,7 @@
             this.panelLayoutManagement.ResumeLayout(false);
             this.panelLayoutAccountManagement.ResumeLayout(false);
             this.panelLayoutClientManagement.ResumeLayout(false);
+            this.panelLayoutReports.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -233,5 +348,11 @@
         private MetroFramework.Controls.MetroTile btnClientAdd;
         private MetroFramework.Controls.MetroTile btnClientUpdate;
         private System.Windows.Forms.Panel panelHolder;
+        private System.Windows.Forms.TableLayoutPanel panelLayoutReports;
+        private MetroFramework.Controls.MetroTile btnRawMaterials;
+        private MetroFramework.Controls.MetroTile btnFinishedProducts;
+        private MetroFramework.Controls.MetroTile btnPurchaseOrders;
+        private MetroFramework.Controls.MetroTile btnPayments;
+        private MetroFramework.Controls.MetroTile btnPackages;
     }
 }
