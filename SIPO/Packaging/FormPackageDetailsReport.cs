@@ -15,8 +15,6 @@ namespace SIPO.Packaging
 {
     public partial class FormPackageDetailsReport : MetroFramework.Forms.MetroForm
     {
-        List<BatchProduct> batchProds;
-
         int pack_id;
         string pack_datetime;
         public FormPackageDetailsReport(int _pack_id, string _pack_datetime)
@@ -26,70 +24,30 @@ namespace SIPO.Packaging
             this.pack_datetime = _pack_datetime;
             lblDeliveryDate.Text = pack_datetime;
 
-            loadPackageContents();
+            BindGrid();
         }
 
-        private void loadPackageContents()
+        private void BindGrid()
         {
-            batchProds = new List<BatchProduct>();
-
-            String query = String.Format("SELECT products_finished.prodf_id, products_finished.prodf_name, purchase_order_batch_products.prodf_qty, package_details.pd_gweight, package_details.pd_nweight, package_details.pd_qty_carton FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
+            String query = String.Format("SELECT products_finished.prodf_id AS 'Product ID', products_finished.prodf_name AS 'Name', purchase_order_batch_products.prodf_qty AS 'Quantity', package_details.pd_gweight AS 'Gross Weight', package_details.pd_nweight AS 'Net Weight', package_details.pd_qty_carton AS 'Qty/Carton' FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
                 pack_id
                 );
-            MySqlConnection con = new MySqlConnection(ConString.getConString());
-            MySqlCommand com = new MySqlCommand(query, con);
-            MySqlDataReader reader;
 
-            con.Open();
-
-            reader = com.ExecuteReader();
-            while (reader.Read())
+            using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
-                BatchProduct prod = new BatchProduct();
-                prod.prodf_id = int.Parse(reader["prodf_id"].ToString());
-                prod.prodf_name = reader["prodf_name"].ToString();
-                prod.prodf_qty = int.Parse(reader["prodf_qty"].ToString());
-                prod.gweight = double.Parse(reader["pd_gweight"].ToString());
-                prod.nweight = double.Parse(reader["pd_nweight"].ToString());
-                prod.qty_carton = int.Parse(reader["pd_qty_carton"].ToString());
-
-                batchProds.Add(prod);
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+                }
             }
-
-            con.Close();
-            displayPackageContents();
-        }
-
-        private void displayPackageContents()
-        {
-            int row = 0;
-            foreach (BatchProduct prod in batchProds)
-            {
-                lvProducts.Items.Add(prod.prodf_id.ToString());
-                lvProducts.Items[row].SubItems.Add(prod.prodf_name);
-                lvProducts.Items[row].SubItems.Add(prod.prodf_qty.ToString());
-                lvProducts.Items[row].SubItems.Add(prod.gweight.ToString());
-                lvProducts.Items[row].SubItems.Add(prod.nweight.ToString());
-                lvProducts.Items[row].SubItems.Add(prod.qty_carton.ToString());
-                row++;
-            }
-        }
-
-        public partial class BatchProduct
-        {
-            private int _prodf_id;
-            private string _prodf_name;
-            private int _prodf_qty;
-            private double _gweight;
-            private double _nweight;
-            private int _qty_carton;
-
-            public int prodf_id { get { return this._prodf_id; } set { this._prodf_id = value; } }
-            public string prodf_name { get { return this._prodf_name; } set { this._prodf_name = value; } }
-            public int prodf_qty { get { return this._prodf_qty; } set { this._prodf_qty = value; } }
-            public double gweight { get { return this._gweight; } set { this._gweight = value; } }
-            public double nweight { get { return this._nweight; } set { this._nweight = value; } }
-            public int qty_carton { get { return this._qty_carton; } set { this._qty_carton = value; } }
         }
 
     }
