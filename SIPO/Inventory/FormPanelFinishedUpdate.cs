@@ -87,7 +87,7 @@ namespace SIPO.Inventory
                 finished.Price = double.Parse(txtOldSrp.Text);
                 finished.Newprice = double.Parse(txtNewSrp.Text);
                 finished.FinQty = int.Parse(txtFinQty.Text);
-                String query2 = null;
+
                 String query = String.Format("UPDATE products_finished SET " +
                            "prodf_id =  '{0}', " +
                            "prodf_name = '{1}', " +
@@ -101,40 +101,26 @@ namespace SIPO.Inventory
                        finished.FinQty,
                        finished.Newprice
                        );
-                query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty) VALUES ";
                 foreach (RawMaterials item in rawMaterialsUsed)
                 {
-                    query2 = "SELECT prodr_id FROM products_raw Where prodr_id NOT IN (SELECT prod_r_id FROM products_finished_materials);";
-                    
-                    MySqlCommand com2 = new MySqlCommand(query2, con);
+                    query += "SELECT prodr_id FROM products_raw Where prodr_id NOT IN (SELECT prod_r_id FROM products_finished_materials);";
+
+                    MySqlCommand com2 = new MySqlCommand(query, con);
                     MySqlDataReader reader;
-                    con.Open();
-                   
+                    query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)";
                     reader = com2.ExecuteReader();
-                    
                     int row = 0;
                     while (reader.Read())
-
                     {
-                        
-                        if(row < rawMaterialsUsed.Count)
-                        {
-                            query += "('" + finished.Id + "', '" + lvRawMaterialsUsed.Items[row].Text + "' , '" + lvRawMaterialsUsed.Items[row].SubItems[2].Text + "' ),";
-
-                        }
-                        else
-                        {
-                            query += "('" + finished.Id + "', '" + lvRawMaterialsUsed.Items[row].Text + "' , '" + lvRawMaterialsUsed.Items[row].SubItems[2].Text + "' );";
-                        }
+                        query += " VALUES ('" + item.Id + "', '" + lvRawMaterialsUsed.Items[row].Text + "' , '" + lvRawMaterialsUsed.Items[row].SubItems[2].Text + "' )";
                         row++;
                     }
-                    con.Close();
+
                 }
                 MySqlCommand com = new MySqlCommand(query, con);
-                
+
                 con.Open();
                 com.ExecuteNonQuery();
-
                 con.Close();
                 //  MessageBox.Show(query);
                 MessageBox.Show("Item Successfully Updated");

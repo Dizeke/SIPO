@@ -23,7 +23,7 @@ namespace SIPO.Inventory
             {
                 finished = new List<FinishedProduct>();
 
-                String query = "SELECT DISTINCT * FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id";
+                String query = "SELECT * FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id";
 
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
@@ -70,25 +70,21 @@ namespace SIPO.Inventory
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
+            try
+            {
                 int index = lvFinished.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
-
                 FormPanelFinishedUpdate formPanelFinishedUpdate = new FormPanelFinishedUpdate();
                 formPanelFinishedUpdate.ShowDialog();
+                this.Close();
 
-            loadMaterials();
-
-                
-
-        //}
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.StackTrace);
-        //        MessageBox.Show("Please select a client to update");
-        //    }
+        }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please select a client to update");
+            }
 }
 
         private void btnClose_Click(object sender, EventArgs e)
