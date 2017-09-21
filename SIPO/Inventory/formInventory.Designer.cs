@@ -76,7 +76,6 @@
             this.btnFulfillOrders.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnFulfillOrders.Name = "btnFulfillOrders";
             this.btnFulfillOrders.Size = new System.Drawing.Size(224, 128);
-            this.btnFulfillOrders.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnFulfillOrders.TabIndex = 4;
             this.btnFulfillOrders.Text = "Fulfill Orders";
             this.btnFulfillOrders.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -93,7 +92,6 @@
             this.btnFinishedProducts.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnFinishedProducts.Name = "btnFinishedProducts";
             this.btnFinishedProducts.Size = new System.Drawing.Size(224, 128);
-            this.btnFinishedProducts.Style = MetroFramework.MetroColorStyle.Brown;
             this.btnFinishedProducts.TabIndex = 3;
             this.btnFinishedProducts.Text = "Finished Products";
             this.btnFinishedProducts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -111,7 +109,6 @@
             this.btnRawMaterials.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnRawMaterials.Name = "btnRawMaterials";
             this.btnRawMaterials.Size = new System.Drawing.Size(224, 128);
-            this.btnRawMaterials.Style = MetroFramework.MetroColorStyle.Silver;
             this.btnRawMaterials.TabIndex = 2;
             this.btnRawMaterials.Text = "Raw Materials";
             this.btnRawMaterials.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -143,7 +140,6 @@
             this.btnRawMaterialUpdate.Location = new System.Drawing.Point(3, 70);
             this.btnRawMaterialUpdate.Name = "btnRawMaterialUpdate";
             this.btnRawMaterialUpdate.Size = new System.Drawing.Size(218, 61);
-            this.btnRawMaterialUpdate.Style = MetroFramework.MetroColorStyle.Lime;
             this.btnRawMaterialUpdate.TabIndex = 4;
             this.btnRawMaterialUpdate.Text = "Update";
             this.btnRawMaterialUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -157,7 +153,6 @@
             this.btnRawMaterialAdd.Location = new System.Drawing.Point(3, 3);
             this.btnRawMaterialAdd.Name = "btnRawMaterialAdd";
             this.btnRawMaterialAdd.Size = new System.Drawing.Size(218, 61);
-            this.btnRawMaterialAdd.Style = MetroFramework.MetroColorStyle.Green;
             this.btnRawMaterialAdd.TabIndex = 3;
             this.btnRawMaterialAdd.Text = "Add New Material";
             this.btnRawMaterialAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -188,7 +183,6 @@
             this.btnFinishedProductUpdate.Location = new System.Drawing.Point(3, 70);
             this.btnFinishedProductUpdate.Name = "btnFinishedProductUpdate";
             this.btnFinishedProductUpdate.Size = new System.Drawing.Size(218, 61);
-            this.btnFinishedProductUpdate.Style = MetroFramework.MetroColorStyle.Purple;
             this.btnFinishedProductUpdate.TabIndex = 6;
             this.btnFinishedProductUpdate.Text = "Update";
             this.btnFinishedProductUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -202,7 +196,6 @@
             this.btnFinishedProductAdd.Location = new System.Drawing.Point(3, 3);
             this.btnFinishedProductAdd.Name = "btnFinishedProductAdd";
             this.btnFinishedProductAdd.Size = new System.Drawing.Size(218, 61);
-            this.btnFinishedProductAdd.Style = MetroFramework.MetroColorStyle.Red;
             this.btnFinishedProductAdd.TabIndex = 5;
             this.btnFinishedProductAdd.Text = "Add New Product";
             this.btnFinishedProductAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
