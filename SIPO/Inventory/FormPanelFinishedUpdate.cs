@@ -17,6 +17,7 @@ namespace SIPO.Inventory
             loadMaterials();
             loadRawMaterials();
             loadUsedRawMaterials();
+            
         }
 
         private void loadMaterials()
@@ -29,6 +30,7 @@ namespace SIPO.Inventory
                 txtDesc.Text = finished.Desc;
                 txtOldSrp.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
+                
             }
             else
             {
@@ -64,7 +66,7 @@ namespace SIPO.Inventory
                     MessageBox.Show("Finished Quantity Name cannot be empty");
                     return false;
                 }
-                
+
 
 
 
@@ -101,31 +103,41 @@ namespace SIPO.Inventory
                        finished.FinQty,
                        finished.Newprice
                        );
-                
+
                 foreach (RawMaterials item in rawMaterialsUsed)
                 {
-                    query2 = "SELECT prodr_id FROM products_raw Where prodr_id NOT IN (SELECT prod_r_id FROM products_finished_materials);";
+                    query2 = "SELECT prodr_id FROM products_raw as a;";
                     con.Open();
+                    int oldQty = 0;
                     MySqlCommand com2 = new MySqlCommand(query2, con);
                     MySqlDataReader reader;
-                    query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)";
+
                     reader = com2.ExecuteReader();
                     int row = 0;
                     while (reader.Read())
                     {
-                        query += " VALUES ('" + item.Id + "', '" + lvRawMaterialsUsed.Items[row].Text + "' , '" + lvRawMaterialsUsed.Items[row].SubItems[2].Text + "' );";
+                            query += "DELETE FROM products_finished_materials where prodf_f_id = '"+finished.Id+"';" +
+                                     "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)";
+                            query += " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
+                            MessageBox.Show(item.Id.ToString());
+                            query += "Update products_raw SET " +
+                         "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[row].SubItems[2].Text + "' " +
+                         "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[row].Text + "';";
+
                         row++;
+                        
                     }
                     con.Close();
                 }
                 MySqlCommand com = new MySqlCommand(query, con);
-             
+
                 con.Open();
                 com.ExecuteNonQuery();
                 con.Close();
                 //  MessageBox.Show(query);
                 MessageBox.Show("Item Successfully Updated");
                 RawMaterialsUpdate.hasSelected = false;
+                this.Close();
             }
         }
         private void loadRawMaterials()
@@ -177,8 +189,8 @@ namespace SIPO.Inventory
         }
         private void loadUsedRawMaterials()
         {
-            try
-            {
+            //try
+            //{
                 rawMaterialsUsed = new List<RawMaterials>();
                 String query = String.Format("SELECT products_raw.prodr_id, products_raw.prodr_name, products_finished_materials.prod_r_qty FROM products_finished_materials INNER JOIN products_raw ON products_finished_materials.prod_r_id = products_raw.prodr_id WHERE prodf_f_id = {0}", finished.Id);
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
@@ -211,11 +223,11 @@ namespace SIPO.Inventory
                 }
 
                 con.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.StackTrace);
+            //}
         }
 
         private void btnAddUsedMaterial_Click(object sender, EventArgs e)
@@ -268,6 +280,19 @@ namespace SIPO.Inventory
                 else
                 {
                     MessageBox.Show("Please select a quantity not more than the current stock");
+                }
+                MySqlConnection con = new MySqlConnection(ConString.getConString());
+                for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
+                {
+                    String query = "Update products_raw SET " +
+                       "prodr_qty = prodr_qty + '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
+                       "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
+
+                    MySqlCommand com = new MySqlCommand(query, con);
+
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
                 }
             }
             catch (Exception ex)

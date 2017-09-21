@@ -63,6 +63,8 @@ namespace SIPO.Inventory
                 if (success)
 
                     MessageBox.Show("Item Added Successfully");
+
+                this.Close();
             }
         }
         private bool isValidInput()

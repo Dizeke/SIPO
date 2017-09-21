@@ -38,9 +38,10 @@ namespace SIPO.Inventory
 
                 query += "Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), LAST_INSERT_ID())";
 
-                query += ";Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
+                
                 for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
                 {
+                    query += ";Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
                     query += " VALUES (LAST_INSERT_ID(), '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' )";
 
 
@@ -66,10 +67,11 @@ namespace SIPO.Inventory
 
                 success = true;
                 MessageBox.Show("Item Added Successfully");
+
                 if (!success)
                     MessageBox.Show("failed to add item");
 
-
+                this.Close();
 
             }
         }

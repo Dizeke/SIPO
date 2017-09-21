@@ -82,7 +82,10 @@ namespace SIPO.Inventory
                 
                 FormPanelRawUpdate formPanelRawUpdate = new FormPanelRawUpdate();
                formPanelRawUpdate.ShowDialog();
-                this.Close();
+                if (RawMaterialsUpdate.hasSelected == false)
+                {
+                    loadMaterials();
+                }
 
             }
             catch (Exception ex)

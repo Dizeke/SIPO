@@ -97,6 +97,8 @@ namespace SIPO.Inventory
 
                 MessageBox.Show("Item Successfully Updated");
                 RawMaterialsUpdate.hasSelected = false;
+
+                this.Close();
             }
 
         }

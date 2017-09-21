@@ -23,7 +23,7 @@ namespace SIPO.Inventory
             {
                 finished = new List<FinishedProduct>();
 
-                String query = "SELECT * FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id";
+                String query = "SELECT * FROM products_finished AS a ";
 
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
@@ -40,9 +40,6 @@ namespace SIPO.Inventory
                     Finished.Name = reader["prodf_name"].ToString();
                     Finished.Desc = reader["prodf_desc"].ToString();
 
-                    Finished.Raw = reader["prodr_name"].ToString();
-                    Finished.Qty = int.Parse(reader["prod_r_qty"].ToString());
-
                     Finished.Price = int.Parse(reader["prodf_srp"].ToString());
                     Finished.FinQty = int.Parse(reader["prodf_qty"].ToString());
 
@@ -51,7 +48,6 @@ namespace SIPO.Inventory
                     lvFinished.Items.Add(Finished.Id.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.Name);
                     lvFinished.Items[row].SubItems.Add(Finished.Desc);
-                    lvFinished.Items[row].SubItems.Add(Finished.Raw.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.FinQty.ToString());
                     lvFinished.Items[row].SubItems.Add(Finished.Price.ToString());
 
@@ -70,21 +66,23 @@ namespace SIPO.Inventory
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
+            try
+            {
                 int index = lvFinished.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
                 FormPanelFinishedUpdate formPanelFinishedUpdate = new FormPanelFinishedUpdate();
                 formPanelFinishedUpdate.ShowDialog();
-                this.Close();
-
-        //}
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.StackTrace);
-        //        MessageBox.Show("Please select a client to update");
-        //    }
+                if (FinishedProductUpdate.hasSelected == false)
+                {
+                    loadMaterials();
+                }
+        }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please select a client to update");
+            }
 }
 
         private void btnClose_Click(object sender, EventArgs e)

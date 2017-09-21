@@ -32,7 +32,6 @@
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnClose = new MetroFramework.Controls.MetroButton();
@@ -47,7 +46,6 @@
             this.ID,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader5,
             this.columnHeader1,
             this.columnHeader6});
             this.tableLayoutPanel1.SetColumnSpan(this.lvFinished, 4);
@@ -77,11 +75,6 @@
             // 
             this.columnHeader3.Text = "Description";
             this.columnHeader3.Width = 131;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Raw Material";
-            this.columnHeader5.Width = 119;
             // 
             // columnHeader1
             // 
@@ -153,7 +146,6 @@
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
