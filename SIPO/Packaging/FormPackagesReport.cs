@@ -15,10 +15,12 @@ namespace SIPO.Packaging
 {
     public partial class FormPackagesReport : MetroFramework.Forms.MetroForm
     {
-        List<PurchaseOrderBatch> batches;
-
+        int selectedIndex;
+        int pack_id;
         public FormPackagesReport()
         {
+            selectedIndex = -1;
+            pack_id = -1;
             InitializeComponent();
             BindGrid();
         }
@@ -111,6 +113,36 @@ namespace SIPO.Packaging
         private void btnExport_Click(object sender, EventArgs e)
         {
             ExportToExcel();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int previousIndex = selectedIndex;
+            int previousPackage = pack_id;
+            try
+            {
+                selectedIndex = dataGridView1.CurrentRow.Index;
+                pack_id = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                selectedIndex = previousIndex;
+                pack_id = previousPackage;
+            }
+        }
+
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+            if (selectedIndex >= 0)
+            {
+                //FormPackageDetailsReport formPackageDetailsReport = new FormPackageDetailsReport(pack_id);
+                //formPackageDetailsReport.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a package to view");
+            }
         }
     }
 }
