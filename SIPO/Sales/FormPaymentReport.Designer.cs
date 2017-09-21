@@ -79,6 +79,7 @@
             this.btnExportToExcel.TabIndex = 1;
             this.btnExportToExcel.Text = "Export to Excel";
             this.btnExportToExcel.UseSelectable = true;
+            this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
             // 
             // btnViewDetails
             // 
