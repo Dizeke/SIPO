@@ -101,6 +101,7 @@
             this.btnPayment.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPayment.UseSelectable = true;
             this.btnPayment.UseTileImage = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // btnPurchaseOrder
             // 
