@@ -107,6 +107,7 @@ namespace SIPO.Inventory
 
                     MySqlCommand com2 = new MySqlCommand(query, con);
                     MySqlDataReader reader;
+                    con.Open();
                     query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)";
                     reader = com2.ExecuteReader();
                     int row = 0;
@@ -118,7 +119,7 @@ namespace SIPO.Inventory
 
                 }
                 MySqlCommand com = new MySqlCommand(query, con);
-
+                con.Close();
                 con.Open();
                 com.ExecuteNonQuery();
                 con.Close();
