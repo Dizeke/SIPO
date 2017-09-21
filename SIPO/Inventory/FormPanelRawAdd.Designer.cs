@@ -56,12 +56,12 @@
             this.panelLayoutRawAdd.Controls.Add(this.lblPrice, 1, 7);
             this.panelLayoutRawAdd.Controls.Add(this.lblReceived, 0, 7);
             this.panelLayoutRawAdd.Controls.Add(this.lblDesc, 0, 5);
-            this.panelLayoutRawAdd.Controls.Add(this.txtQty, 2, 6);
-            this.panelLayoutRawAdd.Controls.Add(this.lblQty, 2, 5);
             this.panelLayoutRawAdd.Controls.Add(this.txtDesc, 0, 6);
             this.panelLayoutRawAdd.Controls.Add(this.btnAdd, 1, 13);
             this.panelLayoutRawAdd.Controls.Add(this.btnClearFields, 2, 13);
             this.panelLayoutRawAdd.Controls.Add(this.dtpReceived, 0, 8);
+            this.panelLayoutRawAdd.Controls.Add(this.lblQty, 1, 5);
+            this.panelLayoutRawAdd.Controls.Add(this.txtQty, 1, 6);
             this.panelLayoutRawAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutRawAdd.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.panelLayoutRawAdd.Location = new System.Drawing.Point(20, 60);
@@ -192,7 +192,7 @@
             // 
             // 
             this.txtQty.CustomButton.Image = null;
-            this.txtQty.CustomButton.Location = new System.Drawing.Point(200, 1);
+            this.txtQty.CustomButton.Location = new System.Drawing.Point(162, 1);
             this.txtQty.CustomButton.Name = "";
             this.txtQty.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtQty.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -202,7 +202,7 @@
             this.txtQty.CustomButton.Visible = false;
             this.txtQty.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtQty.Lines = new string[0];
-            this.txtQty.Location = new System.Drawing.Point(399, 70);
+            this.txtQty.Location = new System.Drawing.Point(209, 70);
             this.txtQty.MaxLength = 32;
             this.txtQty.Name = "txtQty";
             this.txtQty.PasswordChar = '\0';
@@ -211,7 +211,7 @@
             this.txtQty.SelectionLength = 0;
             this.txtQty.SelectionStart = 0;
             this.txtQty.ShortcutsEnabled = true;
-            this.txtQty.Size = new System.Drawing.Size(222, 23);
+            this.txtQty.Size = new System.Drawing.Size(184, 23);
             this.txtQty.TabIndex = 37;
             this.txtQty.UseSelectable = true;
             this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -221,9 +221,9 @@
             // 
             this.lblQty.AutoSize = true;
             this.lblQty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblQty.Location = new System.Drawing.Point(399, 48);
+            this.lblQty.Location = new System.Drawing.Point(209, 48);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(222, 19);
+            this.lblQty.Size = new System.Drawing.Size(184, 19);
             this.lblQty.TabIndex = 41;
             this.lblQty.Text = "Quantity";
             // 
@@ -275,7 +275,7 @@
             this.btnClearFields.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClearFields.Location = new System.Drawing.Point(399, 193);
             this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(222, 24);
+            this.btnClearFields.Size = new System.Drawing.Size(168, 24);
             this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnClearFields.TabIndex = 53;
             this.btnClearFields.Text = "Clear Fields";

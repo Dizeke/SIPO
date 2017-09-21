@@ -63,6 +63,7 @@
             this.txtPrice.CustomButton.UseSelectable = true;
             this.txtPrice.CustomButton.Visible = false;
             this.txtPrice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPrice.Enabled = false;
             this.txtPrice.Lines = new string[0];
             this.txtPrice.Location = new System.Drawing.Point(209, 118);
             this.txtPrice.MaxLength = 13;
@@ -296,7 +297,7 @@
             this.dtpReceived.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtpReceived.Enabled = false;
             this.dtpReceived.Location = new System.Drawing.Point(3, 118);
-            this.dtpReceived.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpReceived.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpReceived.Name = "dtpReceived";
             this.dtpReceived.Size = new System.Drawing.Size(200, 29);
             this.dtpReceived.TabIndex = 54;
