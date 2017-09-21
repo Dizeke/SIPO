@@ -81,7 +81,7 @@ namespace SIPO.Inventory
 
         private void BindGrid()
         {
-            String query = "SELECT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp', c.prod_r_id AS 'Raw Material ID', b.prodr_name AS 'Raw Material Name', c.prod_r_qty AS 'Raw Material Quantity' FROM products_finished AS a INNER JOIN products_finished_materials as c ON a.prodf_id = c.prodf_f_id INNER JOIN products_raw as b ON c.prod_r_id = b.prodr_id";
+            String query = "SELECT DISTINCT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp' FROM products_finished AS a ";
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))

@@ -46,7 +46,7 @@ namespace SIPO.Inventory
                     MessageBox.Show("Description Cannot be empty");
                     return false;
                 }
-                else if (txtName.Text.ToString().Length < 4)
+                else if (txtName.Text.ToString().Length < 1)
                 {
                     MessageBox.Show("Name cannot be empty");
                     return false;
@@ -118,7 +118,7 @@ namespace SIPO.Inventory
                             query += "DELETE FROM products_finished_materials where prodf_f_id = '"+finished.Id+"';" +
                                      "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)";
                             query += " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
-                            MessageBox.Show(item.Id.ToString());
+                           // MessageBox.Show(item.Id.ToString());
                             query += "Update products_raw SET " +
                          "prodr_qty = prodr_qty - '" + item.Qty + "' " +
                          "WHERE prodr_id = '" + item.Id + "';";
@@ -214,12 +214,6 @@ namespace SIPO.Inventory
                     lvRawMaterialsUsed.Items[row].SubItems.Add(rawMaterial.Name);
                     lvRawMaterialsUsed.Items[row].SubItems.Add(rawMaterial.Qty.ToString());
                     row++;
-                }
-
-                if (row < 1)
-                {
-                    btnAddUsedMaterial.Enabled = false;
-                    btnUpdate.Enabled = false;
                 }
 
                 con.Close();
