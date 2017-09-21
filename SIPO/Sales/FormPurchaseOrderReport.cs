@@ -125,7 +125,7 @@ namespace SIPO.Sales
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Pdf Files|*.pdf";
             saveDialog.FilterIndex = 2;
-            saveDialog.FileName = "Raw Materials " + String.Format("{0:F}", DateTime.Now);
+            saveDialog.FileName = "Purchase Order " + String.Format("{0:F}", DateTime.Now);
 
             if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

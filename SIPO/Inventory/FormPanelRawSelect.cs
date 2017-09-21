@@ -61,6 +61,8 @@ namespace SIPO.Inventory
                     lvRaw.Items[row].SubItems.Add(raw.Received.ToString());
                     lvRaw.Items[row].SubItems.Add(raw.Price.ToString());
                     row++;
+
+
                 }
 
                 con.Close();

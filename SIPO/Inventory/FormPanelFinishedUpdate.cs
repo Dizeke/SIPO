@@ -120,8 +120,8 @@ namespace SIPO.Inventory
                             query += " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
                             MessageBox.Show(item.Id.ToString());
                             query += "Update products_raw SET " +
-                         "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[row].SubItems[2].Text + "' " +
-                         "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[row].Text + "';";
+                         "prodr_qty = prodr_qty - '" + item.Qty + "' " +
+                         "WHERE prodr_id = '" + item.Id + "';";
 
                         row++;
                         

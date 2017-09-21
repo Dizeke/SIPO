@@ -43,6 +43,7 @@
             // 
             // lvRaw
             // 
+            this.lvRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvRaw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.columnHeader2,
@@ -53,6 +54,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.lvRaw, 4);
             this.lvRaw.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvRaw.FullRowSelect = true;
+            this.lvRaw.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvRaw.Location = new System.Drawing.Point(3, 3);
             this.lvRaw.Name = "lvRaw";
             this.lvRaw.OwnerDraw = true;
@@ -85,7 +87,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Receive Date";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 126;
             // 
             // columnHeader6
             // 
