@@ -32,6 +32,7 @@ namespace SIPO.Packaging
             String query = String.Format("SELECT products_finished.prodf_id AS 'Product ID', products_finished.prodf_name AS 'Name', purchase_order_batch_products.prodf_qty AS 'Quantity', package_details.pd_gweight AS 'Gross Weight', package_details.pd_nweight AS 'Net Weight', package_details.pd_qty_carton AS 'Qty/Carton' FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
                 pack_id
                 );
+            Console.WriteLine(query);
 
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
