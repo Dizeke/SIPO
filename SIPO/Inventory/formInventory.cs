@@ -39,36 +39,31 @@ namespace SIPO.Inventory
         private void btnRawMaterialAdd_Click(object sender, EventArgs e)
         {
             formPanelRawAdd = new FormPanelRawAdd();
-            this.Hide();
             formPanelRawAdd.ShowDialog();
-            this.Show();
+            
 
         }
 
         private void btnFinishedProductAdd_Click(object sender, EventArgs e)
         {
             formPanelFinishAdd = new FormPanelFinishAdd();
-            this.Hide();
             formPanelFinishAdd.ShowDialog();
-            this.Show();
 
         }
 
         private void btnRawMaterialUpdate_Click(object sender, EventArgs e)
         {
             formPanelRawSelect = new FormPanelRawSelect();
-            this.Hide();
             formPanelRawSelect.ShowDialog();
-            this.Show();
+            
 
         }
 
         private void btnFinishedProductUpdate_Click(object sender, EventArgs e)
         {
             formPanelFinishSelect = new FormPanelFinishSelect();
-            this.Hide();
             formPanelFinishSelect.ShowDialog();
-            this.Show();
+            
 
 
         }

@@ -61,6 +61,7 @@
             this.metroButton1.TabIndex = 8;
             this.metroButton1.Text = "Export to Excel";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // dataGridView1
             // 
