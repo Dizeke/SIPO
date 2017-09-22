@@ -56,6 +56,7 @@
             this.lvPurchaseOrders.UseCompatibleStateImageBehavior = false;
             this.lvPurchaseOrders.UseSelectable = true;
             this.lvPurchaseOrders.View = System.Windows.Forms.View.Details;
+            this.lvPurchaseOrders.SelectedIndexChanged += new System.EventHandler(this.lvPurchaseOrders_SelectedIndexChanged);
             // 
             // columnHeader1
             // 

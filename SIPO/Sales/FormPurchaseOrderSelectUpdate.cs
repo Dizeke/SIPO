@@ -18,9 +18,13 @@ namespace SIPO.Sales
         List<PurchaseOrder> pos;
         List<Client> clients;
 
+        int selectedIndex;
+
         public FormPurchaseOrderSelectUpdate()
         {
             InitializeComponent();
+            selectedIndex = -1;
+
             loadPurchaseOrders();
         }
 
@@ -93,7 +97,22 @@ namespace SIPO.Sales
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(selectedIndex.ToString());
+            MessageBox.Show(pos[selectedIndex].id.ToString());
+        }
 
+        private void lvPurchaseOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int previousIndex = selectedIndex;
+            try
+            {
+                selectedIndex = lvPurchaseOrders.SelectedIndices[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                selectedIndex = previousIndex;
+            }
         }
     }
 }
