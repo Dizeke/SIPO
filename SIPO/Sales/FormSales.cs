@@ -40,5 +40,11 @@ namespace SIPO.Sales
             FormPaymentReport formPaymentReport = new FormPaymentReport();
             formPaymentReport.ShowDialog();
         }
+
+        private void btnPurchaseOrderUpdate_Click(object sender, EventArgs e)
+        {
+            FormPurchaseOrderSelectUpdate formPurchaseOrderSelectUpdate = new FormPurchaseOrderSelectUpdate();
+            formPurchaseOrderSelectUpdate.ShowDialog();
+        }
     }
 }
