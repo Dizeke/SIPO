@@ -32,6 +32,7 @@
             this.btnPackaging = new MetroFramework.Controls.MetroTile();
             this.panelLayoutPackages = new System.Windows.Forms.TableLayoutPanel();
             this.btnDispatchPackages = new MetroFramework.Controls.MetroTile();
+            this.btnDispatchedReport = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutPackages.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +60,6 @@
             this.btnPackaging.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnPackaging.Name = "btnPackaging";
             this.btnPackaging.Size = new System.Drawing.Size(199, 408);
-            this.btnPackaging.Style = MetroFramework.MetroColorStyle.Silver;
             this.btnPackaging.TabIndex = 1;
             this.btnPackaging.Text = "Packages";
             this.btnPackaging.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -75,6 +75,7 @@
             this.panelLayoutPackages.ColumnCount = 1;
             this.panelLayoutPackages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutPackages.Controls.Add(this.btnDispatchPackages, 0, 0);
+            this.panelLayoutPackages.Controls.Add(this.btnDispatchedReport, 0, 1);
             this.panelLayoutPackages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutPackages.Location = new System.Drawing.Point(208, 3);
             this.panelLayoutPackages.Name = "panelLayoutPackages";
@@ -95,6 +96,22 @@
             this.btnDispatchPackages.Text = "Dispatch Packages";
             this.btnDispatchPackages.UseSelectable = true;
             this.btnDispatchPackages.Click += new System.EventHandler(this.btnDispatchPackages_Click);
+            // 
+            // btnDispatchedReport
+            // 
+            this.btnDispatchedReport.ActiveControl = null;
+            this.btnDispatchedReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDispatchedReport.Location = new System.Drawing.Point(3, 210);
+            this.btnDispatchedReport.Name = "btnDispatchedReport";
+            this.btnDispatchedReport.Size = new System.Drawing.Size(193, 201);
+            this.btnDispatchedReport.TabIndex = 5;
+            this.btnDispatchedReport.Text = "Dispatched Packages";
+            this.btnDispatchedReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDispatchedReport.TileImage = global::SIPO.Properties.Resources.icon_dispatched;
+            this.btnDispatchedReport.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDispatchedReport.UseSelectable = true;
+            this.btnDispatchedReport.UseTileImage = true;
+            this.btnDispatchedReport.Click += new System.EventHandler(this.btnDispatchedReport_Click);
             // 
             // FormPackaging
             // 
@@ -120,5 +137,6 @@
         private MetroFramework.Controls.MetroTile btnPackaging;
         private System.Windows.Forms.TableLayoutPanel panelLayoutPackages;
         private MetroFramework.Controls.MetroTile btnDispatchPackages;
+        private MetroFramework.Controls.MetroTile btnDispatchedReport;
     }
 }
