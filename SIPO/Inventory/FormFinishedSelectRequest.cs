@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using SIPO.Classes;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace SIPO.Inventory
 {
-    public partial class FormPanelFinishSelect : MetroFramework.Forms.MetroForm
+    public partial class FormFinishedSelectRequest : MetroFramework.Forms.MetroForm
     {
+
         List<FinishedProduct> finished;
-        public FormPanelFinishSelect()
+        public FormFinishedSelectRequest()
         {
+
+            InitializeComponent();
             FinishedProductUpdate.hasSelected = false;
             FinishedProductUpdate.isCompleted = false;
-            InitializeComponent();
             loadMaterials();
-
         }
 
         private void loadMaterials()
@@ -24,7 +31,7 @@ namespace SIPO.Inventory
             {
                 finished = new List<FinishedProduct>();
 
-                String query = "SELECT * FROM products_finished AS a Where prodf_status = 'approved'";
+                String query = "SELECT * FROM products_finished AS a Where prodf_status = 'pending'";
 
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
@@ -46,11 +53,11 @@ namespace SIPO.Inventory
 
                     finished.Add(Finished);
 
-                    lvFinished.Items.Add(Finished.Id.ToString());
-                    lvFinished.Items[row].SubItems.Add(Finished.Name);
-                    lvFinished.Items[row].SubItems.Add(Finished.Desc);
-                    lvFinished.Items[row].SubItems.Add(Finished.FinQty.ToString());
-                    lvFinished.Items[row].SubItems.Add(Finished.Price.ToString());
+                    lvRequest.Items.Add(Finished.Id.ToString());
+                    lvRequest.Items[row].SubItems.Add(Finished.Name);
+                    lvRequest.Items[row].SubItems.Add(Finished.Desc);
+                    lvRequest.Items[row].SubItems.Add(Finished.FinQty.ToString());
+                    lvRequest.Items[row].SubItems.Add(Finished.Price.ToString());
 
                     row++;
                 }
@@ -62,22 +69,20 @@ namespace SIPO.Inventory
                 Console.WriteLine(ex.StackTrace);
             }
         }
-
-
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
             try
             {
-                int index = lvFinished.SelectedItems[0].Index;
+                int index = lvRequest.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
                 FinishedProductUpdate.isCompleted = false;
-                FormPanelFinishedUpdate formPanelFinishedUpdate = new FormPanelFinishedUpdate();
-                formPanelFinishedUpdate.ShowDialog();
-                if(FinishedProductUpdate.isCompleted)
+                FormRequest selectRequest = new FormRequest();
+                selectRequest.ShowDialog();
+                if (FinishedProductUpdate.isCompleted)
                 {
-                    lvFinished.Items.Clear();
+                    lvRequest.Items.Clear();
                     loadMaterials();
                 }
 
@@ -85,14 +90,25 @@ namespace SIPO.Inventory
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
-                MessageBox.Show("Please select a client to update");
+                MessageBox.Show("Please select an Item");
             }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            FinishedProductUpdate.hasSelected = false;
             this.Close();
         }
+
+        private void lvRequest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
+
 }

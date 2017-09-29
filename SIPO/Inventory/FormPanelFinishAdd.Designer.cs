@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPrice = new MetroFramework.Controls.MetroTextBox();
             this.txtName = new MetroFramework.Controls.MetroTextBox();
-            this.lblPrice = new MetroFramework.Controls.MetroLabel();
             this.lblDesc = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
@@ -51,38 +49,9 @@
             this.btnAddUsedMaterial = new MetroFramework.Controls.MetroButton();
             this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.lblQty = new MetroFramework.Controls.MetroLabel();
+            this.lblprice = new MetroFramework.Controls.MetroLabel();
+            this.lblSRP = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
-            // 
-            // txtPrice
-            // 
-            // 
-            // 
-            // 
-            this.txtPrice.CustomButton.Image = null;
-            this.txtPrice.CustomButton.Location = new System.Drawing.Point(149, 1);
-            this.txtPrice.CustomButton.Name = "";
-            this.txtPrice.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPrice.CustomButton.TabIndex = 1;
-            this.txtPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtPrice.CustomButton.UseSelectable = true;
-            this.txtPrice.CustomButton.Visible = false;
-            this.txtPrice.Lines = new string[0];
-            this.txtPrice.Location = new System.Drawing.Point(12, 166);
-            this.txtPrice.MaxLength = 255;
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.PasswordChar = '\0';
-            this.txtPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtPrice.SelectedText = "";
-            this.txtPrice.SelectionLength = 0;
-            this.txtPrice.SelectionStart = 0;
-            this.txtPrice.ShortcutsEnabled = true;
-            this.txtPrice.Size = new System.Drawing.Size(171, 23);
-            this.txtPrice.TabIndex = 43;
-            this.txtPrice.UseSelectable = true;
-            this.txtPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // txtName
             // 
@@ -99,7 +68,7 @@
             this.txtName.CustomButton.UseSelectable = true;
             this.txtName.CustomButton.Visible = false;
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(12, 70);
+            this.txtName.Location = new System.Drawing.Point(18, 71);
             this.txtName.MaxLength = 32;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
@@ -115,19 +84,10 @@
             this.txtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(12, 144);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(127, 19);
-            this.lblPrice.TabIndex = 42;
-            this.lblPrice.Text = "Estimated Price/SRP";
-            // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(12, 96);
+            this.lblDesc.Location = new System.Drawing.Point(18, 97);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(74, 19);
             this.lblDesc.TabIndex = 39;
@@ -148,7 +108,7 @@
             this.txtDesc.CustomButton.UseSelectable = true;
             this.txtDesc.CustomButton.Visible = false;
             this.txtDesc.Lines = new string[0];
-            this.txtDesc.Location = new System.Drawing.Point(12, 118);
+            this.txtDesc.Location = new System.Drawing.Point(18, 119);
             this.txtDesc.MaxLength = 64;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.PasswordChar = '\0';
@@ -200,7 +160,7 @@
             this.txtFinQty.CustomButton.UseSelectable = true;
             this.txtFinQty.CustomButton.Visible = false;
             this.txtFinQty.Lines = new string[0];
-            this.txtFinQty.Location = new System.Drawing.Point(189, 166);
+            this.txtFinQty.Location = new System.Drawing.Point(18, 167);
             this.txtFinQty.MaxLength = 32;
             this.txtFinQty.Name = "txtFinQty";
             this.txtFinQty.PasswordChar = '\0';
@@ -219,7 +179,7 @@
             // lblFinQTY
             // 
             this.lblFinQTY.AutoSize = true;
-            this.lblFinQTY.Location = new System.Drawing.Point(189, 144);
+            this.lblFinQTY.Location = new System.Drawing.Point(18, 145);
             this.lblFinQTY.Name = "lblFinQTY";
             this.lblFinQTY.Size = new System.Drawing.Size(109, 19);
             this.lblFinQTY.TabIndex = 55;
@@ -228,7 +188,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 48);
+            this.lblName.Location = new System.Drawing.Point(18, 49);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 19);
             this.lblName.TabIndex = 61;
@@ -365,11 +325,32 @@
             this.lblQty.TabIndex = 68;
             this.lblQty.Text = "Quantity";
             // 
+            // lblprice
+            // 
+            this.lblprice.AutoSize = true;
+            this.lblprice.Location = new System.Drawing.Point(403, 476);
+            this.lblprice.Name = "lblprice";
+            this.lblprice.Size = new System.Drawing.Size(83, 19);
+            this.lblprice.TabIndex = 69;
+            this.lblprice.Text = "metroLabel3";
+            // 
+            // lblSRP
+            // 
+            this.lblSRP.AllowDrop = true;
+            this.lblSRP.Location = new System.Drawing.Point(317, 167);
+            this.lblSRP.Name = "lblSRP";
+            this.lblSRP.Size = new System.Drawing.Size(75, 23);
+            this.lblSRP.TabIndex = 70;
+            this.lblSRP.Text = "SRP: ";
+            this.lblSRP.UseSelectable = true;
+            // 
             // FormPanelFinishAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 522);
+            this.Controls.Add(this.lblSRP);
+            this.Controls.Add(this.lblprice);
             this.Controls.Add(this.txtQty);
             this.Controls.Add(this.lblQty);
             this.Controls.Add(this.btnAddUsedMaterial);
@@ -378,11 +359,9 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.lvRawMaterials);
             this.Controls.Add(this.btnClearFields);
-            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtFinQty);
-            this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblFinQTY);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblDesc);
@@ -397,9 +376,7 @@
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTextBox txtPrice;
         private MetroFramework.Controls.MetroTextBox txtName;
-        private MetroFramework.Controls.MetroLabel lblPrice;
         private MetroFramework.Controls.MetroLabel lblDesc;
         private MetroFramework.Controls.MetroTextBox txtDesc;
         private MetroFramework.Controls.MetroButton btnAdd;
@@ -420,5 +397,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private MetroFramework.Controls.MetroTextBox txtQty;
         private MetroFramework.Controls.MetroLabel lblQty;
+        private MetroFramework.Controls.MetroLabel lblprice;
+        private MetroFramework.Controls.MetroLink lblSRP;
     }
 }

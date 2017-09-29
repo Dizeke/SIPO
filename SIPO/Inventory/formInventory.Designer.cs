@@ -197,7 +197,7 @@
             this.btnFinishedProductAdd.Name = "btnFinishedProductAdd";
             this.btnFinishedProductAdd.Size = new System.Drawing.Size(218, 61);
             this.btnFinishedProductAdd.TabIndex = 5;
-            this.btnFinishedProductAdd.Text = "Add New Product";
+            this.btnFinishedProductAdd.Text = "Request  New Product";
             this.btnFinishedProductAdd.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnFinishedProductAdd.UseSelectable = true;
             this.btnFinishedProductAdd.Click += new System.EventHandler(this.btnFinishedProductAdd_Click);

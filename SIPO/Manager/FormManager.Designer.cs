@@ -50,6 +50,9 @@
             this.btnFinishedProducts = new MetroFramework.Controls.MetroTile();
             this.btnRawMaterials = new MetroFramework.Controls.MetroTile();
             this.btnDispatchedPackages = new MetroFramework.Controls.MetroTile();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.btnRequest = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutManagement.SuspendLayout();
             this.panelLayoutAccountManagement.SuspendLayout();
@@ -57,6 +60,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAccImage)).BeginInit();
             this.panelLayoutReports.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLayoutMain
@@ -73,7 +77,7 @@
             this.panelLayoutMain.RowCount = 2;
             this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.panelLayoutMain.Size = new System.Drawing.Size(660, 501);
+            this.panelLayoutMain.Size = new System.Drawing.Size(735, 467);
             this.panelLayoutMain.TabIndex = 2;
             // 
             // panelLayoutManagement
@@ -86,12 +90,12 @@
             this.panelLayoutManagement.Controls.Add(this.panelLayoutAccountManagement, 1, 0);
             this.panelLayoutManagement.Controls.Add(this.panelLayoutClientManagement, 1, 1);
             this.panelLayoutManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLayoutManagement.Location = new System.Drawing.Point(3, 53);
+            this.panelLayoutManagement.Location = new System.Drawing.Point(3, 49);
             this.panelLayoutManagement.Name = "panelLayoutManagement";
             this.panelLayoutManagement.RowCount = 2;
             this.panelLayoutManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutManagement.Size = new System.Drawing.Size(213, 445);
+            this.panelLayoutManagement.Size = new System.Drawing.Size(238, 415);
             this.panelLayoutManagement.TabIndex = 1;
             // 
             // btnAccountManagement
@@ -101,7 +105,7 @@
             this.btnAccountManagement.Location = new System.Drawing.Point(3, 6);
             this.btnAccountManagement.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnAccountManagement.Name = "btnAccountManagement";
-            this.btnAccountManagement.Size = new System.Drawing.Size(100, 210);
+            this.btnAccountManagement.Size = new System.Drawing.Size(113, 195);
             this.btnAccountManagement.TabIndex = 0;
             this.btnAccountManagement.Text = "Account";
             this.btnAccountManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -114,10 +118,10 @@
             // 
             this.btnClientManagement.ActiveControl = null;
             this.btnClientManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClientManagement.Location = new System.Drawing.Point(3, 228);
+            this.btnClientManagement.Location = new System.Drawing.Point(3, 213);
             this.btnClientManagement.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnClientManagement.Name = "btnClientManagement";
-            this.btnClientManagement.Size = new System.Drawing.Size(100, 211);
+            this.btnClientManagement.Size = new System.Drawing.Size(113, 196);
             this.btnClientManagement.TabIndex = 1;
             this.btnClientManagement.Text = "Client";
             this.btnClientManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -133,12 +137,12 @@
             this.panelLayoutAccountManagement.Controls.Add(this.btnAccountAdd, 0, 0);
             this.panelLayoutAccountManagement.Controls.Add(this.btnAccountUpdate, 0, 1);
             this.panelLayoutAccountManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLayoutAccountManagement.Location = new System.Drawing.Point(109, 3);
+            this.panelLayoutAccountManagement.Location = new System.Drawing.Point(122, 3);
             this.panelLayoutAccountManagement.Name = "panelLayoutAccountManagement";
             this.panelLayoutAccountManagement.RowCount = 2;
             this.panelLayoutAccountManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutAccountManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutAccountManagement.Size = new System.Drawing.Size(101, 216);
+            this.panelLayoutAccountManagement.Size = new System.Drawing.Size(113, 201);
             this.panelLayoutAccountManagement.TabIndex = 2;
             // 
             // btnAccountAdd
@@ -147,7 +151,7 @@
             this.btnAccountAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAccountAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAccountAdd.Name = "btnAccountAdd";
-            this.btnAccountAdd.Size = new System.Drawing.Size(95, 102);
+            this.btnAccountAdd.Size = new System.Drawing.Size(107, 94);
             this.btnAccountAdd.TabIndex = 0;
             this.btnAccountAdd.Text = "Create";
             this.btnAccountAdd.UseSelectable = true;
@@ -157,9 +161,9 @@
             // 
             this.btnAccountUpdate.ActiveControl = null;
             this.btnAccountUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAccountUpdate.Location = new System.Drawing.Point(3, 111);
+            this.btnAccountUpdate.Location = new System.Drawing.Point(3, 103);
             this.btnAccountUpdate.Name = "btnAccountUpdate";
-            this.btnAccountUpdate.Size = new System.Drawing.Size(95, 102);
+            this.btnAccountUpdate.Size = new System.Drawing.Size(107, 95);
             this.btnAccountUpdate.TabIndex = 1;
             this.btnAccountUpdate.Text = "Update";
             this.btnAccountUpdate.UseSelectable = true;
@@ -172,12 +176,12 @@
             this.panelLayoutClientManagement.Controls.Add(this.btnClientAdd, 0, 0);
             this.panelLayoutClientManagement.Controls.Add(this.btnClientUpdate, 0, 1);
             this.panelLayoutClientManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLayoutClientManagement.Location = new System.Drawing.Point(109, 225);
+            this.panelLayoutClientManagement.Location = new System.Drawing.Point(122, 210);
             this.panelLayoutClientManagement.Name = "panelLayoutClientManagement";
             this.panelLayoutClientManagement.RowCount = 2;
             this.panelLayoutClientManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutClientManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutClientManagement.Size = new System.Drawing.Size(101, 217);
+            this.panelLayoutClientManagement.Size = new System.Drawing.Size(113, 202);
             this.panelLayoutClientManagement.TabIndex = 3;
             // 
             // btnClientAdd
@@ -186,7 +190,7 @@
             this.btnClientAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClientAdd.Location = new System.Drawing.Point(3, 3);
             this.btnClientAdd.Name = "btnClientAdd";
-            this.btnClientAdd.Size = new System.Drawing.Size(95, 102);
+            this.btnClientAdd.Size = new System.Drawing.Size(107, 95);
             this.btnClientAdd.TabIndex = 0;
             this.btnClientAdd.Text = "Create";
             this.btnClientAdd.UseSelectable = true;
@@ -196,9 +200,9 @@
             // 
             this.btnClientUpdate.ActiveControl = null;
             this.btnClientUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClientUpdate.Location = new System.Drawing.Point(3, 111);
+            this.btnClientUpdate.Location = new System.Drawing.Point(3, 104);
             this.btnClientUpdate.Name = "btnClientUpdate";
-            this.btnClientUpdate.Size = new System.Drawing.Size(95, 103);
+            this.btnClientUpdate.Size = new System.Drawing.Size(107, 95);
             this.btnClientUpdate.TabIndex = 1;
             this.btnClientUpdate.Text = "Update";
             this.btnClientUpdate.UseSelectable = true;
@@ -210,11 +214,11 @@
             this.panelHolder.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelHolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelHolder.Location = new System.Drawing.Point(219, 59);
+            this.panelHolder.Location = new System.Drawing.Point(244, 55);
             this.panelHolder.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
             this.panelHolder.Name = "panelHolder";
             this.panelHolder.Padding = new System.Windows.Forms.Padding(20);
-            this.panelHolder.Size = new System.Drawing.Size(441, 433);
+            this.panelHolder.Size = new System.Drawing.Size(491, 403);
             this.panelHolder.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -226,21 +230,21 @@
             this.tableLayoutPanel1.Controls.Add(this.lblAccPosition, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblAccName, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(222, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(247, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(435, 44);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(485, 40);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // pbAccImage
             // 
             this.pbAccImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbAccImage.Location = new System.Drawing.Point(394, 3);
+            this.pbAccImage.Location = new System.Drawing.Point(439, 3);
             this.pbAccImage.Name = "pbAccImage";
             this.tableLayoutPanel1.SetRowSpan(this.pbAccImage, 2);
-            this.pbAccImage.Size = new System.Drawing.Size(38, 38);
+            this.pbAccImage.Size = new System.Drawing.Size(43, 34);
             this.pbAccImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAccImage.TabIndex = 1;
             this.pbAccImage.TabStop = false;
@@ -249,7 +253,7 @@
             // 
             this.lblAccPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAccPosition.AutoSize = true;
-            this.lblAccPosition.Location = new System.Drawing.Point(334, 10);
+            this.lblAccPosition.Location = new System.Drawing.Point(379, 7);
             this.lblAccPosition.Name = "lblAccPosition";
             this.lblAccPosition.Size = new System.Drawing.Size(54, 19);
             this.lblAccPosition.TabIndex = 2;
@@ -259,9 +263,9 @@
             // 
             this.lblAccName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAccName.AutoSize = true;
-            this.lblAccName.Location = new System.Drawing.Point(343, 29);
+            this.lblAccName.Location = new System.Drawing.Point(388, 26);
             this.lblAccName.Name = "lblAccName";
-            this.lblAccName.Size = new System.Drawing.Size(45, 15);
+            this.lblAccName.Size = new System.Drawing.Size(45, 14);
             this.lblAccName.TabIndex = 3;
             this.lblAccName.Text = "Name";
             // 
@@ -282,20 +286,20 @@
             this.panelLayoutReports.Controls.Add(this.btnRawMaterials, 0, 0);
             this.panelLayoutReports.Controls.Add(this.btnDispatchedPackages, 5, 0);
             this.panelLayoutReports.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLayoutReports.Location = new System.Drawing.Point(20, 564);
+            this.panelLayoutReports.Location = new System.Drawing.Point(20, 646);
             this.panelLayoutReports.Name = "panelLayoutReports";
             this.panelLayoutReports.RowCount = 1;
             this.panelLayoutReports.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelLayoutReports.Size = new System.Drawing.Size(660, 116);
+            this.panelLayoutReports.Size = new System.Drawing.Size(735, 106);
             this.panelLayoutReports.TabIndex = 3;
             // 
             // btnPackages
             // 
             this.btnPackages.ActiveControl = null;
             this.btnPackages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPackages.Location = new System.Drawing.Point(439, 3);
+            this.btnPackages.Location = new System.Drawing.Point(491, 3);
             this.btnPackages.Name = "btnPackages";
-            this.btnPackages.Size = new System.Drawing.Size(103, 110);
+            this.btnPackages.Size = new System.Drawing.Size(116, 100);
             this.btnPackages.TabIndex = 4;
             this.btnPackages.Text = "Packages";
             this.btnPackages.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -309,9 +313,9 @@
             // 
             this.btnPayments.ActiveControl = null;
             this.btnPayments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPayments.Location = new System.Drawing.Point(330, 3);
+            this.btnPayments.Location = new System.Drawing.Point(369, 3);
             this.btnPayments.Name = "btnPayments";
-            this.btnPayments.Size = new System.Drawing.Size(103, 110);
+            this.btnPayments.Size = new System.Drawing.Size(116, 100);
             this.btnPayments.TabIndex = 3;
             this.btnPayments.Text = "Payments";
             this.btnPayments.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -325,9 +329,9 @@
             // 
             this.btnPurchaseOrders.ActiveControl = null;
             this.btnPurchaseOrders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPurchaseOrders.Location = new System.Drawing.Point(221, 3);
+            this.btnPurchaseOrders.Location = new System.Drawing.Point(247, 3);
             this.btnPurchaseOrders.Name = "btnPurchaseOrders";
-            this.btnPurchaseOrders.Size = new System.Drawing.Size(103, 110);
+            this.btnPurchaseOrders.Size = new System.Drawing.Size(116, 100);
             this.btnPurchaseOrders.TabIndex = 2;
             this.btnPurchaseOrders.Text = "Purchase Orders";
             this.btnPurchaseOrders.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -341,9 +345,9 @@
             // 
             this.btnFinishedProducts.ActiveControl = null;
             this.btnFinishedProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFinishedProducts.Location = new System.Drawing.Point(112, 3);
+            this.btnFinishedProducts.Location = new System.Drawing.Point(125, 3);
             this.btnFinishedProducts.Name = "btnFinishedProducts";
-            this.btnFinishedProducts.Size = new System.Drawing.Size(103, 110);
+            this.btnFinishedProducts.Size = new System.Drawing.Size(116, 100);
             this.btnFinishedProducts.TabIndex = 1;
             this.btnFinishedProducts.Text = "Finished Products";
             this.btnFinishedProducts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -359,7 +363,7 @@
             this.btnRawMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRawMaterials.Location = new System.Drawing.Point(3, 3);
             this.btnRawMaterials.Name = "btnRawMaterials";
-            this.btnRawMaterials.Size = new System.Drawing.Size(103, 110);
+            this.btnRawMaterials.Size = new System.Drawing.Size(116, 100);
             this.btnRawMaterials.TabIndex = 0;
             this.btnRawMaterials.Text = "Raw Materials";
             this.btnRawMaterials.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -373,9 +377,9 @@
             // 
             this.btnDispatchedPackages.ActiveControl = null;
             this.btnDispatchedPackages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDispatchedPackages.Location = new System.Drawing.Point(548, 3);
+            this.btnDispatchedPackages.Location = new System.Drawing.Point(613, 3);
             this.btnDispatchedPackages.Name = "btnDispatchedPackages";
-            this.btnDispatchedPackages.Size = new System.Drawing.Size(109, 110);
+            this.btnDispatchedPackages.Size = new System.Drawing.Size(119, 100);
             this.btnDispatchedPackages.TabIndex = 5;
             this.btnDispatchedPackages.Text = "Dispatched";
             this.btnDispatchedPackages.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -385,11 +389,59 @@
             this.btnDispatchedPackages.UseTileImage = true;
             this.btnDispatchedPackages.Click += new System.EventHandler(this.btnDispatchedPackages_Click);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.60077F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.39923F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
+            this.tableLayoutPanel2.Controls.Add(this.metroTile1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnRequest, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 527);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(735, 119);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTile1.Location = new System.Drawing.Point(251, 3);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(267, 113);
+            this.metroTile1.TabIndex = 6;
+            this.metroTile1.Text = "Pending Production";
+            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseTileImage = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.ActiveControl = null;
+            this.btnRequest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRequest.Location = new System.Drawing.Point(3, 3);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(242, 113);
+            this.btnRequest.TabIndex = 5;
+            this.btnRequest.Text = "Products Request";
+            this.btnRequest.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRequest.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRequest.UseSelectable = true;
+            this.btnRequest.UseTileImage = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
             // FormManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 700);
+            this.ClientSize = new System.Drawing.Size(775, 772);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panelLayoutReports);
             this.Controls.Add(this.panelLayoutMain);
             this.Name = "FormManager";
@@ -406,6 +458,7 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAccImage)).EndInit();
             this.panelLayoutReports.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -433,5 +486,8 @@
         private MetroFramework.Controls.MetroLabel lblAccPosition;
         private MetroFramework.Controls.MetroLabel lblAccName;
         private MetroFramework.Controls.MetroTile btnDispatchedPackages;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile btnRequest;
     }
 }

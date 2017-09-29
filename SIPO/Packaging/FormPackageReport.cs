@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 using SIPO.Classes;
+using Dapper;
 
 namespace SIPO.Packaging
 {
@@ -27,28 +28,7 @@ namespace SIPO.Packaging
             pack_datetime = "";
             BindGrid();
         }
-
-        private void BindGrid()
-        {
-            String query = "SELECT purchase_order_batches.pob_id AS 'Batch ID', clients.client_company AS 'Company', purchase_orders.po_id AS 'PO ID', pob_datetime AS 'ETA' , packages.pack_id AS 'Package ID' FROM purchase_order_batches INNER JOIN purchase_orders ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN packages ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE pack_id NOT IN (SELECT pack_id FROM packages_dispatched)";
-
-            using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
-            {
-                using (MySqlCommand cmd = new MySqlCommand(query, con))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            dataGridView1.DataSource = dt;
-                        }
-                    }
-                }
-            }
-        }
-
+        
         private void ExportToExcel()
         {
             // Creating a Excel object. 
@@ -138,17 +118,32 @@ namespace SIPO.Packaging
                 pack_datetime = previousDateTime;
             }
         }
+        private void BindGrid()
+        {
+            String query = "SELECT purchase_order_batches.pob_id AS 'BatchID', clients.client_company AS 'Company', purchase_orders.po_id AS 'POID', pob_datetime AS 'ETA' , packages.pack_id AS 'PackageID' FROM purchase_order_batches INNER JOIN purchase_orders ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN packages ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE pack_id NOT IN (SELECT pack_id FROM packages_dispatched)";
+
+            using (IDbConnection con = new MySqlConnection(ConString.getConString()))
+            {
+                packageBindingSource.DataSource = con.Query<Package>(query, commandType: CommandType.Text);
+
+            }
+        }
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-            if (selectedIndex >= 0)
+           
+            Package obj = packageBindingSource.Current as Package;
+            String query = String.Format("SELECT products_finished.prodf_id AS 'ID', products_finished.prodf_name AS 'Name', purchase_order_batch_products.prodf_qty AS 'Qty', package_details.pd_gweight AS 'Gross', package_details.pd_nweight AS 'Net', package_details.pd_qty_carton AS 'Qtypercarton' FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
+                 pack_id
+                 );
+
+            using (IDbConnection con = new MySqlConnection(ConString.getConString()))
             {
-                FormPackageDetailsReport formPackageDetailsReport = new FormPackageDetailsReport(pack_id, pack_datetime);
-                formPackageDetailsReport.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Please select a package to view");
+                List<PackageDetails> list = con.Query<PackageDetails>(query, commandType: CommandType.Text).ToList();
+                using (FormPackagePrint print = new FormPackagePrint(obj, list))
+                {
+                    print.ShowDialog();
+                }
             }
         }
     }

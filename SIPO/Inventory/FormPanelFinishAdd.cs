@@ -15,6 +15,8 @@ namespace SIPO.Inventory
 {
     public partial class FormPanelFinishAdd : MetroFramework.Forms.MetroForm
     {
+        double price = 0;
+        double srp = 0;
         List<RawMaterials> rawMaterials;
         List<RawMaterials> rawMaterialsUsed;
 
@@ -30,20 +32,28 @@ namespace SIPO.Inventory
             {
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 bool success = false;
-
-                String query2;
-                String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp) VALUES ('{0}', '{1}', '{2}', '{3}');",
-                    txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToInt32(txtPrice.Text));
-
-
-                query += "Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), LAST_INSERT_ID())";
-
                 
+                String query2;
+                String query3;
+                String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp, prodf_status) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');",
+                    txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToDouble(price * 1.5d), "pending");
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                int id = (int)cmd.LastInsertedId;
+                con.Close();
+
+                query = "Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), '"+id+"' )";
+                con.Open();
+                MySqlCommand cmd3 = new MySqlCommand(query, con);
+                cmd3.ExecuteNonQuery();
+                con.Close();
                 for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
                 {
-                    query += ";Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
-                    query += " VALUES (LAST_INSERT_ID(), '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' )";
-
+                    query3 = "Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
+                    query3 += " VALUES ('"+id+"', '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' )";
+                    
 
                     query2 = "Update products_raw SET " +
                          "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
@@ -58,15 +68,18 @@ namespace SIPO.Inventory
                     con.Open();
                     com.ExecuteNonQuery();
                     con.Close();
+
+                    MySqlCommand cmd2 = new MySqlCommand(query3, con);
+                    con.Open();
+                    cmd2.ExecuteNonQuery();
+                    con.Close();
                 }
 
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.ExecuteNonQuery();
+                
 
 
                 success = true;
-                MessageBox.Show("Item Added Successfully");
+                MessageBox.Show("Item Production Request has Been Sent!");
 
                 if (!success)
                     MessageBox.Show("failed to add item");
@@ -84,14 +97,9 @@ namespace SIPO.Inventory
                     MessageBox.Show("Description Cannot be empty");
                     return false;
                 }
-                else if (txtName.Text.ToString().Length < 4)
+                else if (txtName.Text.ToString().Length < 1)
                 {
                     MessageBox.Show("Name cannot be empty");
-                    return false;
-                }
-                else if (txtPrice.Text.ToString().Length < 1)
-                {
-                    MessageBox.Show("Price cannot be empty");
                     return false;
                 }
                 else if (txtQty.Text.ToString().Length < 1)
@@ -169,6 +177,7 @@ namespace SIPO.Inventory
         {
             try
             {
+                
                 int index = lvRawMaterials.Items.IndexOf(lvRawMaterials.SelectedItems[0]);
                 RawMaterials rawMaterialUsed = rawMaterials[index];
 
@@ -183,6 +192,7 @@ namespace SIPO.Inventory
                         {
                             isAdded = true;
                             rawMaterialsUsed[rmUsedIndex].Qty += quantity;
+                            price += (rawMaterialsUsed[rmUsedIndex].Price * quantity); 
                             break;
                         }
                         else
@@ -210,12 +220,16 @@ namespace SIPO.Inventory
                         lvRawMaterialsUsed.Items.Add(rawMaterialUsed.Id.ToString());
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Name);
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Qty.ToString());
+                        price += (rawMaterialsUsed[rmUsedIndex].Price * quantity);
                     }
                 }
                 else
                 {
                     MessageBox.Show("Please select a quantity not more than the current stock");
                 }
+                srp = (price * 1.5d);
+                lblSRP.Text = "SRP: " + srp.ToString();
+                lblprice.Text = price.ToString();
             }
             catch (Exception ex)
             {

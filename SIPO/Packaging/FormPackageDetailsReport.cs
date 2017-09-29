@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 using SIPO.Classes;
+using Dapper;
 
 namespace SIPO.Packaging
 {
@@ -96,26 +97,32 @@ namespace SIPO.Packaging
                 pack_id
                 );
 
-            using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
-            {
-                using (MySqlCommand cmd = new MySqlCommand(query, con))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            dataGridView1.DataSource = dt;
-                        }
-                    }
-                }
-            }
+            //using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
+            //{
+            //    using (MySqlCommand cmd = new MySqlCommand(query, con))
+            //    {
+            //        cmd.CommandType = CommandType.Text;
+            //        using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+            //        {
+            //            using (DataTable dt = new DataTable())
+            //            {
+            //                sda.Fill(dt);
+            //                dataGridView1.DataSource = dt;
+            //            }
+            //        }
+            //    }
+            //}
+           
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
             ExportToExcel();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

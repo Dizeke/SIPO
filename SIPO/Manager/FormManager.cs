@@ -198,5 +198,17 @@ namespace SIPO.Manager
             FormPackageDispatchedReport formPackageDispatchedReport = new FormPackageDispatchedReport();
             formPackageDispatchedReport.ShowDialog();
         }
+
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            FormFinishedSelectRequest select = new FormFinishedSelectRequest();
+            select.ShowDialog();
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            FormFinishedSelectPending sel = new FormFinishedSelectPending();
+            sel.ShowDialog();
+        }
     }
 }

@@ -209,11 +209,11 @@ namespace SIPO.Inventory
                     con.Close();
                     query = String.Format("Update products_finished SET prodf_qty = prodf_qty - (Select prodf_qty from purchase_order_batch_products where pob_id = {0}) Where prodf_id = (Select prodf_id from purchase_order_batch_products where pob_id = {0})", pob_id);
                     isMoved = true;
-                    MySqlConnection con2 = new MySqlConnection(ConString.getConString());
+                    
                     MySqlCommand com2 = new MySqlCommand(query, con);
 
                     con.Open();
-                    com.ExecuteNonQuery();
+                    com2.ExecuteNonQuery();
                     MessageBox.Show("Purchase Order Batch moved to Packaging");
                     this.Close();
                 }

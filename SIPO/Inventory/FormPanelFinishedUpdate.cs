@@ -11,24 +11,18 @@ namespace SIPO.Inventory
         List<RawMaterials> rawMaterials;
         List<RawMaterials> rawMaterialsUsed;
         FinishedProduct finished;
+        List<int> qtyHold;
         public FormPanelFinishedUpdate()
         {
             InitializeComponent();
             loadMaterials();
             loadRawMaterials();
             loadUsedRawMaterials();
+            qtyHold = new List<int>();
             MySqlConnection con = new MySqlConnection(ConString.getConString());
             for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
             {
-                String query = "Update products_raw SET " +
-                   "prodr_qty = prodr_qty + '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
-                   "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
-
-                MySqlCommand com = new MySqlCommand(query, con);
-               // MessageBox.Show(query);
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
+                qtyHold.Add(int.Parse(lvRawMaterialsUsed.Items[i].SubItems[2].Text));
             }
 
         }
@@ -116,7 +110,7 @@ namespace SIPO.Inventory
                        finished.FinQty,
                        finished.Newprice
                        );
-
+                query += "DELETE FROM products_finished_materials where prodf_f_id = '" + finished.Id + "';";
                 foreach (RawMaterials item in rawMaterialsUsed)
                 {
                     query2 = "SELECT prodr_id FROM products_raw as a;";
@@ -130,24 +124,31 @@ namespace SIPO.Inventory
                     {
                         if (reader["prodr_id"].ToString() == item.Id.ToString())
                         {
-                            query += "DELETE FROM products_finished_materials where prodf_f_id = '" + finished.Id + "';" +
-                                     "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)";
-                            query += " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
-                            // MessageBox.Show(item.Id.ToString());
-                            query += "Update products_raw SET " +
-                         "prodr_qty = prodr_qty - '" + item.Qty + "' " +
-                         "WHERE prodr_id = " + item.Id + ";";
-                        }
-                        row++;
-                        
-                    }
-                    con.Close();
-                }
-                MySqlCommand com = new MySqlCommand(query, con);
+                            query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)" +
+                             " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
+                            if (qtyHold.Count != 0)
+                            {
+                                query += "Update products_raw SET " +
+                             "prodr_qty = prodr_qty - '" + (item.Qty - qtyHold[row]) + "' " +
+                             "WHERE prodr_id = " + item.Id + ";";
+                            }
+                            
 
+
+                        }
+                                               
+                        row++;
+                    }
+                
+                    
+                    con.Close();
+                   
+                }
                 con.Open();
+                MySqlCommand com = new MySqlCommand(query, con);
                 com.ExecuteNonQuery();
                 con.Close();
+
                 //  MessageBox.Show(query);
                 MessageBox.Show("Item Successfully Updated");
                 FinishedProductUpdate.hasSelected = false;
