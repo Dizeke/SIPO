@@ -145,6 +145,7 @@
             this.btnPurchaseOrderUpdate.TabIndex = 7;
             this.btnPurchaseOrderUpdate.Text = "Update Purchase Order";
             this.btnPurchaseOrderUpdate.UseSelectable = true;
+            this.btnPurchaseOrderUpdate.Click += new System.EventHandler(this.btnPurchaseOrderUpdate_Click);
             // 
             // btnPurchaseOrderAdd
             // 

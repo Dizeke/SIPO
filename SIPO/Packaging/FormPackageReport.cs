@@ -107,7 +107,7 @@ namespace SIPO.Packaging
             try
             {
                 selectedIndex = dataGridView1.CurrentRow.Index;
-                pack_id = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                pack_id = int.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
                 pack_datetime = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             }
             catch (Exception ex)
