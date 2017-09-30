@@ -23,5 +23,11 @@ namespace SIPO.Classes
         public int discount { get { return this.po_discount; } set { this.po_discount = value; } }
         public int discount_approved { get { return this.po_discount_approved; } set { this.po_discount_approved = value; } }
         public int client_id { get { return this.po_client_id; } set { this.po_client_id = value; } }
+
+        private double po_total;
+        private double po_discounted_total;
+
+        public double total { get { return this.po_total; } set { this.po_total = value; } }
+        public double discounted_total { get { return this.po_discounted_total; } set { this.discounted_total = value; } }
     }
 }

@@ -238,6 +238,12 @@
     <Compile Include="Manager\FormPanelClientUpdate.Designer.cs">
       <DependentUpon>FormPanelClientUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\FormPODiscountRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\FormPODiscountRequests.Designer.cs">
+      <DependentUpon>FormPODiscountRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packaging\FormPackageDispatch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\FormPanelClientUpdate.resx">
       <DependentUpon>FormPanelClientUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\FormPODiscountRequests.resx">
+      <DependentUpon>FormPODiscountRequests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormPackageDispatch.resx">
       <DependentUpon>FormPackageDispatch.cs</DependentUpon>
