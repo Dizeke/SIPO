@@ -17,6 +17,7 @@ namespace SIPO.Inventory
     {
         double price = 0;
         double srp = 0;
+        int totalQty = 0;
         List<RawMaterials> rawMaterials;
         List<RawMaterials> rawMaterialsUsed;
 
@@ -192,7 +193,8 @@ namespace SIPO.Inventory
                         {
                             isAdded = true;
                             rawMaterialsUsed[rmUsedIndex].Qty += quantity;
-                            price += (rawMaterialsUsed[rmUsedIndex].Price * quantity); 
+                            price += (rawMaterialsUsed[rmUsedIndex].Price * quantity);
+                            totalQty += quantity;
                             break;
                         }
                         else
@@ -221,6 +223,7 @@ namespace SIPO.Inventory
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Name);
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Qty.ToString());
                         price += (rawMaterialsUsed[rmUsedIndex].Price * quantity);
+                        totalQty += quantity;
                     }
                 }
                 else
@@ -229,7 +232,8 @@ namespace SIPO.Inventory
                 }
                 srp = (price * 1.5d);
                 lblSRP.Text = "SRP: " + srp.ToString();
-                lblprice.Text = price.ToString();
+                lblprice.Text = "Unit Cost: " + price.ToString();
+                lbltotalQty.Text = "Total Quantity: " + totalQty.ToString();
             }
             catch (Exception ex)
             {
