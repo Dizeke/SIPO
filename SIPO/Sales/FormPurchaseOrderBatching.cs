@@ -174,8 +174,8 @@ namespace SIPO.Sales
                 /**
                  * Insert the Purchase Order
                  */
-                String queryInsertPurchaseOrder = String.Format("INSERT INTO purchase_orders (po_datetime, client_id) " +
-                    "VALUES ((SELECT NOW()), {0})", purchaseOrder.client_id);
+                String queryInsertPurchaseOrder = String.Format("INSERT INTO purchase_orders (po_datetime, po_discount, client_id) " +
+                    "VALUES ((SELECT NOW()), {0}, {1})", purchaseOrder.discount, purchaseOrder.client_id);
                 com = new MySqlCommand(queryInsertPurchaseOrder, con);
                 com.ExecuteNonQuery();
                 long po_id = com.LastInsertedId;

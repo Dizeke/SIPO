@@ -57,7 +57,7 @@
             this.lvPurchaseOrders.MultiSelect = false;
             this.lvPurchaseOrders.Name = "lvPurchaseOrders";
             this.lvPurchaseOrders.OwnerDraw = true;
-            this.lvPurchaseOrders.Size = new System.Drawing.Size(320, 200);
+            this.lvPurchaseOrders.Size = new System.Drawing.Size(373, 200);
             this.lvPurchaseOrders.TabIndex = 4;
             this.lvPurchaseOrders.UseCompatibleStateImageBehavior = false;
             this.lvPurchaseOrders.UseSelectable = true;
@@ -66,17 +66,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 70;
+            this.columnHeader1.Width = 71;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 183;
+            this.columnHeader2.Width = 225;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Qty";
-            this.columnHeader3.Width = 63;
+            this.columnHeader3.Width = 73;
             // 
             // lvBatchList
             // 
@@ -86,11 +86,11 @@
             this.columnHeader6});
             this.lvBatchList.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvBatchList.FullRowSelect = true;
-            this.lvBatchList.Location = new System.Drawing.Point(357, 63);
+            this.lvBatchList.Location = new System.Drawing.Point(403, 63);
             this.lvBatchList.MultiSelect = false;
             this.lvBatchList.Name = "lvBatchList";
             this.lvBatchList.OwnerDraw = true;
-            this.lvBatchList.Size = new System.Drawing.Size(320, 200);
+            this.lvBatchList.Size = new System.Drawing.Size(374, 200);
             this.lvBatchList.TabIndex = 5;
             this.lvBatchList.UseCompatibleStateImageBehavior = false;
             this.lvBatchList.UseSelectable = true;
@@ -99,21 +99,21 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "ID";
-            this.columnHeader4.Width = 70;
+            this.columnHeader4.Width = 77;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Name";
-            this.columnHeader5.Width = 183;
+            this.columnHeader5.Width = 220;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Qty";
-            this.columnHeader6.Width = 63;
+            this.columnHeader6.Width = 73;
             // 
             // btnAddToBatch
             // 
-            this.btnAddToBatch.Location = new System.Drawing.Point(218, 269);
+            this.btnAddToBatch.Location = new System.Drawing.Point(269, 269);
             this.btnAddToBatch.Name = "btnAddToBatch";
             this.btnAddToBatch.Size = new System.Drawing.Size(125, 23);
             this.btnAddToBatch.TabIndex = 6;
@@ -123,7 +123,7 @@
             // 
             // btnRemoveFromBatch
             // 
-            this.btnRemoveFromBatch.Location = new System.Drawing.Point(552, 269);
+            this.btnRemoveFromBatch.Location = new System.Drawing.Point(652, 269);
             this.btnRemoveFromBatch.Name = "btnRemoveFromBatch";
             this.btnRemoveFromBatch.Size = new System.Drawing.Size(125, 23);
             this.btnRemoveFromBatch.TabIndex = 7;
@@ -133,7 +133,7 @@
             // 
             // btnProceed
             // 
-            this.btnProceed.Location = new System.Drawing.Point(602, 329);
+            this.btnProceed.Location = new System.Drawing.Point(702, 329);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(75, 23);
             this.btnProceed.TabIndex = 8;
@@ -162,7 +162,7 @@
             // dtBatchTime
             // 
             this.dtBatchTime.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtBatchTime.Location = new System.Drawing.Point(186, 323);
+            this.dtBatchTime.Location = new System.Drawing.Point(239, 323);
             this.dtBatchTime.Name = "dtBatchTime";
             this.dtBatchTime.Size = new System.Drawing.Size(157, 29);
             this.dtBatchTime.TabIndex = 11;
@@ -170,7 +170,7 @@
             // lblBatchTime
             // 
             this.lblBatchTime.AutoSize = true;
-            this.lblBatchTime.Location = new System.Drawing.Point(269, 301);
+            this.lblBatchTime.Location = new System.Drawing.Point(320, 301);
             this.lblBatchTime.Name = "lblBatchTime";
             this.lblBatchTime.Size = new System.Drawing.Size(74, 19);
             this.lblBatchTime.TabIndex = 12;
@@ -180,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 375);
+            this.ClientSize = new System.Drawing.Size(800, 375);
             this.Controls.Add(this.lblBatchTime);
             this.Controls.Add(this.dtBatchTime);
             this.Controls.Add(this.lblBatchDate);
