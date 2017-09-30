@@ -31,7 +31,6 @@
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.lblDesc = new MetroFramework.Controls.MetroLabel();
             this.txtDesc = new MetroFramework.Controls.MetroTextBox();
-            this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.txtFinQty = new MetroFramework.Controls.MetroTextBox();
             this.lblFinQTY = new MetroFramework.Controls.MetroLabel();
@@ -47,10 +46,11 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.btnAddUsedMaterial = new MetroFramework.Controls.MetroButton();
-            this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.lblQty = new MetroFramework.Controls.MetroLabel();
+            this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.lblprice = new MetroFramework.Controls.MetroLabel();
             this.lblSRP = new MetroFramework.Controls.MetroLink();
+            this.lbltotalQty = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // txtName
@@ -124,19 +124,9 @@
             this.txtDesc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDesc_KeyPress);
             // 
-            // btnClearFields
-            // 
-            this.btnClearFields.Location = new System.Drawing.Point(403, 425);
-            this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(119, 24);
-            this.btnClearFields.Style = MetroFramework.MetroColorStyle.Teal;
-            this.btnClearFields.TabIndex = 53;
-            this.btnClearFields.Text = "Clear Fields";
-            this.btnClearFields.UseSelectable = true;
-            // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(273, 425);
+            this.btnAdd.Location = new System.Drawing.Point(394, 476);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(119, 24);
             this.btnAdd.Style = MetroFramework.MetroColorStyle.Teal;
@@ -285,6 +275,15 @@
             this.btnAddUsedMaterial.UseSelectable = true;
             this.btnAddUsedMaterial.Click += new System.EventHandler(this.btnAddUsedMaterial_Click);
             // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Location = new System.Drawing.Point(12, 454);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(58, 19);
+            this.lblQty.TabIndex = 68;
+            this.lblQty.Text = "Quantity";
+            // 
             // txtQty
             // 
             // 
@@ -316,19 +315,10 @@
             this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Location = new System.Drawing.Point(12, 454);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(58, 19);
-            this.lblQty.TabIndex = 68;
-            this.lblQty.Text = "Quantity";
-            // 
             // lblprice
             // 
             this.lblprice.AutoSize = true;
-            this.lblprice.Location = new System.Drawing.Point(403, 476);
+            this.lblprice.Location = new System.Drawing.Point(333, 123);
             this.lblprice.Name = "lblprice";
             this.lblprice.Size = new System.Drawing.Size(83, 19);
             this.lblprice.TabIndex = 69;
@@ -344,11 +334,21 @@
             this.lblSRP.Text = "SRP: ";
             this.lblSRP.UseSelectable = true;
             // 
+            // lbltotalQty
+            // 
+            this.lbltotalQty.AutoSize = true;
+            this.lbltotalQty.Location = new System.Drawing.Point(394, 429);
+            this.lbltotalQty.Name = "lbltotalQty";
+            this.lbltotalQty.Size = new System.Drawing.Size(31, 19);
+            this.lbltotalQty.TabIndex = 71;
+            this.lbltotalQty.Text = "QTy";
+            // 
             // FormPanelFinishAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 522);
+            this.Controls.Add(this.lbltotalQty);
             this.Controls.Add(this.lblSRP);
             this.Controls.Add(this.lblprice);
             this.Controls.Add(this.txtQty);
@@ -358,7 +358,6 @@
             this.Controls.Add(this.lvRawMaterialsUsed);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.lvRawMaterials);
-            this.Controls.Add(this.btnClearFields);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtFinQty);
@@ -380,7 +379,6 @@
         private MetroFramework.Controls.MetroLabel lblDesc;
         private MetroFramework.Controls.MetroTextBox txtDesc;
         private MetroFramework.Controls.MetroButton btnAdd;
-        private MetroFramework.Controls.MetroButton btnClearFields;
         private MetroFramework.Controls.MetroTextBox txtFinQty;
         private MetroFramework.Controls.MetroLabel lblFinQTY;
         private MetroFramework.Controls.MetroLabel lblName;
@@ -395,9 +393,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private MetroFramework.Controls.MetroTextBox txtQty;
         private MetroFramework.Controls.MetroLabel lblQty;
+        private MetroFramework.Controls.MetroTextBox txtQty;
         private MetroFramework.Controls.MetroLabel lblprice;
         private MetroFramework.Controls.MetroLink lblSRP;
+        private MetroFramework.Controls.MetroLabel lbltotalQty;
     }
 }
