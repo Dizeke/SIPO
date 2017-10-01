@@ -51,8 +51,9 @@
             this.btnRawMaterials = new MetroFramework.Controls.MetroTile();
             this.btnDispatchedPackages = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.btnRequest = new MetroFramework.Controls.MetroTile();
+            this.btnPendingProduction = new MetroFramework.Controls.MetroTile();
+            this.btnProductsRequest = new MetroFramework.Controls.MetroTile();
+            this.btnPODiscountRequests = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutManagement.SuspendLayout();
             this.panelLayoutAccountManagement.SuspendLayout();
@@ -233,8 +234,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(247, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(485, 40);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
@@ -253,7 +254,7 @@
             // 
             this.lblAccPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAccPosition.AutoSize = true;
-            this.lblAccPosition.Location = new System.Drawing.Point(379, 7);
+            this.lblAccPosition.Location = new System.Drawing.Point(379, 1);
             this.lblAccPosition.Name = "lblAccPosition";
             this.lblAccPosition.Size = new System.Drawing.Size(54, 19);
             this.lblAccPosition.TabIndex = 2;
@@ -263,9 +264,9 @@
             // 
             this.lblAccName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAccName.AutoSize = true;
-            this.lblAccName.Location = new System.Drawing.Point(388, 26);
+            this.lblAccName.Location = new System.Drawing.Point(388, 21);
             this.lblAccName.Name = "lblAccName";
-            this.lblAccName.Size = new System.Drawing.Size(45, 14);
+            this.lblAccName.Size = new System.Drawing.Size(45, 19);
             this.lblAccName.TabIndex = 3;
             this.lblAccName.Text = "Name";
             // 
@@ -392,49 +393,61 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.60077F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.39923F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
-            this.tableLayoutPanel2.Controls.Add(this.metroTile1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnRequest, 0, 0);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.btnPendingProduction, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnProductsRequest, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnPODiscountRequests, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 527);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(735, 119);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // metroTile1
+            // btnPendingProduction
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTile1.Location = new System.Drawing.Point(251, 3);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(267, 113);
-            this.metroTile1.TabIndex = 6;
-            this.metroTile1.Text = "Pending Production";
-            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseTileImage = true;
-            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            this.btnPendingProduction.ActiveControl = null;
+            this.btnPendingProduction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPendingProduction.Location = new System.Drawing.Point(491, 3);
+            this.btnPendingProduction.Name = "btnPendingProduction";
+            this.btnPendingProduction.Size = new System.Drawing.Size(241, 113);
+            this.btnPendingProduction.TabIndex = 6;
+            this.btnPendingProduction.Text = "Pending Productions";
+            this.btnPendingProduction.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPendingProduction.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPendingProduction.UseSelectable = true;
+            this.btnPendingProduction.UseTileImage = true;
+            this.btnPendingProduction.Click += new System.EventHandler(this.metroTile1_Click);
             // 
-            // btnRequest
+            // btnProductsRequest
             // 
-            this.btnRequest.ActiveControl = null;
-            this.btnRequest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRequest.Location = new System.Drawing.Point(3, 3);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(242, 113);
-            this.btnRequest.TabIndex = 5;
-            this.btnRequest.Text = "Products Request";
-            this.btnRequest.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRequest.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnRequest.UseSelectable = true;
-            this.btnRequest.UseTileImage = true;
-            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            this.btnProductsRequest.ActiveControl = null;
+            this.btnProductsRequest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnProductsRequest.Location = new System.Drawing.Point(247, 3);
+            this.btnProductsRequest.Name = "btnProductsRequest";
+            this.btnProductsRequest.Size = new System.Drawing.Size(238, 113);
+            this.btnProductsRequest.TabIndex = 5;
+            this.btnProductsRequest.Text = "Products Requests";
+            this.btnProductsRequest.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProductsRequest.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnProductsRequest.UseSelectable = true;
+            this.btnProductsRequest.UseTileImage = true;
+            this.btnProductsRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
+            // btnPODiscountRequests
+            // 
+            this.btnPODiscountRequests.ActiveControl = null;
+            this.btnPODiscountRequests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPODiscountRequests.Location = new System.Drawing.Point(3, 3);
+            this.btnPODiscountRequests.Name = "btnPODiscountRequests";
+            this.btnPODiscountRequests.Size = new System.Drawing.Size(238, 113);
+            this.btnPODiscountRequests.TabIndex = 7;
+            this.btnPODiscountRequests.Text = "PO Discount Requests";
+            this.btnPODiscountRequests.UseSelectable = true;
+            this.btnPODiscountRequests.Click += new System.EventHandler(this.btnPODiscountRequests_Click);
             // 
             // FormManager
             // 
@@ -487,7 +500,8 @@
         private MetroFramework.Controls.MetroLabel lblAccName;
         private MetroFramework.Controls.MetroTile btnDispatchedPackages;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Controls.MetroTile btnRequest;
+        private MetroFramework.Controls.MetroTile btnPendingProduction;
+        private MetroFramework.Controls.MetroTile btnProductsRequest;
+        private MetroFramework.Controls.MetroTile btnPODiscountRequests;
     }
 }

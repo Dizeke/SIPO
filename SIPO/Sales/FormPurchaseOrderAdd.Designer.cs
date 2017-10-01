@@ -46,6 +46,12 @@
             this.txtQuantity = new MetroFramework.Controls.MetroTextBox();
             this.btnRemove = new MetroFramework.Controls.MetroButton();
             this.btnAddProduct = new MetroFramework.Controls.MetroButton();
+            this.rbtnDisc0 = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtnDisc5 = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtnDisc10 = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtnDisc15 = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtnDisc20 = new MetroFramework.Controls.MetroRadioButton();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lblClient
@@ -63,7 +69,7 @@
             this.cbClient.ItemHeight = 23;
             this.cbClient.Location = new System.Drawing.Point(23, 82);
             this.cbClient.Name = "cbClient";
-            this.cbClient.Size = new System.Drawing.Size(121, 29);
+            this.cbClient.Size = new System.Drawing.Size(373, 29);
             this.cbClient.TabIndex = 1;
             this.cbClient.UseSelectable = true;
             // 
@@ -87,7 +93,7 @@
             this.lvProductList.Location = new System.Drawing.Point(23, 136);
             this.lvProductList.Name = "lvProductList";
             this.lvProductList.OwnerDraw = true;
-            this.lvProductList.Size = new System.Drawing.Size(280, 150);
+            this.lvProductList.Size = new System.Drawing.Size(373, 150);
             this.lvProductList.TabIndex = 3;
             this.lvProductList.UseCompatibleStateImageBehavior = false;
             this.lvProductList.UseSelectable = true;
@@ -96,17 +102,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 70;
+            this.columnHeader1.Width = 82;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 146;
+            this.columnHeader2.Width = 208;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Qty";
-            this.columnHeader3.Width = 59;
+            this.columnHeader3.Width = 79;
             // 
             // lvPurchaseList
             // 
@@ -116,10 +122,10 @@
             this.columnHeader6});
             this.lvPurchaseList.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvPurchaseList.FullRowSelect = true;
-            this.lvPurchaseList.Location = new System.Drawing.Point(317, 136);
+            this.lvPurchaseList.Location = new System.Drawing.Point(403, 136);
             this.lvPurchaseList.Name = "lvPurchaseList";
             this.lvPurchaseList.OwnerDraw = true;
-            this.lvPurchaseList.Size = new System.Drawing.Size(280, 150);
+            this.lvPurchaseList.Size = new System.Drawing.Size(374, 150);
             this.lvPurchaseList.TabIndex = 5;
             this.lvPurchaseList.UseCompatibleStateImageBehavior = false;
             this.lvPurchaseList.UseSelectable = true;
@@ -128,22 +134,22 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "ID";
-            this.columnHeader4.Width = 67;
+            this.columnHeader4.Width = 87;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Name";
-            this.columnHeader5.Width = 144;
+            this.columnHeader5.Width = 198;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Qty";
-            this.columnHeader6.Width = 65;
+            this.columnHeader6.Width = 85;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(473, 114);
+            this.metroLabel1.Location = new System.Drawing.Point(653, 114);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(124, 19);
             this.metroLabel1.TabIndex = 4;
@@ -151,7 +157,7 @@
             // 
             // btnAddCustomProduct
             // 
-            this.btnAddCustomProduct.Location = new System.Drawing.Point(317, 292);
+            this.btnAddCustomProduct.Location = new System.Drawing.Point(338, 292);
             this.btnAddCustomProduct.Name = "btnAddCustomProduct";
             this.btnAddCustomProduct.Size = new System.Drawing.Size(121, 23);
             this.btnAddCustomProduct.TabIndex = 7;
@@ -161,7 +167,7 @@
             // 
             // btnAddPurchaseOrder
             // 
-            this.btnAddPurchaseOrder.Location = new System.Drawing.Point(473, 354);
+            this.btnAddPurchaseOrder.Location = new System.Drawing.Point(653, 354);
             this.btnAddPurchaseOrder.Name = "btnAddPurchaseOrder";
             this.btnAddPurchaseOrder.Size = new System.Drawing.Size(124, 23);
             this.btnAddPurchaseOrder.TabIndex = 11;
@@ -210,7 +216,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(522, 292);
+            this.btnRemove.Location = new System.Drawing.Point(702, 292);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 8;
@@ -228,11 +234,78 @@
             this.btnAddProduct.UseSelectable = true;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
+            // rbtnDisc0
+            // 
+            this.rbtnDisc0.AutoSize = true;
+            this.rbtnDisc0.Checked = true;
+            this.rbtnDisc0.Location = new System.Drawing.Point(403, 341);
+            this.rbtnDisc0.Name = "rbtnDisc0";
+            this.rbtnDisc0.Size = new System.Drawing.Size(39, 15);
+            this.rbtnDisc0.TabIndex = 12;
+            this.rbtnDisc0.TabStop = true;
+            this.rbtnDisc0.Text = "0%";
+            this.rbtnDisc0.UseSelectable = true;
+            // 
+            // rbtnDisc5
+            // 
+            this.rbtnDisc5.AutoSize = true;
+            this.rbtnDisc5.Location = new System.Drawing.Point(448, 341);
+            this.rbtnDisc5.Name = "rbtnDisc5";
+            this.rbtnDisc5.Size = new System.Drawing.Size(39, 15);
+            this.rbtnDisc5.TabIndex = 13;
+            this.rbtnDisc5.Text = "5%";
+            this.rbtnDisc5.UseSelectable = true;
+            // 
+            // rbtnDisc10
+            // 
+            this.rbtnDisc10.AutoSize = true;
+            this.rbtnDisc10.Location = new System.Drawing.Point(448, 362);
+            this.rbtnDisc10.Name = "rbtnDisc10";
+            this.rbtnDisc10.Size = new System.Drawing.Size(45, 15);
+            this.rbtnDisc10.TabIndex = 14;
+            this.rbtnDisc10.Text = "10%";
+            this.rbtnDisc10.UseSelectable = true;
+            // 
+            // rbtnDisc15
+            // 
+            this.rbtnDisc15.AutoSize = true;
+            this.rbtnDisc15.Location = new System.Drawing.Point(500, 341);
+            this.rbtnDisc15.Name = "rbtnDisc15";
+            this.rbtnDisc15.Size = new System.Drawing.Size(45, 15);
+            this.rbtnDisc15.TabIndex = 15;
+            this.rbtnDisc15.Text = "15%";
+            this.rbtnDisc15.UseSelectable = true;
+            // 
+            // rbtnDisc20
+            // 
+            this.rbtnDisc20.AutoSize = true;
+            this.rbtnDisc20.Location = new System.Drawing.Point(500, 362);
+            this.rbtnDisc20.Name = "rbtnDisc20";
+            this.rbtnDisc20.Size = new System.Drawing.Size(45, 15);
+            this.rbtnDisc20.TabIndex = 16;
+            this.rbtnDisc20.Text = "20%";
+            this.rbtnDisc20.UseSelectable = true;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(300, 338);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(96, 19);
+            this.metroLabel2.TabIndex = 17;
+            this.metroLabel2.Text = "Select Discount";
+            // 
             // FormPurchaseOrderAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 400);
+            this.ClientSize = new System.Drawing.Size(800, 400);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.rbtnDisc20);
+            this.Controls.Add(this.rbtnDisc15);
+            this.Controls.Add(this.rbtnDisc10);
+            this.Controls.Add(this.rbtnDisc5);
+            this.Controls.Add(this.rbtnDisc0);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.txtQuantity);
@@ -273,5 +346,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private MetroFramework.Controls.MetroButton btnAddProduct;
+        private MetroFramework.Controls.MetroRadioButton rbtnDisc0;
+        private MetroFramework.Controls.MetroRadioButton rbtnDisc5;
+        private MetroFramework.Controls.MetroRadioButton rbtnDisc10;
+        private MetroFramework.Controls.MetroRadioButton rbtnDisc15;
+        private MetroFramework.Controls.MetroRadioButton rbtnDisc20;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
     }
 }

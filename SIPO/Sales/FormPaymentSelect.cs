@@ -33,7 +33,7 @@ namespace SIPO.Sales
 
             conPuchaseOrder.Open();
 
-            String queryPurchaseOrder = "SELECT purchase_orders.po_id, po_datetime, po_payment, clients.client_id, clients.client_company FROM purchase_orders INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE po_id IN ( SELECT po_id FROM( SELECT purchase_orders.po_id, products_finished.prodf_srp FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batches.pob_id = purchase_order_batch_products.pobp_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id WHERE products_finished.prodf_srp > 0 AND purchase_orders.po_id NOT IN (SELECT purchase_orders.po_id FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_order_batches.po_id = purchase_orders.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batches.pob_id = purchase_order_batch_products.pob_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id WHERE products_finished.prodf_srp = 0) ) as tblUpdatedProductsOnly )";
+            String queryPurchaseOrder = "SELECT purchase_orders.po_id, po_datetime, po_payment, po_discount_approved, clients.client_id, clients.client_company FROM purchase_orders INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE po_id IN( SELECT po_id FROM( SELECT purchase_orders.po_id, products_finished.prodf_srp FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batches.pob_id = purchase_order_batch_products.pobp_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id WHERE products_finished.prodf_srp > 0 AND purchase_orders.po_id NOT IN(SELECT purchase_orders.po_id FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_order_batches.po_id = purchase_orders.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batches.pob_id = purchase_order_batch_products.pob_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id WHERE po_status = 'Pending' OR products_finished.prodf_srp = 0) ) as tblUpdatedProductsOnly )";
             comPurchaseOrder = new MySqlCommand(queryPurchaseOrder, conPuchaseOrder);
 
             readerPurchaseOrder = comPurchaseOrder.ExecuteReader();
@@ -45,6 +45,7 @@ namespace SIPO.Sales
                 purchaseOrderDetail.po_id = int.Parse(readerPurchaseOrder["po_id"].ToString());
                 purchaseOrderDetail.po_datetime = readerPurchaseOrder["po_datetime"].ToString();
                 purchaseOrderDetail.client_id = int.Parse(readerPurchaseOrder["client_id"].ToString());
+                purchaseOrderDetail.po_discount = double.Parse(readerPurchaseOrder["po_discount_approved"].ToString());
                 purchaseOrderDetail.client_company = readerPurchaseOrder["client_company"].ToString();
 
                 MySqlConnection conPurchaseOrderTotal = new MySqlConnection(ConString.getConString());
@@ -66,6 +67,7 @@ namespace SIPO.Sales
                     total += (price * qty);
                 }
 
+                total = (total - (total * (purchaseOrderDetail.po_discount / 100)));
                 purchaseOrderDetail.total = total;
                 conPurchaseOrderTotal.Close();
 
@@ -86,7 +88,9 @@ namespace SIPO.Sales
                 conPurchaseOrderPaid.Close();
 
                 if (purchaseOrderDetail.balance > 0)
+                {
                     purchaseOrderDetails.Add(purchaseOrderDetail);
+                }
             }
 
             conPuchaseOrder.Close();
@@ -99,8 +103,9 @@ namespace SIPO.Sales
             foreach (PurchaseOrderDetail pod in purchaseOrderDetails)
             {
                 lvPurchaseOrders.Items.Add(pod.po_id.ToString());
-                lvPurchaseOrders.Items[row].SubItems.Add(pod.po_datetime);
+                lvPurchaseOrders.Items[row].SubItems.Add(pod.po_datetime.ToString());
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.client_company);
+                lvPurchaseOrders.Items[row].SubItems.Add(pod.po_discount.ToString());
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.total.ToString());
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.balance.ToString());
 

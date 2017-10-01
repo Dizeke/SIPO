@@ -210,5 +210,11 @@ namespace SIPO.Manager
             FormFinishedSelectPending sel = new FormFinishedSelectPending();
             sel.ShowDialog();
         }
+
+        private void btnPODiscountRequests_Click(object sender, EventArgs e)
+        {
+            FormPODiscountRequests formPODiscountRequests = new FormPODiscountRequests();
+            formPODiscountRequests.ShowDialog();
+        }
     }
 }

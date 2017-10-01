@@ -290,6 +290,28 @@ namespace SIPO.Sales
 
                 PurchaseOrder purchaseOrder = new PurchaseOrder();
                 purchaseOrder.client_id = selectedClient.id;
+                purchaseOrder.status = "Pending";
+
+                if (rbtnDisc0.Checked)
+                {
+                    purchaseOrder.discount = 0;
+                }
+                else if (rbtnDisc5.Checked)
+                {
+                    purchaseOrder.discount = 5;
+                }
+                else if (rbtnDisc10.Checked)
+                {
+                    purchaseOrder.discount = 10;
+                }
+                else if (rbtnDisc15.Checked)
+                {
+                    purchaseOrder.discount = 15;
+                }
+                else if (rbtnDisc20.Checked)
+                {
+                    purchaseOrder.discount = 20;
+                }
 
                 PurchaseOrderHelper.purchaseOrder = purchaseOrder;
                 PurchaseOrderHelper.purchaseOrderProducts = purchaseOrderProducts;
