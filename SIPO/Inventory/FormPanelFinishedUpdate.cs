@@ -11,6 +11,9 @@ namespace SIPO.Inventory
         List<RawMaterials> rawMaterials;
         List<RawMaterials> rawMaterialsUsed;
         FinishedProduct finished;
+        double price = 0;
+        double srp = 0;
+        int totalQty = 0;
         List<int> qtyHold;
         public FormPanelFinishedUpdate()
         {
@@ -35,7 +38,6 @@ namespace SIPO.Inventory
                 finished = FinishedProductUpdate.finished;
                 txtName.Text = finished.Name;
                 txtDesc.Text = finished.Desc;
-                txtOldSrp.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
                 
             }
@@ -56,11 +58,6 @@ namespace SIPO.Inventory
                 else if (txtName.Text.ToString().Length < 1)
                 {
                     MessageBox.Show("Name cannot be empty");
-                    return false;
-                }
-                else if (txtNewSrp.Text.ToString().Length < 1)
-                {
-                    MessageBox.Show("New Price cannot be empty");
                     return false;
                 }
                 else if (txtQty.Text.ToString().Length < 1)
@@ -87,14 +84,13 @@ namespace SIPO.Inventory
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            
             if (isValidInput())
             {
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
 
                 finished.Name = txtName.Text;
                 finished.Desc = txtDesc.Text;
-                finished.Price = double.Parse(txtOldSrp.Text);
-                finished.Newprice = double.Parse(txtNewSrp.Text);
                 finished.FinQty = int.Parse(txtFinQty.Text);
                 String query2 = null;
                 String query = String.Format("UPDATE products_finished SET " +
@@ -205,10 +201,11 @@ namespace SIPO.Inventory
         }
         private void loadUsedRawMaterials()
         {
+            //MessageBox.Show(finished.Id.ToString());
             try
             {
                 rawMaterialsUsed = new List<RawMaterials>();
-                String query = String.Format("SELECT products_raw.prodr_id, products_raw.prodr_name, products_finished_materials.prod_r_qty FROM products_finished_materials INNER JOIN products_raw ON products_finished_materials.prod_r_id = products_raw.prodr_id WHERE prodf_f_id = {0}", finished.Id);
+                String query = String.Format("SELECT products_raw.prodr_price,products_raw.prodr_id, products_raw.prodr_name, products_finished_materials.prod_r_qty FROM products_finished_materials INNER JOIN products_raw ON products_finished_materials.prod_r_id = products_raw.prodr_id WHERE prodf_f_id = {0}", finished.Id);
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
                 MySqlDataReader reader;
@@ -223,14 +220,21 @@ namespace SIPO.Inventory
                     rawMaterial.Id = int.Parse(reader["prodr_id"].ToString());
                     rawMaterial.Name = reader["prodr_name"].ToString();
                     rawMaterial.Qty = int.Parse(reader["prod_r_qty"].ToString());
+                    rawMaterial.Price = double.Parse(reader["prodr_price"].ToString());
 
                     rawMaterialsUsed.Add(rawMaterial);
 
                     lvRawMaterialsUsed.Items.Add(rawMaterial.Id.ToString());
                     lvRawMaterialsUsed.Items[row].SubItems.Add(rawMaterial.Name);
                     lvRawMaterialsUsed.Items[row].SubItems.Add(rawMaterial.Qty.ToString());
+                    price += (rawMaterial.Price * rawMaterial.Qty);
+                    totalQty += rawMaterial.Qty;
                     row++;
                 }
+                srp = (price * 1.5d);
+                lblSRP.Text = "SRP: " + srp.ToString();
+                lblprice.Text = "Unit Cost: " + price.ToString();
+                lbltotalQty.Text = "Total Quantity: " + totalQty.ToString();
 
                 con.Close();
         }
@@ -258,6 +262,8 @@ namespace SIPO.Inventory
                         {
                             isAdded = true;
                             rawMaterialsUsed[rmUsedIndex].Qty += quantity;
+                            price += (rawMaterialsUsed[rmUsedIndex].Price * quantity);
+                            totalQty += quantity;
                             break;
                         }
                         else
@@ -285,7 +291,13 @@ namespace SIPO.Inventory
                         lvRawMaterialsUsed.Items.Add(rawMaterialUsed.Id.ToString());
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Name);
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Qty.ToString());
+                        price += (rawMaterialsUsed[rmUsedIndex].Price * quantity);
+                        totalQty += quantity;
                     }
+                    srp = (price * 1.5d);
+                    lblSRP.Text = "SRP: " + srp.ToString();
+                    lblprice.Text = "Unit Cost: " + price.ToString();
+                    lbltotalQty.Text = "Total Quantity: " + totalQty.ToString();
                 }
                 else
                 {

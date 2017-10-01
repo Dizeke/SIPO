@@ -16,6 +16,7 @@ namespace SIPO.Classes
         private int _finQty;
         private double _price;
         private double _newprice;
+        private String rDate;
         
         public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
@@ -25,5 +26,6 @@ namespace SIPO.Classes
         public int FinQty { get => _finQty; set => _finQty = value; }
         public int Qty { get => _qty; set => _qty = value; }
         public double Newprice { get => _newprice; set => _newprice = value; }
+        public string RDate { get => rDate; set => rDate = value; }
     }
 }

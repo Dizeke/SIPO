@@ -45,8 +45,6 @@ namespace SIPO.Inventory
                     raw.Id = int.Parse(reader["prodr_id"].ToString());
                     raw.Name = reader["prodr_name"].ToString();
                     raw.Desc = reader["prodr_desc"].ToString();
-
-                    raw.Size = int.Parse(reader["prodr_size"].ToString());
                     raw.Qty = int.Parse(reader["prodr_qty"].ToString());
                     raw.Received = reader["prodr_r_date"].ToString();
                     raw.Price = int.Parse(reader["prodr_price"].ToString());
@@ -56,7 +54,6 @@ namespace SIPO.Inventory
                     lvRaw.Items.Add(raw.Id.ToString());
                     lvRaw.Items[row].SubItems.Add(raw.Name);
                     lvRaw.Items[row].SubItems.Add(raw.Desc);
-                    lvRaw.Items[row].SubItems.Add(raw.Size.ToString());
                     lvRaw.Items[row].SubItems.Add(raw.Qty.ToString());
                     lvRaw.Items[row].SubItems.Add(raw.Received.ToString());
                     lvRaw.Items[row].SubItems.Add(raw.Price.ToString());

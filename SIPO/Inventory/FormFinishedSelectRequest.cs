@@ -50,6 +50,7 @@ namespace SIPO.Inventory
 
                     Finished.Price = int.Parse(reader["prodf_srp"].ToString());
                     Finished.FinQty = int.Parse(reader["prodf_qty"].ToString());
+                    Finished.RDate = reader["prodf_rDate"].ToString();
 
                     finished.Add(Finished);
 
@@ -58,6 +59,7 @@ namespace SIPO.Inventory
                     lvRequest.Items[row].SubItems.Add(Finished.Desc);
                     lvRequest.Items[row].SubItems.Add(Finished.FinQty.ToString());
                     lvRequest.Items[row].SubItems.Add(Finished.Price.ToString());
+                    lvRequest.Items[row].SubItems.Add(Finished.RDate.ToString());
 
                     row++;
                 }

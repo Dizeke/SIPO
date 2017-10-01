@@ -29,64 +29,73 @@ namespace SIPO.Inventory
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (isValidInput())
+            try
             {
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                bool success = false;
-                
-                String query2;
-                String query3;
-                String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp, prodf_status) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');",
-                    txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToDouble(price * 1.5d), "pending");
 
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                int id = (int)cmd.LastInsertedId;
-                con.Close();
-
-                query = "Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), '"+id+"' )";
-                con.Open();
-                MySqlCommand cmd3 = new MySqlCommand(query, con);
-                cmd3.ExecuteNonQuery();
-                con.Close();
-                for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
+                if (isValidInput())
                 {
-                    query3 = "Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
-                    query3 += " VALUES ('"+id+"', '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' )";
-                    
+                    MySqlConnection con = new MySqlConnection(ConString.getConString());
+                    bool success = false;
 
-                    query2 = "Update products_raw SET " +
-                         "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
-                         "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
+                    String query2;
+                    String query3;
+                    String query = String.Format("Insert INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp, prodf_status, prodf_rDate) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', NOW());",
+                        txtName.Text, txtDesc.Text, Convert.ToInt32(txtFinQty.Text), Convert.ToDouble(price * 1.5d), "pending");
 
-
-
-
-
-                    MySqlCommand com = new MySqlCommand(query2, con);
-
+                    MySqlCommand cmd = new MySqlCommand(query, con);
                     con.Open();
-                    com.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                    int id = (int)cmd.LastInsertedId;
                     con.Close();
 
-                    MySqlCommand cmd2 = new MySqlCommand(query3, con);
+                    query = "Insert INTO products_finished_convert (prodf_f_date, prodf_id) VALUES ( NOW(), '" + id + "' )";
                     con.Open();
-                    cmd2.ExecuteNonQuery();
+                    MySqlCommand cmd3 = new MySqlCommand(query, con);
+                    cmd3.ExecuteNonQuery();
                     con.Close();
+                    for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
+                    {
+                        query3 = "Insert INTO products_finished_materials (prodf_f_id, prod_r_id, prod_r_qty)";
+                        query3 += " VALUES ('" + id + "', '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' )";
+
+
+                        query2 = "Update products_raw SET " +
+                             "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
+                             "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
+
+
+
+
+
+                        MySqlCommand com = new MySqlCommand(query2, con);
+
+                        con.Open();
+                        com.ExecuteNonQuery();
+                        con.Close();
+
+                        MySqlCommand cmd2 = new MySqlCommand(query3, con);
+                        con.Open();
+                        cmd2.ExecuteNonQuery();
+                        con.Close();
+                    }
+
+
+
+
+                    success = true;
+                    MessageBox.Show("Item Production Request has Been Sent!");
+
+                    if (!success)
+                        MessageBox.Show("failed to add item");
+
+                    this.Close();
+
                 }
-
-                
-
-
-                success = true;
-                MessageBox.Show("Item Production Request has Been Sent!");
-
-                if (!success)
-                    MessageBox.Show("failed to add item");
-
-                this.Close();
-
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Existing Product");
             }
         }
         private bool isValidInput()

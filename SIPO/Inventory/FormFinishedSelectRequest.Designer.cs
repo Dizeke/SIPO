@@ -37,6 +37,7 @@
             this.btnClose = new MetroFramework.Controls.MetroButton();
             this.btnSelect = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader1,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader4});
             this.tableLayoutPanel1.SetColumnSpan(this.lvRequest, 4);
             this.lvRequest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvRequest.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -66,7 +68,7 @@
             // ID
             // 
             this.ID.Text = "ID";
-            this.ID.Width = 72;
+            this.ID.Width = 46;
             // 
             // columnHeader2
             // 
@@ -76,17 +78,16 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 131;
+            this.columnHeader3.Width = 165;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Qty";
-            this.columnHeader1.Width = 112;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Price";
-            this.columnHeader6.Width = 66;
+            this.columnHeader6.Width = 83;
             // 
             // btnClose
             // 
@@ -130,6 +131,11 @@
             this.tableLayoutPanel1.TabIndex = 5;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Date of Request";
+            this.columnHeader4.Width = 156;
+            // 
             // FormFinishedSelectRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,5 +160,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MetroFramework.Controls.MetroButton btnClose;
         private MetroFramework.Controls.MetroButton btnSelect;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

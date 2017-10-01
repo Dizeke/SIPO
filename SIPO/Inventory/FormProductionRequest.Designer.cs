@@ -35,7 +35,6 @@
             this.lvRawMaterialsUsed = new MetroFramework.Controls.MetroListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDecline = new MetroFramework.Controls.MetroButton();
             this.txtOldSrp = new MetroFramework.Controls.MetroTextBox();
             this.lblName = new MetroFramework.Controls.MetroLabel();
             this.lblPrice = new MetroFramework.Controls.MetroLabel();
@@ -124,17 +123,6 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Qty";
-            // 
-            // btnDecline
-            // 
-            this.btnDecline.Location = new System.Drawing.Point(395, 446);
-            this.btnDecline.Name = "btnDecline";
-            this.btnDecline.Size = new System.Drawing.Size(119, 24);
-            this.btnDecline.Style = MetroFramework.MetroColorStyle.Teal;
-            this.btnDecline.TabIndex = 123;
-            this.btnDecline.Text = "Decline";
-            this.btnDecline.UseSelectable = true;
-            this.btnDecline.Click += new System.EventHandler(this.btnDecline_Click);
             // 
             // txtOldSrp
             // 
@@ -258,12 +246,12 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(266, 446);
+            this.btnUpdate.Location = new System.Drawing.Point(396, 458);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(119, 24);
             this.btnUpdate.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnUpdate.TabIndex = 117;
-            this.btnUpdate.Text = "Accept";
+            this.btnUpdate.Text = "Confirm";
             this.btnUpdate.UseSelectable = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -276,7 +264,6 @@
             this.Controls.Add(this.lblFinQTY);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.lvRawMaterialsUsed);
-            this.Controls.Add(this.btnDecline);
             this.Controls.Add(this.txtOldSrp);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblPrice);
@@ -300,7 +287,6 @@
         private MetroFramework.Controls.MetroListView lvRawMaterialsUsed;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private MetroFramework.Controls.MetroButton btnDecline;
         private MetroFramework.Controls.MetroTextBox txtOldSrp;
         private MetroFramework.Controls.MetroLabel lblName;
         private MetroFramework.Controls.MetroLabel lblPrice;

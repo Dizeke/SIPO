@@ -32,6 +32,8 @@ namespace SIPO.Inventory
                 txtDesc.Text = finished.Desc;
                 txtOldSrp.Text = finished.Price.ToString();
                 txtFinQty.Text = finished.FinQty.ToString();
+                txtUnitCost.Text = (finished.Price / 1.5d).ToString();
+                dtpRequest.Value = Convert.ToDateTime(finished.RDate);
 
             }
             else
@@ -100,7 +102,11 @@ namespace SIPO.Inventory
             try
             {
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
-                String query = "UPDATE products_finished SET prodf_status = 'disapproved' where prodf_id = '" + finished.Id + "' ";
+                String query = "UPDATE products_finished SET prodf_status = 'disapproved' where prodf_id = '" + finished.Id + "' ;" ;
+                for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
+                {
+                    query += "UPDATE products_raw SET prodr_qty = prodr_qty + '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' Where prodr_id = '" + lvRawMaterialsUsed.Items[i].SubItems[0].Text + "' ;";
+                }
                 con.Open();
                 MySqlCommand com = new MySqlCommand(query, con);
                 com.ExecuteNonQuery();

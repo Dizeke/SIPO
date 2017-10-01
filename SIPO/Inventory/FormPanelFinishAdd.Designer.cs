@@ -49,8 +49,8 @@
             this.lblQty = new MetroFramework.Controls.MetroLabel();
             this.txtQty = new MetroFramework.Controls.MetroTextBox();
             this.lblprice = new MetroFramework.Controls.MetroLabel();
-            this.lblSRP = new MetroFramework.Controls.MetroLink();
             this.lbltotalQty = new MetroFramework.Controls.MetroLabel();
+            this.lblSRP = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // txtName
@@ -318,38 +318,37 @@
             // lblprice
             // 
             this.lblprice.AutoSize = true;
-            this.lblprice.Location = new System.Drawing.Point(333, 123);
+            this.lblprice.Location = new System.Drawing.Point(273, 429);
             this.lblprice.Name = "lblprice";
-            this.lblprice.Size = new System.Drawing.Size(83, 19);
+            this.lblprice.Size = new System.Drawing.Size(76, 19);
             this.lblprice.TabIndex = 69;
-            this.lblprice.Text = "metroLabel3";
-            // 
-            // lblSRP
-            // 
-            this.lblSRP.AllowDrop = true;
-            this.lblSRP.Location = new System.Drawing.Point(317, 167);
-            this.lblSRP.Name = "lblSRP";
-            this.lblSRP.Size = new System.Drawing.Size(75, 23);
-            this.lblSRP.TabIndex = 70;
-            this.lblSRP.Text = "SRP: ";
-            this.lblSRP.UseSelectable = true;
+            this.lblprice.Text = "Unit Cost: 0";
             // 
             // lbltotalQty
             // 
             this.lbltotalQty.AutoSize = true;
-            this.lbltotalQty.Location = new System.Drawing.Point(394, 429);
+            this.lbltotalQty.Location = new System.Drawing.Point(398, 429);
             this.lbltotalQty.Name = "lbltotalQty";
-            this.lbltotalQty.Size = new System.Drawing.Size(31, 19);
+            this.lbltotalQty.Size = new System.Drawing.Size(75, 19);
             this.lbltotalQty.TabIndex = 71;
-            this.lbltotalQty.Text = "QTy";
+            this.lbltotalQty.Text = "Total Qty: 0";
+            // 
+            // lblSRP
+            // 
+            this.lblSRP.AutoSize = true;
+            this.lblSRP.Location = new System.Drawing.Point(342, 171);
+            this.lblSRP.Name = "lblSRP";
+            this.lblSRP.Size = new System.Drawing.Size(46, 19);
+            this.lblSRP.TabIndex = 72;
+            this.lblSRP.Text = "SRP: 0";
             // 
             // FormPanelFinishAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 522);
-            this.Controls.Add(this.lbltotalQty);
             this.Controls.Add(this.lblSRP);
+            this.Controls.Add(this.lbltotalQty);
             this.Controls.Add(this.lblprice);
             this.Controls.Add(this.txtQty);
             this.Controls.Add(this.lblQty);
@@ -368,7 +367,7 @@
             this.Name = "FormPanelFinishAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Style = MetroFramework.MetroColorStyle.Teal;
-            this.Text = "Add Finished Product";
+            this.Text = "Request For Production";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,7 +395,7 @@
         private MetroFramework.Controls.MetroLabel lblQty;
         private MetroFramework.Controls.MetroTextBox txtQty;
         private MetroFramework.Controls.MetroLabel lblprice;
-        private MetroFramework.Controls.MetroLink lblSRP;
         private MetroFramework.Controls.MetroLabel lbltotalQty;
+        private MetroFramework.Controls.MetroLabel lblSRP;
     }
 }

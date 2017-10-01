@@ -96,24 +96,6 @@ namespace SIPO.Inventory
             this.Close();
         }
 
-        private void btnDecline_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                String query = "UPDATE products_finished SET prodf_status = 'disapproved' where prodf_id = '" + finished.Id + "' ";
-                con.Open();
-                MySqlCommand com = new MySqlCommand(query, con);
-                com.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-            }
-            MessageBox.Show("Item Production Has been Declined");
-            FinishedProductUpdate.isCompleted = true;
-            this.Close();
-        }
     }
 
 }
