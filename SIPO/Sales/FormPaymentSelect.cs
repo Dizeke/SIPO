@@ -110,6 +110,7 @@ namespace SIPO.Sales
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.po_discount.ToString());
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.total.ToString());
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.balance.ToString());
+                lvPurchaseOrders.Items[row].SubItems.Add(pod.originalTotal.ToString());
 
                 row++;
             }

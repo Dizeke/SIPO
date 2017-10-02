@@ -52,6 +52,9 @@
             this.rbtnDisc15 = new MetroFramework.Controls.MetroRadioButton();
             this.rbtnDisc20 = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.txtFilter = new MetroFramework.Controls.MetroTextBox();
+            this.btnFilter = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // lblClient
@@ -295,11 +298,63 @@
             this.metroLabel2.TabIndex = 17;
             this.metroLabel2.Text = "Select Discount";
             // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(649, 63);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(128, 19);
+            this.metroLabel3.TabIndex = 18;
+            this.metroLabel3.Text = "Filter Product Name";
+            // 
+            // txtFilter
+            // 
+            // 
+            // 
+            // 
+            this.txtFilter.CustomButton.Image = null;
+            this.txtFilter.CustomButton.Location = new System.Drawing.Point(228, 1);
+            this.txtFilter.CustomButton.Name = "";
+            this.txtFilter.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtFilter.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFilter.CustomButton.TabIndex = 1;
+            this.txtFilter.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFilter.CustomButton.UseSelectable = true;
+            this.txtFilter.CustomButton.Visible = false;
+            this.txtFilter.Lines = new string[0];
+            this.txtFilter.Location = new System.Drawing.Point(527, 88);
+            this.txtFilter.MaxLength = 32767;
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.PasswordChar = '\0';
+            this.txtFilter.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFilter.SelectedText = "";
+            this.txtFilter.SelectionLength = 0;
+            this.txtFilter.SelectionStart = 0;
+            this.txtFilter.ShortcutsEnabled = true;
+            this.txtFilter.Size = new System.Drawing.Size(250, 23);
+            this.txtFilter.TabIndex = 19;
+            this.txtFilter.UseSelectable = true;
+            this.txtFilter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFilter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Location = new System.Drawing.Point(527, 62);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(120, 23);
+            this.btnFilter.TabIndex = 20;
+            this.btnFilter.Text = "Apply Filter";
+            this.btnFilter.UseSelectable = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // FormPurchaseOrderAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 400);
+            this.Controls.Add(this.btnFilter);
+            this.Controls.Add(this.txtFilter);
+            this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.rbtnDisc20);
             this.Controls.Add(this.rbtnDisc15);
@@ -352,5 +407,8 @@
         private MetroFramework.Controls.MetroRadioButton rbtnDisc15;
         private MetroFramework.Controls.MetroRadioButton rbtnDisc20;
         private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroTextBox txtFilter;
+        private MetroFramework.Controls.MetroButton btnFilter;
     }
 }

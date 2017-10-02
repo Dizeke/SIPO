@@ -19,6 +19,9 @@ namespace SIPO.Sales
         List<FinishedProduct> finishedProducts; // Products List
         List<FinishedProduct> requestedProducts; //Requested Products List
 
+        bool hasFilter;
+        String filter = "";
+
         public FormPurchaseOrderAdd()
         {
             InitializeComponent();
@@ -85,10 +88,18 @@ namespace SIPO.Sales
         {
             finishedProducts = new List<FinishedProduct>();
             requestedProducts = new List<FinishedProduct>();
+            lvProductList.Items.Clear();
 
             try
             {
                 String query = "SELECT * FROM products_finished";
+                if (hasFilter)
+                {
+                    query += filter;
+                }
+
+                Console.WriteLine(query);
+
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
                 MySqlDataReader reader;
@@ -332,5 +343,27 @@ namespace SIPO.Sales
 
         }
 
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtFilter.Text.ToString().Trim().Length > 0)
+                {
+                    filter = " WHERE prodf_name LIKE '%" + txtFilter.Text.ToString().Trim() + "%'";
+                    hasFilter = true;
+                }
+                else
+                {
+                    hasFilter = false;
+                }
+
+                loadProducts();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                hasFilter = false;
+            }
+        }
     }
 }

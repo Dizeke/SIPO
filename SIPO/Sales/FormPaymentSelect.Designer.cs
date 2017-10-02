@@ -36,6 +36,7 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnSelectPurchaseOrder
@@ -56,7 +57,8 @@
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
             this.lvPurchaseOrders.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvPurchaseOrders.FullRowSelect = true;
             this.lvPurchaseOrders.Location = new System.Drawing.Point(23, 63);
@@ -72,17 +74,17 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "ID";
-            this.columnHeader6.Width = 74;
+            this.columnHeader6.Width = 90;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Date";
-            this.columnHeader7.Width = 178;
+            this.columnHeader7.Width = 180;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Company";
-            this.columnHeader8.Width = 150;
+            this.columnHeader8.Width = 175;
             // 
             // columnHeader9
             // 
@@ -92,12 +94,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Amount";
-            this.columnHeader1.Width = 99;
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Balance";
-            this.columnHeader2.Width = 92;
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Total Discounted";
+            this.columnHeader3.Width = 100;
             // 
             // FormPaymentSelect
             // 
@@ -122,5 +129,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
