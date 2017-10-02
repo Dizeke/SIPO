@@ -24,7 +24,7 @@ namespace SIPO.Inventory
             {
                 finished = new List<FinishedProduct>();
 
-                String query = "SELECT * FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_qty > 0 AND prodf_status = 'pending')";
+                String query = "SELECT * FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
 
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
@@ -67,8 +67,8 @@ namespace SIPO.Inventory
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
+            try
+            {
                 int index = lvFinished.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
@@ -81,13 +81,13 @@ namespace SIPO.Inventory
                     loadMaterials();
                 }
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.StackTrace);
-            //    MessageBox.Show("Please select a product to update");
-            //}
         }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please select a product to update");
+            }
+}
 
         private void btnClose_Click(object sender, EventArgs e)
         {
