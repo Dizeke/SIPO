@@ -41,7 +41,7 @@ namespace SIPO.Inventory
                     Finished.Name = reader["prodf_name"].ToString();
                     Finished.Desc = reader["prodf_desc"].ToString();
 
-                    Finished.Price = int.Parse(reader["prodf_srp"].ToString());
+                    Finished.Price = double.Parse(reader["prodf_srp"].ToString());
                     Finished.FinQty = int.Parse(reader["prodf_qty"].ToString());
 
                     finished.Add(Finished);

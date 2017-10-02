@@ -61,8 +61,10 @@ namespace SIPO.Sales
             lblContact.Text = client.contact;
             lblContactNumber.Text = client.contact_number;
 
+            lblTotalPayableVal.Text = purchaseOrderDetail.originalTotal.ToString();
             lblBalance.Text = purchaseOrderDetail.balance.ToString();
             lblPaid.Text = purchaseOrderDetail.paid.ToString();
+            lblDiscountPercent.Text = purchaseOrderDetail.po_discount.ToString();
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -153,8 +155,8 @@ namespace SIPO.Sales
 
         private void btnProductsOrdered_Click(object sender, EventArgs e)
         {
-            //FormPaymentProductsOrdered formPaymentProductsOrdered = new FormPaymentProductsOrdered();
-            //formPaymentProductsOrdered.ShowDialog();
+            FormPaymentProductsOrdered formPaymentProductsOrdered = new FormPaymentProductsOrdered(PurchaseOrderPaymentHelper.purchaseOrderDetail.po_id);
+            formPaymentProductsOrdered.ShowDialog();
         }
     }
 }

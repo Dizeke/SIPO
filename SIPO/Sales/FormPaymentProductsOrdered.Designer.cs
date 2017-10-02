@@ -37,6 +37,10 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnClose = new MetroFramework.Controls.MetroButton();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblTotalVal = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lvProducts
@@ -48,7 +52,9 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.lvProducts.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lvProducts.FullRowSelect = true;
             this.lvProducts.Location = new System.Drawing.Point(23, 63);
@@ -92,8 +98,8 @@
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Discount";
-            this.columnHeader7.Width = 50;
+            this.columnHeader7.Text = "Discount %";
+            this.columnHeader7.Width = 75;
             // 
             // btnClose
             // 
@@ -104,17 +110,48 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseSelectable = true;
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Subtotal";
+            this.columnHeader8.Width = 125;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Discounted Subtotal";
+            this.columnHeader9.Width = 125;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(23, 361);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(43, 19);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "Total: ";
+            // 
+            // lblTotalVal
+            // 
+            this.lblTotalVal.AutoSize = true;
+            this.lblTotalVal.Location = new System.Drawing.Point(72, 361);
+            this.lblTotalVal.Name = "lblTotalVal";
+            this.lblTotalVal.Size = new System.Drawing.Size(16, 19);
+            this.lblTotalVal.TabIndex = 3;
+            this.lblTotalVal.Text = "0";
+            // 
             // FormPaymentProductsOrdered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 400);
+            this.Controls.Add(this.lblTotalVal);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lvProducts);
             this.Name = "FormPaymentProductsOrdered";
             this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Products Ordered";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,5 +166,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel lblTotalVal;
     }
 }

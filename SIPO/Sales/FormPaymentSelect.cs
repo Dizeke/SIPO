@@ -67,6 +67,8 @@ namespace SIPO.Sales
                     total += (price * qty);
                 }
 
+                purchaseOrderDetail.originalTotal = total;
+
                 total = (total - (total * (purchaseOrderDetail.po_discount / 100)));
                 purchaseOrderDetail.total = total;
                 conPurchaseOrderTotal.Close();

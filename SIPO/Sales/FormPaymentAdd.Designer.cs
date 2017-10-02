@@ -42,6 +42,10 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.btnPay = new MetroFramework.Controls.MetroButton();
             this.btnProductsOrdered = new MetroFramework.Controls.MetroButton();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.lblTotalPayableVal = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.lblDiscountPercent = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -95,7 +99,7 @@
             this.txtPayment.CustomButton.UseSelectable = true;
             this.txtPayment.CustomButton.Visible = false;
             this.txtPayment.Lines = new string[0];
-            this.txtPayment.Location = new System.Drawing.Point(228, 204);
+            this.txtPayment.Location = new System.Drawing.Point(229, 229);
             this.txtPayment.MaxLength = 32767;
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.PasswordChar = '\0';
@@ -168,7 +172,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(228, 182);
+            this.metroLabel6.Location = new System.Drawing.Point(229, 207);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(85, 19);
             this.metroLabel6.TabIndex = 11;
@@ -176,7 +180,7 @@
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(477, 204);
+            this.btnPay.Location = new System.Drawing.Point(477, 229);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(100, 23);
             this.btnPay.TabIndex = 12;
@@ -186,7 +190,7 @@
             // 
             // btnProductsOrdered
             // 
-            this.btnProductsOrdered.Location = new System.Drawing.Point(23, 204);
+            this.btnProductsOrdered.Location = new System.Drawing.Point(23, 229);
             this.btnProductsOrdered.Name = "btnProductsOrdered";
             this.btnProductsOrdered.Size = new System.Drawing.Size(100, 23);
             this.btnProductsOrdered.TabIndex = 13;
@@ -194,11 +198,51 @@
             this.btnProductsOrdered.UseSelectable = true;
             this.btnProductsOrdered.Click += new System.EventHandler(this.btnProductsOrdered_Click);
             // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(228, 103);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(85, 19);
+            this.metroLabel7.TabIndex = 14;
+            this.metroLabel7.Text = "Total Payable";
+            // 
+            // lblTotalPayableVal
+            // 
+            this.lblTotalPayableVal.AutoSize = true;
+            this.lblTotalPayableVal.Location = new System.Drawing.Point(230, 122);
+            this.lblTotalPayableVal.Name = "lblTotalPayableVal";
+            this.lblTotalPayableVal.Size = new System.Drawing.Size(16, 19);
+            this.lblTotalPayableVal.TabIndex = 15;
+            this.lblTotalPayableVal.Text = "0";
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(228, 146);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(73, 19);
+            this.metroLabel8.TabIndex = 16;
+            this.metroLabel8.Text = "Discount %";
+            // 
+            // lblDiscountPercent
+            // 
+            this.lblDiscountPercent.AutoSize = true;
+            this.lblDiscountPercent.Location = new System.Drawing.Point(230, 165);
+            this.lblDiscountPercent.Name = "lblDiscountPercent";
+            this.lblDiscountPercent.Size = new System.Drawing.Size(16, 19);
+            this.lblDiscountPercent.TabIndex = 17;
+            this.lblDiscountPercent.Text = "0";
+            // 
             // FormPaymentAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 250);
+            this.ClientSize = new System.Drawing.Size(600, 275);
+            this.Controls.Add(this.lblDiscountPercent);
+            this.Controls.Add(this.metroLabel8);
+            this.Controls.Add(this.lblTotalPayableVal);
+            this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.btnProductsOrdered);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.metroLabel6);
@@ -237,5 +281,9 @@
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroButton btnPay;
         private MetroFramework.Controls.MetroButton btnProductsOrdered;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel lblTotalPayableVal;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel lblDiscountPercent;
     }
 }
