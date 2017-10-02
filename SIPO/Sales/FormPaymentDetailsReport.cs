@@ -50,6 +50,7 @@ namespace SIPO.Sales
                         }
                     }
                 }
+
             }
         }
         private void ExportToExcel()
@@ -105,6 +106,7 @@ namespace SIPO.Sales
             }
             catch (System.Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
             }
             finally

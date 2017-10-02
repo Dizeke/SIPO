@@ -184,7 +184,7 @@
             this.btnFinishedProductUpdate.Name = "btnFinishedProductUpdate";
             this.btnFinishedProductUpdate.Size = new System.Drawing.Size(218, 61);
             this.btnFinishedProductUpdate.TabIndex = 6;
-            this.btnFinishedProductUpdate.Text = "Update";
+            this.btnFinishedProductUpdate.Text = "Request For Restock";
             this.btnFinishedProductUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnFinishedProductUpdate.UseSelectable = true;
             this.btnFinishedProductUpdate.Click += new System.EventHandler(this.btnFinishedProductUpdate_Click);

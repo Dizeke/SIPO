@@ -32,13 +32,13 @@
             this.btnExport = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnViewDetails = new MetroFramework.Controls.MetroButton();
-            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.batchIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnViewDetails = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
@@ -98,21 +98,6 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // btnViewDetails
-            // 
-            this.btnViewDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnViewDetails.Location = new System.Drawing.Point(531, 341);
-            this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(126, 26);
-            this.btnViewDetails.TabIndex = 2;
-            this.btnViewDetails.Text = "View Details";
-            this.btnViewDetails.UseSelectable = true;
-            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
-            // 
-            // packageBindingSource
-            // 
-            this.packageBindingSource.DataSource = typeof(SIPO.Classes.Package);
-            // 
             // batchIdDataGridViewTextBoxColumn
             // 
             this.batchIdDataGridViewTextBoxColumn.DataPropertyName = "BatchId";
@@ -147,6 +132,21 @@
             this.packageIdDataGridViewTextBoxColumn.HeaderText = "PackageId";
             this.packageIdDataGridViewTextBoxColumn.Name = "packageIdDataGridViewTextBoxColumn";
             this.packageIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // packageBindingSource
+            // 
+            this.packageBindingSource.DataSource = typeof(SIPO.Classes.Package);
+            // 
+            // btnViewDetails
+            // 
+            this.btnViewDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnViewDetails.Location = new System.Drawing.Point(531, 341);
+            this.btnViewDetails.Name = "btnViewDetails";
+            this.btnViewDetails.Size = new System.Drawing.Size(126, 26);
+            this.btnViewDetails.TabIndex = 2;
+            this.btnViewDetails.Text = "View Details";
+            this.btnViewDetails.UseSelectable = true;
+            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
             // FormPackageReport
             // 

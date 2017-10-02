@@ -18,12 +18,14 @@ namespace SIPO.Packaging
     {
         int pack_id;
         string pack_datetime;
-        public FormPackageDetailsReport(int _pack_id, string _pack_datetime)
+        Package _obj;
+        public FormPackageDetailsReport(int _pack_id, string _pack_datetime, Package obj)
         {
             InitializeComponent();
             this.pack_id = _pack_id;
             this.pack_datetime = _pack_datetime;
             lblDeliveryDate.Text = pack_datetime;
+            _obj = obj;
 
             BindGrid();
         }
@@ -98,22 +100,22 @@ namespace SIPO.Packaging
                 );
             Console.WriteLine(query);
 
-            //using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
-            //{
-            //    using (MySqlCommand cmd = new MySqlCommand(query, con))
-            //    {
-            //        cmd.CommandType = CommandType.Text;
-            //        using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
-            //        {
-            //            using (DataTable dt = new DataTable())
-            //            {
-            //                sda.Fill(dt);
-            //                dataGridView1.DataSource = dt;
-            //            }
-            //        }
-            //    }
-            //}
-           
+            using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+                }
+            }
+
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -123,7 +125,21 @@ namespace SIPO.Packaging
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            
+
+            String query = String.Format("SELECT products_finished.prodf_id AS 'ID', products_finished.prodf_name AS 'Name', purchase_order_batch_products.prodf_qty AS 'Qty', package_details.pd_gweight AS 'Gross', package_details.pd_nweight AS 'Net', package_details.pd_qty_carton AS 'Qtypercarton' FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
+                 pack_id
+                 );
+
+            using (IDbConnection con = new MySqlConnection(ConString.getConString()))
+            {
+                List<PackageDetails> list = con.Query<PackageDetails>(query, commandType: CommandType.Text).ToList();
+
+                using (FormPackagePrint print = new FormPackagePrint(_obj, list))
+                {
+                    print.ShowDialog();
+                }
+            }
         }
+
     }
 }

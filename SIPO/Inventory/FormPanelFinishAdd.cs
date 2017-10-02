@@ -59,19 +59,19 @@ namespace SIPO.Inventory
                         query3 += " VALUES ('" + id + "', '" + lvRawMaterialsUsed.Items[i].Text + "' , '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' )";
 
 
-                        query2 = "Update products_raw SET " +
-                             "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
-                             "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
+                        //query2 = "Update products_raw SET " +
+                        //     "prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' " +
+                        //     "WHERE prodr_id = '" + lvRawMaterialsUsed.Items[i].Text + "'";
 
 
 
 
 
-                        MySqlCommand com = new MySqlCommand(query2, con);
+                        //MySqlCommand com = new MySqlCommand(query2, con);
 
-                        con.Open();
-                        com.ExecuteNonQuery();
-                        con.Close();
+                        //con.Open();
+                        //com.ExecuteNonQuery();
+                        //con.Close();
 
                         MySqlCommand cmd2 = new MySqlCommand(query3, con);
                         con.Open();
