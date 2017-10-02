@@ -60,9 +60,9 @@ namespace SIPO.Inventory
                     MessageBox.Show("Name cannot be empty");
                     return false;
                 }
-                else if (txtQty.Text.ToString().Length < 1)
+                else if (lvRawMaterialsUsed.Items.Count < 1)
                 {
-                    MessageBox.Show("Quantity cannot be empty");
+                    MessageBox.Show("Used Raw Materials cannot be empty");
                     return false;
                 }
                 else if (txtFinQty.Text.ToString().Length < 1)
@@ -98,13 +98,15 @@ namespace SIPO.Inventory
                            "prodf_name = '{1}', " +
                            "prodf_desc = '{2}', " +
                            "prodf_qty = '{3}', " +
-                           "prodf_srp = '{4}'" +
+                           "prodf_srp = '{4}'," +
+                           "prodf_status = '{5}'" +
                            "WHERE prodf_id = {0};",
                        finished.Id,
                        finished.Name,
                        finished.Desc,
                        finished.FinQty,
-                       finished.Newprice
+                       finished.Newprice,
+                       "pending"
                        );
                 query += "DELETE FROM products_finished_materials where prodf_f_id = '" + finished.Id + "';";
                 foreach (RawMaterials item in rawMaterialsUsed)
@@ -122,12 +124,12 @@ namespace SIPO.Inventory
                         {
                             query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)" +
                              " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
-                            if (qtyHold.Count != 0)
-                            {
-                                query += "Update products_raw SET " +
-                             "prodr_qty = prodr_qty - '" + (item.Qty - qtyHold[row]) + "' " +
-                             "WHERE prodr_id = " + item.Id + ";";
-                            }
+                            //if (qtyHold.Count != 0)
+                            //{
+                            //    query += "Update products_raw SET " +
+                            // "prodr_qty = prodr_qty - '" + (item.Qty - qtyHold[row]) + "' " +
+                            // "WHERE prodr_id = " + item.Id + ";";
+                            //}
                             
 
 
@@ -146,7 +148,7 @@ namespace SIPO.Inventory
                 con.Close();
 
                 //  MessageBox.Show(query);
-                MessageBox.Show("Item Successfully Updated");
+                MessageBox.Show("Request for Restock sent!");
                 FinishedProductUpdate.hasSelected = false;
                 FinishedProductUpdate.isCompleted = true;
                 this.Close();

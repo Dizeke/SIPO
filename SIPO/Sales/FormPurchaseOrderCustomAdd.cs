@@ -31,9 +31,9 @@ namespace SIPO.Sales
 
                 if (isValidInputs())
                 {
-                    String query = String.Format("INSERT INTO products_finished (prodf_name, prodf_desc, prodf_qty) " +
-                        "VALUES ('{0}', '{1}', 0)",
-                        prodName, prodDesc);
+                    String query = String.Format("INSERT INTO products_finished (prodf_name, prodf_desc, prodf_qty, prodf_srp) " +
+                        "VALUES ('{0}', '{1}', {2}, {3})",
+                        prodName, prodDesc, prodQty, prodPrice);
                     MySqlConnection con = new MySqlConnection(ConString.getConString());
                     MySqlCommand com = new MySqlCommand(query, con);
 
