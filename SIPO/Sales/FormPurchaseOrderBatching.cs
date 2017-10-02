@@ -19,6 +19,8 @@ namespace SIPO.Sales
         List<PurchaseOrderProduct> purchaseOrderProducts; //Request Purchase Order
         List<PurchaseOrderProduct> batchProducts; //Batch of Purchase Order
 
+        List<PurchaseOrderProduct> orderedProducts;
+
         public FormPurchaseOrderBatching()
         {
             InitializeComponent();
@@ -127,6 +129,7 @@ namespace SIPO.Sales
                     }
                 }
 
+                orderedProducts.Add(targetRemove);
                 batchProducts.Remove(targetRemove);
             }
             catch (Exception ex)
@@ -238,5 +241,34 @@ namespace SIPO.Sales
                 this.Close();
             }
         }
+
+        private void requestInsufficientStocks()
+        {
+            MySqlConnection con = new MySqlConnection(ConString.getConString());
+            MySqlDataReader reader;
+            con.Open();
+
+            foreach (PurchaseOrderProduct prod in orderedProducts)
+            {
+                String query = String.Format("SELECT * FROM products_finished WHERE prodf_id = {0}",
+                    prod.id);
+                MySqlCommand com = new MySqlCommand(query, con);
+
+                reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    requestStocks();
+                }
+            }
+
+            con.Close();
+        }
+
+        private void requestStocks()
+        {
+            MySqlConnection con = new MySqlConnection(ConString.getConString());
+
+        }
+
     }
 }

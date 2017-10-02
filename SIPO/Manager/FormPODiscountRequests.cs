@@ -86,26 +86,33 @@ namespace SIPO.Manager
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-
+            if (selectedIndex >= 0)
+            {
+                FormPODRDetails formPODRDetails = new FormPODRDetails(purchaseOrders[selectedIndex].id);
+                formPODRDetails.ShowDialog();
+            }
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
             if (selectedIndex >= 0)
             {
-                PurchaseOrder po = purchaseOrders[selectedIndex];
+                if (MessageBox.Show("Approve Requested Discount?", "Discount Approval Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    PurchaseOrder po = purchaseOrders[selectedIndex];
 
-                String query = String.Format("UPDATE purchase_orders SET po_discount_approved = {0}, po_status = '{1}' WHERE po_id = {2}",
-                    po.discount, "Approved", po.id);
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
+                    String query = String.Format("UPDATE purchase_orders SET po_discount_approved = {0}, po_status = '{1}' WHERE po_id = {2}",
+                        po.discount, "Approved", po.id);
+                    MySqlConnection con = new MySqlConnection(ConString.getConString());
+                    MySqlCommand com = new MySqlCommand(query, con);
 
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
 
-                lvPurchaseOrders.Items.RemoveAt(selectedIndex);
-                purchaseOrders.RemoveAt(selectedIndex);
+                    lvPurchaseOrders.Items.RemoveAt(selectedIndex);
+                    purchaseOrders.RemoveAt(selectedIndex);
+                }
             }
         }
 
@@ -113,19 +120,22 @@ namespace SIPO.Manager
         {
             if (selectedIndex >= 0)
             {
-                PurchaseOrder po = purchaseOrders[selectedIndex];
+                if (MessageBox.Show("Reject Requested Discount?", "Discount Rejection Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    PurchaseOrder po = purchaseOrders[selectedIndex];
 
-                String query = String.Format("UPDATE purchase_orders SET po_discount_approved = 0, po_status = '{0}' WHERE po_id = {1}",
-                    "Rejected", po.id); ;
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-                MySqlCommand com = new MySqlCommand(query, con);
+                    String query = String.Format("UPDATE purchase_orders SET po_discount_approved = 0, po_status = '{0}' WHERE po_id = {1}",
+                        "Rejected", po.id); ;
+                    MySqlConnection con = new MySqlConnection(ConString.getConString());
+                    MySqlCommand com = new MySqlCommand(query, con);
 
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
 
-                lvPurchaseOrders.Items.RemoveAt(selectedIndex);
-                purchaseOrders.RemoveAt(selectedIndex);
+                    lvPurchaseOrders.Items.RemoveAt(selectedIndex);
+                    purchaseOrders.RemoveAt(selectedIndex);
+                }
             }
         }
     }

@@ -33,6 +33,8 @@
             this.panelLayoutPackages = new System.Windows.Forms.TableLayoutPanel();
             this.btnDispatchPackages = new MetroFramework.Controls.MetroTile();
             this.btnDispatchedReport = new MetroFramework.Controls.MetroTile();
+            this.btnReceivedPackagesReport = new MetroFramework.Controls.MetroTile();
+            this.btnReceivePackages = new MetroFramework.Controls.MetroTile();
             this.panelLayoutMain.SuspendLayout();
             this.panelLayoutPackages.SuspendLayout();
             this.SuspendLayout();
@@ -44,11 +46,14 @@
             this.panelLayoutMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutMain.Controls.Add(this.btnPackaging, 0, 0);
             this.panelLayoutMain.Controls.Add(this.panelLayoutPackages, 1, 0);
+            this.panelLayoutMain.Controls.Add(this.btnReceivedPackagesReport, 0, 1);
+            this.panelLayoutMain.Controls.Add(this.btnReceivePackages, 1, 1);
             this.panelLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLayoutMain.Location = new System.Drawing.Point(20, 60);
             this.panelLayoutMain.Name = "panelLayoutMain";
-            this.panelLayoutMain.RowCount = 1;
-            this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelLayoutMain.RowCount = 2;
+            this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.panelLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.panelLayoutMain.Size = new System.Drawing.Size(410, 420);
             this.panelLayoutMain.TabIndex = 3;
             // 
@@ -59,7 +64,7 @@
             this.btnPackaging.Location = new System.Drawing.Point(3, 6);
             this.btnPackaging.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnPackaging.Name = "btnPackaging";
-            this.btnPackaging.Size = new System.Drawing.Size(199, 408);
+            this.btnPackaging.Size = new System.Drawing.Size(199, 240);
             this.btnPackaging.TabIndex = 1;
             this.btnPackaging.Text = "Packages";
             this.btnPackaging.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -82,7 +87,7 @@
             this.panelLayoutPackages.RowCount = 2;
             this.panelLayoutPackages.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelLayoutPackages.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelLayoutPackages.Size = new System.Drawing.Size(199, 414);
+            this.panelLayoutPackages.Size = new System.Drawing.Size(199, 246);
             this.panelLayoutPackages.TabIndex = 2;
             // 
             // btnDispatchPackages
@@ -91,7 +96,7 @@
             this.btnDispatchPackages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDispatchPackages.Location = new System.Drawing.Point(3, 3);
             this.btnDispatchPackages.Name = "btnDispatchPackages";
-            this.btnDispatchPackages.Size = new System.Drawing.Size(193, 201);
+            this.btnDispatchPackages.Size = new System.Drawing.Size(193, 117);
             this.btnDispatchPackages.TabIndex = 4;
             this.btnDispatchPackages.Text = "Dispatch Packages";
             this.btnDispatchPackages.UseSelectable = true;
@@ -101,9 +106,9 @@
             // 
             this.btnDispatchedReport.ActiveControl = null;
             this.btnDispatchedReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDispatchedReport.Location = new System.Drawing.Point(3, 210);
+            this.btnDispatchedReport.Location = new System.Drawing.Point(3, 126);
             this.btnDispatchedReport.Name = "btnDispatchedReport";
-            this.btnDispatchedReport.Size = new System.Drawing.Size(193, 201);
+            this.btnDispatchedReport.Size = new System.Drawing.Size(193, 117);
             this.btnDispatchedReport.TabIndex = 5;
             this.btnDispatchedReport.Text = "Dispatched Packages";
             this.btnDispatchedReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -112,6 +117,29 @@
             this.btnDispatchedReport.UseSelectable = true;
             this.btnDispatchedReport.UseTileImage = true;
             this.btnDispatchedReport.Click += new System.EventHandler(this.btnDispatchedReport_Click);
+            // 
+            // btnReceivedPackagesReport
+            // 
+            this.btnReceivedPackagesReport.ActiveControl = null;
+            this.btnReceivedPackagesReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReceivedPackagesReport.Location = new System.Drawing.Point(3, 255);
+            this.btnReceivedPackagesReport.Name = "btnReceivedPackagesReport";
+            this.btnReceivedPackagesReport.Size = new System.Drawing.Size(199, 162);
+            this.btnReceivedPackagesReport.TabIndex = 3;
+            this.btnReceivedPackagesReport.Text = "Received Packages";
+            this.btnReceivedPackagesReport.UseSelectable = true;
+            // 
+            // btnReceivePackages
+            // 
+            this.btnReceivePackages.ActiveControl = null;
+            this.btnReceivePackages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReceivePackages.Location = new System.Drawing.Point(208, 255);
+            this.btnReceivePackages.Name = "btnReceivePackages";
+            this.btnReceivePackages.Size = new System.Drawing.Size(199, 162);
+            this.btnReceivePackages.TabIndex = 4;
+            this.btnReceivePackages.Text = "Receive Packages";
+            this.btnReceivePackages.UseSelectable = true;
+            this.btnReceivePackages.Click += new System.EventHandler(this.btnReceivePackages_Click);
             // 
             // FormPackaging
             // 
@@ -138,5 +166,7 @@
         private System.Windows.Forms.TableLayoutPanel panelLayoutPackages;
         private MetroFramework.Controls.MetroTile btnDispatchPackages;
         private MetroFramework.Controls.MetroTile btnDispatchedReport;
+        private MetroFramework.Controls.MetroTile btnReceivedPackagesReport;
+        private MetroFramework.Controls.MetroTile btnReceivePackages;
     }
 }

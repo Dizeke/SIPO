@@ -162,9 +162,9 @@
             // dtBatchTime
             // 
             this.dtBatchTime.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtBatchTime.Location = new System.Drawing.Point(239, 323);
+            this.dtBatchTime.Location = new System.Drawing.Point(186, 323);
             this.dtBatchTime.Name = "dtBatchTime";
-            this.dtBatchTime.Size = new System.Drawing.Size(157, 29);
+            this.dtBatchTime.Size = new System.Drawing.Size(210, 29);
             this.dtBatchTime.TabIndex = 11;
             // 
             // lblBatchTime
