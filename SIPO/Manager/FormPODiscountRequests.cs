@@ -112,6 +112,7 @@ namespace SIPO.Manager
 
                     lvPurchaseOrders.Items.RemoveAt(selectedIndex);
                     purchaseOrders.RemoveAt(selectedIndex);
+                    selectedIndex = -1;
                 }
             }
         }

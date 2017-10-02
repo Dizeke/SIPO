@@ -319,6 +319,12 @@
     <Compile Include="Sales\FormPaymentDetailsReport.Designer.cs">
       <DependentUpon>FormPaymentDetailsReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\FormPaymentProductsOrdered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FormPaymentProductsOrdered.Designer.cs">
+      <DependentUpon>FormPaymentProductsOrdered.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\FormPaymentReport.cs">
       <SubType>Form</SubType>
     </Compile>

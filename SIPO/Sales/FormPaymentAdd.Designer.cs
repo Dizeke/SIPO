@@ -41,6 +41,7 @@
             this.lblPaid = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.btnPay = new MetroFramework.Controls.MetroButton();
+            this.btnProductsOrdered = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -183,11 +184,21 @@
             this.btnPay.UseSelectable = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
+            // btnProductsOrdered
+            // 
+            this.btnProductsOrdered.Location = new System.Drawing.Point(23, 204);
+            this.btnProductsOrdered.Name = "btnProductsOrdered";
+            this.btnProductsOrdered.Size = new System.Drawing.Size(100, 23);
+            this.btnProductsOrdered.TabIndex = 13;
+            this.btnProductsOrdered.Text = "Products Ordered";
+            this.btnProductsOrdered.UseSelectable = true;
+            // 
             // FormPaymentAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 250);
+            this.Controls.Add(this.btnProductsOrdered);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.lblPaid);
@@ -224,5 +235,6 @@
         private MetroFramework.Controls.MetroLabel lblPaid;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroButton btnPay;
+        private MetroFramework.Controls.MetroButton btnProductsOrdered;
     }
 }

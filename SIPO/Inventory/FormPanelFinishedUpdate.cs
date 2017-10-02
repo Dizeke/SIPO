@@ -105,7 +105,7 @@ namespace SIPO.Inventory
                        finished.Name,
                        finished.Desc,
                        finished.FinQty,
-                       srp,
+                       finished.Newprice,
                        "pending"
                        );
                 query += "DELETE FROM products_finished_materials where prodf_f_id = '" + finished.Id + "';";
