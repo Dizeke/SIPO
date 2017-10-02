@@ -92,7 +92,7 @@ namespace SIPO.Inventory
 
                 }
             }
-            catch(Exception ex)
+            catch(MySqlException ex)
             {
                 Console.WriteLine(ex.StackTrace);
                 MessageBox.Show("Existing Product");
