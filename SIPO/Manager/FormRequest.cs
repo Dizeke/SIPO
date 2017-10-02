@@ -30,8 +30,17 @@ namespace SIPO.Inventory
                 finished = FinishedProductUpdate.finished;
                 txtName.Text = finished.Name;
                 txtDesc.Text = finished.Desc;
-                txtOldSrp.Text = finished.Price.ToString();
-                txtFinQty.Text = finished.FinQty.ToString();
+                if (finished.Qty == 0 && finished.Newprice == 0)
+                {
+                    txtOldSrp.Text = finished.Price.ToString();
+                    txtFinQty.Text = finished.FinQty.ToString();
+                    
+                }
+                else
+                {
+                    txtOldSrp.Text = finished.Newprice.ToString();
+                    txtFinQty.Text = finished.Qty.ToString();
+                }
                 txtUnitCost.Text = (finished.Price / 1.5d).ToString();
                 dtpRequest.Value = Convert.ToDateTime(finished.RDate);
 
@@ -81,11 +90,18 @@ namespace SIPO.Inventory
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            String query;
             try
             {
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
-                String query = "UPDATE products_finished SET prodf_status = 'production' , prodf_qty = '" + finished.Qty + "' , prodf_srp = '" + finished.Newprice + "', prodf_rQty = '0', prodf_rSrp = '0' where prodf_id = '" + finished.Id + "' ;";
+                if (finished.Qty == 0 && finished.Newprice == 0)
+                {
+                    query = "UPDATE products_finished SET prodf_status = 'production' , prodf_qty = '" + finished.FinQty + "' , prodf_srp = '" + finished.Price + "', prodf_rQty = '0', prodf_rSrp = '0' where prodf_id = '" + finished.Id + "' ;";
+                }
+                else
+                {
+                     query = "UPDATE products_finished SET prodf_status = 'production' , prodf_qty = '" + finished.Qty + "' , prodf_srp = '" + finished.Newprice + "', prodf_rQty = '0', prodf_rSrp = '0' where prodf_id = '" + finished.Id + "' ;";
+                }
                 for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
                 {
                     query += "UPDATE products_raw SET prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' Where prodr_id = '" + lvRawMaterialsUsed.Items[i].SubItems[0].Text + "' ;";
@@ -108,7 +124,7 @@ namespace SIPO.Inventory
             try
             {
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
-                String query = "UPDATE products_finished SET prodf_status = 'disapproved' where prodf_id = '" + finished.Id + "' ;" ;
+                String query = "UPDATE products_finished SET prodf_status = 'disapproved' where prodf_id = '" + finished.Id + "' ;";
                 for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
                 {
                     query += "UPDATE products_raw SET prodr_qty = prodr_qty + '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' Where prodr_id = '" + lvRawMaterialsUsed.Items[i].SubItems[0].Text + "' ;";

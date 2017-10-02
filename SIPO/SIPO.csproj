@@ -107,22 +107,22 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\FormFinishedSelectPending.cs">
+    <Compile Include="Manager\FormFinishedSelectPending.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory\FormFinishedSelectPending.Designer.cs">
+    <Compile Include="Manager\FormFinishedSelectPending.Designer.cs">
       <DependentUpon>FormFinishedSelectPending.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\FormFinishedSelectRequest.cs">
+    <Compile Include="Manager\FormFinishedSelectRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory\FormFinishedSelectRequest.Designer.cs">
+    <Compile Include="Manager\FormFinishedSelectRequest.Designer.cs">
       <DependentUpon>FormFinishedSelectRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\FormProductionRequest.cs">
+    <Compile Include="Manager\FormProductionRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory\FormProductionRequest.Designer.cs">
+    <Compile Include="Manager\FormProductionRequest.Designer.cs">
       <DependentUpon>FormProductionRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory\FormRawReports.cs">
@@ -191,10 +191,10 @@
     <Compile Include="Inventory\FormPanelRawUpdate.Designer.cs">
       <DependentUpon>FormPanelRawUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\FormRequest.cs">
+    <Compile Include="Manager\FormRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory\FormRequest.Designer.cs">
+    <Compile Include="Manager\FormRequest.Designer.cs">
       <DependentUpon>FormRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\FormManager.cs">
@@ -385,13 +385,13 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FormFinishedSelectPending.resx">
+    <EmbeddedResource Include="Manager\FormFinishedSelectPending.resx">
       <DependentUpon>FormFinishedSelectPending.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FormFinishedSelectRequest.resx">
+    <EmbeddedResource Include="Manager\FormFinishedSelectRequest.resx">
       <DependentUpon>FormFinishedSelectRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FormProductionRequest.resx">
+    <EmbeddedResource Include="Manager\FormProductionRequest.resx">
       <DependentUpon>FormProductionRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FormRawReports.resx">
@@ -427,7 +427,7 @@
     <EmbeddedResource Include="Inventory\FormPanelRawUpdate.resx">
       <DependentUpon>FormPanelRawUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FormRequest.resx">
+    <EmbeddedResource Include="Manager\FormRequest.resx">
       <DependentUpon>FormRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\FormManager.resx">
