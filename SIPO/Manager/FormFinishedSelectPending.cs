@@ -55,7 +55,7 @@ namespace SIPO.Inventory
                     lvRequest.Items.Add(Finished.Id.ToString());
                     lvRequest.Items[row].SubItems.Add(Finished.Name);
                     lvRequest.Items[row].SubItems.Add(Finished.Desc);
-                    if (reader["prodf_rQty"].ToString() == "0" && reader["prodf_rSrp"].ToString() == "0")
+                    if(reader["prodf_rQty"].ToString() == "0" && reader["prodf_rSrp"].ToString() == "0")
                     {
                         lvRequest.Items[row].SubItems.Add(Finished.FinQty.ToString());
                         lvRequest.Items[row].SubItems.Add(Finished.Price.ToString());
@@ -64,7 +64,7 @@ namespace SIPO.Inventory
                     {
                         lvRequest.Items[row].SubItems.Add(Finished.Qty.ToString());
                         lvRequest.Items[row].SubItems.Add(Finished.Newprice.ToString());
-
+                        
                     }
                     lvRequest.Items[row].SubItems.Add(Finished.RDate.ToString());
 
