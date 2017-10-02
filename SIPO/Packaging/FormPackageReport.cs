@@ -131,19 +131,16 @@ namespace SIPO.Packaging
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-           
-            Package obj = packageBindingSource.Current as Package;
-            String query = String.Format("SELECT products_finished.prodf_id AS 'ID', products_finished.prodf_name AS 'Name', purchase_order_batch_products.prodf_qty AS 'Qty', package_details.pd_gweight AS 'Gross', package_details.pd_nweight AS 'Net', package_details.pd_qty_carton AS 'Qtypercarton' FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
-                 pack_id
-                 );
-
-            using (IDbConnection con = new MySqlConnection(ConString.getConString()))
+            if (selectedIndex >= 0)
             {
-                List<PackageDetails> list = con.Query<PackageDetails>(query, commandType: CommandType.Text).ToList();
-                using (FormPackagePrint print = new FormPackagePrint(obj, list))
-                {
-                    print.ShowDialog();
-                }
+                Package obj = packageBindingSource.Current as Package;
+                FormPackageDetailsReport form = new FormPackageDetailsReport(pack_id, pack_datetime, obj);
+                form.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Please Select an Item to View");
             }
         }
     }

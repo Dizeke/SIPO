@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnExport = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnViewDetails = new MetroFramework.Controls.MetroButton();
+            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.batchIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExport
@@ -70,9 +78,17 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.batchIdDataGridViewTextBoxColumn,
+            this.companyDataGridViewTextBoxColumn,
+            this.pOIDDataGridViewTextBoxColumn,
+            this.etaDataGridViewTextBoxColumn,
+            this.packageIdDataGridViewTextBoxColumn});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
+            this.dataGridView1.DataSource = this.packageBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(3, 29);
@@ -94,6 +110,45 @@
             this.btnViewDetails.UseSelectable = true;
             this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
+            // packageBindingSource
+            // 
+            this.packageBindingSource.DataSource = typeof(SIPO.Classes.Package);
+            // 
+            // batchIdDataGridViewTextBoxColumn
+            // 
+            this.batchIdDataGridViewTextBoxColumn.DataPropertyName = "BatchId";
+            this.batchIdDataGridViewTextBoxColumn.HeaderText = "BatchId";
+            this.batchIdDataGridViewTextBoxColumn.Name = "batchIdDataGridViewTextBoxColumn";
+            this.batchIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // companyDataGridViewTextBoxColumn
+            // 
+            this.companyDataGridViewTextBoxColumn.DataPropertyName = "Company";
+            this.companyDataGridViewTextBoxColumn.HeaderText = "Company";
+            this.companyDataGridViewTextBoxColumn.Name = "companyDataGridViewTextBoxColumn";
+            this.companyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pOIDDataGridViewTextBoxColumn
+            // 
+            this.pOIDDataGridViewTextBoxColumn.DataPropertyName = "POID";
+            this.pOIDDataGridViewTextBoxColumn.HeaderText = "POID";
+            this.pOIDDataGridViewTextBoxColumn.Name = "pOIDDataGridViewTextBoxColumn";
+            this.pOIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // etaDataGridViewTextBoxColumn
+            // 
+            this.etaDataGridViewTextBoxColumn.DataPropertyName = "Eta";
+            this.etaDataGridViewTextBoxColumn.HeaderText = "Eta";
+            this.etaDataGridViewTextBoxColumn.Name = "etaDataGridViewTextBoxColumn";
+            this.etaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // packageIdDataGridViewTextBoxColumn
+            // 
+            this.packageIdDataGridViewTextBoxColumn.DataPropertyName = "PackageId";
+            this.packageIdDataGridViewTextBoxColumn.HeaderText = "PackageId";
+            this.packageIdDataGridViewTextBoxColumn.Name = "packageIdDataGridViewTextBoxColumn";
+            this.packageIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // FormPackageDispatchedReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +159,7 @@
             this.Text = "Dispatched Packages";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,5 +170,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroButton btnViewDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packageIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource packageBindingSource;
     }
 }
