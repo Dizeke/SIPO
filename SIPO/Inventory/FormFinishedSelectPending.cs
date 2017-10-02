@@ -44,17 +44,29 @@ namespace SIPO.Inventory
                     Finished.Id = int.Parse(reader["prodf_id"].ToString());
                     Finished.Name = reader["prodf_name"].ToString();
                     Finished.Desc = reader["prodf_desc"].ToString();
-
-                    Finished.Price = int.Parse(reader["prodf_srp"].ToString());
+                    Finished.Newprice = double.Parse(reader["prodf_rSrp"].ToString());
+                    Finished.Qty = int.Parse(reader["prodf_rQty"].ToString());
+                    Finished.Price = double.Parse(reader["prodf_srp"].ToString());
                     Finished.FinQty = int.Parse(reader["prodf_qty"].ToString());
+                    Finished.RDate = reader["prodf_rDate"].ToString();
 
                     finished.Add(Finished);
 
                     lvRequest.Items.Add(Finished.Id.ToString());
                     lvRequest.Items[row].SubItems.Add(Finished.Name);
                     lvRequest.Items[row].SubItems.Add(Finished.Desc);
-                    lvRequest.Items[row].SubItems.Add(Finished.FinQty.ToString());
-                    lvRequest.Items[row].SubItems.Add(Finished.Price.ToString());
+                    if (reader["prodf_rQty"].ToString() == "0" && reader["prodf_rSrp"].ToString() == "0")
+                    {
+                        lvRequest.Items[row].SubItems.Add(Finished.FinQty.ToString());
+                        lvRequest.Items[row].SubItems.Add(Finished.Price.ToString());
+                    }
+                    else
+                    {
+                        lvRequest.Items[row].SubItems.Add(Finished.Qty.ToString());
+                        lvRequest.Items[row].SubItems.Add(Finished.Newprice.ToString());
+
+                    }
+                    lvRequest.Items[row].SubItems.Add(Finished.RDate.ToString());
 
                     row++;
                 }

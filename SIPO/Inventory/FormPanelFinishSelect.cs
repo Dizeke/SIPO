@@ -24,7 +24,7 @@ namespace SIPO.Inventory
             {
                 finished = new List<FinishedProduct>();
 
-                String query = "SELECT * FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
+                String query = "SELECT * FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' ) OR (prodf_rQty > 0 AND prodf_status = 'production')";
 
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);

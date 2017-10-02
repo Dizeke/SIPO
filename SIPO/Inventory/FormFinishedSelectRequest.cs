@@ -47,9 +47,9 @@ namespace SIPO.Inventory
                     Finished.Id = int.Parse(reader["prodf_id"].ToString());
                     Finished.Name = reader["prodf_name"].ToString();
                     Finished.Desc = reader["prodf_desc"].ToString();
-                    Finished.Newprice = int.Parse(reader["prodf_rSrp"].ToString());
+                    Finished.Newprice = double.Parse(reader["prodf_rSrp"].ToString());
                     Finished.Qty = int.Parse(reader["prodf_rQty"].ToString());
-                    Finished.Price = int.Parse(reader["prodf_srp"].ToString());
+                    Finished.Price = double.Parse(reader["prodf_srp"].ToString());
                     Finished.FinQty = int.Parse(reader["prodf_qty"].ToString());
                     Finished.RDate = reader["prodf_rDate"].ToString();
 
@@ -84,8 +84,8 @@ namespace SIPO.Inventory
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
+            try
+            {
                 int index = lvRequest.SelectedItems[0].Index;
                 FinishedProductUpdate.finished = finished[index];
                 FinishedProductUpdate.hasSelected = true;
@@ -98,12 +98,12 @@ namespace SIPO.Inventory
                     loadMaterials();
                 }
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.StackTrace);
-            //    MessageBox.Show("Please select an Item");
-            //}
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Please select an Item");
+            }
 
         }
 

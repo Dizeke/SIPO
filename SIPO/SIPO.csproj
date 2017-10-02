@@ -501,6 +501,9 @@
     <EmbeddedResource Include="Sales\FormPaymentDetailsReport.resx">
       <DependentUpon>FormPaymentDetailsReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FormPaymentProductsOrdered.resx">
+      <DependentUpon>FormPaymentProductsOrdered.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormPaymentReport.resx">
       <DependentUpon>FormPaymentReport.cs</DependentUpon>
     </EmbeddedResource>

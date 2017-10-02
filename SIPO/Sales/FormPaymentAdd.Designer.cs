@@ -192,6 +192,7 @@
             this.btnProductsOrdered.TabIndex = 13;
             this.btnProductsOrdered.Text = "Products Ordered";
             this.btnProductsOrdered.UseSelectable = true;
+            this.btnProductsOrdered.Click += new System.EventHandler(this.btnProductsOrdered_Click);
             // 
             // FormPaymentAdd
             // 

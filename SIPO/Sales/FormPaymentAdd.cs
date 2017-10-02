@@ -151,5 +151,10 @@ namespace SIPO.Sales
             con.Close();
         }
 
+        private void btnProductsOrdered_Click(object sender, EventArgs e)
+        {
+            //FormPaymentProductsOrdered formPaymentProductsOrdered = new FormPaymentProductsOrdered();
+            //formPaymentProductsOrdered.ShowDialog();
+        }
     }
 }
