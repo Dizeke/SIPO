@@ -83,6 +83,7 @@
     <Compile Include="Classes\FinishedProductUpdate.cs" />
     <Compile Include="Classes\Package.cs" />
     <Compile Include="Classes\PackageDetails.cs" />
+    <Compile Include="Classes\PackageDispatched.cs" />
     <Compile Include="Classes\ProductCustomHelper.cs" />
     <Compile Include="Classes\PurchaseOrder.cs" />
     <Compile Include="Classes\PurchaseOrderBatch.cs" />
@@ -274,6 +275,12 @@
     <Compile Include="Packaging\FormPackagePrint.Designer.cs">
       <DependentUpon>FormPackagePrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packaging\FormPackageReceiveDispatched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\FormPackageReceiveDispatched.Designer.cs">
+      <DependentUpon>FormPackageReceiveDispatched.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packaging\FormPackageReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormPackagePrint.resx">
       <DependentUpon>FormPackagePrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\FormPackageReceiveDispatched.resx">
+      <DependentUpon>FormPackageReceiveDispatched.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormPackageReport.resx">
       <DependentUpon>FormPackageReport.cs</DependentUpon>
