@@ -27,6 +27,8 @@ namespace SIPO.Inventory
             {
                 qtyHold.Add(int.Parse(lvRawMaterialsUsed.Items[i].SubItems[2].Text));
             }
+          
+
 
         }
 
@@ -39,7 +41,7 @@ namespace SIPO.Inventory
                 txtName.Text = finished.Name;
                 txtDesc.Text = finished.Desc;
                 txtFinQty.Text = finished.FinQty.ToString();
-                
+
             }
             else
             {
@@ -84,74 +86,85 @@ namespace SIPO.Inventory
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
-            if (isValidInput())
+            if(Checkquantity())
             {
-                MySqlConnection con = new MySqlConnection(ConString.getConString());
-
-                finished.Name = txtName.Text;
-                finished.Desc = txtDesc.Text;
-                finished.FinQty = int.Parse(txtFinQty.Text);
-                String query2 = null;
-                String query = String.Format("UPDATE products_finished SET " +
-                           "prodf_id =  '{0}', " +
-                           "prodf_name = '{1}', " +
-                           "prodf_desc = '{2}', " +
-                           "prodf_qty = '{3}', " +
-                           "prodf_srp = '{4}'," +
-                           "prodf_status = '{5}'" +
-                           "WHERE prodf_id = {0};",
-                       finished.Id,
-                       finished.Name,
-                       finished.Desc,
-                       finished.FinQty,
-                       finished.Newprice,
-                       "pending"
-                       );
-                query += "DELETE FROM products_finished_materials where prodf_f_id = '" + finished.Id + "';";
-                foreach (RawMaterials item in rawMaterialsUsed)
+                if (isValidInput())
                 {
-                    query2 = "SELECT prodr_id FROM products_raw as a;";
-                    con.Open();
-                    MySqlCommand com2 = new MySqlCommand(query2, con);
-                    MySqlDataReader reader;
+                    MySqlConnection con = new MySqlConnection(ConString.getConString());
 
-                    reader = com2.ExecuteReader();
-                    int row = 0;
-                    while (reader.Read())
+                    finished.Name = txtName.Text;
+                    finished.Desc = txtDesc.Text;
+                    finished.FinQty = int.Parse(txtFinQty.Text);
+                    finished.Newprice = srp;
+                    String query2 = null;
+                    String query = String.Format("UPDATE products_finished SET " +
+                               "prodf_id =  '{0}', " +
+                               "prodf_name = '{1}', " +
+                               "prodf_desc = '{2}', " +
+                               "prodf_rQty = '{3}'," +
+                               "prodf_rSrp = '{4}', " +
+                               "prodf_status = '{5}'" +
+                               "WHERE prodf_id = {0};",
+                           finished.Id,
+                           finished.Name,
+                           finished.Desc,
+                           finished.FinQty,
+                           srp,
+                           "pending"
+                           );
+                    query += "DELETE FROM products_finished_materials where prodf_f_id = '" + finished.Id + "';";
+                    foreach (RawMaterials item in rawMaterialsUsed)
                     {
-                        if (reader["prodr_id"].ToString() == item.Id.ToString())
+                        query2 = "SELECT prodr_id FROM products_raw as a;";
+                        con.Open();
+                        MySqlCommand com2 = new MySqlCommand(query2, con);
+                        MySqlDataReader reader;
+
+                        reader = com2.ExecuteReader();
+                        int row = 0;
+                        while (reader.Read())
                         {
-                            query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)" +
-                             " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
-                            //if (qtyHold.Count != 0)
-                            //{
-                            //    query += "Update products_raw SET " +
-                            // "prodr_qty = prodr_qty - '" + (item.Qty - qtyHold[row]) + "' " +
-                            // "WHERE prodr_id = " + item.Id + ";";
-                            //}
-                            
+                            if (reader["prodr_id"].ToString() == item.Id.ToString())
+                            {
+                                query += "Insert INTO products_finished_materials(prodf_f_id, prod_r_id, prod_r_qty)" +
+                                 " VALUES ('" + finished.Id + "', '" + item.Id + "' , '" + item.Qty + "' );";
+                                //if (qtyHold.Count != 0)
+                                //{
+                                //    query += "Update products_raw SET " +
+                                // "prodr_qty = prodr_qty - '" + (item.Qty - qtyHold[row]) + "' " +
+                                // "WHERE prodr_id = " + item.Id + ";";
+                                //}
 
 
+
+                            }
+
+                            row++;
                         }
-                                               
-                        row++;
-                    }
-                
-                    
-                    con.Close();
-                   
-                }
-                con.Open();
-                MySqlCommand com = new MySqlCommand(query, con);
-                com.ExecuteNonQuery();
-                con.Close();
 
-                //  MessageBox.Show(query);
-                MessageBox.Show("Request for Restock sent!");
-                FinishedProductUpdate.hasSelected = false;
-                FinishedProductUpdate.isCompleted = true;
-                this.Close();
+
+                        con.Close();
+
+                    }
+                    con.Open();
+                    MySqlCommand com = new MySqlCommand(query, con);
+                    com.ExecuteNonQuery();
+                    con.Close();
+
+                    //  MessageBox.Show(query);
+                    MessageBox.Show("Request for Restock sent!");
+                    FinishedProductUpdate.hasSelected = false;
+                    FinishedProductUpdate.isCompleted = true;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Inputs");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Insufficient Raw Material");
             }
         }
         private void loadRawMaterials()
@@ -239,12 +252,54 @@ namespace SIPO.Inventory
                 lbltotalQty.Text = "Total Quantity: " + totalQty.ToString();
 
                 con.Close();
-        }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
             }
-}
+        }
+
+        private bool Checkquantity()
+        {
+            bool check = false;
+            try
+            {
+                //   int index = lvRawMaterials.SelectedIndices[0];
+                for (int index = 0; index < lvRawMaterialsUsed.Items.Count; index++)
+                {
+                    RawMaterials rawMaterialUsed = rawMaterials[index];
+
+                    int quantity = int.Parse(lvRawMaterialsUsed.Items[index].SubItems[2].Text);
+                    if ((rawMaterials[index].Qty >= quantity) && (quantity > 0))
+                    {
+                        bool isAdded = false;
+                        int rmUsedIndex = 0;
+                        foreach (RawMaterials rmUsed in rawMaterialsUsed)
+                        {
+
+
+                            rmUsedIndex++;
+                            check = true;
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        check = false;
+                        MessageBox.Show("Please select a quantity not more than the current stock");
+                    }
+                }
+                return check;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
+        }
+
 
         private void btnAddUsedMaterial_Click(object sender, EventArgs e)
         {
@@ -306,7 +361,7 @@ namespace SIPO.Inventory
                     MessageBox.Show("Please select a quantity not more than the current stock");
                 }
 
-               
+
             }
             catch (Exception ex)
             {

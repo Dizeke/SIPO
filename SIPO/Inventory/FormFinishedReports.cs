@@ -81,7 +81,7 @@ namespace SIPO.Inventory
 
         private void BindGrid()
         {
-            String query = "SELECT DISTINCT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp' FROM products_finished AS a Where prodf_status = 'approved' ";
+            String query = "SELECT DISTINCT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp' FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))

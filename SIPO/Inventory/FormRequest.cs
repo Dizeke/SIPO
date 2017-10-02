@@ -81,11 +81,11 @@ namespace SIPO.Inventory
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(finished.Id.ToString());
-            //try
-            //{
+
+            try
+            {
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
-                String query = "UPDATE products_finished SET prodf_status = 'production' where prodf_id = '" + finished.Id + "' ;";
+                String query = "UPDATE products_finished SET prodf_status = 'production' , prodf_qty = '" + finished.Qty + "' , prodf_srp = '" + finished.Newprice + "', prodf_rQty = '0', prodf_rSrp = '0' where prodf_id = '" + finished.Id + "' ;";
                 for (int i = 0; i < lvRawMaterialsUsed.Items.Count; i++)
                 {
                     query += "UPDATE products_raw SET prodr_qty = prodr_qty - '" + lvRawMaterialsUsed.Items[i].SubItems[2].Text + "' Where prodr_id = '" + lvRawMaterialsUsed.Items[i].SubItems[0].Text + "' ;";
@@ -93,11 +93,11 @@ namespace SIPO.Inventory
                 con.Open();
                 MySqlCommand com = new MySqlCommand(query, con);
                 com.ExecuteNonQuery();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.StackTrace);
-            //}
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
             MessageBox.Show("Item Request has been moved to production");
             FinishedProductUpdate.isCompleted = true;
             this.Close();
