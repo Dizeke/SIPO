@@ -27,6 +27,7 @@ namespace SIPO.Sales
                 String prodName = txtName.Text.ToString().Trim();
                 String prodDesc = txtDesc.Text.ToString().Trim();
                 int prodQty = int.Parse(txtQty.Text.ToString());
+                double prodPrice = double.Parse(txtEstPrice.Text.ToString());
 
                 if (isValidInputs())
                 {
@@ -46,6 +47,7 @@ namespace SIPO.Sales
                     prod.Name = prodName;
                     prod.Desc = prodDesc;
                     prod.Qty = prodQty;
+                    prod.Price = prodPrice;
 
                     ProductCustomHelper.finishedProduct = prod;
                     ProductCustomHelper.isComplete = true;
@@ -78,6 +80,16 @@ namespace SIPO.Sales
                 else if (int.Parse(txtQty.Text.ToString()) < 1)
                 {
                     MessageBox.Show("Product Quantity cannot be less than 1");
+                    return false;
+                }
+                else if (txtEstPrice.Text.ToString().Length < 1)
+                {
+                    MessageBox.Show("Product Price cannot be empty");
+                    return false;
+                }
+                else if (double.Parse(txtEstPrice.Text.ToString()) < 1)
+                {
+                    MessageBox.Show("Product Price cannot be less than 1");
                     return false;
                 }
                 else if (hasDuplicate())

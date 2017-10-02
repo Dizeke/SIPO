@@ -35,6 +35,8 @@
             this.btnAddCustomProduct = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txtQty = new MetroFramework.Controls.MetroTextBox();
+            this.lblEstPrice = new MetroFramework.Controls.MetroLabel();
+            this.txtEstPrice = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // lblName
@@ -117,7 +119,7 @@
             // 
             // btnAddCustomProduct
             // 
-            this.btnAddCustomProduct.Location = new System.Drawing.Point(427, 164);
+            this.btnAddCustomProduct.Location = new System.Drawing.Point(427, 178);
             this.btnAddCustomProduct.Name = "btnAddCustomProduct";
             this.btnAddCustomProduct.Size = new System.Drawing.Size(150, 23);
             this.btnAddCustomProduct.TabIndex = 66;
@@ -164,11 +166,52 @@
             this.txtQty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtQty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // lblEstPrice
+            // 
+            this.lblEstPrice.AutoSize = true;
+            this.lblEstPrice.Location = new System.Drawing.Point(23, 156);
+            this.lblEstPrice.Name = "lblEstPrice";
+            this.lblEstPrice.Size = new System.Drawing.Size(99, 19);
+            this.lblEstPrice.TabIndex = 69;
+            this.lblEstPrice.Text = "Estimated Price";
+            // 
+            // txtEstPrice
+            // 
+            // 
+            // 
+            // 
+            this.txtEstPrice.CustomButton.Image = null;
+            this.txtEstPrice.CustomButton.Location = new System.Drawing.Point(178, 1);
+            this.txtEstPrice.CustomButton.Name = "";
+            this.txtEstPrice.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtEstPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtEstPrice.CustomButton.TabIndex = 1;
+            this.txtEstPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtEstPrice.CustomButton.UseSelectable = true;
+            this.txtEstPrice.CustomButton.Visible = false;
+            this.txtEstPrice.Lines = new string[0];
+            this.txtEstPrice.Location = new System.Drawing.Point(23, 178);
+            this.txtEstPrice.MaxLength = 11;
+            this.txtEstPrice.Name = "txtEstPrice";
+            this.txtEstPrice.PasswordChar = '\0';
+            this.txtEstPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtEstPrice.SelectedText = "";
+            this.txtEstPrice.SelectionLength = 0;
+            this.txtEstPrice.SelectionStart = 0;
+            this.txtEstPrice.ShortcutsEnabled = true;
+            this.txtEstPrice.Size = new System.Drawing.Size(200, 23);
+            this.txtEstPrice.TabIndex = 70;
+            this.txtEstPrice.UseSelectable = true;
+            this.txtEstPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtEstPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // FormPurchaseOrderCustomAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 210);
+            this.ClientSize = new System.Drawing.Size(600, 225);
+            this.Controls.Add(this.txtEstPrice);
+            this.Controls.Add(this.lblEstPrice);
             this.Controls.Add(this.txtQty);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.btnAddCustomProduct);
@@ -192,5 +235,7 @@
         private MetroFramework.Controls.MetroButton btnAddCustomProduct;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txtQty;
+        private MetroFramework.Controls.MetroLabel lblEstPrice;
+        private MetroFramework.Controls.MetroTextBox txtEstPrice;
     }
 }

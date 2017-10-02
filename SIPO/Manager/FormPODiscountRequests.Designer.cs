@@ -62,27 +62,27 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "PO_ID";
-            this.columnHeader1.Width = 96;
+            this.columnHeader1.Width = 108;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Discount %";
-            this.columnHeader2.Width = 94;
+            this.columnHeader2.Width = 124;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Total";
-            this.columnHeader3.Width = 122;
+            this.columnHeader3.Width = 128;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Discounted Total";
-            this.columnHeader4.Width = 140;
+            this.columnHeader4.Width = 145;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Delivery Date";
-            this.columnHeader5.Width = 198;
+            this.columnHeader5.Width = 245;
             // 
             // btnViewDetails
             // 
