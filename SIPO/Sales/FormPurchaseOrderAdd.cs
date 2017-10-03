@@ -166,74 +166,74 @@ namespace SIPO.Sales
 
             try
             {
-                //if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
-                //{
-                bool isAdded = false;
-                int prodIndex = 0;
-
-                FinishedProduct requestProduct = new FinishedProduct();
-                requestProduct.Id = finishedProducts[selectedFinishedProductIndex].Id;
-                requestProduct.Name = finishedProducts[selectedFinishedProductIndex].Name;
-                requestProduct.Desc = finishedProducts[selectedFinishedProductIndex].Desc;
-                requestProduct.Qty = finishedProducts[selectedFinishedProductIndex].Qty;
-                requestProduct.Price = finishedProducts[selectedFinishedProductIndex].Price;
-
-                foreach (FinishedProduct requestedProduct in requestedProducts)
+                if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
                 {
-                    if (requestedProduct.Id == requestProduct.Id)
+                    bool isAdded = false;
+                    int prodIndex = 0;
+
+                    FinishedProduct requestProduct = new FinishedProduct();
+                    requestProduct.Id = finishedProducts[selectedFinishedProductIndex].Id;
+                    requestProduct.Name = finishedProducts[selectedFinishedProductIndex].Name;
+                    requestProduct.Desc = finishedProducts[selectedFinishedProductIndex].Desc;
+                    requestProduct.Qty = finishedProducts[selectedFinishedProductIndex].Qty;
+                    requestProduct.Price = finishedProducts[selectedFinishedProductIndex].Price;
+
+                    foreach (FinishedProduct requestedProduct in requestedProducts)
                     {
-                        //if (quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
-                        //{
-                        isAdded = true;
-                        requestedProducts[prodIndex].Qty += quantity;
-                        break;
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Please provide a quantity not more than the available stock");
-                        //    return;
-                        //}
+                        if (requestedProduct.Id == requestProduct.Id)
+                        {
+                            if (quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
+                            {
+                                isAdded = true;
+                                requestedProducts[prodIndex].Qty += quantity;
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please provide a quantity not more than the available stock");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            prodIndex++;
+                        }
+                    }
+
+                    if (isAdded)
+                    {
+                        for (int i = 0; i < lvProductList.Items.Count; i++)
+                        {
+                            if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[selectedFinishedProductIndex].Id.ToString()))
+                            {
+                                lvPurchaseList.Items[i].SubItems[2].Text = requestedProducts[prodIndex].Qty.ToString();
+                                break;
+                            }
+                        }
                     }
                     else
                     {
-                        prodIndex++;
-                    }
-                }
-
-                if (isAdded)
-                {
-                    for (int i = 0; i < lvProductList.Items.Count; i++)
-                    {
-                        if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[selectedFinishedProductIndex].Id.ToString()))
+                        if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
                         {
-                            lvPurchaseList.Items[i].SubItems[2].Text = requestedProducts[prodIndex].Qty.ToString();
-                            break;
+                            requestProduct.Qty = quantity;
+                            requestedProducts.Add(requestProduct);
+
+                            lvPurchaseList.Items.Add(requestProduct.Id.ToString());
+                            lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
+                            lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please provide a quantity not more than the available stock");
+                            return;
                         }
                     }
                 }
                 else
                 {
-                    //if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
-                    //{
-                    requestProduct.Qty = quantity;
-                    requestedProducts.Add(requestProduct);
-
-                    lvPurchaseList.Items.Add(requestProduct.Id.ToString());
-                    lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
-                    lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Please provide a quantity not more than the available stock");
-                    //    return;
-                    //}
+                    MessageBox.Show("Please provide a quantity not more than the available stock");
+                    return;
                 }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Please provide a quantity not more than the available stock");
-                //    return;
-                //}
 
                 calculateTotal();
             }

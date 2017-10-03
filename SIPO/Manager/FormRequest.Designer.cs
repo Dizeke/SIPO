@@ -352,6 +352,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Name = "FormRequest";
             this.Text = "Request for Production";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
