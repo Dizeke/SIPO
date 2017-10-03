@@ -33,14 +33,8 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnPrint = new MetroFramework.Controls.MetroButton();
             this.packageDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.netDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtycartonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrint = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageDetailsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -77,23 +71,18 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.qtyDataGridViewTextBoxColumn,
-            this.grossDataGridViewTextBoxColumn,
-            this.netDataGridViewTextBoxColumn,
-            this.qtycartonDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.packageDetailsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(23, 92);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(654, 366);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // packageDetailsBindingSource
+            // 
+            this.packageDetailsBindingSource.DataSource = typeof(SIPO.Classes.PackageDetails);
             // 
             // btnPrint
             // 
@@ -104,52 +93,6 @@
             this.btnPrint.Text = "Print";
             this.btnPrint.UseSelectable = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // packageDetailsBindingSource
-            // 
-            this.packageDetailsBindingSource.DataSource = typeof(SIPO.Classes.PackageDetails);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qtyDataGridViewTextBoxColumn
-            // 
-            this.qtyDataGridViewTextBoxColumn.DataPropertyName = "Qty";
-            this.qtyDataGridViewTextBoxColumn.HeaderText = "Qty";
-            this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
-            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // grossDataGridViewTextBoxColumn
-            // 
-            this.grossDataGridViewTextBoxColumn.DataPropertyName = "Gross";
-            this.grossDataGridViewTextBoxColumn.HeaderText = "Gross";
-            this.grossDataGridViewTextBoxColumn.Name = "grossDataGridViewTextBoxColumn";
-            this.grossDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // netDataGridViewTextBoxColumn
-            // 
-            this.netDataGridViewTextBoxColumn.DataPropertyName = "Net";
-            this.netDataGridViewTextBoxColumn.HeaderText = "Net";
-            this.netDataGridViewTextBoxColumn.Name = "netDataGridViewTextBoxColumn";
-            this.netDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qtycartonDataGridViewTextBoxColumn
-            // 
-            this.qtycartonDataGridViewTextBoxColumn.DataPropertyName = "Qty per carton";
-            this.qtycartonDataGridViewTextBoxColumn.HeaderText = "Qtycarton";
-            this.qtycartonDataGridViewTextBoxColumn.Name = "qtycartonDataGridViewTextBoxColumn";
-            this.qtycartonDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormPackageDetailsReport
             // 
@@ -177,11 +120,6 @@
         private MetroFramework.Controls.MetroButton metroButton1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroButton btnPrint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grossDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn netDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtycartonDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource packageDetailsBindingSource;
     }
