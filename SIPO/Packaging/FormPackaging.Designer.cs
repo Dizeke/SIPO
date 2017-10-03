@@ -128,6 +128,7 @@
             this.btnReceivedPackagesReport.TabIndex = 3;
             this.btnReceivedPackagesReport.Text = "Received Packages";
             this.btnReceivedPackagesReport.UseSelectable = true;
+            this.btnReceivedPackagesReport.Click += new System.EventHandler(this.btnReceivedPackagesReport_Click);
             // 
             // btnReceivePackages
             // 

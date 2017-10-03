@@ -36,7 +36,6 @@ namespace SIPO.Packaging
             using (IDbConnection con = new MySqlConnection(ConString.getConString()))
             {
                 packageBindingSource.DataSource = con.Query<Package>(query, commandType: CommandType.Text);
-
             }
         }
 
