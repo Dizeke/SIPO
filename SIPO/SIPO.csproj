@@ -101,6 +101,12 @@
     <Compile Include="Inventory\FormFinishedPrint.Designer.cs">
       <DependentUpon>FormFinishedPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\FormFinishedReportFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FormFinishedReportFilter.Designer.cs">
+      <DependentUpon>FormFinishedReportFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\FormFinishedReports.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FormRawMaterialsFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FormRawMaterialsFilter.Designer.cs">
+      <DependentUpon>FormRawMaterialsFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory\rptFin.cs">
       <AutoGen>True</AutoGen>
@@ -400,11 +412,17 @@
     <EmbeddedResource Include="Inventory\FormFinishedPrint.resx">
       <DependentUpon>FormFinishedPrint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FormFinishedReportFilter.resx">
+      <DependentUpon>FormFinishedReportFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FormFinishedReports.resx">
       <DependentUpon>FormFinishedReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FormRawMaterialsFilter.resx">
+      <DependentUpon>FormRawMaterialsFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\rptFin.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

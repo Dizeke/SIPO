@@ -18,6 +18,7 @@ namespace SIPO.Inventory
 {
     public partial class FormFinishedReports : MetroFramework.Forms.MetroForm
     {
+        string filter;
         public FormFinishedReports()
         {
             InitializeComponent();
@@ -83,8 +84,14 @@ namespace SIPO.Inventory
 
         private void BindGrid()
         {
-            String query = "SELECT a.prodf_id AS 'ID', a.prodf_name AS 'Name', a.prodf_desc AS 'Desc', a.prodf_qty AS 'FinQty', a.prodf_srp AS 'Price' FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
+            String query = "SELECT a.prodf_id AS 'ID', a.prodf_name AS 'Name', a.prodf_desc AS 'Desc', a.prodf_qty AS 'FinQty', a.prodf_srp AS 'Price' FROM products_finished AS a Where (prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' ) OR (prodf_rQty = 0 AND prodf_status = 'production'))";
             //String query = "SELECT DISTINCT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp' FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
+            if (FormFinishedReportFilter.hasFilter)
+            {
+                query += filter;
+            }
+
+
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
@@ -186,6 +193,22 @@ namespace SIPO.Inventory
                 //    print.ShowDialog();
                 //}
             }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            FormFinishedReportFilter formPurchaseOrderReportFilter = new  FormFinishedReportFilter();
+            formPurchaseOrderReportFilter.ShowDialog();
+
+            if (FormFinishedReportFilter.hasFilter)
+            {
+                filter = FormFinishedReportFilter.filter;
+            }
+            else
+            {
+                filter = "";
+            }
+            BindGrid();
         }
     }
 }
