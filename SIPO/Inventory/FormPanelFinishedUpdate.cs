@@ -242,13 +242,13 @@ namespace SIPO.Inventory
                     lvRawMaterialsUsed.Items.Add(rawMaterial.Id.ToString());
                     lvRawMaterialsUsed.Items[row].SubItems.Add(rawMaterial.Name);
                     lvRawMaterialsUsed.Items[row].SubItems.Add(rawMaterial.Qty.ToString());
-                    price += (rawMaterial.Price * rawMaterial.Qty);
+                    price += (rawMaterial.Price * rawMaterial.Qty) / int.Parse(txtFinQty.Text);
                     totalQty += rawMaterial.Qty;
                     row++;
                 }
                 srp = (price * 1.5d);
-                lblSRP.Text = "SRP: " + srp.ToString();
-                lblprice.Text = "Unit Cost: " + price.ToString();
+                lblSRP.Text = "SRP: " + Math.Round(srp, 2).ToString();
+                lblprice.Text = "Unit Cost: " + Math.Round(price, 2).ToString();
                 lbltotalQty.Text = "Total Quantity: " + totalQty.ToString();
 
                 con.Close();
@@ -319,7 +319,7 @@ namespace SIPO.Inventory
                         {
                             isAdded = true;
                             rawMaterialsUsed[rmUsedIndex].Qty += quantity;
-                            price += (rawMaterialsUsed[rmUsedIndex].Price * quantity);
+                            price += (rawMaterialsUsed[rmUsedIndex].Price * quantity) / int.Parse(txtFinQty.Text);
                             totalQty += quantity;
                             break;
                         }
@@ -348,12 +348,13 @@ namespace SIPO.Inventory
                         lvRawMaterialsUsed.Items.Add(rawMaterialUsed.Id.ToString());
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Name);
                         lvRawMaterialsUsed.Items[lvRawMaterialsUsed.Items.Count - 1].SubItems.Add(rawMaterialUsed.Qty.ToString());
-                        price += (rawMaterialsUsed[rmUsedIndex].Price * quantity);
+                        price += (rawMaterialsUsed[rmUsedIndex].Price * quantity) / int.Parse(txtFinQty.Text);
                         totalQty += quantity;
                     }
                     srp = (price * 1.5d);
-                    lblSRP.Text = "SRP: " + srp.ToString();
-                    lblprice.Text = "Unit Cost: " + price.ToString();
+                    
+                    lblSRP.Text = "SRP: " + Math.Round(srp, 2).ToString();
+                    lblprice.Text = "Unit Cost: " + Math.Round(price, 2).ToString();
                     lbltotalQty.Text = "Total Quantity: " + totalQty.ToString();
                 }
                 else

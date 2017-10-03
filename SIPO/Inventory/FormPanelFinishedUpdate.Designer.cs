@@ -191,7 +191,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(119, 24);
             this.btnUpdate.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnUpdate.TabIndex = 74;
-            this.btnUpdate.Text = "Update Material";
+            this.btnUpdate.Text = "Request for Restock";
             this.btnUpdate.UseSelectable = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 

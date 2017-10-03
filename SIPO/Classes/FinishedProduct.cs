@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIPO.Classes
 {
-    class FinishedProduct
+    public class FinishedProduct
     {
         private int _id;
         private string _name;

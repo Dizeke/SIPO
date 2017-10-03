@@ -1,6 +1,8 @@
-﻿using iTextSharp.text;
+﻿using Dapper;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
+using SIPO.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,7 +83,8 @@ namespace SIPO.Inventory
 
         private void BindGrid()
         {
-            String query = "SELECT DISTINCT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp' FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
+            String query = "SELECT a.prodf_id AS 'ID', a.prodf_name AS 'Name', a.prodf_desc AS 'Desc', a.prodf_qty AS 'FinQty', a.prodf_srp AS 'Price' FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
+            //String query = "SELECT DISTINCT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp' FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production')";
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
@@ -96,6 +99,11 @@ namespace SIPO.Inventory
                         }
                     }
                 }
+            }
+            using (IDbConnection con = new MySqlConnection(ConString.getConString()))
+            {
+                finishedProductBindingSource.DataSource = con.Query<Package>(query, commandType: CommandType.Text);
+
             }
         }
 
@@ -163,6 +171,21 @@ namespace SIPO.Inventory
                 excel = null;
             }
 
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            String query = "SELECT DISTINCT a.prodf_id AS 'Product ID', a.prodf_name AS 'Product Name', a.prodf_desc AS 'Description', a.prodf_qty AS 'Product Quantity', a.prodf_srp AS 'Price/Srp' FROM products_finished AS a Where prodf_status = 'approved' OR (prodf_rQty > 0 AND prodf_status = 'pending' OR prodf_status = 'production'";
+
+            using (IDbConnection con = new MySqlConnection(ConString.getConString()))
+            {
+                List<FinishedProduct> list = con.Query<FinishedProduct>(query, commandType: CommandType.Text).ToList();
+
+                //using (FormPackagePrint print = new FormPackagePrint(_obj, list))
+                //{
+                //    print.ShowDialog();
+                //}
+            }
         }
     }
 }
