@@ -53,6 +53,7 @@
             this.btnExport.TabIndex = 0;
             this.btnExport.Text = "Export to Excel";
             this.btnExport.UseSelectable = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // tableLayoutPanel1
             // 
