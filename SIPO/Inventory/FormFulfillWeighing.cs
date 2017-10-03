@@ -204,16 +204,15 @@ namespace SIPO.Inventory
                             prod.gweight, prod.nweight, prod.qty_carton, pob_id, prod.pobp_id, pack_id);
                         com = new MySqlCommand(query, con);
                         com.ExecuteNonQuery();
+
+                        query = String.Format("UPDATE products_finished SET prodf_qty = prodf_qty - (SELECT prodf_qty FROM purchase_order_batch_products WHERE pob_id = {0} AND prodf_id = {1})", pob_id, prod.prodf_id);
+                        com = new MySqlCommand(query, con);
+                        com.ExecuteNonQuery();
                     }
 
                     con.Close();
-                    query = String.Format("Update products_finished SET prodf_qty = prodf_qty - (Select prodf_qty from purchase_order_batch_products where pob_id = {0}) Where prodf_id = (Select prodf_id from purchase_order_batch_products where pob_id = {0})", pob_id);
                     isMoved = true;
-                    
-                    MySqlCommand com2 = new MySqlCommand(query, con);
 
-                    con.Open();
-                    com2.ExecuteNonQuery();
                     MessageBox.Show("Purchase Order Batch moved to Packaging");
                     this.Close();
                 }

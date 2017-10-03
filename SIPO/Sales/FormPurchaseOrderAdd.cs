@@ -19,6 +19,13 @@ namespace SIPO.Sales
         List<FinishedProduct> finishedProducts; // Products List
         List<FinishedProduct> requestedProducts; //Requested Products List
 
+        bool hasFilter;
+        String filter = "";
+
+        double total = 0;
+        double discountedTotal = 0;
+        double discount = 0;
+
         public FormPurchaseOrderAdd()
         {
             InitializeComponent();
@@ -85,10 +92,18 @@ namespace SIPO.Sales
         {
             finishedProducts = new List<FinishedProduct>();
             requestedProducts = new List<FinishedProduct>();
+            lvProductList.Items.Clear();
 
             try
             {
                 String query = "SELECT * FROM products_finished";
+                if (hasFilter)
+                {
+                    query += filter;
+                }
+
+                Console.WriteLine(query);
+
                 MySqlConnection con = new MySqlConnection(ConString.getConString());
                 MySqlCommand com = new MySqlCommand(query, con);
                 MySqlDataReader reader;
@@ -151,79 +166,96 @@ namespace SIPO.Sales
 
             try
             {
-                //if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
-                //{
-                bool isAdded = false;
-                int prodIndex = 0;
-
-                FinishedProduct requestProduct = new FinishedProduct();
-                requestProduct.Id = finishedProducts[selectedFinishedProductIndex].Id;
-                requestProduct.Name = finishedProducts[selectedFinishedProductIndex].Name;
-                requestProduct.Desc = finishedProducts[selectedFinishedProductIndex].Desc;
-                requestProduct.Qty = finishedProducts[selectedFinishedProductIndex].Qty;
-                requestProduct.Price = finishedProducts[selectedFinishedProductIndex].Price;
-
-                foreach (FinishedProduct requestedProduct in requestedProducts)
+                if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
                 {
-                    if (requestedProduct.Id == requestProduct.Id)
+                    bool isAdded = false;
+                    int prodIndex = 0;
+
+                    FinishedProduct requestProduct = new FinishedProduct();
+                    requestProduct.Id = finishedProducts[selectedFinishedProductIndex].Id;
+                    requestProduct.Name = finishedProducts[selectedFinishedProductIndex].Name;
+                    requestProduct.Desc = finishedProducts[selectedFinishedProductIndex].Desc;
+                    requestProduct.Qty = finishedProducts[selectedFinishedProductIndex].Qty;
+                    requestProduct.Price = finishedProducts[selectedFinishedProductIndex].Price;
+
+                    foreach (FinishedProduct requestedProduct in requestedProducts)
                     {
-                        //if (quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
-                        //{
-                        isAdded = true;
-                        requestedProducts[prodIndex].Qty += quantity;
-                        break;
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Please provide a quantity not more than the available stock");
-                        //    return;
-                        //}
+                        if (requestedProduct.Id == requestProduct.Id)
+                        {
+                            if (quantity > 0 && requestProduct.Qty >= requestedProduct.Qty + quantity)
+                            {
+                                isAdded = true;
+                                requestedProducts[prodIndex].Qty += quantity;
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please provide a quantity not more than the available stock");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            prodIndex++;
+                        }
+                    }
+
+                    if (isAdded)
+                    {
+                        for (int i = 0; i < lvProductList.Items.Count; i++)
+                        {
+                            if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[selectedFinishedProductIndex].Id.ToString()))
+                            {
+                                lvPurchaseList.Items[i].SubItems[2].Text = requestedProducts[prodIndex].Qty.ToString();
+                                break;
+                            }
+                        }
                     }
                     else
                     {
-                        prodIndex++;
-                    }
-                }
-
-                if (isAdded)
-                {
-                    for (int i = 0; i < lvProductList.Items.Count; i++)
-                    {
-                        if (lvPurchaseList.Items[i].Text.Equals(finishedProducts[selectedFinishedProductIndex].Id.ToString()))
+                        if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
                         {
-                            lvPurchaseList.Items[i].SubItems[2].Text = requestedProducts[prodIndex].Qty.ToString();
-                            break;
+                            requestProduct.Qty = quantity;
+                            requestedProducts.Add(requestProduct);
+
+                            lvPurchaseList.Items.Add(requestProduct.Id.ToString());
+                            lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
+                            lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please provide a quantity not more than the available stock");
+                            return;
                         }
                     }
                 }
                 else
                 {
-                    //if ((finishedProducts[selectedFinishedProductIndex].Qty) >= quantity && quantity > 0)
-                    //{
-                    requestProduct.Qty = quantity;
-                    requestedProducts.Add(requestProduct);
-
-                    lvPurchaseList.Items.Add(requestProduct.Id.ToString());
-                    lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Name);
-                    lvPurchaseList.Items[lvPurchaseList.Items.Count - 1].SubItems.Add(requestProduct.Qty.ToString());
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Please provide a quantity not more than the available stock");
-                    //    return;
-                    //}
+                    MessageBox.Show("Please provide a quantity not more than the available stock");
+                    return;
                 }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Please provide a quantity not more than the available stock");
-                //    return;
-                //}
+
+                calculateTotal();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
             }
+        }
+
+        private void calculateTotal()
+        {
+            total = 0;
+            foreach (FinishedProduct prod in requestedProducts)
+            {
+                total += (prod.Qty * prod.Price);
+            }
+
+            lblTotalVal.Text = total.ToString();
+
+            discountedTotal = total;
+            discountedTotal = discountedTotal - (discountedTotal * (discount / 100));
+            lblDiscountedTotalVal.Text = discountedTotal.ToString();
         }
 
         private void btnAddCustomProduct_Click(object sender, EventArgs e)
@@ -332,5 +364,72 @@ namespace SIPO.Sales
 
         }
 
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtFilter.Text.ToString().Trim().Length > 0)
+                {
+                    filter = " WHERE prodf_name LIKE '%" + txtFilter.Text.ToString().Trim() + "%'";
+                    hasFilter = true;
+                }
+                else
+                {
+                    hasFilter = false;
+                }
+
+                loadProducts();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                hasFilter = false;
+            }
+        }
+
+        private void rbtnDisc0_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc0.Checked)
+            {
+                discount = 0;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc5.Checked)
+            {
+                discount = 5;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc15_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc15.Checked)
+            {
+                discount = 15;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc10_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc10.Checked)
+            {
+                discount = 10;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc20_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc20.Checked)
+            {
+                discount = 20;
+                calculateTotal();
+            }
+        }
     }
 }

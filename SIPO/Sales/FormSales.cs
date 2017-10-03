@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SIPO.Manager;
+using SIPO.Classes;
+
 namespace SIPO.Sales
 {
     public partial class FormSales : MetroFramework.Forms.MetroForm
@@ -45,6 +48,29 @@ namespace SIPO.Sales
         {
             FormPurchaseOrderSelectUpdate formPurchaseOrderSelectUpdate = new FormPurchaseOrderSelectUpdate();
             formPurchaseOrderSelectUpdate.ShowDialog();
+        }
+
+        private void btnClientAdd_Click(object sender, EventArgs e)
+        {
+            FormPanelClientAdd formPanelClientAdd = new FormPanelClientAdd();
+            formPanelClientAdd.ShowDialog();
+        }
+
+        private void btnClientUpdate_Click(object sender, EventArgs e)
+        {
+            FormPanelAccountSelect formPanelAccountSelect = new FormPanelAccountSelect();
+            formPanelAccountSelect.ShowDialog();
+
+            if (AccountUpdateHolder.hasSelected)
+            {
+                FormPanelAccountUpdate formPanelAccountUpdate = new FormPanelAccountUpdate();
+                formPanelAccountUpdate.ShowDialog();
+            }
+        }
+
+        private void btnClientManagement_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

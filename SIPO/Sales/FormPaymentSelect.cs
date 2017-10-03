@@ -67,6 +67,8 @@ namespace SIPO.Sales
                     total += (price * qty);
                 }
 
+                purchaseOrderDetail.originalTotal = total;
+
                 total = (total - (total * (purchaseOrderDetail.po_discount / 100)));
                 purchaseOrderDetail.total = total;
                 conPurchaseOrderTotal.Close();
@@ -108,6 +110,7 @@ namespace SIPO.Sales
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.po_discount.ToString());
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.total.ToString());
                 lvPurchaseOrders.Items[row].SubItems.Add(pod.balance.ToString());
+                lvPurchaseOrders.Items[row].SubItems.Add(pod.originalTotal.ToString());
 
                 row++;
             }

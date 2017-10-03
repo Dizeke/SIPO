@@ -124,7 +124,7 @@
             this.Controls.Add(this.btnViewDetails);
             this.Controls.Add(this.lvPurchaseOrders);
             this.Name = "FormPODiscountRequests";
-            this.Text = "FormPODiscountRequests";
+            this.Text = "Discount Requests";
             this.ResumeLayout(false);
 
         }

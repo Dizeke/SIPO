@@ -13,6 +13,7 @@ namespace SIPO.Classes
         private string _client_company;
         private string _po_datetime;
         private double _total;
+        private double _originalTotal;
         private double _po_discount;
         private double _paid;
         private double _balance;
@@ -22,6 +23,7 @@ namespace SIPO.Classes
         public string client_company { get { return this._client_company; } set { this._client_company = value; } }
         public string po_datetime { get { return this._po_datetime; } set { this._po_datetime = value; } }
         public double total { get { return this._total; } set { this._total = value; } }
+        public double originalTotal { get { return this._originalTotal; } set { this._originalTotal = value; } }
         public double po_discount { get { return this._po_discount; } set { this._po_discount = value; } }
         public double paid { get { return this._paid; } set { this._paid = value; } }
         public double balance { get { return this._balance; } set { this._balance = value; } }

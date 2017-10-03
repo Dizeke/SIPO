@@ -77,7 +77,6 @@ namespace SIPO
                 Console.WriteLine(ex.StackTrace);
             }
 
-
             if (loginSuccessful)
             {
                 this.Hide();

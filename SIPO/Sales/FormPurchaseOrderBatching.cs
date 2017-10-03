@@ -257,17 +257,26 @@ namespace SIPO.Sales
                 reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    requestStocks();
+                    int prodf_id = int.Parse(reader["prodf_id"].ToString());
+                    int prodf_qty = int.Parse(reader["prodf_qty"].ToString());
+
+                    if (prod.prodf_quantity > prodf_qty)
+                    {
+                        requestStocks(prodf_id, ((prod.prodf_quantity - prodf_qty) * -1));
+                    }
                 }
             }
 
             con.Close();
         }
 
-        private void requestStocks()
+        private void requestStocks(int prodf_id, int prodf_qty)
         {
+            String query = "";
             MySqlConnection con = new MySqlConnection(ConString.getConString());
+            con.Open();
 
+            con.Close();
         }
 
     }

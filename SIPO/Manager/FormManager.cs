@@ -216,5 +216,28 @@ namespace SIPO.Manager
             FormPODiscountRequests formPODiscountRequests = new FormPODiscountRequests();
             formPODiscountRequests.ShowDialog();
         }
+
+        private void btnAccountManagement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProductsRequest_Click(object sender, EventArgs e)
+        {
+            FormRequest formProductionRequest = new FormRequest();
+            formProductionRequest.ShowDialog();
+        }
+
+        private void btnPendingProduction_Click(object sender, EventArgs e)
+        {
+            FormFinishedSelectPending formFinishedSelectPending = new FormFinishedSelectPending();
+            formFinishedSelectPending.ShowDialog();
+        }
+
+        private void btnRequests_Click(object sender, EventArgs e)
+        {
+            FormFinishedSelectRequest select = new FormFinishedSelectRequest();
+            select.ShowDialog();
+        }
     }
 }

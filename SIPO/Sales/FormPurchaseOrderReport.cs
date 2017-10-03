@@ -21,6 +21,7 @@ namespace SIPO.Sales
 
         int selectedIndex;
         int po_id;
+        string filter;
 
         public FormPurchaseOrderReport()
         {
@@ -34,6 +35,12 @@ namespace SIPO.Sales
         private void BindGrid()
         {
             String query = "SELECT purchase_orders.po_id AS 'PO ID', clients.client_company AS 'Company', purchase_orders.po_datetime AS 'Added On', tblTotal.total AS 'Total', tblPaid.pop_amount AS 'Paid', (tblTotal.total - tblPaid.pop_amount) AS 'Balance' FROM purchase_orders INNER JOIN clients ON clients.client_id = purchase_orders.client_id, ( SELECT purchase_orders.po_id, COALESCE(SUM(pop_amount), 0) AS pop_amount FROM purchase_order_payments RIGHT JOIN purchase_orders ON purchase_order_payments.po_id = purchase_orders.po_id GROUP BY purchase_orders.po_id ) AS tblPaid, ( SELECT purchase_orders.po_id, SUM(products_finished.prodf_srp * purchase_order_batch_products.prodf_qty) AS total FROM purchase_order_batch_products INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id INNER JOIN purchase_order_batches ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_orders ON purchase_order_batches.po_id = purchase_orders.po_id GROUP BY purchase_orders.po_id ) AS tblTotal WHERE tblPaid.po_id = purchase_orders.po_id AND tblTotal.po_id = purchase_orders.po_id";
+
+            if (FormPurchaseOrderReportFilter.hasFilter)
+            {
+                query += filter;
+            }
+
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
@@ -247,6 +254,22 @@ namespace SIPO.Sales
         {
             ExportToPDF();
         }
-        
+
+        private void btnSelectFilter_Click(object sender, EventArgs e)
+        {
+            FormPurchaseOrderReportFilter formPurchaseOrderReportFilter = new FormPurchaseOrderReportFilter();
+            formPurchaseOrderReportFilter.ShowDialog();
+
+            if (FormPurchaseOrderReportFilter.hasFilter)
+            {
+                filter = FormPurchaseOrderReportFilter.filter;
+            }
+            else
+            {
+                filter = "";
+            }
+
+            BindGrid();
+        }
     }
 }
