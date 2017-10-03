@@ -22,6 +22,10 @@ namespace SIPO.Sales
         bool hasFilter;
         String filter = "";
 
+        double total = 0;
+        double discountedTotal = 0;
+        double discount = 0;
+
         public FormPurchaseOrderAdd()
         {
             InitializeComponent();
@@ -230,11 +234,28 @@ namespace SIPO.Sales
                 //    MessageBox.Show("Please provide a quantity not more than the available stock");
                 //    return;
                 //}
+
+                calculateTotal();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
             }
+        }
+
+        private void calculateTotal()
+        {
+            total = 0;
+            foreach (FinishedProduct prod in requestedProducts)
+            {
+                total += (prod.Qty * prod.Price);
+            }
+
+            lblTotalVal.Text = total.ToString();
+
+            discountedTotal = total;
+            discountedTotal = discountedTotal - (discountedTotal * (discount / 100));
+            lblDiscountedTotalVal.Text = discountedTotal.ToString();
         }
 
         private void btnAddCustomProduct_Click(object sender, EventArgs e)
@@ -363,6 +384,51 @@ namespace SIPO.Sales
             {
                 Console.WriteLine(ex.StackTrace);
                 hasFilter = false;
+            }
+        }
+
+        private void rbtnDisc0_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc0.Checked)
+            {
+                discount = 0;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc5.Checked)
+            {
+                discount = 5;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc15_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc15.Checked)
+            {
+                discount = 15;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc10_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc10.Checked)
+            {
+                discount = 10;
+                calculateTotal();
+            }
+        }
+
+        private void rbtnDisc20_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnDisc20.Checked)
+            {
+                discount = 20;
+                calculateTotal();
             }
         }
     }

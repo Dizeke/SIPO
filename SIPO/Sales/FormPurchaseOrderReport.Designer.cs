@@ -33,6 +33,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnViewDetails = new MetroFramework.Controls.MetroButton();
             this.btnExportPdf = new MetroFramework.Controls.MetroButton();
+            this.btnSelectFilter = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnViewDetails, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnExportPdf, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSelectFilter, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -107,6 +109,16 @@
             this.btnExportPdf.UseSelectable = true;
             this.btnExportPdf.Click += new System.EventHandler(this.btnExportPdf_Click);
             // 
+            // btnSelectFilter
+            // 
+            this.btnSelectFilter.Location = new System.Drawing.Point(3, 295);
+            this.btnSelectFilter.Name = "btnSelectFilter";
+            this.btnSelectFilter.Size = new System.Drawing.Size(100, 22);
+            this.btnSelectFilter.TabIndex = 4;
+            this.btnSelectFilter.Text = "Select Filter";
+            this.btnSelectFilter.UseSelectable = true;
+            this.btnSelectFilter.Click += new System.EventHandler(this.btnSelectFilter_Click);
+            // 
             // FormPurchaseOrderReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,5 +140,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroButton btnViewDetails;
         private MetroFramework.Controls.MetroButton btnExportPdf;
+        private MetroFramework.Controls.MetroButton btnSelectFilter;
     }
 }

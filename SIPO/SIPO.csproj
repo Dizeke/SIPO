@@ -367,6 +367,12 @@
     <Compile Include="Sales\FormPurchaseOrderReport.Designer.cs">
       <DependentUpon>FormPurchaseOrderReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\FormPurchaseOrderReportFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FormPurchaseOrderReportFilter.Designer.cs">
+      <DependentUpon>FormPurchaseOrderReportFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\FormPurchaseOrderSelectUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -524,6 +530,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormPurchaseOrderReport.resx">
       <DependentUpon>FormPurchaseOrderReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FormPurchaseOrderReportFilter.resx">
+      <DependentUpon>FormPurchaseOrderReportFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormPurchaseOrderSelectUpdate.resx">
       <DependentUpon>FormPurchaseOrderSelectUpdate.cs</DependentUpon>

@@ -55,6 +55,10 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.txtFilter = new MetroFramework.Controls.MetroTextBox();
             this.btnFilter = new MetroFramework.Controls.MetroButton();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.lblTotalVal = new MetroFramework.Controls.MetroLabel();
+            this.lblDiscountedTotalVal = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // lblClient
@@ -170,7 +174,7 @@
             // 
             // btnAddPurchaseOrder
             // 
-            this.btnAddPurchaseOrder.Location = new System.Drawing.Point(653, 354);
+            this.btnAddPurchaseOrder.Location = new System.Drawing.Point(653, 404);
             this.btnAddPurchaseOrder.Name = "btnAddPurchaseOrder";
             this.btnAddPurchaseOrder.Size = new System.Drawing.Size(124, 23);
             this.btnAddPurchaseOrder.TabIndex = 11;
@@ -181,7 +185,7 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(23, 332);
+            this.lblQuantity.Location = new System.Drawing.Point(23, 382);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(58, 19);
             this.lblQuantity.TabIndex = 9;
@@ -202,7 +206,7 @@
             this.txtQuantity.CustomButton.UseSelectable = true;
             this.txtQuantity.CustomButton.Visible = false;
             this.txtQuantity.Lines = new string[0];
-            this.txtQuantity.Location = new System.Drawing.Point(23, 354);
+            this.txtQuantity.Location = new System.Drawing.Point(23, 404);
             this.txtQuantity.MaxLength = 32767;
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.PasswordChar = '\0';
@@ -241,58 +245,63 @@
             // 
             this.rbtnDisc0.AutoSize = true;
             this.rbtnDisc0.Checked = true;
-            this.rbtnDisc0.Location = new System.Drawing.Point(403, 341);
+            this.rbtnDisc0.Location = new System.Drawing.Point(380, 385);
             this.rbtnDisc0.Name = "rbtnDisc0";
             this.rbtnDisc0.Size = new System.Drawing.Size(39, 15);
             this.rbtnDisc0.TabIndex = 12;
             this.rbtnDisc0.TabStop = true;
             this.rbtnDisc0.Text = "0%";
             this.rbtnDisc0.UseSelectable = true;
+            this.rbtnDisc0.CheckedChanged += new System.EventHandler(this.rbtnDisc0_CheckedChanged);
             // 
             // rbtnDisc5
             // 
             this.rbtnDisc5.AutoSize = true;
-            this.rbtnDisc5.Location = new System.Drawing.Point(448, 341);
+            this.rbtnDisc5.Location = new System.Drawing.Point(425, 385);
             this.rbtnDisc5.Name = "rbtnDisc5";
             this.rbtnDisc5.Size = new System.Drawing.Size(39, 15);
             this.rbtnDisc5.TabIndex = 13;
             this.rbtnDisc5.Text = "5%";
             this.rbtnDisc5.UseSelectable = true;
+            this.rbtnDisc5.CheckedChanged += new System.EventHandler(this.rbtnDisc5_CheckedChanged);
             // 
             // rbtnDisc10
             // 
             this.rbtnDisc10.AutoSize = true;
-            this.rbtnDisc10.Location = new System.Drawing.Point(448, 362);
+            this.rbtnDisc10.Location = new System.Drawing.Point(425, 406);
             this.rbtnDisc10.Name = "rbtnDisc10";
             this.rbtnDisc10.Size = new System.Drawing.Size(45, 15);
             this.rbtnDisc10.TabIndex = 14;
             this.rbtnDisc10.Text = "10%";
             this.rbtnDisc10.UseSelectable = true;
+            this.rbtnDisc10.CheckedChanged += new System.EventHandler(this.rbtnDisc10_CheckedChanged);
             // 
             // rbtnDisc15
             // 
             this.rbtnDisc15.AutoSize = true;
-            this.rbtnDisc15.Location = new System.Drawing.Point(500, 341);
+            this.rbtnDisc15.Location = new System.Drawing.Point(477, 385);
             this.rbtnDisc15.Name = "rbtnDisc15";
             this.rbtnDisc15.Size = new System.Drawing.Size(45, 15);
             this.rbtnDisc15.TabIndex = 15;
             this.rbtnDisc15.Text = "15%";
             this.rbtnDisc15.UseSelectable = true;
+            this.rbtnDisc15.CheckedChanged += new System.EventHandler(this.rbtnDisc15_CheckedChanged);
             // 
             // rbtnDisc20
             // 
             this.rbtnDisc20.AutoSize = true;
-            this.rbtnDisc20.Location = new System.Drawing.Point(500, 362);
+            this.rbtnDisc20.Location = new System.Drawing.Point(477, 406);
             this.rbtnDisc20.Name = "rbtnDisc20";
             this.rbtnDisc20.Size = new System.Drawing.Size(45, 15);
             this.rbtnDisc20.TabIndex = 16;
             this.rbtnDisc20.Text = "20%";
             this.rbtnDisc20.UseSelectable = true;
+            this.rbtnDisc20.CheckedChanged += new System.EventHandler(this.rbtnDisc20_CheckedChanged);
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(300, 338);
+            this.metroLabel2.Location = new System.Drawing.Point(277, 382);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(96, 19);
             this.metroLabel2.TabIndex = 17;
@@ -347,11 +356,51 @@
             this.btnFilter.UseSelectable = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(337, 329);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(36, 19);
+            this.metroLabel4.TabIndex = 21;
+            this.metroLabel4.Text = "Total";
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(269, 353);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(104, 19);
+            this.metroLabel5.TabIndex = 22;
+            this.metroLabel5.Text = "Discounted Total";
+            // 
+            // lblTotalVal
+            // 
+            this.lblTotalVal.AutoSize = true;
+            this.lblTotalVal.Location = new System.Drawing.Point(403, 329);
+            this.lblTotalVal.Name = "lblTotalVal";
+            this.lblTotalVal.Size = new System.Drawing.Size(16, 19);
+            this.lblTotalVal.TabIndex = 23;
+            this.lblTotalVal.Text = "0";
+            // 
+            // lblDiscountedTotalVal
+            // 
+            this.lblDiscountedTotalVal.AutoSize = true;
+            this.lblDiscountedTotalVal.Location = new System.Drawing.Point(403, 353);
+            this.lblDiscountedTotalVal.Name = "lblDiscountedTotalVal";
+            this.lblDiscountedTotalVal.Size = new System.Drawing.Size(16, 19);
+            this.lblDiscountedTotalVal.TabIndex = 24;
+            this.lblDiscountedTotalVal.Text = "0";
+            // 
             // FormPurchaseOrderAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 400);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblDiscountedTotalVal);
+            this.Controls.Add(this.lblTotalVal);
+            this.Controls.Add(this.metroLabel5);
+            this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.metroLabel3);
@@ -410,5 +459,9 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTextBox txtFilter;
         private MetroFramework.Controls.MetroButton btnFilter;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel lblTotalVal;
+        private MetroFramework.Controls.MetroLabel lblDiscountedTotalVal;
     }
 }
