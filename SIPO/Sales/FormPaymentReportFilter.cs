@@ -87,10 +87,14 @@ namespace SIPO.Sales
 
         private void btnFilterByDate_Click(object sender, EventArgs e)
         {
-            String strFrom = dtFrom.Value.ToShortDateString();
-            String from = String.Format("{0:yyyy-MM-dd}", strFrom);  
+            String from = dtFrom.Value.ToString("yyyy-MM-dd");
+            String to = dtTo.Value.ToString("yyyy-MM-dd");
 
-            MessageBox.Show(from);
+            hasFilter = true;
+            filter = String.Format(" AND po_datetime >= '{0}' AND po_datetime <= '{1}'",
+                from, to);
+            Console.WriteLine(filter);
+            this.Close();
         }
 
     }
