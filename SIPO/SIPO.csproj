@@ -299,6 +299,12 @@
     <Compile Include="Packaging\FormPackageDetailsReport.Designer.cs">
       <DependentUpon>FormPackageDetailsReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packaging\FormReceivedPackagesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\FormReceivedPackagesReport.Designer.cs">
+      <DependentUpon>FormReceivedPackagesReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packaging\rptPackage.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -330,6 +336,12 @@
     </Compile>
     <Compile Include="Sales\FormPaymentReport.Designer.cs">
       <DependentUpon>FormPaymentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FormPaymentReportFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FormPaymentReportFilter.Designer.cs">
+      <DependentUpon>FormPaymentReportFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\FormPaymentSelect.cs">
       <SubType>Form</SubType>
@@ -487,6 +499,9 @@
     <EmbeddedResource Include="Packaging\FormPackageDetailsReport.resx">
       <DependentUpon>FormPackageDetailsReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\FormReceivedPackagesReport.resx">
+      <DependentUpon>FormReceivedPackagesReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Packaging\rptPackage.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPackage.cs</LastGenOutput>
@@ -512,6 +527,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormPaymentReport.resx">
       <DependentUpon>FormPaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FormPaymentReportFilter.resx">
+      <DependentUpon>FormPaymentReportFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\FormPaymentSelect.resx">
       <DependentUpon>FormPaymentSelect.cs</DependentUpon>

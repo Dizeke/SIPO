@@ -40,5 +40,11 @@ namespace SIPO.Packaging
             FormPackageReceiveDispatched formPackageReceiveDispatched = new FormPackageReceiveDispatched();
             formPackageReceiveDispatched.ShowDialog();
         }
+
+        private void btnReceivedPackagesReport_Click(object sender, EventArgs e)
+        {
+            FormReceivedPackagesReport formReceivedPackagesReport = new FormReceivedPackagesReport();
+            formReceivedPackagesReport.ShowDialog();
+        }
     }
 }

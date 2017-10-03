@@ -14,20 +14,18 @@ using Dapper;
 
 namespace SIPO.Packaging
 {
-    public partial class FormPackageDetailsReport : MetroFramework.Forms.MetroForm
+    public partial class FormReceivedPackagesReport : MetroFramework.Forms.MetroForm
     {
+        int selectedIndex;
         int pack_id;
         string pack_datetime;
-        Package _obj;
 
-        public FormPackageDetailsReport(int _pack_id, string _pack_datetime, Package obj)
+        public FormReceivedPackagesReport()
         {
             InitializeComponent();
-            this.pack_id = _pack_id;
-            this.pack_datetime = _pack_datetime;
-            lblDeliveryDate.Text = pack_datetime;
-            _obj = obj;
-
+            selectedIndex = -1;
+            pack_id = -1;
+            pack_datetime = "";
             BindGrid();
         }
 
@@ -40,7 +38,9 @@ namespace SIPO.Packaging
 
             try
             {
+
                 worksheet = workbook.ActiveSheet;
+
                 worksheet.Name = "Packages";
 
                 int cellRowIndex = 1;
@@ -92,52 +92,55 @@ namespace SIPO.Packaging
             }
 
         }
-        private void BindGrid()
-        {
-            String query = String.Format("SELECT products_finished.prodf_id AS 'Product ID', products_finished.prodf_name AS 'Name', purchase_order_batch_products.prodf_qty AS 'Quantity', package_details.pd_gweight AS 'Gross Weight', package_details.pd_nweight AS 'Net Weight', package_details.pd_qty_carton AS 'Qty/Carton' FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
-                pack_id
-                );
-            Console.WriteLine(query);
-            using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
-            {
-                using (MySqlCommand cmd = new MySqlCommand(query, con))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            dataGridView1.DataSource = dt;
-                        }
-                    }
-                }
-            }
 
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void btnExport_Click(object sender, EventArgs e)
         {
             ExportToExcel();
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int previousIndex = selectedIndex;
+            int previousPackage = pack_id;
+            string previousDateTime = pack_datetime;
 
-            String query = String.Format("SELECT products_finished.prodf_id AS 'ID', products_finished.prodf_name AS 'Name', purchase_order_batch_products.prodf_qty AS 'Qty', package_details.pd_gweight AS 'Gross', package_details.pd_nweight AS 'Net', package_details.pd_qty_carton AS 'Qtypercarton' FROM packages INNER JOIN purchase_order_batches ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN purchase_order_batch_products ON purchase_order_batch_products.pob_id = purchase_order_batches.pob_id INNER JOIN products_finished ON products_finished.prodf_id = purchase_order_batch_products.prodf_id INNER JOIN package_details ON package_details.pack_id = packages.pack_id WHERE packages.pack_id = {0} GROUP BY purchase_order_batch_products.prodf_id",
-                 pack_id
-                 );
+            try
+            {
+                selectedIndex = dataGridView1.CurrentRow.Index;
+                pack_id = int.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+                pack_datetime = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                selectedIndex = previousIndex;
+                pack_id = previousPackage;
+                pack_datetime = previousDateTime;
+            }
+        }
+        private void BindGrid()
+        {
+            String query = "SELECT purchase_order_batches.pob_id AS 'BatchID', clients.client_company AS 'Company', purchase_orders.po_id AS 'POID', pob_datetime AS 'ETA' , packages.pack_id AS 'PackageID' FROM purchase_order_batches INNER JOIN purchase_orders ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN packages ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE pack_id IN (SELECT pack_id FROM packages_dispatched WHERE packd_status = 'Received')";
 
             using (IDbConnection con = new MySqlConnection(ConString.getConString()))
             {
-                List<PackageDetails> list = con.Query<PackageDetails>(query, commandType: CommandType.Text).ToList();
+                packageBindingSource.DataSource = con.Query<Package>(query, commandType: CommandType.Text);
 
-                using (FormPackagePrint print = new FormPackagePrint(_obj, list))
-                {
-                    print.ShowDialog();
-                }
             }
         }
 
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+            if (selectedIndex >= 0)
+            {
+                Package obj = packageBindingSource.Current as Package;
+                FormPackageDetailsReport form = new FormPackageDetailsReport(pack_id, pack_datetime, obj);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please Select an Item to View");
+            }
+        }
     }
 }

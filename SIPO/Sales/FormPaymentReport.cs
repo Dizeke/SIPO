@@ -16,6 +16,7 @@ namespace SIPO.Sales
     public partial class FormPaymentReport : MetroFramework.Forms.MetroForm
     {
         int selectedIndex;
+        String filter = "";
 
         int po_id;
         string company;
@@ -23,6 +24,7 @@ namespace SIPO.Sales
         public FormPaymentReport()
         {
             InitializeComponent();
+            filter = "";
             selectedIndex = -1;
             po_id = -1;
             company = "";
@@ -31,7 +33,7 @@ namespace SIPO.Sales
 
         private void BindGrid()
         {
-            String query = "SELECT purchase_orders.po_id AS 'PO ID', po_datetime AS 'Date Created', po_payment AS 'Payment Status', clients.client_company FROM purchase_orders INNER JOIN clients ON purchase_orders.client_id = clients.client_id  WHERE po_id IN ( SELECT po_id FROM (SELECT purchase_orders.po_id, products_finished.prodf_srp FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batches.pob_id = purchase_order_batch_products.pobp_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id HAVING products_finished.prodf_srp > 0) as tblUpdatedProductsOnly )";
+            String query = "SELECT purchase_orders.po_id AS 'PO ID', po_datetime AS 'Date Created', po_payment AS 'Payment Status', clients.client_company AS 'Company' FROM purchase_orders INNER JOIN clients ON purchase_orders.client_id = clients.client_id  WHERE po_id IN ( SELECT po_id FROM (SELECT purchase_orders.po_id, products_finished.prodf_srp FROM purchase_orders INNER JOIN purchase_order_batches ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN purchase_order_batch_products ON purchase_order_batches.pob_id = purchase_order_batch_products.pobp_id INNER JOIN products_finished ON purchase_order_batch_products.prodf_id = products_finished.prodf_id HAVING products_finished.prodf_srp > 0) as tblUpdatedProductsOnly ) " + filter;
             using (MySqlConnection con = new MySqlConnection(ConString.getConString()))
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
@@ -149,6 +151,21 @@ namespace SIPO.Sales
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
             ExportToExcel();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            filter = "";
+
+            FormPaymentReportFilter formPaymentReportFilter = new FormPaymentReportFilter();
+            formPaymentReportFilter.ShowDialog();
+
+            if (FormPaymentReportFilter.hasFilter)
+            {
+                filter = FormPaymentReportFilter.filter;
+            }
+
+            BindGrid();
         }
     }
 }

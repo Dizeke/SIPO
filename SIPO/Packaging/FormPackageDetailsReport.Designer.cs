@@ -33,14 +33,13 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnPrint = new MetroFramework.Controls.MetroButton();
-            this.packageDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.netDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtycartonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnPrint = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageDetailsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -85,8 +84,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.qtyDataGridViewTextBoxColumn,
             this.grossDataGridViewTextBoxColumn,
-            this.netDataGridViewTextBoxColumn,
-            this.qtycartonDataGridViewTextBoxColumn});
+            this.netDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.packageDetailsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(23, 92);
             this.dataGridView1.MultiSelect = false;
@@ -94,20 +92,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(654, 366);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(568, 464);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(100, 26);
-            this.btnPrint.TabIndex = 10;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseSelectable = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // packageDetailsBindingSource
-            // 
-            this.packageDetailsBindingSource.DataSource = typeof(SIPO.Classes.PackageDetails);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -144,12 +128,19 @@
             this.netDataGridViewTextBoxColumn.Name = "netDataGridViewTextBoxColumn";
             this.netDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // qtycartonDataGridViewTextBoxColumn
+            // packageDetailsBindingSource
             // 
-            this.qtycartonDataGridViewTextBoxColumn.DataPropertyName = "Qty per carton";
-            this.qtycartonDataGridViewTextBoxColumn.HeaderText = "Qtycarton";
-            this.qtycartonDataGridViewTextBoxColumn.Name = "qtycartonDataGridViewTextBoxColumn";
-            this.qtycartonDataGridViewTextBoxColumn.ReadOnly = true;
+            this.packageDetailsBindingSource.DataSource = typeof(SIPO.Classes.PackageDetails);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(568, 464);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(100, 26);
+            this.btnPrint.TabIndex = 10;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseSelectable = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // FormPackageDetailsReport
             // 
