@@ -20,6 +20,8 @@ namespace SIPO.Packaging
         int pack_id;
         string pack_datetime;
 
+        string filter = "";
+
         public FormReceivedPackagesReport()
         {
             InitializeComponent();
@@ -122,6 +124,11 @@ namespace SIPO.Packaging
         {
             String query = "SELECT purchase_order_batches.pob_id AS 'BatchID', clients.client_company AS 'Company', purchase_orders.po_id AS 'POID', pob_datetime AS 'ETA' , packages.pack_id AS 'PackageID' FROM purchase_order_batches INNER JOIN purchase_orders ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN packages ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE pack_id IN (SELECT pack_id FROM packages_dispatched WHERE packd_status = 'Received')";
 
+            if (FormPackageDispatchedFilter.hasFilter)
+            {
+                query += FormPackageDispatchedFilter.filter;
+            }
+
             using (IDbConnection con = new MySqlConnection(ConString.getConString()))
             {
                 packageBindingSource.DataSource = con.Query<Package>(query, commandType: CommandType.Text);
@@ -141,6 +148,21 @@ namespace SIPO.Packaging
             {
                 MessageBox.Show("Please Select an Item to View");
             }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            filter = "";
+
+            FormPackageDispatchedFilter formFilter = new FormPackageDispatchedFilter();
+            formFilter.ShowDialog();
+
+            if (FormPackageDispatchedFilter.hasFilter)
+            {
+                filter = FormPackageDispatchedFilter.filter;
+            }
+
+            BindGrid();
         }
     }
 }

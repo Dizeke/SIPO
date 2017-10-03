@@ -32,13 +32,14 @@
             this.btnExport = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnViewDetails = new MetroFramework.Controls.MetroButton();
             this.batchIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnViewDetails = new MetroFramework.Controls.MetroButton();
+            this.btnFilter = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
@@ -62,6 +63,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnExport, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnViewDetails, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnFilter, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -97,17 +99,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(654, 260);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // btnViewDetails
-            // 
-            this.btnViewDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnViewDetails.Location = new System.Drawing.Point(531, 295);
-            this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(126, 22);
-            this.btnViewDetails.TabIndex = 2;
-            this.btnViewDetails.Text = "View Details";
-            this.btnViewDetails.UseSelectable = true;
-            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
             // batchIdDataGridViewTextBoxColumn
             // 
@@ -148,6 +139,27 @@
             // 
             this.packageBindingSource.DataSource = typeof(SIPO.Classes.Package);
             // 
+            // btnViewDetails
+            // 
+            this.btnViewDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnViewDetails.Location = new System.Drawing.Point(531, 295);
+            this.btnViewDetails.Name = "btnViewDetails";
+            this.btnViewDetails.Size = new System.Drawing.Size(126, 22);
+            this.btnViewDetails.TabIndex = 2;
+            this.btnViewDetails.Text = "View Details";
+            this.btnViewDetails.UseSelectable = true;
+            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Location = new System.Drawing.Point(3, 295);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(100, 22);
+            this.btnFilter.TabIndex = 3;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.UseSelectable = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // FormReceivedPackagesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn packageIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource packageBindingSource;
         private MetroFramework.Controls.MetroButton btnViewDetails;
+        private MetroFramework.Controls.MetroButton btnFilter;
     }
 }

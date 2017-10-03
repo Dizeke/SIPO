@@ -329,6 +329,12 @@
     <Compile Include="Packaging\FormReceivedPackagesReport.Designer.cs">
       <DependentUpon>FormReceivedPackagesReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packaging\FormPackageDispatchedFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\FormPackageDispatchedFilter.Designer.cs">
+      <DependentUpon>FormPackageDispatchedFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packaging\rptPackage.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -538,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\FormReceivedPackagesReport.resx">
       <DependentUpon>FormReceivedPackagesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\FormPackageDispatchedFilter.resx">
+      <DependentUpon>FormPackageDispatchedFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Packaging\rptPackage.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

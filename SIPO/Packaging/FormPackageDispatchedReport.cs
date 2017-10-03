@@ -19,6 +19,7 @@ namespace SIPO.Packaging
         int selectedIndex;
         int pack_id;
         string pack_datetime;
+        String filter = "";
 
         public FormPackageDispatchedReport()
         {
@@ -32,6 +33,10 @@ namespace SIPO.Packaging
         private void BindGrid()
         {
             String query = "SELECT purchase_order_batches.pob_id AS 'BatchID', clients.client_company AS 'Company', purchase_orders.po_id AS 'POID', pob_datetime AS 'ETA' , packages.pack_id AS 'PackageID' FROM purchase_order_batches INNER JOIN purchase_orders ON purchase_orders.po_id = purchase_order_batches.po_id INNER JOIN packages ON packages.pob_id = purchase_order_batches.pob_id INNER JOIN clients ON purchase_orders.client_id = clients.client_id WHERE pack_id IN (SELECT pack_id FROM packages_dispatched)";
+            if (FormPackageDispatchedFilter.hasFilter)
+            {
+                query += FormPackageDispatchedFilter.filter;
+            }
 
             using (IDbConnection con = new MySqlConnection(ConString.getConString()))
             {
@@ -129,7 +134,7 @@ namespace SIPO.Packaging
             if (selectedIndex >= 0)
             {
                 Package obj = packageBindingSource.Current as Package;
-                FormPackageDetailsReport formPackageDetailsReport = new FormPackageDetailsReport(pack_id, pack_datetime,obj);
+                FormPackageDetailsReport formPackageDetailsReport = new FormPackageDetailsReport(pack_id, pack_datetime, obj);
                 formPackageDetailsReport.ShowDialog();
             }
             else
@@ -141,6 +146,21 @@ namespace SIPO.Packaging
         private void btnExport_Click(object sender, EventArgs e)
         {
             ExportToExcel();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            filter = "";
+
+            FormPackageDispatchedFilter formFilter = new FormPackageDispatchedFilter();
+            formFilter.ShowDialog();
+
+            if (FormPackageDispatchedFilter.hasFilter)
+            {
+                filter = FormPackageDispatchedFilter.filter;
+            }
+
+            BindGrid();
         }
     }
 }
